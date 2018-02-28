@@ -1,0 +1,56 @@
+<md-toolbar class="navigation-header md-whiteframe-1dp" layout="row" layout-align="space-between center">
+    <div class="logo" layout="row" layout-align="start center" ng-click="vm.goHome()">
+        <span class="logo-image md-accent-bg">
+            <md-icon md-svg-src="assets/images/logos/logo_square.svg" style="width:16px; height:16px;" aria-label="Logo"></md-icon>
+        </span>
+        <span class="logo-text">{{vm.auth.organization && vm.auth.organization.name || app.name}}</span>
+    </div>
+    <md-icon class="fold-toggle s18" md-font-icon="icon-pin-off" hide show-gt-sm
+             ng-click="vm.toggleMsNavigationFolded()"></md-icon>
+</md-toolbar>
+
+<div class="scrollable" ms-scroll="vm.msScrollOptions">
+    <div class="ms-navigation border-bottom" ng-if="vm.$state.includes('app.deliveries')">
+        <ul>
+            <li class="ms-navigation-node group has-children">
+                <div class="ms-navigation-item" layout="row">
+                    <div class="ms-navigation-button">
+                        <span class="title" translate="TD.OPTIONS" flex></span>
+                    </div>
+                </div>
+                <ul>
+                    <li class="ms-navigation-node">
+                        <div class="ms-navigation-item" layout="row">
+                            <a class="ms-navigation-button" ng-click="vm.closeOnMobile();vm.TCS.getSiteDeliveryOrders()">
+                                <i class="icon s16 icon-refresh"></i>
+                                <span class="title" translate="TD.REFRESH_ORDERS" flex></span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="ms-navigation-node">
+                        <div class="ms-navigation-item" layout="row">
+                            <a class="ms-navigation-button" ng-click="vm.closeOnMobile();vm.TCS.showDeliveriesSummary($event)">
+                                <i class="icon s16 icon-format-list-numbers"></i>
+                                <span class="title" translate="TD.DELIVERED_ORDER_SUMMARY" flex></span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="ms-navigation-node">
+                        <div class="ms-navigation-item" layout="row">
+                            <div class="ms-navigation-button margin-top-10">
+                                <md-checkbox ng-model="vm.TCS.filters.showDeliveredOrders" ng-change="vm.TCS.getFilteredOrders()" aria-label="showDeliveredOrders">
+                                    {{ 'TD.SHOW_DELIVERED_ORDERS' | translate }}
+                                </md-checkbox>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <ms-navigation folded="vm.folded" ng-ifX="!vm.auth.isSingleOrg"></ms-navigation>
+
+</div>
+
+

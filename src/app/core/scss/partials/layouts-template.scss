@@ -1,0 +1,194 @@
+/*----------------------------------------------------------------*/
+/*  Template Layouts
+/*----------------------------------------------------------------*/
+
+// Global
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: #aaa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666;
+    -webkit-border-radius: 0;
+    -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+html,
+body {
+    overflow: hidden !important;
+}
+
+#main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+// Boxed Layout
+body {
+
+    &.boxed {
+        background: #3F4450;
+
+        #main {
+            overflow: hidden !important;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+        }
+    }
+}
+
+// Content only
+#layout-content-only {
+    position: relative;
+    height: 100%;
+    max-height: 100%;
+
+    #content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+// Content with toolbar
+#layout-content-with-toolbar {
+    position: relative;
+    height: 100%;
+    max-height: 100%;
+
+    #content {
+        position: absolute;
+        top: $toolbarHeight;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .app-miximized &{
+
+        #toolbar{
+            box-shadow:none;
+            top: -$toolbarHeight;
+        }
+
+        #content{
+            transition: all ease-in-out 0.3s;
+            top: 0;
+        }
+    }
+
+}
+
+
+
+
+// Vertical navigation
+#layout-vertical-navigation {
+    height: 100%;
+    max-height: 100%;
+
+    #content-container {
+        position: relative;
+        overflow: hidden;
+
+        #content {
+            position: absolute;
+            top: $toolbarHeight;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    .app-miximized &{
+        #toolbar{
+            box-shadow:none;
+            top: -$toolbarHeight;
+        }
+        #content-container {
+            #content{
+                top: 0;
+            }
+        }
+    }
+
+}
+
+// Vertical navigation with fullwidth toolbar
+#layout-vertical-navigation-fullwidth-toolbar {
+    height: 100%;
+    max-height: 100%;
+
+    #main-container {
+        position: relative;
+
+        #content-container {
+            position: relative;
+            overflow: hidden;
+
+            #content {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+// Vertical navigation with fullwidth toolbar 2
+#layout-vertical-navigation-fullwidth-toolbar-2 {
+    height: 100%;
+    max-height: 100%;
+
+    #main-container {
+        position: relative;
+
+        #content-container {
+            position: relative;
+            overflow: hidden;
+
+            #content {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+// Horizontal navigation
+#layout-horizontal-navigation {
+    height: 100%;
+    max-height: 100%;
+
+    #content-container {
+        position: relative;
+        overflow: hidden;
+
+        #content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
+}

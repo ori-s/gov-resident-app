@@ -1,0 +1,190 @@
+<!-- NOTES APP -->
+<div id="app-deliveries" class="" layout="column">
+    <!-- TOOLBAR -->
+    <!-- / TOOLBAR -->
+    <md-content ms-scroll flex>
+        <!-- NOTES -->
+
+        <div ng-repeat="delivery in vm.TCS.deliveries | filter:{$$visible:true}">
+
+            <!-- DLIVERY HEADER -->
+            <div class="dilivery-widget">
+                <div layout="row" layout-align="start center">
+                    <div class="h2 m-far-16 order-num">
+                        {{'TD.ROUTE' | translate}}&nbsp;{{delivery.$$number}}
+                    </div>
+                    <div flex class="secondary-text margin-top-5 font-weight-500">
+                        <i class="icon-clock s14"></i>
+                        {{delivery.created | amDateFormat:'dddd, hh:mm'}}
+
+                        <!--<span am-time-ago="delivery.created"></span>
+                        <span class="font-size-12 secondary-text inline m-near-8">
+                            <i class="icon-clock font-size-12"></i>
+                            {{delivery.created | amDateFormat:'dddd, hh:mm'}}
+                        </span>-->
+                    </div>
+                    <md-button class="md-icon-button" ng-click="vm.showDeliveryMap(delivery)" aria-label="view on map">
+                        <md-icon md-font-icon="icon-routes" class="link-color"></md-icon>
+                    </md-button>
+                </div>
+            </div>
+            <!-- / DLIVERY HEADER -->
+
+            <div class="widget-group" layout="row" flex="100" layout-wrap>
+                <!-- ORDER -->
+                <div ng-repeat="order in delivery.orders  | filter:{$$visible:true} track by order._id"
+                     ng-include="'delivery_order_card.html'" class="animate-repeat" layout="column" layout-align="center center" flex="100" flex-gt-xs="50" flex-gt-md="25"></div>
+                <!-- / ORDER -->
+            </div>
+        </div>
+
+
+        <!-- NOTES -->
+        <!-- NO RESULTS -->
+        <div class="no-results text-center" ng-if="!loadingOrders">
+            <div class="message" ng-if="(vm.TCS.deliveries | filter:{$$visible:true}).length === 0 &&  vm.TCS.filters.search === ''">
+                <md-icon class="message-icon s96" md-font-icon="icon-lightbulb"></md-icon>
+                <div class="message-text" translate="TD.NO_DELIVERIES_FOUND"></div>
+            </div>
+
+            <div class="message" ng-if="(vm.TCS.deliveries | filter:{$$visible:true}).length === 0 &&  vm.TCS.filters.search !== ''">
+                <md-icon class="message-icon s96" md-font-icon="icon-lightbulb"></md-icon>
+                <div class="message-text" translate="TD.NO_RESULTS_FOUND"></div>
+            </div>
+        </div>
+
+        <!-- / NO RESULTS -->
+    </md-content>
+</div>
+<!-- / NOTES APP -->
+
+
+
+
+<script type="text/ng-template" id="delivery_order_card.html">
+    <ms-widget class="order-widget" flippable="true" flex layout-fill layout="column">
+        <!-- Front -->
+        <ms-widget-front class="p-10" ng-class="[order.$$anim, {'md-green-100-bg':order.status == 'delivered', 'md-background-bg': order.status != 'delivered'}]" layout="column" flex layout-fill layout-align="space-between center">
+
+            <!-- ORDER TOP -->
+            <div layout="row" layout-align="start center" class="full-width margin-bottom-10">
+                <div class="h2 m-far-8 order-num">
+                    {{order.$$number}}
+                </div>
+
+                <div class="h3 font-weight-500" flex>
+                    <i class="icon-account-outline font-size-14"></i>
+                    {{order.$$contact_name}}
+                </div>
+
+                <md-button class="link-color" style="margin-top:5px" ng-click="vm.TCS.callPhone(order.$$contact_cell)">
+                    <i class="icon-phone-outgoing font-size-14"></i>
+                    <span class="inline ltr">{{order.$$contact_cell | tel}}</span>
+                </md-button>
+
+            </div>
+            <!-- / ORDER TOP -->
+            <!-- ORDER CENTER -->
+            <div>
+                <div class="h3 font-weight-500">
+                    {{order.$$address.formatted_address}}
+                </div>
+                <div class="address-ex">
+                    <div>{{order.$$addressEx}}</div>
+                </div>
+                <div class="order-notes" ng-if="order.$$addressNodes || order.paymentSummary.cashIn">
+                    <div class="_inner md-accent-fg">
+                        <div ng-if="order.$$addressNodes" ng-class="{'margin-bottom-5': order.paymentSummary.cashIn}">
+                            {{order.$$addressNodes}}
+                        </div>
+                        <div class="text-center md-warn-fg" ng-if="order.paymentSummary.cashIn || order.paymentSummary.cashOut">
+                            <span>{{'TD.CASH_IN' | translate}}: </span>
+                            {{order.paymentSummary.cashIn | amount}}
+                            <span class="inline" ng-if="order.paymentSummary.cashOut">
+                                ,<div class="inline m-near-8">{{'TD.CASH_OUT' | translate}}: </div>
+                                {{order.paymentSummary.cashOut | amount}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="order-notes " ng-if="order.$$notes">
+                    <div class="_inner md-warn-fg">
+                        {{order.$$notes}}
+                    </div>
+                </div>
+            </div>
+            <!-- / ORDER CENTER -->
+            <!-- ORDER BOTTOM -->
+            <div class="full-width margin-top-15" layout="row" layout-align="start center">
+                <md-button class="md-raised md-accent" ng-click="flipWidget()" ng-if="order.status == 'taken'">
+                    {{'TD.ORDER_DELIVERD' | translate}}
+                </md-button>
+                <div class="cursor-pointer" ng-click="flipWidget()" ng-if="order.status == 'delivered'" layout="row" layout-align="start center">
+                    <div>
+                        <i class="icon-undo icon-flip font-size-18 m-far-8"></i>
+                    </div>
+                    <div flex>
+                        <div class="font-size-10">{{'TD.ORDER_DELIVERD' | translate}}:</div>
+                        <span am-time-ago="order.deliveredDate"></span>, ({{order.deliveredDate | date:'HH:mm'}})
+                    </div>
+                </div>
+                <div flex></div>
+                <!--<md-button class="md-icon-button md-accent" ng-click="vm.TCS.callPhone(order.$$contact_cell)" aria-label="CALL_CUSTOMER">
+                    <md-icon md-font-icon="icon-phone-outgoing"></md-icon>
+                </md-button>-->
+                <md-button class="md-icon-button" aria-label="View in Map" ng-click="vm.TCS.goToGeo(order.$$address.formatted_address)">
+                    <md-icon md-font-icon="icon-google-maps" class="link-color"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Profile" ng-click="vm.TCS.showOrderDetails(order, vm.ui.site, $event)">
+                    <md-icon md-font-icon="icon-information-outline" class="link-color"></md-icon>
+                </md-button>
+            </div>
+            <!-- / ORDER BOTTOM -->
+
+        </ms-widget-front>
+        <!-- / Front -->
+        <!-- Back -->
+        <ms-widget-back class="p-16 white-fg" ng-class="{'light-blue-bg': order.status == 'taken', 'md-orange-800-bg': order.status == 'delivered'}">
+            <div layout="column" layout-align="space-between center" class="full-height">
+                <div layout="row" layout-align="start center" class="full-width">
+                    <div class="order-num m-far-16">
+                        {{order.$$number}}
+                    </div>
+                    <div flex>
+                        <i class="icon-account-outline font-size-14"></i>
+                        {{order.$$contact_name}}
+
+                    </div>
+                    <div>
+                        <i class="icon-phone font-size-12"></i>
+                        <span class="inline ltr">{{order.$$contact_cell | tel}}</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-center font-size-16 margin-bottom-10" ng-if="order.status == 'taken' && (order.paymentSummary.cashIn || order.paymentSummary.cashOut)">
+                        <span>{{'TD.CASH_IN' | translate}}: </span>
+                        {{order.paymentSummary.cashIn | amount}}
+                        <span class="inline" ng-if="order.paymentSummary.cashOut">
+                            ,<div class="inline m-near-8">{{'TD.CASH_OUT' | translate}}: </div>
+                            {{order.paymentSummary.cashOut | amount}}
+                        </span>
+                    </div>
+
+                    <md-button class="md-raised md-primary" ng-click="vm.markOrderAsDelivered(order, flipWidget);" ng-if="order.status == 'taken'">
+                        {{'TD.APPROVAL' | translate}}
+                    </md-button>
+                    <md-button class="md-raised md-primary" ng-click="vm.cancelOrderDelivered(order, flipWidget);" ng-if="order.status == 'delivered'">
+                        {{'TD.CANCEL_DELIVERY' | translate}}
+                    </md-button>
+                    <md-button class="md-raised md-warn" ng-click="flipWidget()">
+                        {{'TD.CANCEL' | translate}}
+                    </md-button>
+                </div>
+                <div>{{order.$$address.formatted_address}}</div>
+            </div>
+        </ms-widget-back>
+        <!-- / Back -->
+    </ms-widget>
+</script>

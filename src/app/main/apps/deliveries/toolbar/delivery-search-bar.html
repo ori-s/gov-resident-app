@@ -1,0 +1,17 @@
+<div flex layout="row" layout-align="start center" ng-class="{'border-bottom':!DvSearchBar.collapsed}">
+    <label for="ms-search-bar-input">
+        <md-button class="ms-search-bar-expander md-icon-button" aria-label="Expand Search Bar"
+                   ng-click="DvSearchBar.expand()"
+                   ng-if="!DvSearchBar.resultsLoading || DvSearchBar.collapsed">
+            <md-icon md-font-icon="icon-magnify" class="icon s24"></md-icon>
+        </md-button>
+    </label>
+    <input id="ms-search-bar-input" type="text" placeholder="Search" flex
+           ng-model="DvSearchBar.query"
+           ng-model-options="DvSearchBar.queryOptions"
+           ng-change="DvSearchBar.change()">
+    <md-button class="ms-search-bar-collapser md-icon-button" ng-click="DvSearchBar.collapse()"
+               aria-label="Collapse Search Bar">
+        <md-icon md-font-icon="icon-close" class="icon s24"></md-icon>
+    </md-button>
+</div>

@@ -1,0 +1,1599 @@
+﻿[  
+  {
+    "_id": "5a924202deea9c180011c490",
+    "_type": "tlog",
+    "lastUpdated": "2018-02-25T04:56:34.920Z",
+    "created": "2018-02-25T04:56:34.920Z",
+    "live": false,
+    "totalAmount": 7300,
+    "diners": 1,
+    "closed": "2018-02-25T04:56:34.348Z",
+    "opened": "2018-02-06T07:57:27.786Z",
+    "businessDate": "2017-10-28T00:00:00.000Z",
+    "organization": "57c438f07d8fdb1e00b6f84d",
+    "number": 127,
+    "timeBucket": [ "2018-02-25 04-hour", "2018-02-25-day", "2018-9-week", "2018-02-month", "2018-01-quarter", "2018-year" ],
+    "order": [
+      {
+        "courier": "5937ac675f02332800b9effa",
+        "serviceType": "delivery",
+        "dirty": false,
+        "clientStatistics": {
+          "inactivateRemovablePromotions": false,
+          "updatedByOperationalInterface": false
+        },
+        "__v": 6,
+        "source": "webCallCenter",
+        "orderType": "Delivery",
+        "organization": "57c438f07d8fdb1e00b6f84d",
+        "openedBy": "54a66ea999609c0300d9c54f",
+        "number": 127,
+        "businessDate": "2017-10-28T00:00:00.000Z",
+        "lastUpdated": "2018-02-25T04:56:34.850Z",
+        "owner": "54a66ea999609c0300d9c54f",
+        "totalTaxAmount": 1061,
+        "empty": false,
+        "balance": 0,
+        "paid": true,
+        "lifeCycle": {
+          "dateTime": "2018-02-25T04:56:34.345Z",
+          "name": "closed"
+        },
+        "isCloseable": false,
+        "shortId": "AYGTOD",
+        "created": "2018-02-06T07:57:27.786Z",
+        "timestamp": "2018-02-25T04:56:34.920Z",
+        "_id": "5a795fe772dd1d250037598d",
+        "closed": "2018-02-25T04:56:34.345Z",
+        "history": [ ],
+        "pendingPayments": [ ],
+        "checks": [ ],
+        "externalSource": { "importIssues": [ ] },
+        "failedPayments": [ ],
+        "lastUpdate": {
+          "at": "2018-02-25T04:56:34.850Z",
+          "by": "54a66ea999609c0300d9c54f",
+          "deviceName": "inPact Client"
+        },
+        "offline": {
+          "history": [ ],
+          "conflicts": [ ]
+        },
+        "orderTags": [ "דןוחידגלחכידגלחכידגלחכידגלןחכידגלחכידחגלכידחלגכ" ],
+        "mediaExchangeNotes": [ ],
+        "segmentations": [ ],
+        "totals": {
+          "totalAmount": 7300,
+          "salesWithTax": 7300,
+          "totalExemptedTax": 0,
+          "exemptedIncludedTax": 0,
+          "exemptedExcludedTax": 0,
+          "totalExcludedTax": 0,
+          "totalIncludedTax": 1061,
+          "totalBeforeTax": 7300,
+          "netSales": 7300,
+          "totalTips": 0,
+          "grossSales": 7300,
+          "totalDiscounts": 0,
+          "totalTipsOnOrder": 0,
+          "totalTipsOnPayments": 0,
+          "totalRefunds": 0,
+          "totalPayments": 7300
+        },
+        "orderSummary": {
+          "loyaltyBenefitsSynced": true,
+          "hasTips": false,
+          "hasUnassignedOffers": false
+        },
+        "pricingOptimization": {
+          "optimizedUnassignedItemsCount": 0,
+          "optimizedBy": 0,
+          "isOptimized": false,
+          "canBeOptimized": false,
+          "nonOptimizedUnassignedItemsCount": 0,
+          "nonOptimizedOrderedItems": [ ],
+          "nonOptimizedOrderedOffers": [ ]
+        },
+        "pendingApprovals": [ ],
+        "paymentSummary": {
+          "paymentInProcess": {
+            "startedAt": "2018-02-06T07:57:28.870Z",
+            "processing": false
+          },
+          "users": [ "54a66ea999609c0300d9c54f" ],
+          "sources": [ "webCallCenter" ],
+          "failedPaymentsCount": 0,
+          "remainderAmount": 0,
+          "paidAmount": 7300,
+          "totalAuxAmount": 0,
+          "totalAmount": 7300,
+          "numOfDocs": 0,
+          "auxCashOut": 0,
+          "auxCashIn": 0,
+          "cashback": 0,
+          "cashOut": 0,
+          "cashIn": 0,
+          "lastPaymentTime": "2018-02-06T07:57:28.899Z"
+        },
+        "deliveryNotes": [ ],
+        "refunds": [ ],
+        "invoices": [
+          {
+            "masterCopyPrinted": true,
+            "_id": "5a7c51f71d793e2a00957a45",
+            "cashback": 0,
+            "amount": 7300,
+            "number": 63,
+            "order": "5a795fe772dd1d250037598d",
+            "businessDate": "2017-10-28T00:00:00.000Z",
+            "organization": "57c438f07d8fdb1e00b6f84d",
+            "created": "2018-02-08T13:34:47.509Z",
+            "lastUpdated": "2018-02-25T04:56:34.865Z",
+            "_type": "invoice",
+            "__v": 0,
+            "payments": [
+              {
+                "context": {
+                  "id": "5a795fe772dd1d250037598d",
+                  "type": "order"
+                },
+                "customerDetails": { "notified": [ ] },
+                "_id": "5a795fe872dd1d250037599f",
+                "tenderType": "cash",
+                "user": "54a66ea999609c0300d9c54f",
+                "businessDate": "2017-10-28T00:00:00.000Z",
+                "organization": "57c438f07d8fdb1e00b6f84d",
+                "faceValue": 7300,
+                "source": "webCallCenter",
+                "paid": true,
+                "amount": 7300,
+                "accountName": "מזומן",
+                "account": "587cce81d92e62220040f170",
+                "order": "5a795fe772dd1d250037598d",
+                "created": "2018-02-06T07:57:28.899Z",
+                "lastUpdated": "2018-02-06T07:57:28.899Z",
+                "_type": "CashPayment",
+                "__v": 0
+              }
+            ],
+            "tax": {
+              "amount": 1061,
+              "rate": 17
+            }
+          }
+        ],
+        "payments": [
+          {
+            "drawerActivity": {
+              "in": {
+                "amount": 7300,
+                "action": "5a92420134440813009c3244",
+                "to": {
+                  "drawer": "5a609fabbaf1712a00d6e750",
+                  "user": "5937ac675f02332800b9effa"
+                },
+                "at": 1519534593590,
+                "by": "54a66ea999609c0300d9c54f"
+              }
+            },
+            "cashedIn": "5a92420134440813009c3244",
+            "number": 1,
+            "context": {
+              "id": "5a795fe772dd1d250037598d",
+              "type": "order"
+            },
+            "customerDetails": { "notified": [ ] },
+            "_id": "5a795fe872dd1d250037599f",
+            "tenderType": "cash",
+            "user": "54a66ea999609c0300d9c54f",
+            "businessDate": "2017-10-28T00:00:00.000Z",
+            "organization": "57c438f07d8fdb1e00b6f84d",
+            "faceValue": 7300,
+            "source": "webCallCenter",
+            "paid": true,
+            "amount": 7300,
+            "accountName": "מזומן",
+            "account": "587cce81d92e62220040f170",
+            "order": "5a795fe772dd1d250037598d",
+            "created": "2018-02-06T07:57:28.899Z",
+            "lastUpdated": "2018-02-06T07:57:28.899Z",
+            "_type": "CashPayment",
+            "__v": 0
+          }
+        ],
+        "courses": [
+          {
+            "hasNonCancelledItems": true,
+            "hasIncompleteItems": false,
+            "hasNonOrderedItems": false,
+            "_id": "5a795fe6e1c7ca2180115dc8",
+            "hasMainItems": true,
+            "tags": [ "__COURSE_INDEX_0", "__SPECIFIER_Mains" ],
+            "orderedItems": [ "5a795fe649fbc8ada57d0eb4", "5a795fe67a4ce4728de5fd46", "5a795fe6bc32e52bd9582526" ],
+            "taken": {
+              "at": "2018-02-25T04:55:43.249Z",
+              "by": "54a66ea999609c0300d9c54f"
+            },
+            "fired": {
+              "at": "2018-02-08T13:34:42.918Z",
+              "by": "000000000000000000000000"
+            },
+            "courseType": "Other"
+          },
+          {
+            "hasNonCancelledItems": false,
+            "hasIncompleteItems": false,
+            "hasNonOrderedItems": false,
+            "_id": "5a795fe772dd1d2500375997",
+            "tags": [ "__COURSE_INDEX_1" ],
+            "orderedItems": [ ],
+            "courseType": "Other"
+          }
+        ],
+        "orderedPromotions": [ ],
+        "orderedDiscounts": [ ],
+        "rewards": [ ],
+        "tips": [ ],
+        "taxes": {
+          "exemption": { "rates": [ ] },
+          "applied": [ ]
+        },
+        "tax": {
+          "rate": 17,
+          "id": "560be683074d0d9e86451d21"
+        },
+        "returnedItems": [ ],
+        "orderedOffers": [
+          {
+            "_id": "5a795fe611f245931373eef4",
+            "amount": 7300,
+            "menu": "5857cc85c6db1710e8346334",
+            "price": 5500,
+            "offer": "5857cc82c6db1710e8346320",
+            "name": "ע. ניו יסאי יקי",
+            "diner": "5a795fd0a0116794a8f8bf11",
+            "orderedItems": [ "5a795fe649fbc8ada57d0eb4", "5a795fe67a4ce4728de5fd46", "5a795fe6bc32e52bd9582526" ]
+          }
+        ],
+        "orderedItems": [
+          {
+            "department": "564c452206ab3d0300019a33",
+            "_id": "5a795fe649fbc8ada57d0eb4",
+            "category": "5582c5900f3b0d0300738840",
+            "item": "5857cc54c6db1710e834613a",
+            "name": "ניו  יסאי  יקי",
+            "price": 0,
+            "diner": "5a795fd0a0116794a8f8bf11",
+            "offer": "5857cc82c6db1710e8346320",
+            "menu": "5857cc85c6db1710e8346334",
+            "amount": 0,
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [
+              {
+                "isDefault": true,
+                "_id": "5a7c51f2171a04d200006b3a",
+                "name": "רגיל",
+                "modifier": "583c2513e28c4b1f00e78ddc",
+                "modifierGroupName": "רוטב",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "_id": "5a7c51f2171a04d200006b3e",
+                "name": "אטריות ביצים",
+                "modifier": "583c187d37b6a8210032bfb2",
+                "modifierGroupName": "סוג אטריות",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "price": 0,
+                "modifier": "57ff65efb41afb1e004525cb",
+                "name": "בצל ירוק",
+                "modifierGroupName": "מרכיבים: ניו  יסאי  יקי",
+                "isDefault": true,
+                "formationUnit": "רגיל",
+                "_id": "5a795fe772dd1d2500375995",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "price": 0,
+                "modifier": "57ff65efb41afb1e004525ca",
+                "name": "*כוסברה",
+                "modifierGroupName": "מרכיבים: ניו  יסאי  יקי",
+                "isDefault": true,
+                "formationUnit": "רגיל",
+                "_id": "5a795fe772dd1d2500375994",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "price": 0,
+                "modifier": "57ff65efb41afb1e004525c8",
+                "name": "*קשיו",
+                "modifierGroupName": "מרכיבים: ניו  יסאי  יקי",
+                "isDefault": true,
+                "formationUnit": "רגיל",
+                "_id": "5a795fe772dd1d2500375993",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "price": 0,
+                "modifier": "57ff65efb41afb1e004525c9",
+                "name": "שום",
+                "modifierGroupName": "מרכיבים: ניו  יסאי  יקי",
+                "isDefault": true,
+                "formationUnit": "רגיל",
+                "_id": "5a795fe772dd1d2500375992",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              }
+            ],
+            "tags": [ ]
+          },
+          {
+            "department": "53eb1effe6c77111203d85b9",
+            "_id": "5a795fe67a4ce4728de5fd46",
+            "category": "564c487806ab3d0300019a61",
+            "item": "5954a57bc0117122005e8f84",
+            "name": "פפסי  מקס  משלוחים",
+            "price": 400,
+            "diner": "5a795fd0a0116794a8f8bf11",
+            "itemGroup": "5956b20208ac0b2200122994",
+            "itemGroupName": "שתייה עיסקית משלוחים",
+            "amount": 400,
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ],
+            "tags": [ ]
+          },
+          {
+            "department": "564c452206ab3d0300019a33",
+            "_id": "5a795fe6bc32e52bd9582526",
+            "category": "5582c75c0f3b0d030073889f",
+            "item": "5857cc50c6db1710e834610b",
+            "name": "חציל בגריל",
+            "price": 1400,
+            "diner": "5a795fd0a0116794a8f8bf11",
+            "itemGroup": "5956b49408ac0b2200122a40",
+            "itemGroupName": "קטנות עיסקית משלוחים",
+            "amount": 1400,
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [
+              {
+                "modifier": "55b0a7cd2ab50b0300a91c56",
+                "name": "בצל ירוק",
+                "modifierGroupName": "מרכיבים: חציל בגריל",
+                "isDefault": true,
+                "formationUnit": "רגיל",
+                "_id": "5a795fe772dd1d250037598f",
+                "price": 0,
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "modifier": "55b0a7e7e34333030044333d",
+                "name": "שומשום",
+                "modifierGroupName": "מרכיבים: חציל בגריל",
+                "isDefault": true,
+                "formationUnit": "רגיל",
+                "_id": "5a795fe772dd1d250037598e",
+                "price": 0,
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              }
+            ],
+            "tags": [ ]
+          }
+        ],
+        "settings": {
+          "chairSequenceNumbering": false,
+          "hideDiners": 0,
+          "tipBehavior": "informal"
+        },
+        "clubMembers": [ ],
+        "diners": [
+          {
+            "_id": "5a795fd0a0116794a8f8bf11",
+            "tags": { "name": "עידן שקד" },
+            "chair": 1,
+            "segmentations": [ ]
+          }
+        ],
+        "orderer": {
+          "inPlace": false,
+          "id": "584e52b8f124091e00e4c275",
+          "unknown": false,
+          "name": "עידן שקד",
+          "notes": "מגיע לחם שום",
+          "phone": "0546617375",
+          "includeCutlery": false,
+          "orderedDiners": 1,
+          "deliveryAddress": {
+            "city": "תל אביב יפו",
+            "_id": "5a1545ae7ee66f2500e23d7b",
+            "street": "הקליר",
+            "house": "26",
+            "formatted_address": "הקליר 26, תל אביב יפו",
+            "floor": "5",
+            "lastUpdated": "2018-02-01T13:06:35.435Z",
+            "apartment": "7",
+            "primary": true,
+            "location": {
+              "lat": 32.0849314,
+              "lng": 34.77979180000001
+            }
+          },
+          "mainPhone": {
+            "type": "main",
+            "pstn": "+972546617375",
+            "international": "+972 54-661-7375",
+            "national": "054-661-7375",
+            "isMobile": true,
+            "countryCode": 972,
+            "number": 546617375
+          }
+        },
+        "served": {
+          "by": "54a66ea999609c0300d9c54f",
+          "at": "2018-02-06T07:57:27.739Z"
+        },
+        "lock": {
+          "device": "inPact Client",
+          "at": "2018-02-25T04:56:34.291Z",
+          "on": "VLZjDZ0JlLxcTxEuNZjgpEyTGUQjctcL",
+          "by": "54a66ea999609c0300d9c54f",
+          "locked": true
+        },
+        "tableIds": [ ]
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "5a92420234440813009c324a",
+    "_type": "tlog",
+    "lastUpdated": "2018-02-25T04:56:35.419Z",
+    "created": "2018-02-25T04:56:35.419Z",
+    "live": false,
+    "totalAmount": 15000,
+    "diners": 1,
+    "closed": "2018-02-25T04:56:34.495Z",
+    "opened": "2018-02-11T10:04:15.799Z",
+    "businessDate": "2017-10-28T00:00:00.000Z",
+    "organization": "57c438f07d8fdb1e00b6f84d",
+    "number": 133,
+    "timeBucket": [ "2018-02-25 04-hour", "2018-02-25-day", "2018-9-week", "2018-02-month", "2018-01-quarter", "2018-year" ],
+    "order": [
+      {
+        "courier": "5937ac675f02332800b9effa",
+        "serviceType": "delivery",
+        "dirty": false,
+        "clientStatistics": {
+          "inactivateRemovablePromotions": false,
+          "updatedByOperationalInterface": false
+        },
+        "__v": 6,
+        "source": "webCallCenter",
+        "orderType": "Delivery",
+        "organization": "57c438f07d8fdb1e00b6f84d",
+        "openedBy": "54a66ea999609c0300d9c54f",
+        "number": 133,
+        "businessDate": "2017-10-28T00:00:00.000Z",
+        "lastUpdated": "2018-02-25T04:56:34.593Z",
+        "owner": "54a66ea999609c0300d9c54f",
+        "totalTaxAmount": 2179,
+        "empty": false,
+        "balance": 0,
+        "paid": true,
+        "lifeCycle": {
+          "dateTime": "2018-02-25T04:56:34.492Z",
+          "name": "closed"
+        },
+        "isCloseable": false,
+        "shortId": "ITYIRO",
+        "created": "2018-02-11T10:04:15.799Z",
+        "timestamp": "2018-02-25T04:56:35.412Z",
+        "_id": "5a80151f9a78cf2a005850ee",
+        "closed": "2018-02-25T04:56:34.492Z",
+        "history": [ ],
+        "pendingPayments": [ ],
+        "checks": [ ],
+        "externalSource": { "importIssues": [ ] },
+        "failedPayments": [ ],
+        "lastUpdate": {
+          "at": "2018-02-25T04:56:34.593Z",
+          "by": "54a66ea999609c0300d9c54f",
+          "deviceName": "inPact Client"
+        },
+        "offline": {
+          "history": [ ],
+          "conflicts": [ ]
+        },
+        "orderTags": [ ],
+        "mediaExchangeNotes": [ ],
+        "segmentations": [ ],
+        "totals": {
+          "totalAmount": 15000,
+          "salesWithTax": 15000,
+          "totalExemptedTax": 0,
+          "exemptedIncludedTax": 0,
+          "exemptedExcludedTax": 0,
+          "totalExcludedTax": 0,
+          "totalIncludedTax": 2179,
+          "totalBeforeTax": 15000,
+          "netSales": 15000,
+          "totalTips": 0,
+          "grossSales": 15000,
+          "totalDiscounts": 0,
+          "totalTipsOnOrder": 0,
+          "totalTipsOnPayments": 0,
+          "totalRefunds": 0,
+          "totalPayments": 15000
+        },
+        "orderSummary": {
+          "loyaltyBenefitsSynced": true,
+          "hasTips": false,
+          "hasUnassignedOffers": false
+        },
+        "pricingOptimization": {
+          "optimizedUnassignedItemsCount": 0,
+          "optimizedBy": 0,
+          "isOptimized": false,
+          "canBeOptimized": false,
+          "nonOptimizedUnassignedItemsCount": 0,
+          "nonOptimizedOrderedItems": [ ],
+          "nonOptimizedOrderedOffers": [ ]
+        },
+        "pendingApprovals": [ ],
+        "paymentSummary": {
+          "paymentInProcess": {
+            "startedAt": "2018-02-11T10:04:17.447Z",
+            "processing": false
+          },
+          "users": [ "54a66ea999609c0300d9c54f" ],
+          "sources": [ "webCallCenter" ],
+          "failedPaymentsCount": 0,
+          "remainderAmount": 0,
+          "paidAmount": 15000,
+          "totalAuxAmount": 0,
+          "totalAmount": 15000,
+          "numOfDocs": 0,
+          "auxCashOut": 0,
+          "auxCashIn": 0,
+          "cashback": 0,
+          "cashOut": 0,
+          "cashIn": 0,
+          "lastPaymentTime": "2018-02-11T10:04:17.468Z"
+        },
+        "deliveryNotes": [ ],
+        "refunds": [ ],
+        "invoices": [
+          {
+            "masterCopyPrinted": true,
+            "_id": "5a81c5c45da1fc2500462537",
+            "cashback": 0,
+            "amount": 15000,
+            "number": 65,
+            "order": "5a80151f9a78cf2a005850ee",
+            "businessDate": "2017-10-28T00:00:00.000Z",
+            "organization": "57c438f07d8fdb1e00b6f84d",
+            "created": "2018-02-12T16:50:12.530Z",
+            "lastUpdated": "2018-02-25T04:56:34.600Z",
+            "_type": "invoice",
+            "__v": 0,
+            "payments": [
+              {
+                "context": {
+                  "id": "5a80151f9a78cf2a005850ee",
+                  "type": "order"
+                },
+                "customerDetails": { "notified": [ ] },
+                "_id": "5a8015215682b72500ac70e4",
+                "tenderType": "cash",
+                "user": "54a66ea999609c0300d9c54f",
+                "businessDate": "2017-10-28T00:00:00.000Z",
+                "organization": "57c438f07d8fdb1e00b6f84d",
+                "faceValue": 15000,
+                "source": "webCallCenter",
+                "paid": true,
+                "amount": 15000,
+                "accountName": "מזומן",
+                "account": "587cce81d92e62220040f170",
+                "order": "5a80151f9a78cf2a005850ee",
+                "created": "2018-02-11T10:04:17.468Z",
+                "lastUpdated": "2018-02-11T10:04:17.468Z",
+                "_type": "CashPayment",
+                "__v": 0
+              }
+            ],
+            "tax": {
+              "amount": 2179,
+              "rate": 17
+            }
+          }
+        ],
+        "payments": [
+          {
+            "drawerActivity": {
+              "in": {
+                "amount": 15000,
+                "action": "5a924201deea9c180011c48d",
+                "to": {
+                  "drawer": "5a609fabbaf1712a00d6e750",
+                  "user": "5937ac675f02332800b9effa"
+                },
+                "at": 1519534593707,
+                "by": "54a66ea999609c0300d9c54f"
+              }
+            },
+            "cashedIn": "5a924201deea9c180011c48d",
+            "number": 1,
+            "context": {
+              "id": "5a80151f9a78cf2a005850ee",
+              "type": "order"
+            },
+            "customerDetails": { "notified": [ ] },
+            "_id": "5a8015215682b72500ac70e4",
+            "tenderType": "cash",
+            "user": "54a66ea999609c0300d9c54f",
+            "businessDate": "2017-10-28T00:00:00.000Z",
+            "organization": "57c438f07d8fdb1e00b6f84d",
+            "faceValue": 15000,
+            "source": "webCallCenter",
+            "paid": true,
+            "amount": 15000,
+            "accountName": "מזומן",
+            "account": "587cce81d92e62220040f170",
+            "order": "5a80151f9a78cf2a005850ee",
+            "created": "2018-02-11T10:04:17.468Z",
+            "lastUpdated": "2018-02-11T10:04:17.468Z",
+            "_type": "CashPayment",
+            "__v": 0
+          }
+        ],
+        "courses": [
+          {
+            "hasNonCancelledItems": true,
+            "hasIncompleteItems": false,
+            "hasNonOrderedItems": false,
+            "_id": "5a8014d6e461b95cc313d87f",
+            "hasMainItems": false,
+            "tags": [ "__COURSE_INDEX_0", "__SPECIFIER_Beverages" ],
+            "orderedItems": [ "5a8014d925686a42bbafcb7c" ],
+            "taken": {
+              "at": "2018-02-25T04:55:43.424Z",
+              "by": "54a66ea999609c0300d9c54f"
+            },
+            "fired": {
+              "at": "2018-02-12T16:50:10.450Z",
+              "by": "000000000000000000000000"
+            },
+            "courseType": "Other"
+          },
+          {
+            "hasNonCancelledItems": false,
+            "hasIncompleteItems": false,
+            "hasNonOrderedItems": false,
+            "_id": "5a80151f9a78cf2a005850ef",
+            "tags": [ "__COURSE_INDEX_1" ],
+            "orderedItems": [ ],
+            "courseType": "Other"
+          }
+        ],
+        "orderedPromotions": [ ],
+        "orderedDiscounts": [ ],
+        "rewards": [ ],
+        "tips": [ ],
+        "taxes": {
+          "exemption": { "rates": [ ] },
+          "applied": [ ]
+        },
+        "tax": {
+          "rate": 17,
+          "id": "560be683074d0d9e86451d21"
+        },
+        "returnedItems": [ ],
+        "orderedOffers": [
+          {
+            "_id": "5a8014d619386d3106c5e246",
+            "amount": 15000,
+            "menu": "5857cc84c6db1710e8346333",
+            "price": 0,
+            "offer": "5954a59dc0117122005e8f88",
+            "name": "מחיר פתוח",
+            "diner": "5a801459ef30a96d5dd84024",
+            "orderedItems": [ "5a8014d925686a42bbafcb7c" ]
+          }
+        ],
+        "orderedItems": [
+          {
+            "department": "53eb1effe6c77111203d85b9",
+            "_id": "5a8014d925686a42bbafcb7c",
+            "category": "564c487806ab3d0300019a61",
+            "item": "5954a59dec050622002b65ac",
+            "name": "מירנדה  משלוחים",
+            "price": 15000,
+            "diner": "5a801459ef30a96d5dd84024",
+            "offer": "5954a59dc0117122005e8f88",
+            "menu": "5857cc84c6db1710e8346333",
+            "amount": 15000,
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ],
+            "tags": [ ]
+          }
+        ],
+        "settings": {
+          "chairSequenceNumbering": false,
+          "hideDiners": 0,
+          "tipBehavior": "informal"
+        },
+        "clubMembers": [ ],
+        "diners": [
+          {
+            "_id": "5a801459ef30a96d5dd84024",
+            "tags": { "name": "שרייבר" },
+            "chair": 1,
+            "segmentations": [ ]
+          }
+        ],
+        "orderer": {
+          "inPlace": false,
+          "id": "596f494d7350ab22002f77d5",
+          "unknown": false,
+          "name": "שרייבר",
+          "phone": "0524402515",
+          "includeCutlery": false,
+          "orderedDiners": 1,
+          "deliveryAddress": {
+            "city": "גליל ים",
+            "_id": "597e0ee3f6b5112800a8a7ab",
+            "street": "גדעון האוזנר",
+            "house": "25",
+            "formatted_address": "גדעון האוזנר 25, גליל ים",
+            "floor": "1",
+            "lastUpdated": "2018-02-06T08:23:09.477Z",
+            "apartment": "1",
+            "notes": "",
+            "primary": false,
+            "location": {
+              "lat": 32.160071,
+              "lng": 34.82768540000006
+            }
+          },
+          "mainPhone": {
+            "type": "main",
+            "pstn": "+972524402515",
+            "international": "+972 52-440-2515",
+            "national": "052-440-2515",
+            "isMobile": true,
+            "countryCode": 972,
+            "number": 524402515
+          }
+        },
+        "served": {
+          "by": "54a66ea999609c0300d9c54f",
+          "at": "2018-02-11T10:04:15.599Z"
+        },
+        "lock": {
+          "device": "inPact Client",
+          "at": "2018-02-25T04:56:34.421Z",
+          "on": "VLZjDZ0JlLxcTxEuNZjgpEyTGUQjctcL",
+          "by": "54a66ea999609c0300d9c54f",
+          "locked": true
+        },
+        "tableIds": [ ]
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "5a92420234440813009c324b",
+    "_type": "tlog",
+    "lastUpdated": "2018-02-25T04:56:35.644Z",
+    "created": "2018-02-25T04:56:35.644Z",
+    "live": false,
+    "totalAmount": 13200,
+    "diners": 1,
+    "closed": "2018-02-25T04:56:34.502Z",
+    "opened": "2018-02-08T13:20:44.433Z",
+    "businessDate": "2017-10-28T00:00:00.000Z",
+    "organization": "57c438f07d8fdb1e00b6f84d",
+    "number": 130,
+    "timeBucket": [ "2018-02-25 04-hour", "2018-02-25-day", "2018-9-week", "2018-02-month", "2018-01-quarter", "2018-year" ],
+    "order": [
+      {
+        "courier": "5937ac675f02332800b9effa",
+        "serviceType": "delivery",
+        "clientStatistics": {
+          "inactivateRemovablePromotions": false,
+          "updatedByOperationalInterface": false
+        },
+        "dirty": false,
+        "__v": 6,
+        "organization": "57c438f07d8fdb1e00b6f84d",
+        "source": "external",
+        "orderType": "Delivery",
+        "openedBy": "596f3e7f584602b82586e3db",
+        "number": 130,
+        "businessDate": "2017-10-28T00:00:00.000Z",
+        "lastUpdated": "2018-02-25T04:56:35.592Z",
+        "owner": "54a66ea999609c0300d9c54f",
+        "totalTaxAmount": 1918,
+        "empty": false,
+        "balance": 0,
+        "paid": true,
+        "lifeCycle": {
+          "dateTime": "2018-02-25T04:56:34.501Z",
+          "name": "closed"
+        },
+        "isCloseable": false,
+        "shortId": "HORBLT",
+        "created": "2018-02-08T13:20:44.433Z",
+        "timestamp": "2018-02-25T04:56:35.644Z",
+        "_id": "5a7c4eac1d793e2a0095792f",
+        "closed": "2018-02-25T04:56:34.501Z",
+        "history": [ ],
+        "pendingPayments": [ ],
+        "checks": [ ],
+        "externalSource": {
+          "orderId": "25142063",
+          "name": "10bis",
+          "importIssues": [ ]
+        },
+        "failedPayments": [ ],
+        "lastUpdate": {
+          "at": "2018-02-25T04:56:35.592Z",
+          "by": "54a66ea999609c0300d9c54f",
+          "deviceName": "inPact Client"
+        },
+        "offline": {
+          "history": [ ],
+          "conflicts": [ ]
+        },
+        "orderTags": [ "sdfsdgfsdfsdfds" ],
+        "mediaExchangeNotes": [ ],
+        "segmentations": [ ],
+        "totals": {
+          "totalAmount": 13200,
+          "salesWithTax": 13200,
+          "totalExemptedTax": 0,
+          "exemptedIncludedTax": 0,
+          "exemptedExcludedTax": 0,
+          "totalExcludedTax": 0,
+          "totalIncludedTax": 1918,
+          "totalBeforeTax": 13200,
+          "netSales": 13200,
+          "totalTips": 0,
+          "grossSales": 13200,
+          "totalDiscounts": 0,
+          "totalTipsOnOrder": 0,
+          "totalTipsOnPayments": 0,
+          "totalRefunds": 0,
+          "totalPayments": 13200
+        },
+        "orderSummary": {
+          "loyaltyBenefitsSynced": true,
+          "hasTips": false,
+          "hasUnassignedOffers": false
+        },
+        "pricingOptimization": {
+          "optimizedUnassignedItemsCount": 0,
+          "optimizedBy": 0,
+          "isOptimized": false,
+          "canBeOptimized": false,
+          "nonOptimizedUnassignedItemsCount": 0,
+          "nonOptimizedOrderedItems": [ ],
+          "nonOptimizedOrderedOffers": [ ]
+        },
+        "paymentIntent": {
+          "created": "2018-02-08T13:35:01.270Z",
+          "paidTipAmount": 10,
+          "paidTipAmount_": 1000,
+          "lastUpdated": "2018-02-08T13:35:01.270Z",
+          "isPaid": false,
+          "_id": "5a7c5205171a04d200006d04",
+          "tipIntent": {
+            "lastUpdated": "2018-02-08T13:35:01.270Z",
+            "inPrecentage": false,
+            "_id": "5a7c5205171a04d200006d05",
+            "created": "2018-02-08T13:35:01.270Z",
+            "quantity": 1000
+          }
+        },
+        "pendingApprovals": [ ],
+        "paymentSummary": {
+          "paymentInProcess": {
+            "startedAt": "2018-02-08T13:20:44.663Z",
+            "processing": false
+          },
+          "users": [ "596f3e7f584602b82586e3db" ],
+          "sources": [ "external" ],
+          "failedPaymentsCount": 0,
+          "remainderAmount": 0,
+          "paidAmount": 13200,
+          "totalAuxAmount": 0,
+          "totalAmount": 13200,
+          "numOfDocs": 0,
+          "auxCashOut": 0,
+          "auxCashIn": 0,
+          "cashback": 0,
+          "cashOut": 0,
+          "cashIn": 0,
+          "lastPaymentTime": "2018-02-08T13:20:44.723Z"
+        },
+        "deliveryNotes": [
+          {
+            "masterCopyPrinted": true,
+            "_id": "5a7c520b1d793e2a00957a51",
+            "cashback": 0,
+            "amount": 13200,
+            "number": 5,
+            "chargeAccount": "594fd273f804d222009f9ce6",
+            "order": "5a7c4eac1d793e2a0095792f",
+            "businessDate": "2017-10-28T00:00:00.000Z",
+            "organization": "57c438f07d8fdb1e00b6f84d",
+            "created": "2018-02-08T13:35:07.531Z",
+            "lastUpdated": "2018-02-25T04:56:35.612Z",
+            "_type": "deliveryNote",
+            "__v": 0,
+            "payments": [
+              {
+                "context": {
+                  "id": "5a7c4eac1d793e2a0095792f",
+                  "type": "order"
+                },
+                "customerDetails": { "notified": [ ] },
+                "_id": "5a7c4eace0d9702500d5d13f",
+                "approved": {
+                  "at": "2018-02-08T13:20:44.719Z",
+                  "by": "596f3e7f584602b82586e3db"
+                },
+                "providerTransactionTime": "2018-02-08T13:20:44.719Z",
+                "isGeneric": true,
+                "user": "596f3e7f584602b82586e3db",
+                "accountName": "תן ביס משלוחים",
+                "tenderType": "chargeAccount",
+                "order": "5a7c4eac1d793e2a0095792f",
+                "businessDate": "2017-10-28T00:00:00.000Z",
+                "organization": "57c438f07d8fdb1e00b6f84d",
+                "source": "external",
+                "paid": true,
+                "amount": 13200,
+                "account": "594fd273f804d222009f9ce6",
+                "created": "2018-02-08T13:20:44.723Z",
+                "lastUpdated": "2018-02-08T13:20:44.723Z",
+                "_type": "ChargeAccountPayment",
+                "__v": 0
+              }
+            ],
+            "tax": {
+              "amount": 1918,
+              "rate": 17
+            }
+          }
+        ],
+        "refunds": [ ],
+        "invoices": [ ],
+        "payments": [
+          {
+            "number": 1,
+            "context": {
+              "id": "5a7c4eac1d793e2a0095792f",
+              "type": "order"
+            },
+            "customerDetails": { "notified": [ ] },
+            "_id": "5a7c4eace0d9702500d5d13f",
+            "approved": {
+              "at": "2018-02-08T13:20:44.719Z",
+              "by": "596f3e7f584602b82586e3db"
+            },
+            "providerTransactionTime": "2018-02-08T13:20:44.719Z",
+            "isGeneric": true,
+            "user": "596f3e7f584602b82586e3db",
+            "accountName": "תן ביס משלוחים",
+            "tenderType": "chargeAccount",
+            "order": "5a7c4eac1d793e2a0095792f",
+            "businessDate": "2017-10-28T00:00:00.000Z",
+            "organization": "57c438f07d8fdb1e00b6f84d",
+            "source": "external",
+            "paid": true,
+            "amount": 13200,
+            "account": "594fd273f804d222009f9ce6",
+            "created": "2018-02-08T13:20:44.723Z",
+            "lastUpdated": "2018-02-08T13:20:44.723Z",
+            "_type": "ChargeAccountPayment",
+            "__v": 0
+          }
+        ],
+        "courses": [
+          {
+            "hasNonCancelledItems": true,
+            "hasIncompleteItems": false,
+            "hasNonOrderedItems": false,
+            "_id": "5a7c4eac1d793e2a00957930",
+            "hasMainItems": true,
+            "tags": [ "__COURSE_INDEX_0", "__SPECIFIER_Mains" ],
+            "orderedItems": [ "5a7c4eac87c89900041e2207", "5a7c4eac87c89900041e2208", "5a7c4eac87c89900041e2209", "5a7c4eac87c89900041e220a", "5a7c4eac87c89900041e220b", "5a7c4eac87c89900041e220c" ],
+            "taken": {
+              "at": "2018-02-25T04:55:43.335Z",
+              "by": "54a66ea999609c0300d9c54f"
+            },
+            "fired": {
+              "at": "2018-02-08T13:35:01.903Z",
+              "by": "000000000000000000000000"
+            },
+            "courseType": "Other"
+          },
+          {
+            "hasNonCancelledItems": false,
+            "hasIncompleteItems": false,
+            "hasNonOrderedItems": false,
+            "_id": "5a7c4eac1d793e2a00957952",
+            "tags": [ "__COURSE_INDEX_1" ],
+            "orderedItems": [ ],
+            "courseType": "Other"
+          }
+        ],
+        "orderedPromotions": [ ],
+        "orderedDiscounts": [ ],
+        "rewards": [ ],
+        "tips": [ ],
+        "taxes": {
+          "exemption": { "rates": [ ] },
+          "applied": [ ]
+        },
+        "tax": {
+          "rate": 17,
+          "id": "560be683074d0d9e86451d21"
+        },
+        "returnedItems": [ ],
+        "orderedOffers": [
+          {
+            "offer": "5857cc82c6db1710e834631e",
+            "price": 6100,
+            "amount": 6100,
+            "name": "ע. בודהה נודלס",
+            "diner": "5a7c4eac87c89900041e2206",
+            "menu": "5857cc85c6db1710e8346334",
+            "_id": "5a7c4eac1d793e2a00957932",
+            "orderedItems": [ "5a7c4eac87c89900041e2207", "5a7c4eac87c89900041e2208", "5a7c4eac87c89900041e2209" ]
+          },
+          {
+            "offer": "59796bf5cf3d51220057668d",
+            "price": 6100,
+            "amount": 6100,
+            "name": "סינגפור",
+            "diner": "5a7c4eac87c89900041e2206",
+            "menu": "5857cc85c6db1710e8346334",
+            "_id": "5a7c4eac1d793e2a00957931",
+            "orderedItems": [ "5a7c4eac87c89900041e220a", "5a7c4eac87c89900041e220b", "5a7c4eac87c89900041e220c" ]
+          },
+          {
+            "adHocOffer": true,
+            "name": "dfgd",
+            "amount": 1000,
+            "price": 1000,
+            "_id": "5a7c502e1d793e2a009579b6",
+            "orderedItems": [ ]
+          }
+        ],
+        "orderedItems": [
+          {
+            "department": "564c452206ab3d0300019a33",
+            "_id": "5a7c4eac87c89900041e2207",
+            "category": "5582c5900f3b0d0300738840",
+            "item": "5857cc4dc6db1710e83460eb",
+            "name": "בודהה  נודלס",
+            "price": 0,
+            "amount": 0,
+            "note": "",
+            "offer": "5857cc82c6db1710e834631e",
+            "diner": "5a7c4eac87c89900041e2206",
+            "menu": "5857cc85c6db1710e8346334",
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [
+              {
+                "formationUnit": "רגיל",
+                "name": "חריף",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "modifier": "583c3b9fe28c4b1f00e79274",
+                "_id": "5a7c5205e0d9702500d5d21a",
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "formationUnit": "רגיל",
+                "name": "שום",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "modifier": "57ff66c41828671e00804cb3",
+                "_id": "5a7c5205e0d9702500d5d219",
+                "taxes": { "applied": [ ] }
+              }
+            ],
+            "selectedModifiers": [
+              {
+                "isDefault": true,
+                "_id": "5a7c5205171a04d200006cc1",
+                "name": "רגיל",
+                "modifier": "583c2513e28c4b1f00e78ddc",
+                "modifierGroupName": "רוטב",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "_id": "5a7c5205171a04d200006cc5",
+                "name": "עוף",
+                "modifier": "55b5eff9f099ea0300677e98",
+                "modifierGroupName": "סוג בשר",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "בזיליקום",
+                "modifier": "583c3b9fe28c4b1f00e79275",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957950",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "בצל ירוק",
+                "modifier": "57ff66c41828671e00804cb4",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095794f",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "ברוקולי",
+                "modifier": "57ff66c41828671e00804cb8",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095794e",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "ג'ינג'ר",
+                "modifier": "57ff66c41828671e00804cb2",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095794d",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "זוקיני",
+                "modifier": "57ff66c41828671e00804cb5",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095794c",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "*קשיו",
+                "modifier": "57ff66c41828671e00804cb6",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095794b",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "תרד",
+                "modifier": "57ff66c41828671e00804cb7",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095794a",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "ירקות",
+                "modifier": "583c3b9fe28c4b1f00e79273",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957949",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "עוף",
+                "modifier": "583c3b9fe28c4b1f00e79272",
+                "modifierGroupName": "מרכיבים: בודהה  נודלס",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957948",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              }
+            ],
+            "tags": [ ]
+          },
+          {
+            "department": "564c452206ab3d0300019a33",
+            "_id": "5a7c4eac87c89900041e2208",
+            "category": "5582c75c0f3b0d030073889f",
+            "item": "5857cc57c6db1710e834615a",
+            "name": "סלט עגבניות",
+            "price": 0,
+            "amount": 0,
+            "offer": "5857cc82c6db1710e834631e",
+            "diner": "5a7c4eac87c89900041e2206",
+            "itemGroup": "5956b49408ac0b2200122a40",
+            "itemGroupName": "קטנות עיסקית משלוחים",
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [
+              {
+                "isDefault": true,
+                "_id": "5a7c5205171a04d200006cd6",
+                "name": "רגיל",
+                "modifier": "583c2513e28c4b1f00e78ddc",
+                "modifierGroupName": "רוטב",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "בוטנים",
+                "modifier": "5836e0d2dca7d72200b2818c",
+                "modifierGroupName": "מרכיבים: סלט  עגבניות",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957943",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "בצל ירוק",
+                "modifier": "5836e0fbdca7d72200b28195",
+                "modifierGroupName": "מרכיבים: סלט  עגבניות",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957942",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "בצל לבן",
+                "modifier": "5836e0d2dca7d72200b2818b",
+                "modifierGroupName": "מרכיבים: סלט  עגבניות",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957941",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "כוסברה",
+                "modifier": "5836e0d2dca7d72200b2818a",
+                "modifierGroupName": "מרכיבים: סלט  עגבניות",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957940",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "עגבניות",
+                "modifier": "5836e0d2dca7d72200b28189",
+                "modifierGroupName": "מרכיבים: סלט  עגבניות",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095793f",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              }
+            ],
+            "tags": [ ]
+          },
+          {
+            "department": "53eb1effe6c77111203d85b9",
+            "_id": "5a7c4eac87c89900041e2209",
+            "category": "564c489755cc710300d2eb8f",
+            "item": "5956b31b15502a220014c1dc",
+            "name": "לימונדת אשכוליות משלוחים",
+            "price": 0,
+            "amount": 0,
+            "offer": "5857cc82c6db1710e834631e",
+            "diner": "5a7c4eac87c89900041e2206",
+            "itemGroup": "5956b20208ac0b2200122994",
+            "itemGroupName": "שתייה עיסקית משלוחים",
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ],
+            "tags": [ ]
+          },
+          {
+            "department": "564c452206ab3d0300019a33",
+            "_id": "5a7c4eac87c89900041e220a",
+            "category": "5582c5900f3b0d0300738840",
+            "item": "5857cc56c6db1710e834614d",
+            "name": "סינגפור",
+            "price": 0,
+            "amount": 0,
+            "note": "",
+            "offer": "59796bf5cf3d51220057668d",
+            "diner": "5a7c4eac87c89900041e2206",
+            "menu": "5857cc85c6db1710e8346334",
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [
+              {
+                "isDefault": true,
+                "_id": "5a7c5205171a04d200006ce5",
+                "name": "רגיל",
+                "modifier": "583c2513e28c4b1f00e78ddc",
+                "modifierGroupName": "רוטב",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "_id": "5a7c5205171a04d200006ce9",
+                "name": "עוף",
+                "modifier": "55b5eff9f099ea0300677e98",
+                "modifierGroupName": "סוג בשר",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "_id": "5a7c5205171a04d200006cec",
+                "name": "אטריות ביצים",
+                "modifier": "583c187d37b6a8210032bfb2",
+                "modifierGroupName": "סוג אטריות",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "בצל ירוק",
+                "modifier": "583cb73fe28c4b1f00e7b5dd",
+                "modifierGroupName": "מרכיבים: סינגפור",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095793d",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "במבושוט",
+                "modifier": "589ef8954d22222200eb08bc",
+                "modifierGroupName": "מרכיבים: סינגפור",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095793c",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "גזר",
+                "modifier": "583cb73fe28c4b1f00e7b5db",
+                "modifierGroupName": "מרכיבים: סינגפור",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095793b",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "נבטים",
+                "modifier": "583cb73fe28c4b1f00e7b5da",
+                "modifierGroupName": "מרכיבים: סינגפור",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a0095793a",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "שום",
+                "modifier": "58c0024680aa472200bd6326",
+                "modifierGroupName": "מרכיבים: סינגפור",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957939",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "ירקות",
+                "modifier": "583cb73fe28c4b1f00e7b5d9",
+                "modifierGroupName": "מרכיבים: סינגפור",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957938",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              },
+              {
+                "isDefault": true,
+                "name": "עוף",
+                "modifier": "583cb73fe28c4b1f00e7b5d8",
+                "modifierGroupName": "מרכיבים: סינגפור",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957937",
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              }
+            ],
+            "tags": [ ]
+          },
+          {
+            "department": "564c452206ab3d0300019a33",
+            "_id": "5a7c4eac87c89900041e220b",
+            "category": "5582c75c0f3b0d030073889f",
+            "item": "5857cc57c6db1710e8346157",
+            "name": "סלט נבטים וקישואים",
+            "price": 0,
+            "amount": 0,
+            "offer": "59796bf5cf3d51220057668d",
+            "diner": "5a7c4eac87c89900041e2206",
+            "itemGroup": "5956b49408ac0b2200122a40",
+            "itemGroupName": "קטנות עיסקית משלוחים",
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [
+              {
+                "name": "שומשום",
+                "modifier": "5836e120dca7d72200b2819c",
+                "modifierGroupName": "מרכיבים: סלט  נבטים",
+                "price": 0,
+                "formationUnit": "רגיל",
+                "_id": "5a7c4eac1d793e2a00957933",
+                "isDefault": true,
+                "removedModifiers": [ ],
+                "selectedModifiers": [ ],
+                "taxes": { "applied": [ ] }
+              }
+            ],
+            "tags": [ ]
+          },
+          {
+            "department": "53eb1effe6c77111203d85b9",
+            "_id": "5a7c4eac87c89900041e220c",
+            "category": "564c489755cc710300d2eb8f",
+            "item": "5954ba92c0117122005e930a",
+            "name": "מים  מינרלים  משלוחים",
+            "price": 0,
+            "amount": 0,
+            "offer": "59796bf5cf3d51220057668d",
+            "diner": "5a7c4eac87c89900041e2206",
+            "itemGroup": "5956b20208ac0b2200122994",
+            "itemGroupName": "שתייה עיסקית משלוחים",
+            "taxes": { "applied": [ ] },
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ],
+            "tags": [ ]
+          }
+        ],
+        "settings": {
+          "chairSequenceNumbering": false,
+          "hideDiners": 0,
+          "tipBehavior": "informal"
+        },
+        "clubMembers": [ ],
+        "diners": [
+          {
+            "_id": "5a7c4eac87c89900041e2206",
+            "tags": { "name": "כפר סבא טאביט" },
+            "chair": 1,
+            "segmentations": [ ]
+          }
+        ],
+        "orderer": {
+          "inPlace": false,
+          "phone": "0526201397",
+          "email": "kfarsaba@tabit.cloud",
+          "name": "כפר סבא טאביט",
+          "deliveryAddress": {
+            "entrance": "",
+            "city": "פפר",
+            "street": "רוטשילד",
+            "house": "1",
+            "floor": "",
+            "apartment": "",
+            "notes": "בדיקה!!",
+            "primary": false
+          },
+          "mainPhone": {
+            "type": "main",
+            "pstn": "+972526201397",
+            "international": "+972 52-620-1397",
+            "national": "052-620-1397",
+            "isMobile": true,
+            "countryCode": 972,
+            "number": 526201397
+          }
+        },
+        "served": {
+          "by": "596f3e7f584602b82586e3db",
+          "at": "2018-02-08T13:20:44.365Z"
+        },
+        "lock": {
+          "device": "inPact Client",
+          "at": "2018-02-25T04:56:34.332Z",
+          "on": "VLZjDZ0JlLxcTxEuNZjgpEyTGUQjctcL",
+          "by": "54a66ea999609c0300d9c54f",
+          "locked": true
+        },
+        "tableIds": [ ]
+      }
+    ],
+    "__v": 0
+  }
+]

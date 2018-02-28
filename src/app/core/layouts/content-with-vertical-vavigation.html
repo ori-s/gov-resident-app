@@ -1,0 +1,17 @@
+<div id="layout-vertical-navigation-fullwidth-toolbar" class="template-layout" layout="column" flex>
+
+    
+
+    <div id="main-container" layout="row" flex>
+        <md-sidenav id="vertical-navigation" class="md-primary-bg" md-is-locked-open="$mdMedia('gt-sm')"
+                    md-component-id="navigation" ms-scroll ui-view="navigation"></md-sidenav>
+
+        <div id="content-container" flex layout="column">
+            <md-content id="content" class="animate-slide-up md-hue-2" ms-scrollX="{suppressScrollX:true}" ui-view="content" flex></md-content>
+        </div>
+
+
+    </div>
+
+
+</div>

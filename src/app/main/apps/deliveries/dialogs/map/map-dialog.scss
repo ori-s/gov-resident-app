@@ -1,0 +1,41 @@
+﻿.map-dialog {
+    min-width:100%;
+    max-width:100%;
+
+    min-height:100%;
+    max-heaight:100%;
+
+    #map-fab-button{
+        position:absolute;
+        left: 25px;
+        bottom:25px;
+        z-index:10;
+    }
+    .order-widget{
+        padding: 0  0 10px;
+    }
+
+    .g-directions {
+        font-size: 12px;
+    }
+    .g-directions .adp-step, .g-directions .adp-substep{
+        border-color:#e3e3e3;
+    }
+        .g-directions .adp {
+            color: #333;
+        }
+        .g-directions .adp-placemark {
+            border-color:#e3e3e3;
+            margin: 0;
+            border-width: 1px 0;
+        }
+            .g-directions .adp-placemark td {
+                padding: 5px 10px;
+            }
+        .g-directions .adp-summary {
+            padding: 5px;
+        }
+        .g-directions .adp-directions {
+            width: 100%;
+        }
+}

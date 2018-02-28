@@ -1,0 +1,20 @@
+@import 'partials/reset';
+@import 'partials/variables';
+
+@import 'partials/mixins';
+@import 'partials/angular-material-extend';
+@import 'partials/layouts-template';
+@import 'partials/layouts-page';
+@import 'partials/animations';
+@import 'partials/colors';
+@import 'partials/icons';
+@import 'partials/material';
+@import 'partials/typography';
+
+@import 'partials/plugins/angular-block-ui';
+
+@import 'partials/helpers';
+@import 'partials/print';
+
+@import 'partials/bootstrap/bootstrap.scss';
+@import 'partials/bootstrap/bootstrap-rtl.scss';

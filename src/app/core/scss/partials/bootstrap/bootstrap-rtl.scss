@@ -1,0 +1,239 @@
+/*******************************************************************************
+ *              bootstrap-rtl (version 3.3.2-rc1)
+ *      Author: Morteza Ansarinia (http://github.com/morteza)
+ *  Created on: March 05,2015
+ *     Project: bootstrap-rtl
+ *   Copyright: Unlicensed Public Domain
+ *******************************************************************************/
+
+
+body._rtl ._rtl body {
+  direction: rtl;
+}
+._rtl .flip.text-left {
+  text-align: right;
+}
+._rtl .flip.text-right {
+  text-align: left;
+}
+._rtl caption {
+  text-align: right;
+}
+._rtl th {
+  text-align: right;
+}
+@media screen and (max-width: 767px) {
+  ._rtl .table-responsive > .table-bordered {
+    border: 0;
+  }
+  ._rtl .table-responsive > .table-bordered > thead > tr > th:first-child,
+  ._rtl .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  ._rtl .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  ._rtl .table-responsive > .table-bordered > thead > tr > td:first-child,
+  ._rtl .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  ._rtl .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-right: 0;
+    border-left: initial;
+  }
+  ._rtl .table-responsive > .table-bordered > thead > tr > th:last-child,
+  ._rtl .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  ._rtl .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  ._rtl .table-responsive > .table-bordered > thead > tr > td:last-child,
+  ._rtl .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  ._rtl .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-left: 0;
+    border-right: initial;
+  }
+}
+._rtl .radio label,
+._rtl .checkbox label {
+  padding-right: 20px;
+  padding-left: initial;
+}
+._rtl .radio input[type="radio"],
+._rtl .radio-inline input[type="radio"],
+._rtl .checkbox input[type="checkbox"],
+._rtl .checkbox-inline input[type="checkbox"] {
+  margin-right: -20px;
+  margin-left: auto;
+}
+._rtl .radio-inline,
+._rtl .checkbox-inline {
+  padding-right: 20px;
+  padding-left: 0;
+}
+._rtl .radio-inline + .radio-inline,
+._rtl .checkbox-inline + .checkbox-inline {
+  margin-right: 10px;
+  margin-left: 0;
+}
+._rtl .has-feedback .form-control {
+  padding-left: 42.5px;
+  padding-right: 12px;
+}
+._rtl .form-control-feedback {
+  left: 0;
+  right: auto;
+}
+
+
+._rtl .form-horizontal .has-feedback .form-control-feedback {
+  left: 15px;
+  right: auto;
+}
+._rtl .caret {
+  margin-right: 2px;
+  margin-left: 0;
+}
+._rtl .btn-group > .btn,
+._rtl .btn-group-vertical > .btn {
+  float: right;
+}
+._rtl .btn-group .btn + .btn,
+._rtl .btn-group .btn + .btn-group,
+._rtl .btn-group .btn-group + .btn,
+._rtl .btn-group .btn-group + .btn-group {
+  margin-right: -1px;
+  margin-left: 0px;
+}
+
+._rtl .btn-group > .btn:first-child {
+  margin-right: 0;
+}
+._rtl .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+._rtl .btn-group > .btn:last-child:not(:first-child),
+._rtl .btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+._rtl .btn-group > .btn-group {
+  float: right;
+}
+._rtl .btn-group.btn-group-justified > .btn,
+._rtl .btn-group.btn-group-justified > .btn-group {
+  float: none;
+}
+._rtl .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+._rtl .btn-group > .btn-group:first-child > .btn:last-child,
+._rtl .btn-group > .btn-group:first-child > .dropdown-toggle {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+._rtl .btn-group > .btn-group:last-child > .btn:first-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+._rtl .btn .caret {
+  margin-right: 0;
+}
+._rtl .btn-group-vertical > .btn + .btn,
+._rtl .btn-group-vertical > .btn + .btn-group,
+._rtl .btn-group-vertical > .btn-group + .btn,
+._rtl .btn-group-vertical > .btn-group + .btn-group {
+  margin-top: -1px;
+  margin-right: 0;
+}
+._rtl .input-group .form-control {
+  float: right;
+}
+._rtl .input-group .form-control:first-child,
+._rtl .input-group-addon:first-child,
+._rtl .input-group-btn:first-child > .btn,
+._rtl .input-group-btn:first-child > .btn-group > .btn,
+._rtl .input-group-btn:first-child > .dropdown-toggle,
+._rtl .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+._rtl .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+._rtl .input-group-addon:first-child {
+  border-left: 0px;
+  border-right: 1px solid;
+}
+._rtl .input-group .form-control:last-child,
+._rtl .input-group-addon:last-child,
+._rtl .input-group-btn:last-child > .btn,
+._rtl .input-group-btn:last-child > .btn-group > .btn,
+._rtl .input-group-btn:last-child > .dropdown-toggle,
+._rtl .input-group-btn:first-child > .btn:not(:first-child),
+._rtl .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+._rtl .input-group-addon:last-child {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-right: 0px;
+}
+._rtl .input-group-btn > .btn + .btn {
+  margin-right: -1px;
+  margin-left: auto;
+}
+._rtl .input-group-btn:first-child > .btn,
+._rtl .input-group-btn:first-child > .btn-group {
+  margin-left: -1px;
+  margin-right: auto;
+}
+._rtl .input-group-btn:last-child > .btn,
+._rtl .input-group-btn:last-child > .btn-group {
+  margin-right: -1px;
+  margin-left: auto;
+}
+._rtl .alert-dismissable,
+._rtl .alert-dismissible {
+  padding-left: 35px;
+  padding-right: 15px;
+}
+._rtl .alert-dismissable .close,
+._rtl .alert-dismissible .close {
+  right: auto;
+  left: -21px;
+}
+
+._rtl .popover {
+  left: auto;
+  text-align: right;
+}
+._rtl .popover.top > .arrow {
+  right: 50%;
+  left: auto;
+  margin-right: -11px;
+  margin-left: auto;
+}
+._rtl .popover.top > .arrow:after {
+  margin-right: -10px;
+  margin-left: auto;
+}
+._rtl .popover.bottom > .arrow {
+  right: 50%;
+  left: auto;
+  margin-right: -11px;
+  margin-left: auto;
+}
+._rtl .popover.bottom > .arrow:after {
+  margin-right: -10px;
+  margin-left: auto;
+}
+._rtl .pull-right.flip {
+  float: left !important;
+}
+._rtl .pull-left.flip {
+  float: right !important;
+}

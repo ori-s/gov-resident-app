@@ -1,0 +1,3313 @@
+﻿[  
+  {
+    "_id": "5a43b0d1825c5553002ae26f",
+    "created": "2017-12-27T14:40:17.601Z",
+    "owner": "59be3f4cfd38932200bbdce9",
+    "lastUpdated": "2017-12-27T15:10:01.163Z",
+    "openedBy": "59be3f4cfd38932200bbdce9",
+    "orderType": "Seated",
+    "courses": [
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b0d1825c5553002ae273",
+        "tags": [ "__COURSE_INDEX_0" ],
+        "orderedItems": [ "5a43b1060de7238b050171a4", "5a43b1730de7238b050171c3", "5a43b10a0de7238b050171a6" ],
+        "fired": {
+          "at": "2017-12-27T14:43:22.371Z",
+          "by": "59be3f4cfd38932200bbdce9"
+        },
+        "courseType": "Beverages"
+      },
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b0d1825c5553002ae274",
+        "tags": [ "__COURSE_INDEX_1" ],
+        "orderedItems": [ "5a43b0e00de7238b05017197" ],
+        "fired": {
+          "at": "2017-12-27T14:43:22.371Z",
+          "by": "59be3f4cfd38932200bbdce9"
+        },
+        "courseType": "Entrees"
+      },
+      {
+        "hasMainItems": true,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b0d1825c5553002ae275",
+        "tags": [ "__COURSE_INDEX_2" ],
+        "orderedItems": [ "5a43b13d0de7238b050171a8", "5a43b1500de7238b050171c0", "5a43b0f10de7238b050171a0", "5a43b0f30de7238b050171a3" ],
+        "fired": {
+          "at": "2017-12-27T14:43:22.371Z",
+          "by": "59be3f4cfd38932200bbdce9"
+        },
+        "courseType": "Mains"
+      },
+      {
+        "hasMainItems": true,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b18a8eeb6c40008dde83",
+        "tags": [ "__COURSE_INDEX_4", "__SPECIFIER_Mains" ],
+        "orderedItems": [ "5a43b7a50de7238b050174e4" ],
+        "fired": {
+          "at": "2017-12-27T15:10:01.057Z",
+          "by": "5a1c9a07edb942240074175d"
+        },
+        "courseType": "Other"
+      },
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b18a8eeb6c40008dde84",
+        "tags": [ "__COURSE_INDEX_3", "__SPECIFIER_Beverages" ],
+        "orderedItems": [ "5a43b7b40de7238b050174fb", "5a43b7bf0de7238b050174fd" ],
+        "fired": {
+          "at": "2017-12-27T15:10:01.057Z",
+          "by": "5a1c9a07edb942240074175d"
+        },
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b7c94ad5fa43000d7655",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b7c94ad5fa43000d7656",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b0d1825c5553002ae276",
+        "tags": [ "__COURSE_INDEX_5" ],
+        "orderedItems": [ ],
+        "courseType": "Desserts"
+      }
+    ],
+    "rewards": [ ],
+    "orderedOffers": [
+      {
+        "_id": "5a43b0f10de7238b05169938",
+        "amount": 5900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5900,
+        "offer": "582c122ac82e5c0984dc370c",
+        "diner": "5a43b0f10de7238b0501719f",
+        "name": "שניצל קלאסי",
+        "orderedItems": [ "5a43b0f10de7238b050171a0", "5a43b0f30de7238b050171a3" ]
+      },
+      {
+        "_id": "5a43b1060de7238b05169939",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b0e00de7238b05017196",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b1060de7238b050171a4" ]
+      },
+      {
+        "_id": "5a43b10a0de7238b0516993a",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b0f10de7238b0501719f",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b10a0de7238b050171a6" ]
+      },
+      {
+        "_id": "5a43b13d0de7238b0516993b",
+        "amount": 7200,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5300,
+        "offer": "582c1212c82e5c0984dc3620",
+        "diner": "5a43b0e00de7238b05017196",
+        "name": "BBבורגר 220",
+        "orderedItems": [ "5a43b13d0de7238b050171a8" ]
+      },
+      {
+        "_id": "5a43b1500de7238b0516993c",
+        "amount": 1400,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1400,
+        "offer": "582c122ac82e5c0984dc370f",
+        "diner": "5a43b0e00de7238b05017196",
+        "name": "צ'יפס קטן",
+        "orderedItems": [ "5a43b1500de7238b050171c0" ]
+      },
+      {
+        "_id": "5a43b1520de7238b0516993d",
+        "amount": 3900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 3900,
+        "offer": "582c121ac82e5c0984dc366d",
+        "name": "קרפצ'יו",
+        "orderedItems": [ "5a43b0e00de7238b05017197" ]
+      },
+      {
+        "_id": "5a43b1730de7238b0516993e",
+        "amount": 2800,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 2800,
+        "offer": "582c1233c82e5c0984dc3761",
+        "diner": "5a43b0e00de7238b05017196",
+        "name": "מילקשייק",
+        "orderedItems": [ "5a43b1730de7238b050171c3" ]
+      },
+      {
+        "_id": "5a43b7ac0de7238b05169969",
+        "amount": 5900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5900,
+        "offer": "5a1fe76bf9ec1a240012a79b",
+        "diner": "5a43b7ac0de7238b050174f8",
+        "name": "המבורגר אסאדור",
+        "orderedItems": [ "5a43b7a50de7238b050174e4" ]
+      },
+      {
+        "_id": "5a43b7b40de7238b0516996a",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b0f10de7238b0501719f",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b7b40de7238b050174fb" ]
+      },
+      {
+        "_id": "5a43b7bf0de7238b0516996b",
+        "amount": 0,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 0,
+        "offer": "582c1234c82e5c0984dc376d",
+        "diner": "5a43b0f10de7238b0501719f",
+        "name": "קנקן מים",
+        "orderedItems": [ "5a43b7bf0de7238b050174fd" ]
+      }
+    ],
+    "orderedItems": [
+      {
+        "category": "5582c5559b983603000dff94",
+        "amount": 0,
+        "diner": "5a43b0f10de7238b0501719f",
+        "_id": "5a43b0f10de7238b050171a0",
+        "item": "582c11f1c82e5c0984dc34de",
+        "price": 0,
+        "offer": "582c122ac82e5c0984dc370c",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "שניצל קלאסי",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "note": "פירה נקי בלי בצל",
+        "amount": 0,
+        "diner": "5a43b0f10de7238b0501719f",
+        "_id": "5a43b0f30de7238b050171a3",
+        "item": "582c11e3c82e5c0984dc345d",
+        "itemGroup": "582c11f8c82e5c0984dc352a",
+        "price": 0,
+        "itemGroupName": "תוספות",
+        "name": "פירה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b0e00de7238b05017196",
+        "_id": "5a43b1060de7238b050171a4",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b0f10de7238b0501719f",
+        "_id": "5a43b10a0de7238b050171a6",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 1900,
+        "diner": "5a43b0e00de7238b05017196",
+        "_id": "5a43b13d0de7238b050171a8",
+        "item": "582c11bec82e5c0984dc32fb",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3620",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "BBבורגר 220",
+        "removedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "_id": "5a43b7c8d700d12900056b22"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "_id": "5a43b7c8d700d12900056b21"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "_id": "5a43b7c8d700d12900056b20"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "_id": "5a43b7c8d700d12900056b1f"
+          }
+        ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b7a20de7238b050174be",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b7a20de7238b050174c5",
+            "name": "M",
+            "modifier": "53eb1effe6c77111203d87d4",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b1430de7238b050171bc",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 800,
+            "modifier": "58e0ada49c44822200244c28",
+            "name": "ביצת עין הפוכה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b1470de7238b050171be",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 1100,
+            "modifier": "58e0ada49c44822200244c25",
+            "name": "צ'דר בצל",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "amount": 0,
+        "diner": "5a43b0e00de7238b05017196",
+        "_id": "5a43b1500de7238b050171c0",
+        "item": "582c11e6c82e5c0984dc347a",
+        "price": 0,
+        "offer": "582c122ac82e5c0984dc370f",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "צ'יפס קטן",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582c7749b983603000dffdc",
+        "amount": 0,
+        "item": "582c11edc82e5c0984dc34b9",
+        "_id": "5a43b0e00de7238b05017197",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc366d",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קרפצ'יו",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b7a20de7238b050174cf",
+            "name": "עם פרמז'ן",
+            "modifier": "53eb1effe6c77111203d87af",
+            "modifierGroupName": "פרמז'ן",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b7a20de7238b050174d2",
+            "name": "עם לחם",
+            "modifier": "53eb1effe6c77111203d87d9",
+            "modifierGroupName": "לחם",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582c64e0f3b0d030073887f",
+        "amount": 0,
+        "diner": "5a43b0e00de7238b05017196",
+        "_id": "5a43b1730de7238b050171c3",
+        "item": "582c11d7c82e5c0984dc33e4",
+        "price": 0,
+        "offer": "582c1233c82e5c0984dc3761",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "מילקשייק",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "formationUnit": "טעמים לבחירה",
+            "_id": "5a43b1750de7238b050171c7",
+            "name": "שוקו",
+            "modifierGroupName": "טעמים למילקשייק",
+            "modifier": "53eb1effe6c77111203d879f",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 0,
+        "diner": "5a43b7ac0de7238b050174f8",
+        "_id": "5a43b7a50de7238b050174e4",
+        "item": "5a1fe76bf9ec1a240012a799",
+        "price": 0,
+        "offer": "5a1fe76bf9ec1a240012a79b",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "המבורגר אסאדור",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b7a50de7238b050174e6",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b7a50de7238b050174ee",
+            "name": "MW",
+            "modifier": "53eb1effe6c77111203d87d3",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b7a50de7238b050174f2",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b7a50de7238b050174f3",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b7a50de7238b050174f4",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b7a50de7238b050174f5",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b0f10de7238b0501719f",
+        "_id": "5a43b7b40de7238b050174fb",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c489755cc710300d2eb8f",
+        "amount": 0,
+        "diner": "5a43b0f10de7238b0501719f",
+        "_id": "5a43b7bf0de7238b050174fd",
+        "item": "582c11ebc82e5c0984dc34a8",
+        "price": 0,
+        "offer": "582c1234c82e5c0984dc376d",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קנקן מים",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b7bf0de7238b05017505",
+            "name": "בלי כוסות",
+            "modifier": "53eb1effe6c77111203d87b1",
+            "modifierGroupName": "כוסות",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      }
+    ],
+    "diners": [
+      {
+        "chair": 1,
+        "_id": "5a43b0e00de7238b05017196",
+        "segmentations": [ ]
+      },
+      {
+        "chair": 2,
+        "_id": "5a43b0f10de7238b0501719f",
+        "segmentations": [ ]
+      },
+      {
+        "chair": 3,
+        "_id": "5a43b7ac0de7238b050174f8",
+        "segmentations": [ ]
+      }
+    ],
+    "tableIds": [ "5720b834646ebc03000db567" ],
+    "isStaffTable": false
+  },
+  {
+    "_id": "5a43b24e33a8022400dd7a7d",
+    "created": "2017-12-27T14:46:38.579Z",
+    "owner": "59be3f4cfd38932200bbdce9",
+    "lastUpdated": "2017-12-27T14:48:10.704Z",
+    "openedBy": "59be3f4cfd38932200bbdce9",
+    "orderType": "Seated",
+    "courses": [
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b24e33a8022400dd7a81",
+        "tags": [ "__COURSE_INDEX_0" ],
+        "orderedItems": [ "5a43b27f0de7238b05017300", "5a43b27b0de7238b050172fc", "5a43b27c0de7238b050172fe" ],
+        "fired": {
+          "at": "2017-12-27T14:48:10.604Z",
+          "by": "59be3f4cfd38932200bbdce9"
+        },
+        "courseType": "Beverages"
+      },
+      {
+        "hasMainItems": true,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b24e33a8022400dd7a83",
+        "tags": [ "__COURSE_INDEX_2" ],
+        "orderedItems": [ "5a43b2530de7238b050172db", "5a43b2580de7238b050172e4", "5a43b2660de7238b050172e8", "5a43b26b0de7238b050172f8", "5a43b2740de7238b050172fb" ],
+        "fired": {
+          "at": "2017-12-27T14:48:10.604Z",
+          "by": "59be3f4cfd38932200bbdce9"
+        },
+        "courseType": "Mains"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b2aa932f663600e50355",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b2aa932f663600e50356",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b24e33a8022400dd7a84",
+        "tags": [ "__COURSE_INDEX_3" ],
+        "orderedItems": [ ],
+        "courseType": "Desserts"
+      }
+    ],
+    "rewards": [ ],
+    "orderedOffers": [
+      {
+        "_id": "5a43b2530de7238b0516994d",
+        "amount": 5900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5900,
+        "offer": "582c121ac82e5c0984dc3669",
+        "diner": "5a43b2530de7238b050172da",
+        "name": "ראפ עוף",
+        "orderedItems": [ "5a43b2530de7238b050172db", "5a43b2580de7238b050172e4" ]
+      },
+      {
+        "_id": "5a43b2660de7238b0516994f",
+        "amount": 5600,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5600,
+        "offer": "582c11fdc82e5c0984dc3552",
+        "diner": "5a43b2660de7238b050172e7",
+        "name": "סלט עוף מקסיקני",
+        "orderedItems": [ "5a43b2660de7238b050172e8" ]
+      },
+      {
+        "_id": "5a43b26b0de7238b05169950",
+        "amount": 5900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5900,
+        "offer": "582c1236c82e5c0984dc3789",
+        "diner": "5a43b26b0de7238b050172f7",
+        "name": "עוף וירקות על הפלנצ'ה",
+        "orderedItems": [ "5a43b26b0de7238b050172f8", "5a43b2740de7238b050172fb" ]
+      },
+      {
+        "_id": "5a43b27b0de7238b05169951",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3720",
+        "diner": "5a43b2660de7238b050172e7",
+        "name": "פאנטה",
+        "orderedItems": [ "5a43b27b0de7238b050172fc" ]
+      },
+      {
+        "_id": "5a43b27c0de7238b05169952",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3720",
+        "diner": "5a43b26b0de7238b050172f7",
+        "name": "פאנטה",
+        "orderedItems": [ "5a43b27c0de7238b050172fe" ]
+      },
+      {
+        "_id": "5a43b27f0de7238b05169953",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b2530de7238b050172da",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b27f0de7238b05017300" ]
+      }
+    ],
+    "orderedItems": [
+      {
+        "category": "5582c5559b983603000dff94",
+        "amount": 0,
+        "diner": "5a43b2530de7238b050172da",
+        "_id": "5a43b2530de7238b050172db",
+        "item": "582c11edc82e5c0984dc34ba",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc3669",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "ראפ עוף",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2530de7238b050172de",
+            "name": "בצל",
+            "modifierGroupName": "מרכיבי ראפ",
+            "modifier": "5587d44caf2afb03000125ec",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2530de7238b050172df",
+            "name": "פלפלים",
+            "modifierGroupName": "מרכיבי ראפ",
+            "modifier": "5587d45baf2afb03000125ed",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2530de7238b050172e0",
+            "name": "גוואקמולי",
+            "modifierGroupName": "מרכיבי ראפ",
+            "modifier": "5587d48eaf2afb03000125f1",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2530de7238b050172e1",
+            "name": "עוף",
+            "modifierGroupName": "מרכיבי ראפ",
+            "modifier": "55d9692b88bddf03006d7528",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "amount": 0,
+        "diner": "5a43b2530de7238b050172da",
+        "_id": "5a43b2580de7238b050172e4",
+        "item": "582c11e6c82e5c0984dc347a",
+        "itemGroup": "582c11f8c82e5c0984dc352a",
+        "price": 0,
+        "itemGroupName": "תוספות",
+        "name": "צ'יפס קטן",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "543236da44cc810200c8e2b2",
+        "amount": 0,
+        "diner": "5a43b2660de7238b050172e7",
+        "_id": "5a43b2660de7238b050172e8",
+        "item": "582c11ddc82e5c0984dc3424",
+        "price": 0,
+        "offer": "582c11fdc82e5c0984dc3552",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "סלט עוף מקסיקני",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b2660de7238b050172ea",
+            "name": "עם לחם",
+            "modifier": "53eb1effe6c77111203d87d9",
+            "modifierGroupName": "לחם",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2660de7238b050172ee",
+            "name": "פלפל קלוי",
+            "modifierGroupName": "מרכיבים סלט מקסיקני",
+            "modifier": "57702834e6a74b1e003e52bd",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2660de7238b050172ef",
+            "name": "עגבניות שרי",
+            "modifierGroupName": "מרכיבים סלט מקסיקני",
+            "modifier": "577028455a657e2300fe6824",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2660de7238b050172f0",
+            "name": "עגבניות",
+            "modifierGroupName": "מרכיבים סלט מקסיקני",
+            "modifier": "57702849a7e2eb230049d491",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2660de7238b050172f1",
+            "name": "בצל סגול",
+            "modifierGroupName": "מרכיבים סלט מקסיקני",
+            "modifier": "57702853a7e2eb230049d49a",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2660de7238b050172f2",
+            "name": "בצל ירוק",
+            "modifierGroupName": "מרכיבים סלט מקסיקני",
+            "modifier": "577028785a657e2300fe683b",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2660de7238b050172f3",
+            "name": "איולי צ'יפוטלה",
+            "modifierGroupName": "מרכיבים סלט מקסיקני",
+            "modifier": "57702888a7e2eb230049d4b9",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2660de7238b050172f4",
+            "name": "גוואקמולי",
+            "modifierGroupName": "מרכיבים סלט מקסיקני",
+            "modifier": "577028965a657e2300fe6852",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b2660de7238b050172f5",
+            "name": "נאצ'וס",
+            "modifierGroupName": "מרכיבים סלט מקסיקני",
+            "modifier": "5770289deb584f240034935d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582c5559b983603000dff94",
+        "amount": 0,
+        "diner": "5a43b26b0de7238b050172f7",
+        "_id": "5a43b26b0de7238b050172f8",
+        "item": "582c11e0c82e5c0984dc343d",
+        "price": 0,
+        "offer": "582c1236c82e5c0984dc3789",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "עוף וירקות על הפלנצ'ה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "amount": 0,
+        "diner": "5a43b26b0de7238b050172f7",
+        "_id": "5a43b2740de7238b050172fb",
+        "item": "582c11e6c82e5c0984dc347a",
+        "itemGroup": "582c11f8c82e5c0984dc352a",
+        "price": 0,
+        "itemGroupName": "תוספות",
+        "name": "צ'יפס קטן",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b2660de7238b050172e7",
+        "_id": "5a43b27b0de7238b050172fc",
+        "item": "582c11e1c82e5c0984dc344a",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3720",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "פאנטה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b26b0de7238b050172f7",
+        "_id": "5a43b27c0de7238b050172fe",
+        "item": "582c11e1c82e5c0984dc344a",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3720",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "פאנטה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b2530de7238b050172da",
+        "_id": "5a43b27f0de7238b05017300",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      }
+    ],
+    "diners": [
+      {
+        "chair": 1,
+        "_id": "5a43b2530de7238b050172da",
+        "segmentations": [ ]
+      },
+      {
+        "chair": 2,
+        "_id": "5a43b2660de7238b050172e7",
+        "segmentations": [ ]
+      },
+      {
+        "chair": 3,
+        "_id": "5a43b26b0de7238b050172f7",
+        "segmentations": [ ]
+      }
+    ],
+    "tableIds": [ "5720b839646ebc03000db56e" ],
+    "isStaffTable": false
+  },
+  {
+    "_id": "5a43b391f5a78d4c00b62e37",
+    "created": "2017-12-27T14:52:01.207Z",
+    "owner": "582c718971dde11f009afb76",
+    "lastUpdated": "2017-12-27T15:06:18.602Z",
+    "openedBy": "582c718971dde11f009afb76",
+    "orderType": "Seated",
+    "courses": [
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b391f5a78d4c00b62e3c",
+        "tags": [ "__COURSE_INDEX_1" ],
+        "orderedItems": [ "5a43b39a6682d6920200bee8", "5a43b3ab6682d6920200bef5", "5a43b3b46682d6920200befd", "5a43b3a66682d6920200bef1" ],
+        "fired": {
+          "at": "2017-12-27T14:54:13.213Z",
+          "by": "582c718971dde11f009afb76"
+        },
+        "courseType": "Entrees"
+      },
+      {
+        "hasMainItems": true,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b391f5a78d4c00b62e3d",
+        "tags": [ "שתייה אוכל ", "__COURSE_INDEX_2" ],
+        "orderedItems": [ "5a43b3bb6682d6920200bf04", "5a43b3cb6682d6920200bf10", "5a43b3d66682d6920200bf1a", "5a43b3e26682d6920200bf1e", "5a43b3e76682d6920200bf20", "5a43b3e76682d6920200bf22" ],
+        "fired": {
+          "at": "2017-12-27T14:54:13.213Z",
+          "by": "582c718971dde11f009afb76"
+        },
+        "courseType": "Mains"
+      },
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b4157fdec84d00c28a15",
+        "tags": [ "__COURSE_INDEX_2", "__SPECIFIER_Entrees" ],
+        "orderedItems": [ "5a43b6e76682d6920200c276" ],
+        "fired": {
+          "at": "2017-12-27T15:06:18.496Z",
+          "by": "59be3f4cfd38932200bbdce9"
+        },
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b6ea825c5553002ae67e",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b6ea825c5553002ae67f",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b391f5a78d4c00b62e3e",
+        "tags": [ "__COURSE_INDEX_3" ],
+        "orderedItems": [ ],
+        "courseType": "Desserts"
+      }
+    ],
+    "rewards": [ ],
+    "orderedOffers": [
+      {
+        "_id": "5a43b39a6682d69202058f23",
+        "amount": 2900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 2900,
+        "offer": "582c121ac82e5c0984dc366e",
+        "name": "כרובית פריכה",
+        "orderedItems": [ "5a43b39a6682d6920200bee8" ]
+      },
+      {
+        "_id": "5a43b3a66682d69202058f24",
+        "amount": 2900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 2900,
+        "offer": "59673fd97a8ec822007a529d",
+        "name": "צ'יפס בטטה",
+        "orderedItems": [ "5a43b3a66682d6920200bef1" ]
+      },
+      {
+        "_id": "5a43b3ab6682d69202058f25",
+        "amount": 3400,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 3400,
+        "offer": "582c120ac82e5c0984dc35cf",
+        "name": "פטה כבד",
+        "orderedItems": [ "5a43b3ab6682d6920200bef5" ]
+      },
+      {
+        "_id": "5a43b3b46682d69202058f26",
+        "amount": 3200,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 3200,
+        "offer": "582c120ac82e5c0984dc35d3",
+        "name": "נאגטס עוף",
+        "orderedItems": [ "5a43b3b46682d6920200befd" ]
+      },
+      {
+        "_id": "5a43b3bb6682d69202058f27",
+        "amount": 6600,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 6600,
+        "offer": "582c122ac82e5c0984dc370a",
+        "diner": "5a43b3bb6682d6920200bf03",
+        "name": "כריך אנטריקוט",
+        "orderedItems": [ "5a43b3bb6682d6920200bf04" ]
+      },
+      {
+        "_id": "5a43b3cb6682d69202058f28",
+        "amount": 5900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5900,
+        "offer": "582c121ac82e5c0984dc3669",
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "name": "ראפ עוף",
+        "orderedItems": [ "5a43b3cb6682d6920200bf10", "5a43b3d66682d6920200bf1a" ]
+      },
+      {
+        "_id": "5a43b3e26682d69202058f29",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b3e26682d6920200bf1e" ]
+      },
+      {
+        "_id": "5a43b3e76682d69202058f2a",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b3e76682d6920200bf20" ]
+      },
+      {
+        "_id": "5a43b3e76682d69202058f2b",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b3e76682d6920200bf22" ]
+      },
+      {
+        "_id": "5a43b6e76682d69202058f48",
+        "amount": 2900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 2900,
+        "offer": "582c122bc82e5c0984dc3715",
+        "name": "בורגוס רינגס",
+        "orderedItems": [ "5a43b6e76682d6920200c276" ]
+      }
+    ],
+    "orderedItems": [
+      {
+        "category": "5582c81b0f3b0d03007388b2",
+        "amount": 0,
+        "item": "582c11d3c82e5c0984dc33c2",
+        "_id": "5a43b39a6682d6920200bee8",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc366e",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "כרובית פריכה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b6e26682d6920200c23e",
+            "name": "עם רוטב",
+            "modifier": "553889b59088160e00604c62",
+            "modifierGroupName": "רוטב",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b6e26682d6920200c243",
+            "name": "חלבי",
+            "modifier": "570bb20becbc800300f37794",
+            "modifierGroupName": "פרווה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582c81b0f3b0d03007388b2",
+        "amount": 0,
+        "item": "59673fd97a8ec822007a529b",
+        "_id": "5a43b3a66682d6920200bef1",
+        "price": 0,
+        "offer": "59673fd97a8ec822007a529d",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "צ'יפס בטטה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582c7749b983603000dffdc",
+        "amount": 0,
+        "item": "582c11e2c82e5c0984dc3450",
+        "_id": "5a43b3ab6682d6920200bef5",
+        "price": 0,
+        "offer": "582c120ac82e5c0984dc35cf",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "פטה כבד",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b6e26682d6920200c24b",
+            "name": "עם לחם",
+            "modifier": "53eb1effe6c77111203d87d9",
+            "modifierGroupName": "לחם",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582c7749b983603000dffdc",
+        "amount": 0,
+        "item": "582c11d9c82e5c0984dc33fe",
+        "_id": "5a43b3b46682d6920200befd",
+        "price": 0,
+        "offer": "582c120ac82e5c0984dc35d3",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "נאגטס עוף",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b6e26682d6920200c24f",
+            "name": "עם רוטב",
+            "modifier": "553889b59088160e00604c62",
+            "modifierGroupName": "רוטב",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582c5559b983603000dff94",
+        "note": "טריו",
+        "amount": 0,
+        "diner": "5a43b3bb6682d6920200bf03",
+        "_id": "5a43b3bb6682d6920200bf04",
+        "item": "582c11d3c82e5c0984dc33c3",
+        "price": 0,
+        "offer": "582c122ac82e5c0984dc370a",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "כריך אנטריקוט",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3bb6682d6920200bf07",
+            "name": "איולי חרדל",
+            "modifierGroupName": "מרכיבים: כריך אנטריקוט",
+            "modifier": "57a9ac8c666fd71e00306ef5",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3bb6682d6920200bf08",
+            "name": "צ'ימיצ'ורי",
+            "modifierGroupName": "מרכיבים: כריך אנטריקוט",
+            "modifier": "57a9ac8c666fd71e00306ef4",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3bb6682d6920200bf09",
+            "name": "עלי רוקט",
+            "modifierGroupName": "מרכיבים: כריך אנטריקוט",
+            "modifier": "57a9ac8c666fd71e00306ef3",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3bb6682d6920200bf0a",
+            "name": "בצל צרוב",
+            "modifierGroupName": "מרכיבים: כריך אנטריקוט",
+            "modifier": "57a9ac8c666fd71e00306ef2",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3bb6682d6920200bf0b",
+            "name": "בצל סגול",
+            "modifierGroupName": "מרכיבים: כריך אנטריקוט",
+            "modifier": "57a9ac8c666fd71e00306ef1",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3bb6682d6920200bf0c",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "מרכיבים: כריך אנטריקוט",
+            "modifier": "57a9ac8c666fd71e00306ef0",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582c5559b983603000dff94",
+        "amount": 0,
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "_id": "5a43b3cb6682d6920200bf10",
+        "item": "582c11edc82e5c0984dc34ba",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc3669",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "ראפ עוף",
+        "removedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "name": "גוואקמולי",
+            "modifierGroupName": "מרכיבי ראפ",
+            "modifier": "5587d48eaf2afb03000125f1",
+            "_id": "5a43b6eaee468d2e00ad9411"
+          }
+        ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3cb6682d6920200bf13",
+            "name": "בצל",
+            "modifierGroupName": "מרכיבי ראפ",
+            "modifier": "5587d44caf2afb03000125ec",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3cb6682d6920200bf14",
+            "name": "פלפלים",
+            "modifierGroupName": "מרכיבי ראפ",
+            "modifier": "5587d45baf2afb03000125ed",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b3cb6682d6920200bf16",
+            "name": "עוף",
+            "modifierGroupName": "מרכיבי ראפ",
+            "modifier": "55d9692b88bddf03006d7528",
+            "price": 0,
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "amount": 0,
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "_id": "5a43b3d66682d6920200bf1a",
+        "item": "582c11cbc82e5c0984dc3378",
+        "itemGroup": "582c11f8c82e5c0984dc352a",
+        "price": 0,
+        "itemGroupName": "תוספות",
+        "name": "הום פרייז",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b6e26682d6920200c264",
+            "name": "חלבי",
+            "modifier": "570bb20becbc800300f37794",
+            "modifierGroupName": "פרווה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "_id": "5a43b3e26682d6920200bf1e",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "_id": "5a43b3e76682d6920200bf20",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b3cb6682d6920200bf0f",
+        "_id": "5a43b3e76682d6920200bf22",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582c81b0f3b0d03007388b2",
+        "amount": 0,
+        "item": "582c11c4c82e5c0984dc332f",
+        "_id": "5a43b6e76682d6920200c276",
+        "price": 0,
+        "offer": "582c122bc82e5c0984dc3715",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "בורגוס רינגס",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      }
+    ],
+    "diners": [
+      {
+        "chair": 1,
+        "_id": "5a43b3bb6682d6920200bf03",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 2,
+        "_id": "5a43b3cb6682d6920200bf0f",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 3,
+        "_id": "5a43b5ea72cb2a6c04024969",
+        "segmentations": [ ],
+        "tags": { }
+      }
+    ],
+    "tableIds": [ "5720b8feea846603004ee269" ],
+    "isStaffTable": false
+  },
+  {
+    "_id": "5a43b49e9e913f4f005f3c2a",
+    "created": "2017-12-27T14:56:30.893Z",
+    "owner": "582c718971dde11f009afb76",
+    "lastUpdated": "2017-12-27T15:18:28.694Z",
+    "openedBy": "582c718971dde11f009afb76",
+    "orderType": "Seated",
+    "courses": [
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b49e9e913f4f005f3c2e",
+        "tags": [ "__COURSE_INDEX_0" ],
+        "orderedItems": [ "5a43b4c76682d6920200c06c", "5a43b5316682d6920200c0d6", "5a43b5366682d6920200c0e0" ],
+        "fired": {
+          "at": "2017-12-27T14:59:58.933Z",
+          "by": "582c718971dde11f009afb76"
+        },
+        "courseType": "Beverages"
+      },
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b49e9e913f4f005f3c2f",
+        "tags": [ "__COURSE_INDEX_1" ],
+        "orderedItems": [ "5a43b4c06682d6920200c06b", "5a43b4fd6682d6920200c09a" ],
+        "fired": {
+          "at": "2017-12-27T14:59:58.933Z",
+          "by": "582c718971dde11f009afb76"
+        },
+        "courseType": "Entrees"
+      },
+      {
+        "hasMainItems": true,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b49e9e913f4f005f3c30",
+        "tags": [ "__COURSE_INDEX_2" ],
+        "orderedItems": [ "5a43b4a66682d6920200c056", "5a43b4b46682d6920200c06a", "5a43b4df6682d6920200c082", "5a43b4f46682d6920200c098", "5a43b5076682d6920200c09d", "5a43b5196682d6920200c0b4", "5a43b5266682d6920200c0c2" ],
+        "fired": {
+          "at": "2017-12-27T14:59:58.933Z",
+          "by": "582c718971dde11f009afb76"
+        },
+        "courseType": "Mains"
+      },
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b56fcb4b64400083d4ee",
+        "tags": [ "__COURSE_INDEX_3", "__SPECIFIER_Beverages" ],
+        "orderedItems": [ "5a43b9bff7509fe90103470d" ],
+        "fired": {
+          "at": "2017-12-27T15:18:28.581Z",
+          "by": "597c59c35059082700ab2039"
+        },
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b9c46a14265200e453f1",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b9c46a14265200e453f2",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b49e9e913f4f005f3c31",
+        "tags": [ "__COURSE_INDEX_4" ],
+        "orderedItems": [ ],
+        "courseType": "Desserts"
+      }
+    ],
+    "rewards": [ ],
+    "orderedOffers": [
+      {
+        "_id": "5a43b4a66682d69202058f35",
+        "amount": 6500,
+        "menu": "582c123bc82e5c0984dc37b5",
+        "price": 5900,
+        "offer": "582c1226c82e5c0984dc36e4",
+        "diner": "5a43b4a66682d6920200c055",
+        "name": "עסקית 59",
+        "orderedItems": [ "5a43b4a66682d6920200c056", "5a43b4b46682d6920200c06a", "5a43b4c06682d6920200c06b", "5a43b4c76682d6920200c06c" ]
+      },
+      {
+        "_id": "5a43b4df6682d69202058f37",
+        "amount": 6800,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5900,
+        "offer": "5a1fe76bf9ec1a240012a79b",
+        "diner": "5a43b4d66682d6920200c06d",
+        "name": "המבורגר אסאדור",
+        "orderedItems": [ "5a43b4df6682d6920200c082" ]
+      },
+      {
+        "_id": "5a43b4f46682d69202058f38",
+        "amount": 2400,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 2400,
+        "offer": "582c1221c82e5c0984dc36b1",
+        "diner": "5a43b4d66682d6920200c06d",
+        "name": "צ'יפס גדול",
+        "orderedItems": [ "5a43b4f46682d6920200c098" ]
+      },
+      {
+        "_id": "5a43b4fd6682d69202058f39",
+        "amount": 2900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 2900,
+        "offer": "582c122bc82e5c0984dc3715",
+        "diner": "5a43b4d66682d6920200c06d",
+        "name": "בורגוס רינגס",
+        "orderedItems": [ "5a43b4fd6682d6920200c09a" ]
+      },
+      {
+        "_id": "5a43b5076682d69202058f3a",
+        "amount": 6200,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5300,
+        "offer": "582c1212c82e5c0984dc3620",
+        "diner": "5a43b4fe6682d6920200c09c",
+        "name": "BBבורגר 220",
+        "orderedItems": [ "5a43b5076682d6920200c09d" ]
+      },
+      {
+        "_id": "5a43b5196682d69202058f3b",
+        "amount": 4600,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 4600,
+        "offer": "582c1212c82e5c0984dc3621",
+        "diner": "5a43b5146682d6920200c0b3",
+        "name": "סלט קיסר",
+        "orderedItems": [ "5a43b5196682d6920200c0b4" ]
+      },
+      {
+        "_id": "5a43b5266682d69202058f3c",
+        "amount": 4700,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 4700,
+        "offer": "582c121ac82e5c0984dc366b",
+        "diner": "5a43b5246682d6920200c0c1",
+        "name": "Bבורגר 160",
+        "orderedItems": [ "5a43b5266682d6920200c0c2" ]
+      },
+      {
+        "_id": "5a43b5316682d69202058f3d",
+        "amount": 0,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 0,
+        "offer": "582c1234c82e5c0984dc376d",
+        "diner": "5a43b5246682d6920200c0c1",
+        "name": "קנקן מים",
+        "orderedItems": [ "5a43b5316682d6920200c0d6" ]
+      },
+      {
+        "_id": "5a43b5366682d69202058f3e",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b5246682d6920200c0c1",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b5366682d6920200c0e0" ]
+      },
+      {
+        "_id": "5a43b9bff7509fe9016396e5",
+        "amount": 0,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 0,
+        "offer": "582c1234c82e5c0984dc376d",
+        "diner": "5a43b4a66682d6920200c055",
+        "name": "קנקן מים",
+        "orderedItems": [ "5a43b9bff7509fe90103470d" ]
+      }
+    ],
+    "orderedItems": [
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 0,
+        "diner": "5a43b4a66682d6920200c055",
+        "_id": "5a43b4a66682d6920200c056",
+        "item": "582c11bec82e5c0984dc32fc",
+        "itemGroup": "582c11f8c82e5c0984dc3528",
+        "price": 0,
+        "offer": "582c1226c82e5c0984dc36e4",
+        "menu": "582c123bc82e5c0984dc37b5",
+        "itemGroupName": "עיקריות 55",
+        "name": "Bבורגר 160",
+        "removedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "_id": "5a43b9c46a63a74f00f97617"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "_id": "5a43b9c46a63a74f00f97616"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "_id": "5a43b9c46a63a74f00f97615"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "_id": "5a43b9c46a63a74f00f97614"
+          }
+        ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b9b6f7509fe9010346a4",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b9b6f7509fe9010346ac",
+            "name": "MW",
+            "modifier": "53eb1effe6c77111203d87d3",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "amount": 0,
+        "diner": "5a43b4a66682d6920200c055",
+        "_id": "5a43b4b46682d6920200c06a",
+        "item": "582c11e6c82e5c0984dc347a",
+        "itemGroup": "582c11f8c82e5c0984dc352a",
+        "price": 0,
+        "itemGroupName": "תוספות",
+        "name": "צ'יפס קטן",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582c81b0f3b0d03007388b2",
+        "amount": 0,
+        "diner": "5a43b4a66682d6920200c055",
+        "_id": "5a43b4c06682d6920200c06b",
+        "item": "582c11cfc82e5c0984dc339d",
+        "itemGroup": "582c11f8c82e5c0984dc3529",
+        "price": 0,
+        "itemGroupName": "ראשונות - עסקית",
+        "name": "חציל קלוי עסקית",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 600,
+        "diner": "5a43b4a66682d6920200c055",
+        "_id": "5a43b4c76682d6920200c06c",
+        "item": "582c11e9c82e5c0984dc3497",
+        "itemGroup": "582c11f9c82e5c0984dc352c",
+        "price": 600,
+        "itemGroupName": "משקאות - עסקית",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 900,
+        "diner": "5a43b4d66682d6920200c06d",
+        "_id": "5a43b4df6682d6920200c082",
+        "item": "5a1fe76bf9ec1a240012a799",
+        "price": 0,
+        "offer": "5a1fe76bf9ec1a240012a79b",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "המבורגר אסאדור",
+        "removedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "_id": "5a43b9c46a63a74f00f97613"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "_id": "5a43b9c46a63a74f00f97612"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "_id": "5a43b9c46a63a74f00f97611"
+          }
+        ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b9b6f7509fe9010346b5",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b9b6f7509fe9010346bd",
+            "name": "MW",
+            "modifier": "53eb1effe6c77111203d87d3",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b4df6682d6920200c093",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b4e96682d6920200c096",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 900,
+            "modifier": "58e0ada49c44822200244c26",
+            "name": "גאודה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "amount": 0,
+        "diner": "5a43b4d66682d6920200c06d",
+        "_id": "5a43b4f46682d6920200c098",
+        "item": "582c11e6c82e5c0984dc3478",
+        "price": 0,
+        "offer": "582c1221c82e5c0984dc36b1",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "צ'יפס גדול",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582c81b0f3b0d03007388b2",
+        "amount": 0,
+        "diner": "5a43b4d66682d6920200c06d",
+        "_id": "5a43b4fd6682d6920200c09a",
+        "item": "582c11c4c82e5c0984dc332f",
+        "price": 0,
+        "offer": "582c122bc82e5c0984dc3715",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "בורגוס רינגס",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 900,
+        "diner": "5a43b4fe6682d6920200c09c",
+        "_id": "5a43b5076682d6920200c09d",
+        "item": "582c11bec82e5c0984dc32fb",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3620",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "BBבורגר 220",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b9b6f7509fe9010346c8",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b9b6f7509fe9010346d0",
+            "name": "MW",
+            "modifier": "53eb1effe6c77111203d87d3",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5076682d6920200c0ab",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5076682d6920200c0ac",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5076682d6920200c0ad",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5076682d6920200c0ae",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b50e6682d6920200c0b1",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 900,
+            "modifier": "58e0ada49c44822200244c26",
+            "name": "גאודה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "543236da44cc810200c8e2b2",
+        "amount": 0,
+        "diner": "5a43b5146682d6920200c0b3",
+        "_id": "5a43b5196682d6920200c0b4",
+        "item": "582c11dec82e5c0984dc3427",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3621",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "סלט קיסר",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b9b6f7509fe9010346dd",
+            "name": "בלי לחם",
+            "modifier": "53eb1effe6c77111203d87d8",
+            "modifierGroupName": "לחם",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5196682d6920200c0ba",
+            "name": "פרמז'ן",
+            "modifierGroupName": "מרכיבי סלט קיסר",
+            "modifier": "53eb1effe6c77111203d879a",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5196682d6920200c0bb",
+            "name": "בצל סגול",
+            "modifierGroupName": "מרכיבי סלט קיסר",
+            "modifier": "53eb1effe6c77111203d8798",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5196682d6920200c0bc",
+            "name": "קרוטונים",
+            "modifierGroupName": "מרכיבי סלט קיסר",
+            "modifier": "53eb1effe6c77111203d8797",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5196682d6920200c0bd",
+            "name": "רוטב",
+            "modifierGroupName": "מרכיבי סלט קיסר",
+            "modifier": "53eb1effe6c77111203d8796",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 0,
+        "diner": "5a43b5246682d6920200c0c1",
+        "_id": "5a43b5266682d6920200c0c2",
+        "item": "582c11bec82e5c0984dc32fc",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc366b",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "Bבורגר 160",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b9b6f7509fe9010346e6",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b9b6f7509fe9010346ee",
+            "name": "MW",
+            "modifier": "53eb1effe6c77111203d87d3",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5266682d6920200c0d0",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5266682d6920200c0d1",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5266682d6920200c0d2",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43b5266682d6920200c0d3",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "564c489755cc710300d2eb8f",
+        "amount": 0,
+        "diner": "5a43b5246682d6920200c0c1",
+        "_id": "5a43b5316682d6920200c0d6",
+        "item": "582c11ebc82e5c0984dc34a8",
+        "price": 0,
+        "offer": "582c1234c82e5c0984dc376d",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קנקן מים",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b9b6f7509fe9010346f7",
+            "name": "3 כוסות",
+            "modifier": "53eb1effe6c77111203d87b6",
+            "modifierGroupName": "כוסות",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b5246682d6920200c0c1",
+        "_id": "5a43b5366682d6920200c0e0",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c489755cc710300d2eb8f",
+        "amount": 0,
+        "diner": "5a43b4a66682d6920200c055",
+        "_id": "5a43b9bff7509fe90103470d",
+        "item": "582c11ebc82e5c0984dc34a8",
+        "price": 0,
+        "offer": "582c1234c82e5c0984dc376d",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קנקן מים",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b9bff7509fe901034715",
+            "name": "בלי כוסות",
+            "modifier": "53eb1effe6c77111203d87b1",
+            "modifierGroupName": "כוסות",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      }
+    ],
+    "diners": [
+      {
+        "chair": 1,
+        "_id": "5a43b4a66682d6920200c055",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 2,
+        "_id": "5a43b4d66682d6920200c06d",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 3,
+        "_id": "5a43b4fe6682d6920200c09c",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 4,
+        "_id": "5a43b5146682d6920200c0b3",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 5,
+        "_id": "5a43b5246682d6920200c0c1",
+        "segmentations": [ ],
+        "tags": { }
+      }
+    ],
+    "tableIds": [ "5720b905ea846603004ee26b" ],
+    "isStaffTable": false
+  },
+  {
+    "_id": "5a43a5fb4305c04e008e3689",
+    "created": "2017-12-27T13:54:03.446Z",
+    "owner": "597c59c35059082700ab2039",
+    "lastUpdated": "2017-12-27T15:19:57.046Z",
+    "openedBy": "597c59c35059082700ab2039",
+    "orderType": "Seated",
+    "courses": [
+      {
+        "hasMainItems": true,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43a5fb4305c04e008e368f",
+        "tags": [ "__COURSE_INDEX_2" ],
+        "orderedItems": [ "5a43a608f7509fe901033a95", "5a43a659f7509fe901033af2", "5a43a62ef7509fe901033abf", "5a43a680f7509fe901033b0b", "5a43a686f7509fe901033b0d", "5a43a63ff7509fe901033ad8", "5a43a69af7509fe901033b13", "5a43a6a3f7509fe901033b1e", "5a43a6a6f7509fe901033b20", "5a43a6a6f7509fe901033b22", "5a43a6acf7509fe901033b26" ],
+        "fired": {
+          "at": "2017-12-27T13:58:56.379Z",
+          "by": "597c59c35059082700ab2039"
+        },
+        "courseType": "Mains"
+      },
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43a72009de6d400085801b",
+        "tags": [ "__COURSE_INDEX_1", "__SPECIFIER_Beverages" ],
+        "orderedItems": [ "5a43b234f7509fe901034031", "5a43b235f7509fe901034033", "5a43b235f7509fe901034035", "5a43b236f7509fe901034037" ],
+        "fired": {
+          "at": "2017-12-27T14:47:25.058Z",
+          "by": "597c59c35059082700ab2039"
+        },
+        "courseType": "Other"
+      },
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43a5fb4305c04e008e3690",
+        "tags": [ "__COURSE_INDEX_2" ],
+        "orderedItems": [ "5a43b252f7509fe90103403b", "5a43b247f7509fe901034039" ],
+        "fired": {
+          "at": "2017-12-27T14:47:25.058Z",
+          "by": "597c59c35059082700ab2039"
+        },
+        "courseType": "Desserts"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b27df2c99a340095a8c4",
+        "tags": [ "__COURSE_INDEX_3" ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b27df2c99a340095a8c5",
+        "tags": [ "__COURSE_INDEX_4" ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      }
+    ],
+    "rewards": [ ],
+    "orderedOffers": [
+      {
+        "_id": "5a43a608f7509fe90163965e",
+        "amount": 5300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5300,
+        "offer": "582c1212c82e5c0984dc3620",
+        "diner": "5a43a608f7509fe901033a94",
+        "name": "BBבורגר 220",
+        "orderedItems": [ "5a43a608f7509fe901033a95" ]
+      },
+      {
+        "_id": "5a43a62ef7509fe901639660",
+        "amount": 7300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5300,
+        "offer": "582c1212c82e5c0984dc3620",
+        "diner": "5a43a62ef7509fe901033abe",
+        "name": "BBבורגר 220",
+        "orderedItems": [ "5a43a62ef7509fe901033abf" ]
+      },
+      {
+        "_id": "5a43a63ff7509fe901639661",
+        "amount": 7300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5300,
+        "offer": "582c1212c82e5c0984dc3620",
+        "diner": "5a43a63ff7509fe901033ad7",
+        "name": "BBבורגר 220",
+        "orderedItems": [ "5a43a63ff7509fe901033ad8" ]
+      },
+      {
+        "_id": "5a43a659f7509fe901639662",
+        "amount": 6400,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5300,
+        "offer": "582c1212c82e5c0984dc3620",
+        "diner": "5a43a61df7509fe901033aa9",
+        "name": "BBבורגר 220",
+        "orderedItems": [ "5a43a659f7509fe901033af2" ]
+      },
+      {
+        "_id": "5a43a680f7509fe901639663",
+        "amount": 2400,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 2400,
+        "offer": "582c1221c82e5c0984dc36b1",
+        "diner": "5a43a62ef7509fe901033abe",
+        "name": "צ'יפס גדול",
+        "orderedItems": [ "5a43a680f7509fe901033b0b" ]
+      },
+      {
+        "_id": "5a43a686f7509fe901639664",
+        "amount": 1800,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1800,
+        "offer": "582c1232c82e5c0984dc3760",
+        "diner": "5a43a62ef7509fe901033abe",
+        "name": "הום פרייז",
+        "orderedItems": [ "5a43a686f7509fe901033b0d" ]
+      },
+      {
+        "_id": "5a43a69df7509fe901639666",
+        "amount": 3500,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 3500,
+        "offer": "582c120ac82e5c0984dc35d2",
+        "diner": "5a43a63ff7509fe901033ad7",
+        "name": "סלט בלקני",
+        "orderedItems": [ "5a43a69af7509fe901033b13" ]
+      },
+      {
+        "_id": "5a43a6a3f7509fe901639667",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43a63ff7509fe901033ad7",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43a6a3f7509fe901033b1e" ]
+      },
+      {
+        "_id": "5a43a6a6f7509fe901639668",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43a63ff7509fe901033ad7",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43a6a6f7509fe901033b20" ]
+      },
+      {
+        "_id": "5a43a6a6f7509fe901639669",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43a63ff7509fe901033ad7",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43a6a6f7509fe901033b22" ]
+      },
+      {
+        "_id": "5a43a6acf7509fe90163966b",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c121bc82e5c0984dc3674",
+        "diner": "5a43a63ff7509fe901033ad7",
+        "name": "קולה זירו",
+        "orderedItems": [ "5a43a6acf7509fe901033b26" ]
+      },
+      {
+        "_id": "5a43b234f7509fe90163969a",
+        "amount": 900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 900,
+        "offer": "582c121ac82e5c0984dc366f",
+        "diner": "5a43a608f7509fe901033a94",
+        "name": "תה נענע",
+        "orderedItems": [ "5a43b234f7509fe901034031" ]
+      },
+      {
+        "_id": "5a43b235f7509fe90163969b",
+        "amount": 900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 900,
+        "offer": "582c121ac82e5c0984dc366f",
+        "diner": "5a43a608f7509fe901033a94",
+        "name": "תה נענע",
+        "orderedItems": [ "5a43b235f7509fe901034033" ]
+      },
+      {
+        "_id": "5a43b235f7509fe90163969c",
+        "amount": 900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 900,
+        "offer": "582c121ac82e5c0984dc366f",
+        "diner": "5a43a608f7509fe901033a94",
+        "name": "תה נענע",
+        "orderedItems": [ "5a43b235f7509fe901034035" ]
+      },
+      {
+        "_id": "5a43b236f7509fe90163969d",
+        "amount": 900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 900,
+        "offer": "582c121ac82e5c0984dc366f",
+        "diner": "5a43a608f7509fe901033a94",
+        "name": "תה נענע",
+        "orderedItems": [ "5a43b236f7509fe901034037" ]
+      },
+      {
+        "_id": "5a43b247f7509fe90163969e",
+        "amount": 3900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 3900,
+        "offer": "582c122bc82e5c0984dc3710",
+        "diner": "5a43a61df7509fe901033aa9",
+        "name": "וופל אמריקאי",
+        "orderedItems": [ "5a43b247f7509fe901034039" ]
+      },
+      {
+        "_id": "5a43b252f7509fe90163969f",
+        "amount": 900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 900,
+        "offer": "582c1221c82e5c0984dc36b2",
+        "diner": "5a43a608f7509fe901033a94",
+        "name": "כדור גלידה",
+        "orderedItems": [ "5a43b252f7509fe90103403b" ]
+      }
+    ],
+    "orderedItems": [
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 0,
+        "diner": "5a43a608f7509fe901033a94",
+        "_id": "5a43a608f7509fe901033a95",
+        "item": "582c11bec82e5c0984dc32fb",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3620",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "BBבורגר 220",
+        "removedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "_id": "5a43b9b55b6732490056d14b"
+          }
+        ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b925f7509fe901034530",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b925f7509fe901034539",
+            "name": "WD",
+            "modifier": "53eb1effe6c77111203d87d2",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a608f7509fe901033aa3",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a608f7509fe901033aa4",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a608f7509fe901033aa5",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 2000,
+        "diner": "5a43a62ef7509fe901033abe",
+        "_id": "5a43a62ef7509fe901033abf",
+        "item": "582c11bec82e5c0984dc32fb",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3620",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "BBבורגר 220",
+        "removedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "_id": "5a43b9b55b6732490056d14a"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "_id": "5a43b9b55b6732490056d149"
+          }
+        ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b925f7509fe901034541",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b925f7509fe90103454a",
+            "name": "WD",
+            "modifier": "53eb1effe6c77111203d87d2",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a62ef7509fe901033acd",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a62ef7509fe901033ace",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43a636f7509fe901033ad3",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 1100,
+            "modifier": "58e0ada49c44822200244c25",
+            "name": "צ'דר בצל",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43a638f7509fe901033ad5",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 900,
+            "modifier": "58e0ada49c44822200244c21",
+            "name": "פטריות צרובות",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 2000,
+        "diner": "5a43a63ff7509fe901033ad7",
+        "_id": "5a43a63ff7509fe901033ad8",
+        "item": "582c11bec82e5c0984dc32fb",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3620",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "BBבורגר 220",
+        "removedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "_id": "5a43b9b55b6732490056d148"
+          },
+          {
+            "formationUnit": "רגיל",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "_id": "5a43b9b55b6732490056d147"
+          }
+        ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b925f7509fe901034555",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b925f7509fe90103455e",
+            "name": "WD",
+            "modifier": "53eb1effe6c77111203d87d2",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a63ff7509fe901033ae6",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a63ff7509fe901033ae7",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43a650f7509fe901033aed",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 1100,
+            "modifier": "58e0ada49c44822200244c25",
+            "name": "צ'דר בצל",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43a650f7509fe901033aef",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 900,
+            "modifier": "58e0ada49c44822200244c21",
+            "name": "פטריות צרובות",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 1100,
+        "diner": "5a43a61df7509fe901033aa9",
+        "_id": "5a43a659f7509fe901033af2",
+        "item": "582c11bec82e5c0984dc32fb",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3620",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "BBבורגר 220",
+        "removedModifiers": [
+          {
+            "formationUnit": "רגיל",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "_id": "5a43b9b55b6732490056d146"
+          }
+        ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b925f7509fe901034569",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b925f7509fe901034572",
+            "name": "WD",
+            "modifier": "53eb1effe6c77111203d87d2",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a659f7509fe901033b00",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a661f7509fe901033b06",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a672f7509fe901033b08",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43a676f7509fe901033b09",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 1100,
+            "modifier": "58e0ada49c44822200244c25",
+            "name": "צ'דר בצל",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "amount": 0,
+        "diner": "5a43a62ef7509fe901033abe",
+        "_id": "5a43a680f7509fe901033b0b",
+        "item": "582c11e6c82e5c0984dc3478",
+        "price": 0,
+        "offer": "582c1221c82e5c0984dc36b1",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "צ'יפס גדול",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582cd62efed6203003fc95f",
+        "amount": 0,
+        "diner": "5a43a62ef7509fe901033abe",
+        "_id": "5a43a686f7509fe901033b0d",
+        "item": "582c11cbc82e5c0984dc3378",
+        "price": 0,
+        "offer": "582c1232c82e5c0984dc3760",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "הום פרייז",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b925f7509fe90103457b",
+            "name": "פרווה",
+            "modifier": "570bb20becbc800300f37795",
+            "modifierGroupName": "פרווה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "543236da44cc810200c8e2b2",
+        "amount": 0,
+        "diner": "5a43a63ff7509fe901033ad7",
+        "_id": "5a43a69af7509fe901033b13",
+        "item": "582c11ddc82e5c0984dc341d",
+        "price": 0,
+        "offer": "582c120ac82e5c0984dc35d2",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "סלט בלקני",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a69af7509fe901033b16",
+            "name": "עגבניות שרי",
+            "modifierGroupName": "מרכיבי סלט בלקני",
+            "modifier": "556709f795f5df0e00efa420",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a69af7509fe901033b17",
+            "name": "צנונית",
+            "modifierGroupName": "מרכיבי סלט בלקני",
+            "modifier": "556709ffc240020f00ae3545",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a69af7509fe901033b18",
+            "name": "בצל סגול",
+            "modifierGroupName": "מרכיבי סלט בלקני",
+            "modifier": "55670a04fd01500f00d6ee7d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a69af7509fe901033b19",
+            "name": "מלפפון",
+            "modifierGroupName": "מרכיבי סלט בלקני",
+            "modifier": "55670a0a95f5df0e00efa421",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a69af7509fe901033b1a",
+            "name": "זיתים שחורים",
+            "modifierGroupName": "מרכיבי סלט בלקני",
+            "modifier": "55670a1326485d0e0073530f",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "price": 0,
+            "formationUnit": "רגיל",
+            "_id": "5a43a69af7509fe901033b1b",
+            "name": "גבינת פטה",
+            "modifierGroupName": "מרכיבי סלט בלקני",
+            "modifier": "55670a18c240020f00ae3546",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43a63ff7509fe901033ad7",
+        "_id": "5a43a6a3f7509fe901033b1e",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43a63ff7509fe901033ad7",
+        "_id": "5a43a6a6f7509fe901033b20",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43a63ff7509fe901033ad7",
+        "_id": "5a43a6a6f7509fe901033b22",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "_id": "5a43a6acf7509fe901033b26",
+        "diner": "5a43a63ff7509fe901033ad7",
+        "item": "582c11e9c82e5c0984dc3493",
+        "price": 0,
+        "offer": "582c121bc82e5c0984dc3674",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קולה זירו",
+        "removedModifiers": [ ],
+        "tags": [ "עם האוכל" ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c48bd06ab3d0300019a68",
+        "amount": 0,
+        "diner": "5a43a608f7509fe901033a94",
+        "_id": "5a43b234f7509fe901034031",
+        "item": "582c11f2c82e5c0984dc34eb",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc366f",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "תה נענע",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c48bd06ab3d0300019a68",
+        "amount": 0,
+        "diner": "5a43a608f7509fe901033a94",
+        "_id": "5a43b235f7509fe901034033",
+        "item": "582c11f2c82e5c0984dc34eb",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc366f",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "תה נענע",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c48bd06ab3d0300019a68",
+        "amount": 0,
+        "diner": "5a43a608f7509fe901033a94",
+        "_id": "5a43b235f7509fe901034035",
+        "item": "582c11f2c82e5c0984dc34eb",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc366f",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "תה נענע",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "564c48bd06ab3d0300019a68",
+        "amount": 0,
+        "diner": "5a43a608f7509fe901033a94",
+        "_id": "5a43b236f7509fe901034037",
+        "item": "582c11f2c82e5c0984dc34eb",
+        "price": 0,
+        "offer": "582c121ac82e5c0984dc366f",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "תה נענע",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582c6819b983603000dffb7",
+        "note": "רק נוטלה ואגוזים",
+        "amount": 0,
+        "diner": "5a43a61df7509fe901033aa9",
+        "_id": "5a43b247f7509fe901034039",
+        "item": "582c11cdc82e5c0984dc338b",
+        "price": 0,
+        "offer": "582c122bc82e5c0984dc3710",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "וופל אמריקאי",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582c64e0f3b0d030073887f",
+        "amount": 0,
+        "diner": "5a43a608f7509fe901033a94",
+        "_id": "5a43b252f7509fe90103403b",
+        "item": "582c11d2c82e5c0984dc33b9",
+        "price": 0,
+        "offer": "582c1221c82e5c0984dc36b2",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "כדור גלידה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b925f7509fe901034591",
+            "name": "שוקו",
+            "modifier": "53eb1effe6c77111203d87c8",
+            "modifierGroupName": "טעמים לגלידה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      }
+    ],
+    "diners": [
+      {
+        "chair": 1,
+        "_id": "5a43a608f7509fe901033a94",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 2,
+        "_id": "5a43a61df7509fe901033aa9",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 3,
+        "_id": "5a43a62ef7509fe901033abe",
+        "segmentations": [ ],
+        "tags": { }
+      },
+      {
+        "chair": 4,
+        "_id": "5a43a63ff7509fe901033ad7",
+        "segmentations": [ ],
+        "tags": { }
+      }
+    ],
+    "tableIds": [ "5720b90e646ebc03000db5f2" ],
+    "isStaffTable": false
+  },
+  {
+    "_id": "5a43b1b04c4c1e36001166c5",
+    "created": "2017-12-27T14:44:01.061Z",
+    "owner": "597c59c35059082700ab2039",
+    "lastUpdated": "2017-12-27T15:07:16.089Z",
+    "openedBy": "597c59c35059082700ab2039",
+    "orderType": "Seated",
+    "courses": [
+      {
+        "hasMainItems": false,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b1b14c4c1e36001166ca",
+        "tags": [ "__COURSE_INDEX_1" ],
+        "orderedItems": [ "5a43b1c4f7509fe901033ebb" ],
+        "fired": {
+          "at": "2017-12-27T14:45:55.399Z",
+          "by": "597c59c35059082700ab2039"
+        },
+        "courseType": "Entrees"
+      },
+      {
+        "hasMainItems": true,
+        "hasNonCancelledItems": true,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b1b14c4c1e36001166cb",
+        "tags": [ "__COURSE_INDEX_2" ],
+        "orderedItems": [ "5a43b1b5f7509fe901033ea3", "5a43b1c3f7509fe901033eb9", "5a43b1d9f7509fe901033ebe", "5a43b208f7509fe901033ed4" ],
+        "fired": {
+          "at": "2017-12-27T14:45:55.399Z",
+          "by": "597c59c35059082700ab2039"
+        },
+        "courseType": "Mains"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b2239e913f4f005f3af0",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b2239e913f4f005f3af1",
+        "tags": [ ],
+        "orderedItems": [ ],
+        "courseType": "Other"
+      },
+      {
+        "hasNonCancelledItems": false,
+        "hasIncompleteItems": false,
+        "hasNonOrderedItems": false,
+        "_id": "5a43b1b14c4c1e36001166cc",
+        "tags": [ "__COURSE_INDEX_3" ],
+        "orderedItems": [ ],
+        "courseType": "Desserts"
+      }
+    ],
+    "rewards": [ ],
+    "orderedOffers": [
+      {
+        "_id": "5a43b1b5f7509fe90163968b",
+        "amount": 6400,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5300,
+        "offer": "582c1212c82e5c0984dc3620",
+        "diner": "5a43b1b5f7509fe901033ea2",
+        "name": "BBבורגר 220",
+        "orderedItems": [ "5a43b1b5f7509fe901033ea3" ]
+      },
+      {
+        "_id": "5a43b1c3f7509fe90163968c",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c122cc82e5c0984dc3723",
+        "diner": "5a43b1b5f7509fe901033ea2",
+        "name": "קוקה קולה",
+        "orderedItems": [ "5a43b1c3f7509fe901033eb9" ]
+      },
+      {
+        "_id": "5a43b1c4f7509fe90163968d",
+        "amount": 2900,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 2900,
+        "offer": "582c122bc82e5c0984dc3715",
+        "diner": "5a43b1b5f7509fe901033ea2",
+        "name": "בורגוס רינגס",
+        "orderedItems": [ "5a43b1c4f7509fe901033ebb" ]
+      },
+      {
+        "_id": "5a43b1d9f7509fe90163968e",
+        "amount": 6100,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 5300,
+        "offer": "582c1212c82e5c0984dc3620",
+        "diner": "5a43b1c5f7509fe901033ebd",
+        "name": "BBבורגר 220",
+        "orderedItems": [ "5a43b1d9f7509fe901033ebe" ]
+      },
+      {
+        "_id": "5a43b208f7509fe90163968f",
+        "amount": 1300,
+        "menu": "582c123bc82e5c0984dc37b3",
+        "price": 1300,
+        "offer": "582c121bc82e5c0984dc3674",
+        "diner": "5a43b1c5f7509fe901033ebd",
+        "name": "קולה זירו",
+        "orderedItems": [ "5a43b208f7509fe901033ed4" ]
+      }
+    ],
+    "orderedItems": [
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 1100,
+        "diner": "5a43b1b5f7509fe901033ea2",
+        "_id": "5a43b1b5f7509fe901033ea3",
+        "item": "582c11bec82e5c0984dc32fb",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3620",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "BBבורגר 220",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b1b5f7509fe901033ea5",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b1b5f7509fe901033ead",
+            "name": "MW",
+            "modifier": "53eb1effe6c77111203d87d3",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b1b5f7509fe901033eb1",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b1b5f7509fe901033eb2",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b1b5f7509fe901033eb3",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b1b5f7509fe901033eb4",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b1b9f7509fe901033eb7",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 1100,
+            "modifier": "58e0ada49c44822200244c25",
+            "name": "צ'דר בצל",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "diner": "5a43b1b5f7509fe901033ea2",
+        "_id": "5a43b1c3f7509fe901033eb9",
+        "item": "582c11e9c82e5c0984dc3497",
+        "price": 0,
+        "offer": "582c122cc82e5c0984dc3723",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קוקה קולה",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "5582c81b0f3b0d03007388b2",
+        "amount": 0,
+        "diner": "5a43b1b5f7509fe901033ea2",
+        "_id": "5a43b1c4f7509fe901033ebb",
+        "item": "582c11c4c82e5c0984dc332f",
+        "price": 0,
+        "offer": "582c122bc82e5c0984dc3715",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "בורגוס רינגס",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [ ]
+      },
+      {
+        "category": "543236d344cc810200c8e2b1",
+        "amount": 800,
+        "diner": "5a43b1c5f7509fe901033ebd",
+        "_id": "5a43b1d9f7509fe901033ebe",
+        "item": "582c11bec82e5c0984dc32fb",
+        "price": 0,
+        "offer": "582c1212c82e5c0984dc3620",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "BBבורגר 220",
+        "removedModifiers": [ ],
+        "tags": [ ],
+        "selectedModifiers": [
+          {
+            "_id": "5a43b1d9f7509fe901033ec0",
+            "name": "לחמניה רגילה",
+            "modifier": "53eb1effe6c77111203d87bc",
+            "modifierGroupName": "לחמניה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b1d9f7509fe901033ec8",
+            "name": "MW",
+            "modifier": "53eb1effe6c77111203d87d3",
+            "modifierGroupName": "מידת צלייה",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b1d9f7509fe901033ecc",
+            "name": "עגבניה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876e",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b1d9f7509fe901033ecd",
+            "name": "מלפפון חמוץ",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876d",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b1d9f7509fe901033ece",
+            "name": "חסה",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876c",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "formationUnit": "רגיל",
+            "_id": "5a43b1d9f7509fe901033ecf",
+            "name": "בצל",
+            "modifierGroupName": "ירקות על ההמבורגר",
+            "modifier": "53eb1effe6c77111203d876b",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          },
+          {
+            "_id": "5a43b202f7509fe901033ed2",
+            "formationUnit": "רגיל",
+            "modifierGroupName": "תוספות על ההמבורגר",
+            "price": 800,
+            "modifier": "58e0ada49c44822200244c27",
+            "name": "ביצת עין",
+            "removedModifiers": [ ],
+            "selectedModifiers": [ ]
+          }
+        ]
+      },
+      {
+        "category": "564c487806ab3d0300019a61",
+        "amount": 0,
+        "_id": "5a43b208f7509fe901033ed4",
+        "diner": "5a43b1c5f7509fe901033ebd",
+        "item": "582c11e9c82e5c0984dc3493",
+        "price": 0,
+        "offer": "582c121bc82e5c0984dc3674",
+        "menu": "582c123bc82e5c0984dc37b3",
+        "name": "קולה זירו",
+        "removedModifiers": [ ],
+        "tags": [ "עם האוכל" ],
+        "selectedModifiers": [ ]
+      }
+    ],
+    "diners": [
+      {
+        "chair": 1,
+        "_id": "5a43b1b5f7509fe901033ea2",
+        "segmentations": [ ]
+      },
+      {
+        "chair": 2,
+        "_id": "5a43b1c5f7509fe901033ebd",
+        "segmentations": [ ]
+      }
+    ],
+    "tableIds": [ "5720b924646ebc03000db5fd" ],
+    "isStaffTable": false
+  }
+]

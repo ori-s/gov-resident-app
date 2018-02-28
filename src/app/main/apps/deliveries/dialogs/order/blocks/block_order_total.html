@@ -1,0 +1,74 @@
+﻿
+
+
+<div class="profile-box info-box tabled box-shadow-small white-bg" layout="column">
+    <header>
+        <div class="title" translate="TD.TOTAL-TO-PAY"></div>
+    </header>
+    <div class="">
+        <table class="table">
+
+            <tr ng-if="vm.order.onTheHouse">
+                <th>{{'OTH' | translate}}:</th>
+                <td>OTH: {{vm.order.onTheHouse.reason.name}} <div class="inline">, {{vm.order.onTheHouse.notes}}</div></td>
+            </tr>
+            <tr ng-repeat="od in vm.order.orderedDiscounts">
+                <th ng-if="$index == 0" rowspan="{{vm.order.orderedDiscounts.length}}">{{'TD.DISCOUNT' | translate}}:</th>
+                <td>
+                    {{od.reason.name}} <div class="inline" ng-if="od.notes">, {{od.notes}}</div>
+                    <div>
+                        <div class="inline">{{'TD.DISCOUNT_AMOUNT' | translate}}: {{od.$$discount.amount | amount}}</div>
+                        <div class="inline">, {{'TD.DISCOUNT_PERCENT' | translate}}: {{od.$$discount.percentage | number:2}}%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-if="vm.order.promotion.calc">
+                <th>{{'TD.ORDER_PROMOTION' | translate}}:</th>
+                <td>
+                    <div>
+                        {{vm.order.promotion.type | mapList:TCS.offer_promotion_types}},
+                        <span ng-if="vm.order.promotion.type == 'discount'">{{vm.order.promotion.valueType | mapList:vm.TCS.offer_promotion_value_types}},</span>
+                        {{vm.order.promotion.reason | mapList:TCS.reasons:'_id':'name'}}
+                        <span class="inline m-near-sm" style="text-decoration:line-through">
+                            {{vm.order.total | money}}
+                        </span>
+                    </div>
+
+                    <div class="mt-5">
+                        {{'TD.DISCOUNT_AMOUNT' | translate}}:
+                        <span class="inline m-near-8">{{vm.order.promotion.calc.amount | money}}</span>
+                    </div>
+                    <div class="mt-5">
+                        {{'TD.DISCOUNT_PERCENT' | translate}}:
+                        <span class="inline m-near-8">{{vm.order.promotion.calc.percent | number:2}}%</span>
+                    </div>
+                    <div class="mt-5">
+                        {{'TD.PRICE_AFTER_DISCOUNT' | translate}}:
+                        <span class="inline m-near-8">{{vm.order.promotion.calc.newTotal | money}}</span>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-if="vm.order.$$tipsTotal">
+                <th>{{'TD.GRATUITY_AMOUNT' | translate}}:</th>
+                <td>{{vm.order.$$tipsTotal | amount}}</td>
+            </tr>
+            <tr>
+                <th>{{'TD.TOTALAMOUNT' | translate}}:</th>
+                <td>{{vm.order.paymentSummary.totalAmount | amount}}</td>
+            </tr>
+            <tr ng-if="vm.order.paymentSummary.$$totalChange">
+                <th>{{'TD.GRATUITY_AMOUNT' | translate}}:</th>
+                <td>{{vm.order.paymentSummary.$$totalChange | amount}}</td>
+            </tr>
+            <tr ng-if="vm.order.paymentSummary.$$remainderAmountWithChange != 0">
+                <th>{{(vm.order.paymentSummary.$$remainderAmountWithChange > 0 ? 'TD.REMAINDERAMOUNT' : 'TD.REMAINDER_REFUND_AMOUNT') | translate}}:</th>
+                <td>{{vm.order.paymentSummary.$$remainderAmountWithChange | amount:null:true}}</td>
+            </tr>
+            <tr>
+                <th>{{'TD.PAIDAMOUNT' | translate}}:</th>
+                <td>{{vm.order.paymentSummary.$$totalPaidWithChange | amount}}</td>
+            </tr>
+        </table> 
+    </div>
+</div>
+

@@ -1,0 +1,111 @@
+﻿
+
+
+<div ui-map-info-window="vm.myInfoWindow">
+    <div class="text-center  {{currentMarker.$$alert}}" style="width:240px">
+        <div class="font-bold">
+            {{currentMarker.$$address.formatted_address}}
+        </div>
+        <div class="padder-v-sm font-bold">
+            <i class="fa fa-user m-far-xs"></i>{{currentMarker.orderer.name}}, <i class="fa fa-phone m-far-xs"></i> <span class="inline ltr">{{currentMarker.orderer.phone | tel}}</span>
+        </div>
+        <div class="text-near">
+            <div>
+                {{'TD.CREATED_TIME' | translate}}:
+                <span class="font-bold pull-right flip">{{currentMarker.created | date:'HH:mm'}}</span>
+            </div>
+            <div class="padder-v-sm">
+                {{'TD.TIME_FROM_CREATED' | translate}}:
+                <span class="font-bold pull-right flip txt-order-alert" am-time-ago='currentMarker.created'></span>
+            </div>
+            <div>
+                {{'TD.ORDER_AMOUNT' | translate}}:
+                <span class="font-bold pull-right flip">{{(currentMarker.balance / 100) | money}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<md-dialog class="map-dialog md-background-bg md-hue-2">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>
+                {{'TD.VIEW_ROUTE' | translate}}:
+                <span class="font-size-16 m-near-8">
+                    <span class="inline">{{vm.delivery.$$number}}, </span>
+                    <span class="inline">{{vm.delivery.created | amDateFormat:'dddd, hh:mm'}}</span>
+                </span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+                <md-icon md-font-icon="icon-close" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <section layout="row" flex="">
+        <md-sidenav class="md-sidenav-left flip" 
+            md-is-locked-open="$mdMedia('gt-md') && vm.isLeftLockedOpen"
+            md-component-id="map-sidenav"
+            md-whiteframe="4"  style="background:red"
+            layout="column" layout-align="start center">
+
+            <md-toolbar class="md-theme-indigo">
+                <div class="md-toolbar-tools">
+                    <h2>
+                        {{'TD.OPTIONS' | translate}}
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.toggleSidenav()"  ng-if="!vm.$mdMedia('gt-md')">
+                        <md-icon md-font-icon="icon-close" aria-label="Close dialog"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-content class="full-width" flex>
+                <md-tabs style="height:100%; min-height:100%" md-border-bottom>
+                    <md-tab label="{{'TD.ROUTE' | translate}}" flex layout="column">
+                        <md-content class="padding-10 md-background-bg md-hue-2" flex layout-fill>
+                            
+                            <!-- DLIVERY HEADER -->
+                            <div class="margin-bottom-10 text-center"  ng-if="vm.ui.route.distance">
+                                <div class="inline m-far-8">
+                                    <span class="">{{'TD.TOTAL_DISTANCE' | translate}}:&nbsp;</span>
+                                    <span class="font-weight-500">{{vm.ui.route.distance | distance}}</span>
+                                </div>
+                                <div class="inline">
+                                    <span>{{'TD.TOTAL_DURATION' | translate}}:&nbsp;</span>
+                                    <span class="font-weight-500">{{vm.ui.route.duration  | secondsDuration}}</span>
+                                </div>
+                            </div>
+                            <!-- / DLIVERY HEADER -->
+
+                            <!-- ORDER -->
+                            <div ng-repeat="order in vm.orders" ng-include="'delivery_order_card.html'" ></div>
+                            <!-- / ORDER -->
+
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="{{'TD.ROUTE_DITECTIONS' | translate}}" flex layout="column">
+                        <md-content class="no-padding">
+                            <div id="dvMapDirections" class="g-directions"></div>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+        </md-sidenav>
+
+        <md-content flex="" class="no-padding">
+            <div id="map_canvas" ui-map="vm.myMap" ng-if="vm.ui.loaded"
+                 style="position:relative; height:100%; width:100%;"
+                 ui-options="vm.mapOptions"
+                 ui-event="{'map-idle' : 'vm.onMapIdle()'}">
+            </div>
+            <md-button id="map-fab-button" class="md-fab" aria-label="Map Options" ng-if="!vm.$mdMedia('gt-md')" ng-click="vm.toggleMapSidenav()">
+                <md-icon md-font-icon="icon-menu"></md-icon>
+            </md-button>
+        </md-content>
+    </section>
+
+</md-dialog>
+

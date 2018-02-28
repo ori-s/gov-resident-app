@@ -1,0 +1,501 @@
+/*----------------------------------------------------------------*/
+/*  Animations
+/*----------------------------------------------------------------*/
+
+@mixin transition() {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+}
+
+@mixin easingOutQuadTimingTransition($duration) {
+    @include transition();
+    transition-property: none;
+    transition-duration: $duration;
+    transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+// Slide Up
+.animate-slide-up {
+    @include easingOutQuadTimingTransition(400ms);
+    opacity: 1;
+
+    // Enter & Leave
+    &.ng-enter {
+        transform: translateY(100%);
+        opacity: 0;
+
+        &.ng-enter-active {
+            transition-property: all;
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    &.ng-leave {
+        transform: translateY(0);
+        opacity: 1;
+
+        &.ng-leave-active {
+            transition-property: all;
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+
+    // Hide
+    &.ng-hide {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    &.ng-hide-add-active,
+    &.ng-hide-remove-active {
+        transition-property: all;
+    }
+}
+
+// Slide Down
+.animate-slide-down {
+    @include easingOutQuadTimingTransition(400ms);
+    opacity: 1;
+
+    // Enter & Leave
+    &.ng-enter {
+        transform: translateY(-100%);
+        opacity: 0;
+
+        &.ng-enter-active {
+            transition-property: all;
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    &.ng-leave {
+        transform: translateY(0);
+        opacity: 1;
+
+        &.ng-leave-active {
+            transition-property: all;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+    }
+
+    // Hide
+    &.ng-hide {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    &.ng-hide-add-active,
+    &.ng-hide-remove-active {
+        transition-property: all;
+    }
+}
+
+// Slide Left
+.animate-slide-left {
+    @include easingOutQuadTimingTransition(400ms);
+    opacity: 1;
+
+    // Enter & Leave
+    &.ng-enter {
+        transform: translateX(100%);
+        opacity: 0;
+
+        &.ng-enter-active {
+            transition-property: all;
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    &.ng-leave {
+        transform: translateX(0);
+        opacity: 1;
+
+        &.ng-leave-active {
+            transition-property: all;
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+    }
+
+    // Hide
+    &.ng-hide {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    &.ng-hide-add-active,
+    &.ng-hide-remove-active {
+        transition-property: all;
+    }
+}
+
+// Slide Right
+.animate-slide-right {
+    @include easingOutQuadTimingTransition(400ms);
+    opacity: 1;
+
+    // Enter & Leave
+    &.ng-enter {
+        transform: translateX(-100%);
+        opacity: 0;
+
+        &.ng-enter-active {
+            transition-property: all;
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    &.ng-leave {
+        transform: translateX(0);
+        opacity: 1;
+
+        &.ng-leave-active {
+            transition-property: all;
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+
+    // Hide
+    &.ng-hide {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    &.ng-hide-add-active,
+    &.ng-hide-remove-active {
+        transition-property: all;
+    }
+}
+
+// Fade in & out
+.animate-fade-in-out {
+    @include easingOutQuadTimingTransition(400ms);
+    opacity: 1;
+
+    // Enter & Leave
+    &.ng-enter {
+        opacity: 0;
+
+        &.ng-enter-active {
+            transition-property: all;
+            opacity: 1;
+        }
+    }
+
+    &.ng-leave {
+        opacity: 1;
+
+        &.ng-leave-active {
+            transition-property: all;
+            opacity: 0;
+        }
+    }
+
+    // Hide
+    &.ng-hide {
+        opacity: 0;
+    }
+
+    &.ng-hide-add-active,
+    &.ng-hide-remove-active {
+        transition-property: all;
+    }
+}
+
+/*----------------------------------------------------------------*/
+/*  @ Custom Animation Keyframes
+/*----------------------------------------------------------------*/
+
+@keyframes slide-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate-rotate {
+    animation: rotate 1.75s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+
+/*----------------------------------------------------------------*/
+/*  @ flip out y
+/*----------------------------------------------------------------*/
+
+
+@keyframes flipOutY {
+  from {
+    transform: perspective(400px);
+  }
+
+  30% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    opacity: 0;
+  }
+}
+
+.flipOutY {
+  animation-duration: 0.75s;
+  backface-visibility: visible !important;
+  animation-name: flipOutY;
+}
+
+/*----------------------------------------------------------------*/
+/*  @rubberBand
+/*----------------------------------------------------------------*/
+
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.rubberBand {
+  animation-duration: 0.75s;
+  animation-name: rubberBand;
+}
+
+
+@keyframes pulse-in {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse-in {
+  animation-duration: 0.5s;
+  animation-name: pulse-in;
+}
+
+.fa-spin {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+    -webkit-animation: fa-spin 1s infinite steps(8);
+    animation: fa-spin 1s infinite steps(8);
+}
+
+
+@keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+/*----------------------------------------------------------------*/
+/*  @ngr
+/*----------------------------------------------------------------*/
+
+
+
+.animate-repeat {
+    transition: 1s linear all;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+    -webkit-transition:all linear 0.2s;
+    transition:all linear 0.2s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+    opacity:0;
+    transform:translateY(-50px);
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+    opacity:1;
+    transform:translateY(0);
+}
+
+/**
+ * Stagger Leave (hide) animation
+ */
+.animate-repeat.ng-leave-stagger {
+    /* this will have a 100ms delay between each successive leave animation */
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+/**
+ * Stagger ENTER ANIMATION
+ */
+.animate-repeat.ng-enter-stagger {
+    /* this will have a 100ms delay between each successive enter animation */
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+
+
+._ngr.ng-animate {
+	transition:0.5s linear all;
+}
+._ngr.ng-enter {
+	opacity:0;
+	-webkit-transform: rotateX(90deg); /* Safari */
+		transform: rotateX(90deg);
+}
+._ngr.ng-enter-stagger {
+	/* this will have a 100ms delay between each successive leave animation */
+	transition-delay: 0.1s;
+	/* As of 1.4.4, this must always be set: it signals ngAnimate
+		to not accidentally inherit a delay property from another CSS class */
+	transition-duration: 0s;
+}
+._ngr.ng-enter.ng-enter-active {
+	opacity:1;
+		-webkit-transform: rotateX(0deg); /* Safari */
+		transform: rotateX(0deg);
+}
+
+
+._ngr.ng-move{
+	opacity:0;
+	-webkit-transform: rotateX(90deg); /* Safari */
+		transform: rotateX(90deg);
+}
+._ngr.ng-move.ng-move-active {
+	opacity:1;
+		-webkit-transform: rotateX(0deg); /* Safari */
+		transform: rotateX(0deg);
+}
+
+._ngr.ng-leave {
+	display:none;
+	opacity:1;
+}
+._ngr.ng-leave.ng-leave-active {
+	opacity:0;
+}
+
+._ngr2.ng-enter {
+	background-color:#cbeaff;
+}
+._ngr2.ng-leave {
+	display:block;
+	opacity:1;
+}
+._ngr2.ng-leave.ng-leave-active {
+	transform:translateY(-50px);
+	opacity:0;
+}
+
