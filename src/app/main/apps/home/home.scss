@@ -1,0 +1,234 @@
+
+.deliveries{
+    #toolbar{
+        box-shadow:none;
+        border-bottom:1px solid rgba(0, 0, 0, 0.12);
+    }
+}
+
+.link-color{
+    color:#526d86 !important;
+}
+
+.order-widget{
+    margin-top:0;
+    padding: 0 10px 15px 10px;
+            
+    .ms-widget-front, .ms-widget-back{
+        padding-top:0;
+        box-shadow:1px 1px 1px 0 rgba(0,0,0,0.1);
+        /*box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);*/
+    }
+    .ms-widget-back{
+        top: 0;
+        bottom: 16px;
+    }
+
+    .address-ex{
+        margin-top:5px;
+        font-size:15px;
+    }
+    .address-notes{
+        font-weight:600;
+    }
+    .order-notes{
+        border-top:1px dotted #ccc;
+        margin-top:10px;
+        padding-top:10px;
+        margin-bottom:5px;
+        text-align:center;
+        ._inner{
+            font-weight:500;
+            display:inline-block;
+        }
+        
+    }
+
+}
+
+#app-deliveries {
+    height: 100%;
+
+    > md-toolbar {
+        /*background-image: url('/assets/images/backgrounds/header-bg.png');
+        background-size: cover;*/
+
+        .md-toolbar-tools {
+
+            .main-title {
+                .notes-count {
+                    font-size: 14px;
+                }
+            }
+
+            .search-input-wrapper {
+                position: relative;
+                font-size: 13px;
+
+                label {
+                    padding-right: 4px;
+                    cursor: pointer;
+
+                    md-icon {
+                        color: rgba(255, 255, 255, 0.8);
+                    }
+
+                }
+
+                md-input-container {
+
+                    .md-errors-spacer {
+                        display: none;
+                    }
+
+                    input {
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+                        color: rgba(255, 255, 255, 0.8);
+                        width: 240px;
+
+                        &::placeholder {
+                            color: rgba(255, 255, 255, 0.8);
+                        }
+
+                        &:focus {
+                            border-bottom: 1px solid white;
+                            color: white;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .search-toolbar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            opacity: 1 !important;
+
+            #search-notes-input {
+                height: 100%;
+                background: transparent;
+                color: white;
+                font-size: 16px;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.8);
+                }
+
+            }
+        }
+    }
+
+    > md-content {
+        background: transparent;
+        padding: 4px;
+        
+        .dilivery-widget{
+            padding: 5px 14px 10px 14px;
+        }
+
+        .order-num{
+            font-family: 'Abel', sans-serif;
+            font-size:24px;
+        }
+
+              
+        .no-results {
+            margin-top: 20vh;
+            .message {
+                .message-icon {
+                    margin: 16px;
+                    color: rgba(0, 0, 0, 0.33);
+                }
+                .message-text {
+                    font-size: 24px;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, 0.33);
+                }
+            }
+        }
+    }
+
+    .main-sidenav {
+        md-list {
+            md-list-item {
+                span {
+                    font-size: 14px;
+                }
+                &.selected {
+                    .md-button {
+                        font-weight: 500;
+                        color: #000000;
+                    }
+                }
+
+                &.label {
+                    padding: 0 8px 0 16px;
+                    md-icon {}
+                    .label-name {
+                        cursor: pointer;
+                    }
+                    > .md-button {
+                        margin: 0;
+                        padding: 0;
+                        width: 32px;
+                        height: 32px;
+                    }
+                    .editable-text {
+                        width: 100%;
+                        .editable-controls {
+                            flex-direction: row;
+                            display: flex;
+                            .editable-input {
+                                flex: 1;
+                            }
+                            .editable-buttons {
+                                .md-button {
+                                    margin: 0;
+                                    width: 32px;
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.new-label-form {
+                    .editable-text {
+                        width: 100%;
+                        .editable-controls {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            .editable-input {
+                                border: 1px solid rgba(0, 0, 0, 0.2);
+                                padding: 4px 2px;
+                                margin-bottom: 8px;
+                                font-size: 13px;
+                                width: 100%;
+                            }
+                            .editable-buttons {
+                                .md-button {
+                                    margin: 0;
+                                    margin: 0;
+                                    padding: 0;
+                                    height: 32px;
+                                    min-height: 32px;
+                                    line-height: 32px;
+                                    width: 32px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $layout-breakpoint-xs) {
+}

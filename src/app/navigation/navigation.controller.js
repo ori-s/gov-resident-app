@@ -7,7 +7,7 @@
         .controller('NavigationController', NavigationController);
 
     /** @ngInject */
-    function NavigationController($scope, $state, authorization_service, DeliveriesService, $mdSidenav)
+    function NavigationController($scope, $state, authorization_service, $mdSidenav)
     {
         
         var sidenav = $mdSidenav('navigation');
@@ -15,7 +15,7 @@
 
         var vm = this;
         vm.auth = authorization_service;
-        vm.TCS = DeliveriesService;
+        
         vm.$state = $state;
         // Data
         vm.bodyEl = angular.element('body');

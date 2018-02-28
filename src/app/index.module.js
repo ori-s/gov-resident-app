@@ -19,8 +19,11 @@
 
             // Apps
             'app.auth',
-            'app.orgs',
-            'app.deliveries'
+            'app.home',
+            'app.message-groups',
+            'app.mail',
+            //'app.orgs',
+            //'app.deliveries'
 
 
 
