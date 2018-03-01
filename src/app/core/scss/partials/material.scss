@@ -465,3 +465,8 @@ table {
         }
     }
 }
+
+[dir=rtl] .md-chips.md-removable md-chip {
+    padding-right: 8px;
+    padding-left: 22px;
+}

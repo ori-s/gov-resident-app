@@ -1,0 +1,108 @@
+﻿            <!-- CONTACT LIST -->
+<div style="max-width:900px; margin:0 auto; padding-bottom:80px;">
+
+    <md-list class="table-list">
+        <!-- CONTACT LIST HEADER -->
+        <md-subheader class="md-no-sticky md-white-bg">
+            <div layout="row" layout-align="space-between center">
+                <div class="list-title" layout="row" layout-align="start center">
+                    <span translate="Subscribers">Subscribers</span>
+                    <span ng-if="vm.subscribers.length" class="secondary-text table-list-count">
+                        ({{vm.subscribers.length}})
+                    </span>
+                </div>
+                <div flex></div>
+
+                <md-menu>
+                    <md-button class="md-icon-button" aria-label="Sort" translate
+                               translate-attr-aria-label="CONTACTS.SORT">
+                        <md-icon md-font-icon="icon-sort-alphabetical"
+                                 ng-click="$mdMenu.open($event)"></md-icon>
+                    </md-button>
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="vm.subscribersOrder = 'firstName';vm.subscribersOrderAsc = false"
+                                       ng-style="vm.subscribersOrder === 'firstName' && vm.subscribersOrderAsc=== false && {'font-weight':'500'}">
+                                <i class="icon-sort-descending font-size-16"></i>
+                                <span translate="First Name">First Name</span>
+
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.subscribersOrder = 'firstName'; vm.subscribersOrderAsc = true"
+                                       ng-style="vm.subscribersOrder === 'firstName' && vm.subscribersOrderAsc=== true && {'font-weight':'500'}">
+                                <i class="icon-sort-ascending font-size-16"></i>
+                                <span translate="First Name">First Name</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.subscribersOrder = 'lastName';vm.subscribersOrderAsc = false"
+                                       ng-style="vm.subscribersOrder === 'lastName' && vm.subscribersOrderAsc=== false && {'font-weight':'500'}">
+                                <i class="icon-sort-descending font-size-16"></i>
+                                <span translate="Last Name">Last Name</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.subscribersOrder = 'lastName'; vm.subscribersOrderAsc = true"
+                                       ng-style="vm.subscribersOrder === 'lastName' && vm.subscribersOrderAsc=== true && {'font-weight':'500'}">
+                                <i class="icon-sort-ascending font-size-16"></i>
+                                <span translate="Last Name">Last Name</span>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+
+                <md-button class="md-fab md-accent md-icon-button md-mini" ng-click="vm.openContactDialog($event)"
+                           aria-label="add contact" translate translate-attr-aria-label="Add Subscriber">
+                    <md-icon md-font-icon="icon-account-plus"></md-icon>
+                </md-button>
+
+            </div>
+        </md-subheader>
+        <!-- / CONTACT LIST HEADER -->
+        <!-- CONTACT ITEM -->
+        <md-list-item class="table-list-item md-white-bg" md-ink-ripple
+                      ng-repeat="contact in vm.subscribers | filter: vm.subscribersSearch |  orderBy: vm.subscribersOrder :vm.subscribersOrderAsc track by contact.id "
+                      ng-click="vm.openContactDialog($event, contact)"
+                      ng-class="{'selected': vm.isSelected(contact)}">
+
+            <img class="md-avatar" alt="{{contact.firstName}}" ng-src="{{contact.avatar || 'assets/images/avatars/profile.jpg'}}" />
+            <p class="text-truncate font-weight-600">{{contact.firstName}}, {{contact.lastName}}</p>
+
+            <p class="email text-truncate hide show-gt-sm">
+                {{contact.email}}
+            </p>
+            <p class="phone text-truncate hide show-gt-xs">
+                {{contact.phone}}
+            </p>
+            <div class="actions" layout="row" layout-align="start center">
+                <md-menu>
+                    <md-button class="md-icon-button" aria-label="More" translate
+                               translate-attr-aria-label="CONTACTS.MORE">
+                        <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdMenu.open($event)"></md-icon>
+                    </md-button>
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="vm.deleteSubscriber(contact, ev)"
+                                       translate="Delete Subscriber">
+                                Delete Subscriber
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </md-list-item>
+        <!-- CONTACT ITEM -->
+    </md-list>
+    <!-- / CONTACT LIST -->
+    <!-- NO RESULTS -->
+    <md-list-item class="table-list-no-results md-white-bg" ng-show="vm.subscribers.length === 0">
+        <p translate="NO_RESULTS">No results..</p>
+    </md-list-item>
+    <!-- / NO RESULTS -->
+
+
+</div>
+
+
+

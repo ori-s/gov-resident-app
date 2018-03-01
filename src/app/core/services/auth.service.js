@@ -8,8 +8,8 @@
     var app = angular.module('app.core');
 
     app.factory('authorization_service', function ($state, $http, $q, blockUI, $window, $cookieStore, MetaService) {
-        
-        
+
+
         var service = {
             isLoggedIn: false,//for simulation purposes
             user: null,
@@ -121,6 +121,11 @@
                             }
                         };
                     });
+
+                    _.each(MetaService.menu, function (menu) {
+
+
+                    })
 
 
                     MetaService.wasLoaded = true;
@@ -244,7 +249,7 @@
     });
 
 
-    app.factory('data_service', function ($state, $http, $q, $filter, blockUI, $translate, MetaService, PDialog) {
+    app.factory('data_service', function ($state, $http, $q, $filter, blockUI, $translate, MetaService, $mdToast, $mdDialog) {
         var service = {};
         var _HTTPURL = "http://localhost/govresident/handler_simulated.ashx";
         // --------------------------------------------------------------------------------------->
@@ -352,6 +357,12 @@
                 if (!args.hideLoading) blockUI.stop();
                 if (args.prepare) args.prepare(data);
                 if (args.cache) MetaService[args.cache] = data;
+                if (args.notify) {
+                    $mdToast.show(
+                      $mdToast.simple()
+                        .textContent($translate.instant(args.notifyText || "Saved Successfully"))
+                    );
+                };
                 deferred.resolve(data);
             }).catch(function (msg, code) {
                 if (!args.hideLoading) blockUI.stop();
@@ -360,21 +371,32 @@
             return deferred.promise;
         }
 
+        service.confirm = function (confirmText, ev) {
 
+        }
 
         service.delete = function (what, data, args) {
             if (!args) args = {};
             var deferred = $q.defer();
             if (args.confirm) {
-                PDialog.warning({
-                    text: args.confirmText || $translate.instant("Are you sure you wish to delete this record?"),
-                    showCancelButton: true,
-                    confirmButtonText: $translate.instant("DELETE")
-                }).then(function () {
+
+                var confirm = $mdDialog.confirm()
+                    .title($translate.instant('Confirm' || args.confirm.title))
+                    .htmlContent($translate.instant('Are you sure you want delete this record' || args.confirm.content))
+                    .ariaLabel('delete')
+                    .targetEvent(args.ev)
+                    .ok($translate.instant('Yes'))
+                    .cancel($translate.instant('No'));
+
+                $mdDialog.show(confirm).then(function () {
                     delete_continue();
-                }, function () {
+                    vm.contacts.splice(vm.contacts.indexOf(Contact), 1);
+
+                }).catch(function () {
                     deferred.reject();
                 });
+
+
             } else {
                 delete_continue();
             }
@@ -386,14 +408,30 @@
                 if (args.simulated) {
                     window.setTimeout(function () {
                         if (!args.hideLoading) blockUI.stop();
-                        fixDeleteCache();
+                        if (args.cache) fixDeleteCache();
                         deferred.resolve(data);
+
+                        if (args.notify) {
+                            $mdToast.show(
+                              $mdToast.simple()
+                                .textContent($translate.instant(args.notifyText || "Deleted Successfully"))
+                            );
+                        };
+
                     }, 600);
                 } else {
                     $http.post(args.url, data).then(function (data) {
                         if (!args.hideLoading) blockUI.stop();
                         if (args.cache) fixDeleteCache();
                         deferred.resolve(data);
+
+                        if (args.notify) {
+                            $mdToast.show(
+                              $mdToast.simple()
+                                .textContent($translate.instant(args.notifyText || "Deleted Successfully"))
+                            );
+                        };
+
                     }).catch(function (msg, code) {
                         if (!args.hideLoading) blockUI.stop();
                         deferred.reject(msg);
@@ -489,60 +527,60 @@
         };
     });
 
-app.config(function ($provide, $httpProvider) {
-    return $httpProvider.interceptors.push('appHttpInterceptor');
-});
+    app.config(function ($provide, $httpProvider) {
+        return $httpProvider.interceptors.push('appHttpInterceptor');
+    });
 
 
-app.factory("appHttpInterceptor", ["$q", "$log", "$injector", "$timeout", function ($q, $log, $injector, $timeout, $window) {
-    return {
-        request: function (config) {
-            
-			if (config.url.indexOf(_HTTPURL) == 0) {
-                if (window.sessionStorage.sessionToken){
-                    config.url += "&token=" + window.sessionStorage.sessionToken;
+    app.factory("appHttpInterceptor", ["$q", "$log", "$injector", "$timeout", function ($q, $log, $injector, $timeout, $window) {
+        return {
+            request: function (config) {
+
+                if (config.url.indexOf(_HTTPURL) == 0) {
+                    if (window.sessionStorage.sessionToken) {
+                        config.url += "&token=" + window.sessionStorage.sessionToken;
+                    }
                 }
-			} 
 
-            return config;
-        },
-        requestError: function (rejection) {
-            if (canRecover(rejection)) {
-                return responseOrNewPromise
-            }
-            return $q.reject(rejection);
-        },
-        response: function (response) {
-            $log.debug("success with status " + response.status);
-            
+                return config;
+            },
+            requestError: function (rejection) {
+                if (canRecover(rejection)) {
+                    return responseOrNewPromise
+                }
+                return $q.reject(rejection);
+            },
+            response: function (response) {
+                $log.debug("success with status " + response.status);
 
 
-            return response || $q.when(response);
-        },
-        responseError: function (rejection) {
-            var message = angular.isObject(rejection.data) ? rejection.data.message : rejection.message;
-            if (!rejection.data) {
-                rejection.data = {};
+
+                return response || $q.when(response);
+            },
+            responseError: function (rejection) {
+                var message = angular.isObject(rejection.data) ? rejection.data.message : rejection.message;
+                if (!rejection.data) {
+                    rejection.data = {};
+                }
+                $log.debug("error with status " + rejection.status + " and data: " + message);
+                switch (rejection.status) {
+                    case 403:
+                        console.error("You don't have the right to do this");
+                        break;
+                    case 401:
+                        var AuthService = $injector.get('AuthService')
+                        AuthService.logout(false, message);
+                        break;
+                    case 0:
+                        console.error("No connection, internet is down?");
+                        break;
+                    default:
+                        console.error("" + message);
+                }
+                return $q.reject(rejection);
             }
-            $log.debug("error with status " + rejection.status + " and data: " + message);
-            switch (rejection.status) {
-                case 403:
-                    console.error("You don't have the right to do this");
-                    break;
-                case 401:
-                    var AuthService = $injector.get('AuthService')
-                    AuthService.logout(false, message);
-                    break;
-                case 0:
-                    console.error("No connection, internet is down?");
-                    break;
-                default:
-                    console.error("" + message);
-            }
-            return $q.reject(rejection);
-        }
-    };
-}]);
+        };
+    }]);
 
 
 }());

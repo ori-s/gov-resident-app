@@ -1,0 +1,98 @@
+<!-- DIALOG -->
+<md-dialog class="subscriber-dialog" aria-label="Subscriber dialog">
+
+    <form name="contactForm" class="md-inline-form" novalidate>
+
+        <!-- DIALOG TOOLBAR -->
+        <md-toolbar class="md-accent md-tall" layout="column">
+
+            <!-- TOOLBAR TOP -->
+            <div class="md-toolbar-tools md-toolbar-tools-top" layout="row" layout-align="space-between center">
+                <span class="title">{{vm.title | translate}}</span>
+                <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close dialog" translate
+                           translate-attr-aria-label="CLOSE_DIALOG">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+            <!-- / TOOLBAR TOP -->
+
+            <!-- TOOLBAR MIDDLE -->
+            <div class="md-toolbar-tools md-toolbar-tools-middle" flex layout="column" layout-align="center center">
+                <div layout="column" layout-align="center center">
+                    <img ng-src="{{vm.contact.avatar || 'assets/images/avatars/profile.jpg'}}" class="md-avatar avatar contact-avatar huge"
+                         alt="{{vm.contact.firstName}}"/>
+                    <div class="contact-name">{{vm.contact.firstName}}, {{vm.contact.lastName}}</div>
+                </div>
+            </div>
+            <!-- / TOOLBAR MIDDLE -->
+        </md-toolbar>
+        <!-- / DIALOG TOOLBAR -->
+
+        <!-- DIALOG CONTENT -->
+        <md-dialog-content ms-scroll>
+
+            <md-input-container class="md-icon-float md-block">
+                <label translate="First Name">First Name</label>
+                <md-icon md-font-icon="icon-account" class="name"></md-icon>
+                <input ng-model="vm.contact.firstName" type="text" required md-autofocus>
+            </md-input-container>
+
+            <md-input-container class="md-icon-float md-block">
+                <label translate="Last Name">Last name</label>
+                <md-icon></md-icon>
+                <input ng-model="vm.contact.lastName" required type="text">
+            </md-input-container>
+
+
+            <md-input-container class="md-block">
+                <label translate="Phone">Phone</label>
+                <md-icon md-font-icon="icon-phone"></md-icon>
+                <input ng-model="vm.contact.phone" type="text" required>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label translate="Email">Email</label>
+                <md-icon md-font-icon="icon-email" class="email"></md-icon>
+                <input ng-model="vm.contact.email" type="email" required>
+            </md-input-container>
+
+
+
+
+        </md-dialog-content>
+        <!-- / DIALOG CONTENT -->
+
+        <!-- DIALOG ACTIONS -->
+        <md-dialog-actions layout="row" layout-align="space-between center">
+            <div layout="row" layout-align="start center">
+                <md-button type="submit" ng-if="!vm.newContact" ng-click="vm.saveContact()"
+                           class="send-button md-accent md-raised"
+                           ng-disabled="contactForm.$invalidX || contactForm.$pristine"
+                           aria-label="Save" translate="Save" translate-attr-aria-label="CONTACTS.SAVE">
+                    SAVE
+                </md-button>
+
+                <md-button type="submit" ng-if="vm.newContact" ng-click="vm.saveContact()"
+                           class="send-button md-accent md-raised"
+                           ng-disabled="contactForm.$invalidX || contactForm.$pristine"
+                           aria-label="Add Subscriber" translate="Add Subscriber"
+                           translate-attr-aria-label="Add Subscriber">
+                    Add Subscriber
+                </md-button>
+
+            </div>
+
+            <div layout="row">
+                <md-button class="md-icon-button" ng-click="vm.deleteContact($event)" ng-if="!vm.newContact" aria-label="Delete"
+                           translate translate-attr-aria-label="Delete">
+                    <md-icon md-font-icon="icon-delete"></md-icon>
+                    <md-tooltip><span translate="Delete">Delete</span></md-tooltip>
+                </md-button>
+            </div>
+        </md-dialog-actions>
+        <!-- / DIALOG ACTIONS -->
+
+    </form>
+
+</md-dialog>
+<!-- / DIALOG -->

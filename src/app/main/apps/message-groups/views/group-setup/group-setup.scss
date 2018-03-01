@@ -1,19 +1,19 @@
-#message-groups-product {
+#message-groups-group {
 
     .header {
         height: 120px;
         min-height: 120px;
         max-height: 120px;
 
-        .goto-products-button {
-            margin-right: 16px;
+        .goto-groups-button {
+            /*margin-right: 16px;*/
         }
 
-        .product-image {
+        .group-image {
             overflow: hidden;
             width: 56px;
             height: 56px;
-            margin-right: 16px;
+            /*margin-right: 16px;*/
             border: 3px solid rgba(0, 0, 0, 0.12);
 
             img {
@@ -28,10 +28,12 @@
         }
     }
 
-    .product-detail-form-container {
-        padding: 24px;
+    md-tabs > md-tabs-content-wrapper > md-tab-content {
+        padding: 14px;
+    }
 
-        #product-image-uploader {
+    .group-detail-form-container {
+        #group-image-uploader {
             position: relative;
 
             &.dropping {
@@ -65,7 +67,7 @@
                 width: 500px;
             }
 
-            .product-image {
+            .group-image {
                 position: relative;
                 width: 100px;
                 min-height: 100px;
@@ -91,5 +93,54 @@
             }
         }
     }
+}
 
+.table-list {
+    position: relative;
+    padding-bottom: 0;
+
+    .md-subheader {
+        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+
+        ._md-subheader-inner {
+            padding: 16px;
+        }
+
+        .table-list-count {
+            padding-left: 4px;
+        }
+
+        .list-title {
+            margin-right: 4px;
+        }
+
+    }
+    .table-list-item {
+        background: white;
+        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+        &:last-of-type {
+            margin-bottom: 24px;
+        }
+
+    }
+}
+
+
+
+.table-list-no-results {
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+}
+
+
+@media only screen and (max-width: $layout-breakpoint-sm) {
+    #message-groups-group {
+        md-tabs > md-tabs-content-wrapper > md-tab-content {
+            padding: 4px 10px 4px 4px;
+        }
+
+        &.page-layout.simple.tabbed > .content > md-tabs > md-tabs-wrapper{
+            padding:0;
+        }
+    }
 }

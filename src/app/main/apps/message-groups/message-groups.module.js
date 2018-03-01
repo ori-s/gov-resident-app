@@ -10,6 +10,7 @@
                 'datatables',
                 'flow',
                 'textAngular',
+                'wipImageZoom'
                 //'xeditable'
             ]
         )
@@ -24,106 +25,55 @@
                 abstract: true,
                 url     : '/message-groups'
             })
-            .state('app.message-groups.dashboard', {
-                url      : '/dashboard',
+            .state('app.message-groups.groups-setup', {
+                url      : '/groups-setup',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/dashboard/dashboard.html',
-                        controller : 'DashboardEcommerceController as vm'
+                        templateUrl: 'app/main/apps/message-groups/views/groups-setup/groups-setup.html',
+                        controller : 'GroupsSetupController as vm'
                     }
                 },
                 resolve  : {
-                    Dashboard: function (msApi)
+                    Groups: function (data_service)
                     {
-                        return msApi.resolve('message-groups.dashboard@get');
-                    }
-                },
-                bodyClass: 'ecommerce'
-            })
-            .state('app.message-groups.products', {
-                url      : '/products',
-                views    : {
-                    'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/products/products.html',
-                        controller : 'ProductsController as vm'
-                    }
-                },
-                resolve  : {
-                    Products: function (eCommerceService)
-                    {
-                        return eCommerceService.getProducts();
+                        return data_service.get('groups', {editable:true});
                     }
                 },
                 bodyClass: 'message-groups'
             })
-            .state('app.message-groups.products.add', {
+            .state('app.message-groups.groups-setup.add', {
                 url      : '/add',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/product/product.html',
-                        controller : 'ProductController as vm'
+                        templateUrl: 'app/main/apps/message-groups/views/group-setup/group-setup.html',
+                        controller : 'GroupSetupController as vm'
                     }
                 },
                 resolve: {
-                    Product: function (eCommerceService)
+                    Group: function (data_service)
                     {
-                        return eCommerceService.newProduct();
+                        return {};
                     }
                 },
                 bodyClass: 'message-groups'
             })
-            .state('app.message-groups.products.detail', {
+            .state('app.message-groups.groups-setup.detail', {
                 url      : '/:id',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/product/product.html',
-                        controller : 'ProductController as vm'
+                        templateUrl: 'app/main/apps/message-groups/views/group-setup/group-setup.html',
+                        controller : 'GroupSetupController as vm'
                     }
                 },
                 resolve  : {
-                    Product: function ($stateParams, Products, eCommerceService)
+                    Group: function ($stateParams, data_service)
                     {
-                        return eCommerceService.getProduct($stateParams.id);
-                    }
-                },
-                bodyClass: 'message-groups'
-            })
-            .state('app.message-groups.orders', {
-                url      : '/orders',
-                views    : {
-                    'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/orders/orders.html',
-                        controller : 'OrdersController as vm'
-                    }
-                },
-                resolve  : {
-                    Orders: function (eCommerceService)
-                    {
-                        return eCommerceService.getOrders();
-                    }
-                },
-                bodyClass: 'message-groups'
-            })
-            .state('app.message-groups.orders.detail', {
-                url      : '/:id',
-                views    : {
-                    'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/order/order.html',
-                        controller : 'OrderController as vm'
-                    }
-                },
-                resolve  : {
-                    Order        : function ($stateParams, Orders, eCommerceService)
-                    {
-                        return eCommerceService.getOrder($stateParams.id);
-                    },
-                    OrderStatuses: function (eCommerceService)
-                    {
-                        return eCommerceService.getOrderStatuses();
+                        return data_service.getDetails("groups", { id: $stateParams.id });
                     }
                 },
                 bodyClass: 'message-groups'
             });
+
 
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/apps/message-groups');
@@ -135,25 +85,26 @@
         msApiProvider.register('message-groups.order-statuses', ['app/data/message-groups/order-statuses.json']);
 
         // Navigation
-        msNavigationServiceProvider.saveItem('apps.message-groups', {
-            title : 'E-Commerce',
-            icon  : 'icon-cart',
-            weight: 3
+        msNavigationServiceProvider.saveItem('admin', {
+            title : 'admin',
+            group : true,
+            weight: 1
         });
 
-        msNavigationServiceProvider.saveItem('apps.message-groups.dashboard', {
-            title: 'Dashboard',
-            state: 'app.message-groups.dashboard'
+        //msNavigationServiceProvider.saveItem('apps.message-groups.dashboard', {
+        //    title: 'Dashboard',
+        //    state: 'app.message-groups.dashboard'
+        //});
+
+        msNavigationServiceProvider.saveItem('admin.groups-setup', {
+            title: 'Message Groups',
+            state: 'app.message-groups.groups-setup',
+            icon  : 'icon-group',
         });
 
-        msNavigationServiceProvider.saveItem('apps.message-groups.products', {
-            title: 'Products',
-            state: 'app.message-groups.products'
-        });
-
-        msNavigationServiceProvider.saveItem('apps.message-groups.orders', {
-            title: 'Orders',
-            state: 'app.message-groups.orders'
-        });
+        //msNavigationServiceProvider.saveItem('apps.message-groups.orders', {
+        //    title: 'Orders',
+        //    state: 'app.message-groups.orders'
+        //});
     }
 })();

@@ -1,0 +1,212 @@
+<div id="message-groups-group" class="page-layout simple tabbed" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="start center">
+        <div class="white-fg" layout="row" layout-align="start center" flex>
+            <md-button class="goto-groups-button md-icon-button m-far-16" aria-label="Go to groups"
+                       ng-click="vm.gotoGroups()"
+                       translate translate-attr-aria-label="GO_TO_GROUPS">
+                <md-icon md-font-icon="icon-arrow-left" class="icon-flip"></md-icon>
+            </md-button>
+
+            <div layout="row" layout-align="start center">
+                <div class="group-image m-far-16" hide-xs>
+                    <img ng-src="{{vm.group.images[0].url}}">
+                </div>
+
+                <div layout="column" layout-align="start start">
+                    <div class="h2">
+                        {{vm.group.name}}
+                    </div>
+                    <div class="subtitle secondary-text">
+                        <span translate="Group Detail">Group Detail</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <md-button class="md-raised md-background" ng-click="vm.saveGroup()"
+                       ng-disabled="!vm.isFormValid('groupForm')">
+                <span translate="Save">Save</span>
+            </md-button>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <md-tabs md-dynamic-height>
+
+            <md-tab>
+                <md-tab-label>
+                    <span translate="General Details">General Details</span>
+                </md-tab-label>
+
+                <md-tab-body >                    
+                    <div layout="row" layout-wrap style="max-width:1000px; margin:0 auto;">
+                        <!-- BASIC FORM -->
+                        <div class="padding-10" flex="100" flex-gt-sm="60">
+                            <div class="form-wrapper group-detail-form-container md-whiteframe-1dp">
+                                <form id="groupForm" name="groupForm" novalidate>
+                                    <div class="form-title" translate>Group Details</div>
+                                    <div layout="column" layout-gt-sm="row">
+                                        <md-input-container flex>
+                                            <label translate>Group Name</label>
+                                            <input type="text" name="groupname" ng-model="vm.group.name"
+                                                   translate translate-attr-placeholder="Group Name" 
+                                                   required>
+                                            <div ng-messages="groupForm.groupname.$error" role="alert">
+                                                <div ng-message="required">
+                                                    <span>Firstname field is required.</span>
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="column" layout-gt-xs="row">
+                                        <md-input-container flex>
+                                            <label translate>Group Category</label>
+                                            <md-select ng-model="vm.group.category">
+                                                <md-option ng-repeat="o in MS.group_categories" value="{{o.id}}">
+                                                    {{o.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+
+                                        <md-input-container flex>
+                                            <label translate>Group Type</label>
+                                            <md-select ng-model="vm.group.groupType">
+                                                <md-option ng-repeat="o in MS.group_types" value="{{o.id}}">
+                                                    {{o.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+
+                                        <md-input-container flex>
+                                            <label translate>Active</label>
+                                            <md-select ng-model="vm.group.active">
+                                                <md-option ng-repeat="o in MS.group_active" value="{{o.id}}">
+                                                    {{o.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+
+
+                                        <!--<md-input-container flex>
+                                            <label>Postal Code</label>
+                                            <input name="postalcode" ng-model="vm.group.postalCode" placeholder="12345"
+                                                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                                            <div ng-messages="groupForm.postalcode.$error" role="alert" multiple>
+                                                <div ng-message="required"><span>You must supply a postal code.</span></div>
+                                                <div ng-message="pattern"><span>That doesn't look like a valid postal code.</span></div>
+                                                <div ng-message="md-maxlength">
+                                                    <span>Postal code can't be longer than 5 characters.</span>
+                                                </div>
+                                            </div>
+                                        </md-input-container>-->
+                                    </div>
+                                    <md-input-container class="md-block">
+                                        <label translate>Group Description</label>
+                                        <textarea ng-model="vm.group.description" md-maxlength="250" max-rows="5"></textarea>
+                                    </md-input-container>
+                                    
+                                    <h3 class="tags secondary-text" translate="Tags">Tags</h3>
+                                    <md-chips ng-model="vm.group.tags"
+                                              placeholder="{{'Enter a tag' | translate}}"
+                                              delete-button-label="{{'Remove Tag' | translate}}"
+                                              delete-hint="Press delete to remove tag"
+                                              secondary-placeholder="{{'+Tag' | translate}}">
+                                    </md-chips>
+
+                                </form>
+                            </div>
+                        </div>
+                        <!-- / BASIC FORM -->
+                        <!-- BASIC FORM DATA -->
+                        <div class="padding-10"  flex="100" flex-gt-sm="40">
+                            <div class="form-wrapper group-detail-form-container form-data-wrapper md-whiteframe-1dp">
+                                <div id="group-image-uploader"
+                                     flow-init="vm.ngFlowOptions"
+                                     flow-name="vm.ngFlow.flow"
+                                     flow-files-submitted="vm.upload()"
+                                     flow-file-added="vm.fileAdded($file)"
+                                     flow-file-success="vm.fileSuccess($file, $message)"
+                                     flow-complete="vm.uploadComplete()"
+                                     flow-drop
+                                     flow-drag-enter="vm.dropping=true"
+                                     flow-drag-leave="vm.dropping=false"
+                                     ng-class="{'dropping':vm.dropping}">
+                                    <div class="drop-text hint-text" layout="row" layout-align="center center">
+                                        <span translate="Drop to upload">Drop to upload</span>
+                                    </div>
+                                    <div class="upload-button" layout="column" layout-align="center center">
+                                        <md-button class="md-accent md-raised" flow-btn translate="Upload"></md-button>
+                                        <span class="secondary-text mt-8" translate>You can also drop images</span>
+                                    </div>
+                                    <!--<div class="mv-32" layout="row" layout-align="center center">
+                                        <div class="image-zoom-area">
+                                            <img wip-image-zoom="vm.imageZoomOptions" style="max-width:200px">
+                                        </div>
+                                    </div>-->
+
+
+
+                                    <div layout="row" layout-align="center start" layout-wrap>
+                                        <div ng-repeat="image in vm.group.images" ng-switch="image.type">
+                                            <div class="group-image uploading" ng-switch-when="uploading" layout="row"
+                                                 layout-align="center center">
+                                                <div class="overlay" layout="column" layout-align="center center">
+                                                    <md-progress-linear md-mode="determinate"
+                                                                        value="{{image.file.progress() * 100}}">
+                                                    </md-progress-linear>
+                                                </div>
+                                                <img class="media" flow-img="image.file">
+                                            </div>
+                                            <div class="group-image" ng-switch-when="image" layout="row"
+                                                 layout-align="center center">
+                                                <img class="media" ng-src="{{image.url}}"
+                                                     ng-click="vm.updateImageZoomOptions(image.url)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="p-8 font-size-12" layout="row" layout-align="center center">
+                                        Click on images to activate the zoom!
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / BASIC FORM DATA -->
+                    </div>
+                </md-tab-body>
+            </md-tab>
+
+
+
+            <md-tab ng-if="vm.group.groupType == 'pr'" md-on-select="vm.subscribersSelected()">
+                <md-tab-label>
+                    <span translate="Subscribers">Subscribers</span>
+                </md-tab-label>
+
+                <md-tab-body>
+                    <div ng-include="'app/main/apps/message-groups/views/group-setup/blocks/subscribers.html'"></div>
+                </md-tab-body>
+            </md-tab>
+
+            <md-tab  md-on-select="vm.messagesSelected()">
+                <md-tab-label>
+                    <span translate="Messages">Messages</span>
+                </md-tab-label>
+
+                <md-tab-body ng-include="'app/main/apps/message-groups/views/group-setup/block/subscribers.html'">
+
+                </md-tab-body>
+            </md-tab>
+
+
+        </md-tabs>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

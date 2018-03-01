@@ -18,7 +18,7 @@
         }).then(function () {
             console.log('FB initialized!');
         });
-
+        $rootScope.MS = MetaService;
 
         $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
             // Activate loading indicator

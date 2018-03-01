@@ -4,10 +4,11 @@
 
     angular
         .module('app.message-groups')
-        .controller('ProductController', ProductController);
+        .controller('GroupSetupController', GroupSetupController);
+        
 
     /** @ngInject */
-    function ProductController($scope, $document, $state, eCommerceService, Product)
+    function GroupSetupController($scope, $document, $state, $mdDialog, data_service, Group)
     {
         var vm = this;
 
@@ -16,7 +17,7 @@
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
-        vm.product = Product;
+        vm.group = Group;
         vm.categoriesSelectFilter = '';
         vm.ngFlowOptions = {
             // You can configure the ngFlow from here
@@ -35,15 +36,16 @@
         vm.imageZoomOptions = {};
 
         // Methods
-        vm.saveProduct = saveProduct;
-        vm.gotoProducts = gotoProducts;
-        vm.onCategoriesSelectorOpen = onCategoriesSelectorOpen;
-        vm.onCategoriesSelectorClose = onCategoriesSelectorClose;
+        vm.saveGroup = saveGroup;
+        vm.gotoGroups = gotoGroups;
         vm.fileAdded = fileAdded;
         vm.upload = upload;
         vm.fileSuccess = fileSuccess;
         vm.isFormValid = isFormValid;
         vm.updateImageZoomOptions = updateImageZoomOptions;
+
+        vm.subscribersSelected = onSubscribersSelected;
+        vm.messagesSelected = onMessagesSelected;
 
         //////////
 
@@ -54,64 +56,37 @@
          */
         function init()
         {
-            if ( vm.product.images.length > 0 )
+            vm.group = _.extend({
+                images: [],
+                tags:[]
+            }, vm.group);
+
+            if ( vm.group.images.length > 0 )
             {
-                vm.updateImageZoomOptions(vm.product.images[0].url);
+                vm.updateImageZoomOptions(vm.group.images[0].url);
             }
         }
 
         /**
-         * Save product
+         * Save group
          */
-        function saveProduct()
+        function saveGroup()
         {
-            // Since we have two-way binding in place, we don't really need
-            // this function to update the products array in the demo.
-            // But in real world, you would need this function to trigger
-            // an API call to update your database.
-            if ( vm.product.id )
+            if ( vm.group.id )
             {
-                eCommerceService.updateProduct(vm.product.id, vm.product);
+                data_service.updateGroup(vm.group.id, vm.group);
             }
             else
             {
-                eCommerceService.createProduct(vm.product);
+                data_service.createGroup(vm.group);
             }
-
         }
 
-        /**
-         * Go to products page
-         */
-        function gotoProducts()
+        function gotoGroups()
         {
-            $state.go('app.message-groups.products');
+            $state.go('app.message-groups.groups-setup');
         }
 
-        /**
-         * On categories selector open
-         */
-        function onCategoriesSelectorOpen()
-        {
-            // The md-select directive eats keydown events for some quick select
-            // logic. Since we have a search input here, we don't need that logic.
-            $document.find('md-select-header input[type="search"]').on('keydown', function (e)
-            {
-                e.stopPropagation();
-            });
-        }
-
-        /**
-         * On categories selector close
-         */
-        function onCategoriesSelectorClose()
-        {
-            // Clear the filter
-            vm.categoriesSelectFilter = '';
-
-            // Unbind the input event
-            $document.find('md-select-header input[type="search"]').unbind('keydown');
-        }
 
         /**
          * File added callback
@@ -129,7 +104,7 @@
             };
 
             // Append it to the media list
-            vm.product.images.unshift(uploadingFile);
+            vm.group.image =[uploadingFile];
         }
 
         /**
@@ -160,7 +135,7 @@
             // are added as a temp and replace its data
             // Normally you would parse the message and extract
             // the uploaded file data from it
-            angular.forEach(vm.product.images, function (media, index)
+            angular.forEach(vm.group.images, function (media, index)
             {
                 if ( media.id === file.uniqueIdentifier )
                 {
@@ -209,5 +184,58 @@
                 ]
             };
         }
+
+        //---------------------------------------------------------------->
+        // subscribers
+        //---------------------------------------------------------------->
+        
+        vm.subscribersOrder = 'firstName';
+        vm.subscribersOrderAsc = false;
+        
+        function onSubscribersSelected(){
+            if (!vm.subscribers){
+                vm.loadingSubscribers = true;
+                data_service.get('group_subscribers',{group: vm.group.id}).then(function(ret){
+                    vm.subscribers = ret || [];
+                }).finally(function(){
+                    vm.loadingSubscribers = false;
+                })
+            }
+        }
+        vm.openContactDialog = function(ev, contact){
+            $mdDialog.show({
+                controller         : 'SubscriberDialogController',
+                controllerAs       : 'vm',
+                templateUrl        : 'app/main/apps/message-groups/dialogs/subscriber/subscriber-dialog.html',
+                //parent             : angular.element($document.find('#content-container')),
+                targetEvent        : ev,
+                fullscreen         : true,
+                clickOutsideToClose: true,
+                locals             : {
+                    Contact : contact,
+                    Subscribers: vm.subscribers,
+                    Group: vm.group
+                }
+            }).then(function (response) { 
+                if (response && response.mode == '"delete"')vm.deleteSubscriber(contact, ev);
+            }, function () { });;
+        }
+
+        vm.deleteSubscriber = function(contact, ev){
+            data_service.delete("group_subscribers", contact, {notify:true, confirm:true}).then(function(){
+                var index = _.findIndex(vm.subscribers, {id:vm.contact.id});
+                if (index >= 0) vm.subscribers.splice(index, 1);
+            }).catch();
+        }
+
+
+        //---------------------------------------------------------------->
+        // messages
+        //---------------------------------------------------------------->
+
+        function onMessagesSelected(){
+            
+        }
+
     }
 })();

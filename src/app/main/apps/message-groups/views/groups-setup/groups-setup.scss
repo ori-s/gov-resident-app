@@ -1,4 +1,4 @@
-#message-groups-products {
+#message-groups-setup {
 
     .center {
         .header {
@@ -14,7 +14,7 @@
                 }
             }
 
-            .product-count {
+            .group-count {
                 margin: 6px 0 0 36px;
             }
 
@@ -73,7 +73,7 @@
 
                     .dataTables_scrollBody {
 
-                        .product-image {
+                        .group-image {
                             width: 52px;
                             height: 52px;
                             border: 1px solid rgba(0, 0, 0, 0.12);
@@ -111,7 +111,7 @@
                         margin-left:12px;
                     }
                 }
-                .product-count {
+                .group-count {
                     margin: 6px 36px 0 0;
                 }
                 .search {

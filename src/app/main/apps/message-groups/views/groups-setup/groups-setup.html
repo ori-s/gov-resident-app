@@ -1,4 +1,4 @@
-<div id="message-groups-products" class="page-layout carded fullwidth" layout="row">
+<div id="message-groups-setup" class="page-layout carded fullwidth" layout="row">
 
     <!-- TOP BACKGROUND -->
     <div class="top-bg md-accent-bg"></div>
@@ -12,27 +12,29 @@
             <div class="white-fg" layout="column" layout-align="start start">
                 <div class="h1" layout="row" layout-align="start center">
                     <md-icon md-font-icon="icon-cube-outline"></md-icon>
-                    <span translate="EC.PRODUCTS">Products</span>
+                    <span translate="Groups">Groups</span>
                 </div>
-                <div class="product-count secondary-text">
-                    <span translate="EC.TOTAL_PRODUCTS">Total products:</span>
-                    <span>{{vm.products.length}}</span>
+                <div class="group-count secondary-text">
+                    <span translate="Total Groups">Total Groups</span>:
+                    <span>{{vm.groups.length}}</span>
                 </div>
             </div>
 
             <div class="search" layout="row" layout-align="start center" flex>
                 <md-icon md-font-icon="icon-magnify" class="white-text icon search-icon"></md-icon>
-                <input id="message-groups-products-search" class="search-input" type="text" placeholder="Search"
-                       translate translate-attr-placeholder="EC.SEARCH" flex>
+                <input id="message-groups-setup-search" class="search-input" type="text" placeholder="Search"
+                       translate translate-attr-placeholder="Search" flex>
             </div>
 
             <div>
-                <md-button class="md-raised md-background" ng-click="vm.gotoAddProduct()">
-                    <span translate="EC.ADD_NEW_PRODUCT">Add New Product</span>
+                <md-button class="md-raised md-background" ng-click="vm.gotoAddGroup()">
+                    <span translate>Add New Group</span>
                 </md-button>
             </div>
         </div>
         <!-- / CONTENT HEADER -->
+
+
 
         <!-- CONTENT CARD -->
         <div class="content-card" layout="column" flex>
@@ -50,57 +52,51 @@
                         <tr>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">ID</span>
+                                    <span class="column-title" translate>Image</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Image</span>
+                                    <span class="column-title" translate>Name</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Name</span>
+                                    <span class="column-title" translate>Category</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Category</span>
+                                    <span class="column-title" translate>Group Type</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Price</span>
+                                    <span class="column-title" translate>Subscribers</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Quantity</span>
+                                    <span class="column-title" translate>Active</span>
                                 </div>
                             </th>
                             <th class="secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Active</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title">Actions</span>
+                                    <span class="column-title" translate>Actions</span>
                                 </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="product in ::vm.products">
-                            <td>{{product.id}}</td>
-                            <td><img class="product-image" ng-src="{{product.images[0].url}}"></td>
-                            <td>{{product.name}}</td>
-                            <td>{{product.categories[0]}}</td>
-                            <td>{{product.priceTaxIncl}}</td>
-                            <td>{{product.quantity}}</td>
-                            <td>{{product.active}}</td>
+                        <tr ng-repeat="group in ::vm.groups">
+                            <td><img class="group-image" ng-src="{{group.images[0].url}}"></td>
+                            <td>{{group.name}}</td>
+                            <td>{{group.category | mapEnt:MS.group_categories}}</td>
+                            <td>{{group.groupType | mapEnt:MS.group_types}}</td>
+                            <td>{{group.subscribers}}</td>
+                            <td>{{group.active}}</td>
                             <td>
-                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(product.id)" aria-label="Product details"
+                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoGroupDetail(group.id)" aria-label="Group details"
                                            translate translate-attr-aria-label="EC.PRODUCT_DETAILS">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
                                 </md-button>
