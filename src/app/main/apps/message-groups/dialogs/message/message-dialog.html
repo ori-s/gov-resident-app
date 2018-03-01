@@ -1,0 +1,82 @@
+<!-- DIALOG -->
+<md-dialog class="message-dialog" aria-label="Message dialog">
+
+    <form name="messageForm" class="md-inline-form" novalidate>
+
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <span class="title">{{vm.title | translate}}</span>
+                <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close dialog" tranlate
+                           translate-aria-label="MAIL.CLOSE_DIALOG">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <!-- DIALOG CONTENT -->
+        <md-dialog-content ms-scroll>
+
+            <md-input-container class="md-block">
+                <label translate="Subject">Subject</label>
+                <input ng-model="vm.message.subject" required type="text">
+            </md-input-container>
+
+            <text-angular ng-model="vm.message.message"></text-angular>
+
+            <div ng-class="{'border md-amber-100-bg margin-top-10': vm.message.scheduled}">
+                <div class="text-center">
+                    <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.message.scheduled" class="md-accent">
+                        <span ng-class="{'md-accent-fg':vm.message.scheduled}">{{'Message Scheduling' | translate}}</span>
+                    </md-checkbox>
+                </div>
+                <div ng-if="vm.message.scheduled" layout="row" layout-align="center top" class="bt text-center">
+                    <div flex>
+                        <h4 translate>Schedule Date</h4>
+                        <md-datepicker ng-model="vm.message.scheduleDate" ng-required="true"></md-datepicker>
+                    </div>
+
+                    <div flex>
+                        <h4 translate>Reminder Date</h4>
+                        <md-datepicker ng-model="vm.message.reminderDate" ng-required="true"></md-datepicker>
+                    </div>
+                </div>
+            </div>
+
+
+        </md-dialog-content>
+        <!-- / DIALOG CONTENT -->
+
+        <!-- DIALOG ACTIONS -->
+        <md-dialog-actions layout="row" layout-align="space-between center">
+            <div layout="row" layout-align="start center">
+                <md-button type="submit" ng-if="!vm.newMessage" ng-click="vm.saveMessage()"
+                           class="send-button md-accent md-raised"
+                           ng-disabled="messageForm.$invalidX || messageForm.$pristine"
+                           aria-label="Save" translate="Save" translate-attr-aria-label="CONTACTS.SAVE">
+                    SAVE
+                </md-button>
+
+                <md-button type="submit" ng-if="vm.newMessage" ng-click="vm.saveMessage()"
+                           class="send-button md-accent md-raised"
+                           ng-disabled="messageForm.$invalidX || messageForm.$pristine"
+                           aria-label="Add Message" translate="Add Message"
+                           translate-attr-aria-label="Add Message">
+                    Add Message
+                </md-button>
+
+            </div>
+
+            <div layout="row">
+                <md-button class="md-icon-button" ng-click="vm.deleteMessage($event)" ng-if="!vm.newMessage" aria-label="Delete"
+                           translate translate-attr-aria-label="Delete">
+                    <md-icon md-font-icon="icon-delete"></md-icon>
+                    <md-tooltip><span translate="Delete">Delete</span></md-tooltip>
+                </md-button>
+            </div>
+        </md-dialog-actions>
+        <!-- / DIALOG ACTIONS -->
+
+    </form>
+
+</md-dialog>
+<!-- / DIALOG -->

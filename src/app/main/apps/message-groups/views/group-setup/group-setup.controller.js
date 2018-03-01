@@ -13,10 +13,6 @@
         var vm = this;
 
         // Data
-        vm.taToolbar = [
-            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
-            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
-        ];
         vm.group = Group;
         vm.categoriesSelectFilter = '';
         vm.ngFlowOptions = {
@@ -202,7 +198,7 @@
                 })
             }
         }
-        vm.openContactDialog = function(ev, contact){
+        vm.openSubscriberDialog = function(ev, subscriber){
             $mdDialog.show({
                 controller         : 'SubscriberDialogController',
                 controllerAs       : 'vm',
@@ -212,18 +208,18 @@
                 fullscreen         : true,
                 clickOutsideToClose: true,
                 locals             : {
-                    Contact : contact,
+                    Subscriber : subscriber,
                     Subscribers: vm.subscribers,
                     Group: vm.group
                 }
             }).then(function (response) { 
-                if (response && response.mode == '"delete"')vm.deleteSubscriber(contact, ev);
+                if (response && response.mode == '"delete"')vm.deleteSubscriber(subscriber, ev);
             }, function () { });;
         }
 
-        vm.deleteSubscriber = function(contact, ev){
-            data_service.delete("group_subscribers", contact, {notify:true, confirm:true}).then(function(){
-                var index = _.findIndex(vm.subscribers, {id:vm.contact.id});
+        vm.deleteSubscriber = function(subscriber, ev){
+            data_service.delete("group_subscribers", subscriber, {notify:true, confirm:true}).then(function(){
+                var index = _.findIndex(vm.subscribers, {id:subscriber.id});
                 if (index >= 0) vm.subscribers.splice(index, 1);
             }).catch();
         }
@@ -233,9 +229,47 @@
         // messages
         //---------------------------------------------------------------->
 
+        vm.messagesOrder = 'subject';
+        vm.messagesOrderAsc = false;
+        
         function onMessagesSelected(){
-            
+            if (!vm.messages){
+                vm.loadingMessages = true;
+                data_service.get('group_messages',{group: vm.group.id}).then(function(ret){
+                    vm.messages = ret || [];
+                }).finally(function(){
+                    vm.loadingMessages = false;
+                })
+            }
         }
+        vm.openMessageDialog = function(ev, message){
+            $mdDialog.show({
+                controller         : 'MessageDialogController',
+                controllerAs       : 'vm',
+                templateUrl        : 'app/main/apps/message-groups/dialogs/message/message-dialog.html',
+                //parent             : angular.element($document.find('#content-container')),
+                targetEvent        : ev,
+                fullscreen         : true,
+                clickOutsideToClose: true,
+                locals             : {
+                    Message : message,
+                    Messages: vm.messages,
+                    Group: vm.group
+                }
+            }).then(function (response) { 
+                if (response && response.mode == '"delete"')vm.deleteMessage(message, ev);
+            }, function () { });;
+        }
+
+        vm.deleteMessage = function(message, ev){
+            data_service.delete("group_messages", message, {notify:true, confirm:true}).then(function(){
+                var index = _.findIndex(vm.messages, {id:message.id});
+                if (index >= 0) vm.messages.splice(index, 1);
+            }).catch(function(err){
+                console.error(err);
+            });
+        }
+
 
     }
 })();

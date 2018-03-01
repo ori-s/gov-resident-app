@@ -7,33 +7,33 @@
         .controller('SubscriberDialogController', SubscriberDialogController);
 
     /** @ngInject */
-    function SubscriberDialogController($scope, $mdDialog, $mdToast, $translate, Contact, Group, Subscribers, msUtils, data_service)
+    function SubscriberDialogController($scope, $mdDialog, $mdToast, $translate, Subscriber, Group, Subscribers, msUtils, data_service)
     {
         var vm = this;
 
         // Data
         vm.title = 'Edit Subscriber';
-        vm.contact = angular.copy(Contact);
-        //vm.contacts = Contacts;
+        vm.subscriber = angular.copy(Subscriber);
+        //vm.subscribers = Subscribers;
         //vm.user = User;
-        vm.newContact = false;
+        vm.newSubscriber = false;
         vm.allFields = false;
 
-        if ( !vm.contact )
+        if ( !vm.subscriber )
         {
-            vm.contact = {
-                
+            vm.subscriber = {
+                groupId: Group.id
             };
 
             vm.title = 'New Subscriber';
-            vm.newContact = true;
-            vm.contact.tags = [];
+            vm.newSubscriber = true;
+            vm.subscriber.tags = [];
         }
 
         // Methods
-        vm.addNewContact = addNewContact;
-        vm.saveContact = saveContact;
-        vm.deleteContact = deleteContact;
+        vm.addNewSubscriber = addNewSubscriber;
+        vm.saveSubscriber = saveSubscriber;
+        vm.deleteSubscriber = deleteSubscriber;
         vm.closeDialog = closeDialog;
         vm.toggleInArray = msUtils.toggleInArray;
         vm.exists = msUtils.exists;
@@ -41,28 +41,28 @@
         //////////
 
         /**
-         * Add new contact
+         * Add new subscriber
          */
-        function addNewContact()
+        function addNewSubscriber()
         {
-            //vm.contacts.unshift(vm.contact);
+            //vm.subscribers.unshift(vm.subscriber);
 
             closeDialog();
         }
 
         /**
-         * Save contact
+         * Save subscriber
          */
-        function saveContact()
+        function saveSubscriber()
         {
-            if ($scope.contactForm.$valid){
+            if ($scope.subscriberForm.$valid){
                 
-                data_service.save("group_subscribers", vm.contact, {notify:true, confirm:{}}).then(function (ret) {
+                data_service.save("group_subscribers", vm.subscriber, {notify:true, confirm:{}}).then(function (ret) {
                     closeDialog();
-                    if (vm.newContact){
+                    if (vm.newSubscriber){
                         Subscribers.unshift(ret);
                     }else{
-                        var index = _.findIndex(Subscribers, {id:vm.contact.id});
+                        var index = _.findIndex(Subscribers, {id:vm.subscriber.id});
                         if (index >= 0) Subscribers[index] = ret;
                     }
 
@@ -72,9 +72,9 @@
         }
 
         /**
-         * Delete Contact Confirm Dialog
+         * Delete Subscriber Confirm Dialog
          */
-        function deleteContact(ev)
+        function deleteSubscriber(ev)
         {
             $mdDialog.hide({mode:"delete"});
         }

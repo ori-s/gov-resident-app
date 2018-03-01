@@ -1,7 +1,7 @@
 <!-- DIALOG -->
 <md-dialog class="subscriber-dialog" aria-label="Subscriber dialog">
 
-    <form name="contactForm" class="md-inline-form" novalidate>
+    <form name="subscriberForm" class="md-inline-form" novalidate>
 
         <!-- DIALOG TOOLBAR -->
         <md-toolbar class="md-accent md-tall" layout="column">
@@ -19,9 +19,9 @@
             <!-- TOOLBAR MIDDLE -->
             <div class="md-toolbar-tools md-toolbar-tools-middle" flex layout="column" layout-align="center center">
                 <div layout="column" layout-align="center center">
-                    <img ng-src="{{vm.contact.avatar || 'assets/images/avatars/profile.jpg'}}" class="md-avatar avatar contact-avatar huge"
-                         alt="{{vm.contact.firstName}}"/>
-                    <div class="contact-name">{{vm.contact.firstName}}, {{vm.contact.lastName}}</div>
+                    <img ng-src="{{vm.subscriber.avatar || 'assets/images/avatars/profile.jpg'}}" class="md-avatar avatar subscriber-avatar huge"
+                         alt="{{vm.subscriber.firstName}}"/>
+                    <div class="subscriber-name">{{vm.subscriber.firstName}}, {{vm.subscriber.lastName}}</div>
                 </div>
             </div>
             <!-- / TOOLBAR MIDDLE -->
@@ -34,26 +34,26 @@
             <md-input-container class="md-icon-float md-block">
                 <label translate="First Name">First Name</label>
                 <md-icon md-font-icon="icon-account" class="name"></md-icon>
-                <input ng-model="vm.contact.firstName" type="text" required md-autofocus>
+                <input ng-model="vm.subscriber.firstName" type="text" required md-autofocus>
             </md-input-container>
 
             <md-input-container class="md-icon-float md-block">
                 <label translate="Last Name">Last name</label>
                 <md-icon></md-icon>
-                <input ng-model="vm.contact.lastName" required type="text">
+                <input ng-model="vm.subscriber.lastName" required type="text">
             </md-input-container>
 
 
             <md-input-container class="md-block">
                 <label translate="Phone">Phone</label>
                 <md-icon md-font-icon="icon-phone"></md-icon>
-                <input ng-model="vm.contact.phone" type="text" required>
+                <input ng-model="vm.subscriber.phone" type="text" required>
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label translate="Email">Email</label>
                 <md-icon md-font-icon="icon-email" class="email"></md-icon>
-                <input ng-model="vm.contact.email" type="email" required>
+                <input ng-model="vm.subscriber.email" type="email" required>
             </md-input-container>
 
 
@@ -65,16 +65,16 @@
         <!-- DIALOG ACTIONS -->
         <md-dialog-actions layout="row" layout-align="space-between center">
             <div layout="row" layout-align="start center">
-                <md-button type="submit" ng-if="!vm.newContact" ng-click="vm.saveContact()"
+                <md-button type="submit" ng-if="!vm.newSubscriber" ng-click="vm.saveSubscriber()"
                            class="send-button md-accent md-raised"
-                           ng-disabled="contactForm.$invalidX || contactForm.$pristine"
+                           ng-disabled="subscriberForm.$invalidX || subscriberForm.$pristine"
                            aria-label="Save" translate="Save" translate-attr-aria-label="CONTACTS.SAVE">
                     SAVE
                 </md-button>
 
-                <md-button type="submit" ng-if="vm.newContact" ng-click="vm.saveContact()"
+                <md-button type="submit" ng-if="vm.newSubscriber" ng-click="vm.saveSubscriber()"
                            class="send-button md-accent md-raised"
-                           ng-disabled="contactForm.$invalidX || contactForm.$pristine"
+                           ng-disabled="subscriberForm.$invalidX || subscriberForm.$pristine"
                            aria-label="Add Subscriber" translate="Add Subscriber"
                            translate-attr-aria-label="Add Subscriber">
                     Add Subscriber
@@ -83,7 +83,7 @@
             </div>
 
             <div layout="row">
-                <md-button class="md-icon-button" ng-click="vm.deleteContact($event)" ng-if="!vm.newContact" aria-label="Delete"
+                <md-button class="md-icon-button" ng-click="vm.deleteSubscriber($event)" ng-if="!vm.newSubscriber" aria-label="Delete"
                            translate translate-attr-aria-label="Delete">
                     <md-icon md-font-icon="icon-delete"></md-icon>
                     <md-tooltip><span translate="Delete">Delete</span></md-tooltip>

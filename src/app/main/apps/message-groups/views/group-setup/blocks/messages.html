@@ -1,10 +1,127 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿            <!-- CONTACT LIST -->
+<div style="max-width:900px; margin:0 auto; padding-bottom:80px;">
 
-</body>
-</html>
+    <md-list class="table-list">
+        <!-- CONTACT LIST HEADER -->
+        <md-subheader class="md-no-sticky md-white-bg">
+            <div layout="row" layout-align="space-between center">
+                <div class="list-title" layout="row" layout-align="start center">
+                    <span translate="Messages">Messages</span>
+                    <span ng-if="vm.messages.length" class="secondary-text table-list-count">
+                        ({{vm.messages.length}})
+                    </span>
+                </div>
+                <div flex></div>
+
+                <md-menu>
+                    <md-button class="md-icon-button" aria-label="Sort" translate
+                               translate-attr-aria-label="CONTACTS.SORT">
+                        <md-icon md-font-icon="icon-sort-alphabetical"
+                                 ng-click="$mdMenu.open($event)"></md-icon>
+                    </md-button>
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="vm.messagesOrder = 'firstName';vm.messagesOrderAsc = false"
+                                       ng-style="vm.messagesOrder === 'firstName' && vm.messagesOrderAsc=== false && {'font-weight':'500'}">
+                                <i class="icon-sort-descending font-size-16"></i>
+                                <span translate="First Name">First Name</span>
+
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.messagesOrder = 'firstName'; vm.messagesOrderAsc = true"
+                                       ng-style="vm.messagesOrder === 'firstName' && vm.messagesOrderAsc=== true && {'font-weight':'500'}">
+                                <i class="icon-sort-ascending font-size-16"></i>
+                                <span translate="First Name">First Name</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.messagesOrder = 'lastName';vm.messagesOrderAsc = false"
+                                       ng-style="vm.messagesOrder === 'lastName' && vm.messagesOrderAsc=== false && {'font-weight':'500'}">
+                                <i class="icon-sort-descending font-size-16"></i>
+                                <span translate="Last Name">Last Name</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.messagesOrder = 'lastName'; vm.messagesOrderAsc = true"
+                                       ng-style="vm.messagesOrder === 'lastName' && vm.messagesOrderAsc=== true && {'font-weight':'500'}">
+                                <i class="icon-sort-ascending font-size-16"></i>
+                                <span translate="Last Name">Last Name</span>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+
+                <md-button class="md-fab md-accent md-icon-button md-mini" ng-click="vm.openMessageDialog($event)"
+                           aria-label="add message" translate translate-attr-aria-label="Add Message">
+                    <md-icon md-font-icon="icon-plus"></md-icon>
+                </md-button>
+
+            </div>
+        </md-subheader>
+        <!-- / CONTACT LIST HEADER -->
+        <!-- CONTACT ITEM -->
+
+        <div class="thread-row {{thread.status}}" md-ink-ripple
+             ng-repeat="thread in vm.messages | filter: vm.messagesSearch |  orderBy: vm.messagesOrder :vm.messagesOrderAsc track by thread.id"
+             ng-click="vm.openMessageDialog($event, thread)">
+            <div layout="row" layout-align="start center">
+                <div class="info" flex layout="column">
+                    <div class="name" layout="row" layout-align="start center">
+                        <img class="avatar" ng-if="vm.group.avatar" alt="{{vm.group.name}}" ng-src="{{vm.group.avatar}}" />
+                        <div class="avatar md-primary-bg" ng-if="!vm.group.avatar">
+                            {{vm.group.name[0]}}
+                        </div>
+                        <span class="text-truncate">{{thread.subject}}</span>
+                        <md-icon md-font-icon="icon-calendar-clock" class="has-attachment s16"
+                                 ng-if="thread.scheduled"></md-icon>
+                        <md-icon md-font-icon="icon-paperclip" class="has-attachment s16"
+                                 ng-if="thread.hasAttachments"></md-icon>
+                    </div>
+                    <div class="message text-truncate">
+                        {{thread.message | htmlToPlaintext | limitTo:150}}{{thread.message.length > 150 ? '...' : ''}}
+                        <div class="labels">
+                            <div class="label" ng-repeat="labelId in thread.labels"
+                                 ng-class="vm.getLabelColor(labelId)">
+                                {{vm.getLabelTitle(labelId)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div layout="column" layout-align="space-between end">
+                    <!--<div class="time">{{thread.created |  amDateFormat:'dddd, MMMM DD YYYY'}}</div>-->
+                    <div class="time">{{thread.created |  amDateFormat:'MMM DD'}}</div>
+                </div>
+                <div class="actions" layout="row" layout-align="start center">
+                    <md-menu>
+                        <md-button class="md-icon-button" aria-label="More" translate
+                                   translate-attr-aria-label="CONTACTS.MORE">
+                            <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdMenu.open($event)"></md-icon>
+                        </md-button>
+                        <md-menu-content width="3">
+                            <md-menu-item>
+                                <md-button ng-click="vm.deleteMessage(thread, $event)"
+                                           translate="Delete Message">
+                                    Delete Message
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT ITEM -->
+    </md-list>
+    <!-- / CONTACT LIST -->
+    <!-- NO RESULTS -->
+    <md-list-item class="table-list-no-results md-white-bg" ng-show="vm.subscribers.length === 0">
+        <p translate="NO_RESULTS">No results..</p>
+    </md-list-item>
+    <!-- / NO RESULTS -->
+
+
+</div>
+
+
+

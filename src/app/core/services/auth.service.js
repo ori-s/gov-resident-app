@@ -375,6 +375,7 @@
 
         }
 
+
         service.delete = function (what, data, args) {
             if (!args) args = {};
             var deferred = $q.defer();
@@ -390,13 +391,9 @@
 
                 $mdDialog.show(confirm).then(function () {
                     delete_continue();
-                    vm.contacts.splice(vm.contacts.indexOf(Contact), 1);
-
                 }).catch(function () {
                     deferred.reject();
                 });
-
-
             } else {
                 delete_continue();
             }
