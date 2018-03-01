@@ -15,7 +15,7 @@
         vm.themes = fuseTheming.themes;
 
         $rootScope.app = {
-            name: 'tabIt Delivery',
+            name: 'APPNAME',
             version: '1.0.0',
             settings: {
                 "isRTL": true,

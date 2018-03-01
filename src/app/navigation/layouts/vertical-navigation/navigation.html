@@ -3,7 +3,7 @@
         <span class="logo-image md-accent-bg">
             <md-icon md-svg-src="assets/images/logos/logo_square.svg" style="width:16px; height:16px;" aria-label="Logo"></md-icon>
         </span>
-        <span class="logo-text">{{vm.auth.organization && vm.auth.organization.name || app.name}}</span>
+        <span class="logo-text">{{app.name | translate}}</span>
     </div>
     <md-icon class="fold-toggle s18" md-font-icon="icon-pin-off" hide show-gt-sm
              ng-click="vm.toggleMsNavigationFolded()"></md-icon>
