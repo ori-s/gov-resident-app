@@ -22,14 +22,9 @@
         });
         // Navigation
 
-        msNavigationServiceProvider.saveItem('apps', {
-            title : 'APPS',
-            translate: "APPS",
-            group : true,
-            weight: 1
-        });
 
-        msNavigationServiceProvider.saveItem('apps.home', {
+
+        msNavigationServiceProvider.saveItem('home', {
             title : 'Home',
             icon  : 'icon-home',
             state : 'app.home',

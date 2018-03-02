@@ -1,5 +1,4 @@
 <div id="message-groups-group" class="page-layout simple tabbed" layout="column">
-
     <!-- HEADER -->
     <div class="header md-accent-bg" layout="row" layout-align="start center">
         <div class="white-fg" layout="row" layout-align="start center" flex>
@@ -8,12 +7,10 @@
                        translate translate-attr-aria-label="GO_TO_GROUPS">
                 <md-icon md-font-icon="icon-arrow-left" class="icon-flip"></md-icon>
             </md-button>
-
             <div layout="row" layout-align="start center">
                 <div class="group-image m-far-16" hide-xs>
                     <img ng-src="{{vm.group.images[0].url}}">
                 </div>
-
                 <div layout="column" layout-align="start start">
                     <div class="h2">
                         {{vm.group.name}}
@@ -24,7 +21,6 @@
                 </div>
             </div>
         </div>
-
         <div>
             <md-button class="md-raised md-background" ng-click="vm.saveGroup()"
                        ng-disabled="!vm.isFormValid('groupForm')">
@@ -33,23 +29,20 @@
         </div>
     </div>
     <!-- / HEADER -->
-
     <!-- CONTENT -->
     <div class="content">
-
         <md-tabs md-dynamic-height>
-
             <md-tab>
                 <md-tab-label>
                     <span translate="General Details">General Details</span>
                 </md-tab-label>
-
-                <md-tab-body >                    
-                    <div ng-include="'app/main/apps/message-groups/views/group-setup/blocks/general.html'"></div>
+                <md-tab-body>
+                    <form id="groupForm" name="groupForm" novalidate>
+                        <div ng-include="'app/main/apps/message-groups/views/group-setup/blocks/general.html'"></div>
+                    </form>
                 </md-tab-body>
             </md-tab>
-
-            <md-tab md-on-select="vm.messagesSelected()">
+            <md-tab md-on-select="vm.messagesSelected()" ng-if="vm.group.id">
                 <md-tab-label>
                     <span translate="Messages">Messages</span>
                 </md-tab-label>
@@ -57,23 +50,17 @@
                     <div ng-include="'app/main/apps/message-groups/views/group-setup/blocks/messages.html'"></div>
                 </md-tab-body>
             </md-tab>
-
-            <md-tab ng-if="vm.group.groupType == 'pr'" md-on-select="vm.subscribersSelected()">
+            <md-tab ng-if="vm.group.id && vm.group.groupType == 'pr'" md-on-select="vm.subscribersSelected()">
                 <md-tab-label>
                     <span translate="Subscribers">Subscribers</span>
                 </md-tab-label>
-
                 <md-tab-body>
                     <div ng-include="'app/main/apps/message-groups/views/group-setup/blocks/subscribers.html'"></div>
                 </md-tab-body>
             </md-tab>
 
 
-
-
         </md-tabs>
-
     </div>
     <!-- / CONTENT -->
-
 </div>

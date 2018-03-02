@@ -71,9 +71,17 @@
         msApiProvider.register('mail.folder.starred', ['app/data/mail/folders/starred.json']);
         msApiProvider.register('mail.folder.important', ['app/data/mail/folders/important.json']);
 
+        msNavigationServiceProvider.saveItem('messages', {
+            title : 'messages',
+            translate: "Messages",
+            group : true,
+            weight: 1
+        });
+
         // Navigation
-        msNavigationServiceProvider.saveItem('apps.mail', {
+        msNavigationServiceProvider.saveItem('messages.mail', {
             title      : 'Mail',
+            translate  : 'Message Center',
             icon       : 'icon-email',
             state      : 'app.mail.threads',
             stateParams: {
@@ -83,7 +91,7 @@
                 content: 25,
                 color  : '#F44336'
             },
-            weight     : 4
+            weight     : 1
         });
     }
 })();

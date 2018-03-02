@@ -7,7 +7,7 @@
         .controller('GroupsSetupController', GroupsSetupController);
 
     /** @ngInject */
-    function GroupsSetupController($state, Groups)
+    function GroupsSetupController($state, Groups, $mdDialog, data_service)
     {
         var vm = this;
 
@@ -96,5 +96,39 @@
         {
             $state.go('app.message-groups.groups-setup.detail', {id: id});
         }
+
+        vm.deleteGroup = function(group, $event){
+            data_service.delete("groups", group, {notify:true, confirm:true}).then(function(){
+                var index = _.findIndex(vm.groups, {id:group.id});
+                if (index >= 0) vm.groups.splice(index, 1);
+                
+                vm.dtInstance.reloadData(function(json){
+                    
+                }, false);
+
+            }).catch(function(err){
+                console.error(err);
+            });
+        }
+
+        vm.addMessage = function(group, ev){
+            $mdDialog.show({
+                controller         : 'MessageDialogController',
+                controllerAs       : 'vm',
+                templateUrl        : 'app/main/apps/message-groups/dialogs/message/message-dialog.html',
+                targetEvent        : ev,
+                fullscreen         : true,
+                clickOutsideToClose: true,
+                locals             : {
+                    Message : null,
+                    Messages: null,
+                    Group: group
+                }
+            }).then(function (response) { 
+                
+            }, function () { });;
+        }
+
+
     }
 })();

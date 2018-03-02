@@ -89,17 +89,51 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="group in ::vm.groups">
-                            <td><img class="group-image" ng-src="{{group.images[0].url}}"></td>
+                            <td>
+                                <a class="cursor-pointer" ng-click="vm.gotoGroupDetail(group.id)">
+                                    <img class="avatar" ng-if="group.avatar" alt="{{group.name}}" ng-src="{{group.avatar}}" />
+                                    <div class="avatar md-accent-bg" ng-if="!group.avatar">
+                                        {{group.name.substr(0,2)}}
+                                    </div>
+                                </a>
+                            </td>
                             <td>{{group.name}}</td>
                             <td>{{group.category | mapEnt:MS.group_categories}}</td>
                             <td>{{group.groupType | mapEnt:MS.group_types}}</td>
                             <td>{{group.subscribers}}</td>
                             <td>{{group.active}}</td>
                             <td>
-                                <md-button class="edit-button md-icon-button" ng-click="vm.gotoGroupDetail(group.id)" aria-label="Group details"
+                                <div class="actions" layout="row" layout-align="start center">
+                                    <md-menu>
+                                        <md-button class="md-icon-button" aria-label="More" translate
+                                                   translate-attr-aria-label="CONTACTS.MORE">
+                                            <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdMenu.open($event)"></md-icon>
+                                        </md-button>
+                                        <md-menu-content width="3">
+                                            <md-menu-item>
+                                                <md-button ng-click="vm.gotoGroupDetail(group.id)" translate="Edit Group">
+                                                    Edit Group
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item>
+                                                <md-button ng-click="vm.addMessage(group, $event)" translate="Add Message">
+                                                    Add Message
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-divider></md-divider>
+                                            <md-menu-item>
+                                                <md-button ng-click="vm.deleteGroup(group, $event)" translate="Delete Group">
+                                                    Delete Group
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </div>
+
+                                <!--<md-button class="edit-button md-icon-button" ng-click="vm.gotoGroupDetail(group.id)" aria-label="Group details"
                                            translate translate-attr-aria-label="EC.PRODUCT_DETAILS">
                                     <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
-                                </md-button>
+                                </md-button>-->
                             </td>
                         </tr>
                     </tbody>

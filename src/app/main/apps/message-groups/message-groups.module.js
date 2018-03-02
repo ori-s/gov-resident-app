@@ -25,6 +25,24 @@
                 abstract: true,
                 url     : '/message-groups'
             })
+            .state('app.message-groups.subscribe', {
+                url      : '/subscribe',
+                views    : {
+                    'content@app': {
+                        templateUrl: 'app/main/apps/message-groups/views/subscribe/subscribe.html',
+                        controller : 'GroupsSubscribeController as vm'
+                    }
+                },
+                resolve  : {
+                    Groups: function (data_service)
+                    {
+                        return data_service.get('groups', {'groupType': 'pu', 'active':true}).then(function (ret){
+                            return _.filter(ret, {'groupType': 'pu', 'active':true});
+                        });
+                    }
+                },
+                bodyClass: 'message-groups'
+            })
             .state('app.message-groups.groups-setup', {
                 url      : '/groups-setup',
                 views    : {
@@ -78,18 +96,24 @@
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/apps/message-groups');
 
-        // Api
-        msApiProvider.register('message-groups.dashboard', ['app/data/message-groups/dashboard.json']);
-        msApiProvider.register('message-groups.products', ['app/data/message-groups/products.json']);
-        msApiProvider.register('message-groups.orders', ['app/data/message-groups/orders.json']);
-        msApiProvider.register('message-groups.order-statuses', ['app/data/message-groups/order-statuses.json']);
+
+        msNavigationServiceProvider.saveItem('messages.subscribe', {
+            title      : 'Subscribe to Groups',
+            translate  : 'Subscribe to Groups',
+            icon       : 'icon-email',
+            state      : 'app.message-groups.subscribe',
+            weight     : 2
+        });
 
         // Navigation
         msNavigationServiceProvider.saveItem('admin', {
             title : 'admin',
+            translate: "ADMIN",
             group : true,
-            weight: 1
+            weight: 10
         });
+
+
 
         //msNavigationServiceProvider.saveItem('apps.message-groups.dashboard', {
         //    title: 'Dashboard',
@@ -98,6 +122,7 @@
 
         msNavigationServiceProvider.saveItem('admin.groups-setup', {
             title: 'Message Groups',
+            translate: "Group Maintenance",
             state: 'app.message-groups.groups-setup',
             icon  : 'icon-group',
         });

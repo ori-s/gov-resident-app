@@ -58,7 +58,12 @@
         function saveMessage()
         {
             if ($scope.messageForm.$valid){
-                
+                vm.message.group = {
+                    "id": Group.id,
+                    "name": Group.name,
+                    "avatar": Group.avatar,
+                    "category": Group.category
+                }
                 data_service.save("group_messages", vm.message, {notify:true, confirm:{}}).then(function (ret) {
                     closeDialog();
                     if (vm.newMessage){

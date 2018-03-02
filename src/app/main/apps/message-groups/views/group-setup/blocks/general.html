@@ -2,17 +2,15 @@
     <!-- BASIC FORM -->
     <div class="padding-10" flex="100" flex-gt-sm="60">
         <div class="form-wrapper group-detail-form-container md-whiteframe-1dp">
-            <form id="groupForm" name="groupForm" novalidate>
+            
                 <div class="form-title" translate>Group Details</div>
                 <div layout="column" layout-gt-sm="row">
                     <md-input-container flex>
                         <label translate>Group Name</label>
-                        <input type="text" name="groupname" ng-model="vm.group.name"
-                               translate translate-attr-placeholder="Group Name"
-                               required>
+                        <input type="text" name="groupname" ng-model="vm.group.name" required>
                         <div ng-messages="groupForm.groupname.$error" role="alert">
                             <div ng-message="required">
-                                <span>Firstname field is required.</span>
+                                <span translate>Mandatory</span>
                             </div>
                         </div>
                     </md-input-container>
@@ -20,7 +18,7 @@
                 <div layout="column" layout-gt-xs="row">
                     <md-input-container flex>
                         <label translate>Group Category</label>
-                        <md-select ng-model="vm.group.category">
+                        <md-select ng-model="vm.group.category" ng-required="true">
                             <md-option ng-repeat="o in MS.group_categories" value="{{o.id}}">
                                 {{o.name}}
                             </md-option>
@@ -29,7 +27,7 @@
 
                     <md-input-container flex>
                         <label translate>Group Type</label>
-                        <md-select ng-model="vm.group.groupType">
+                        <md-select ng-model="vm.group.groupType" ng-required="true">
                             <md-option ng-repeat="o in MS.group_types" value="{{o.id}}">
                                 {{o.name}}
                             </md-option>
@@ -38,31 +36,20 @@
 
                     <md-input-container flex>
                         <label translate>Active</label>
-                        <md-select ng-model="vm.group.active">
+                        <md-select ng-model="vm.group.active" ng-required="true">
                             <md-option ng-repeat="o in MS.group_active" value="{{o.id}}">
                                 {{o.name}}
                             </md-option>
                         </md-select>
                     </md-input-container>
-
-
-                    <!--<md-input-container flex>
-                        <label>Postal Code</label>
-                        <input name="postalcode" ng-model="vm.group.postalCode" placeholder="12345"
-                               required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-                        <div ng-messages="groupForm.postalcode.$error" role="alert" multiple>
-                            <div ng-message="required"><span>You must supply a postal code.</span></div>
-                            <div ng-message="pattern"><span>That doesn't look like a valid postal code.</span></div>
-                            <div ng-message="md-maxlength">
-                                <span>Postal code can't be longer than 5 characters.</span>
-                            </div>
-                        </div>
-                    </md-input-container>-->
                 </div>
-                <md-input-container class="md-block">
-                    <label translate>Group Description</label>
-                    <textarea ng-model="vm.group.description" md-maxlength="250" max-rows="5"></textarea>
-                </md-input-container>
+
+                <div>
+                    <h4 translate>Group Description</h4>
+                    <text-angular ng-model="vm.group.description"></text-angular>
+                    <input type="hidden" ng-model="vm.group.description" name="groupDescription" required/>
+                </div>
+
 
                 <h3 class="tags secondary-text" translate="Tags">Tags</h3>
                 <md-chips ng-model="vm.group.tags"
@@ -72,7 +59,7 @@
                           secondary-placeholder="{{'+Tag' | translate}}">
                 </md-chips>
 
-            </form>
+            
         </div>
     </div>
     <!-- / BASIC FORM -->
