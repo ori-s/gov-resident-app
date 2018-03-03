@@ -1,0 +1,37 @@
+<!-- SIDENAV HEADER -->
+<div class="header" layout="column" layout-align="space-between">
+
+    <div class="logo" layout="row" layout-align="start center">
+        <span class="logo-text " translate="Group Maintenance">Group Maintenance</span>
+    </div>
+
+</div>
+<!-- / SIDENAV HEADER -->
+
+<!-- SIDENAV CONTENT -->
+<md-content class="content" flex ms-scroll>
+
+    <div class="navigation-simple" layout="column">
+
+        <div class="item topheader no-border" translate="Options">Options</div>
+
+        <md-list class="no-padding mail-opt-list">
+            <md-list-item ng-click="vm.selectCategory(null)" ng-class="{'md-accent-bg':null == vm.category}">
+                <md-icon md-font-icon="icon-check-all" class="md-avatar-icon"></md-icon>
+                <p class="text-truncate font-600 font-size-16" translate>All Groups</p>
+            </md-list-item>
+
+
+            <div class="item subheader" translate="Categories"></div>
+
+            <md-list-item ng-repeat="cat in MS.group_categories" ng-click="vm.selectCategory(cat)" ng-class="{'md-accent-bg':cat == vm.category}">
+                <img ng-src="{{cat.avatar}}" class="md-avatar" alt="{{cat.name}}" />
+                <p class="text-truncate font-size-16">{{cat.name}}</p>
+            </md-list-item>
+        </md-list>
+
+
+    </div>
+
+</md-content>
+<!-- / SIDENAV CONTENT -->

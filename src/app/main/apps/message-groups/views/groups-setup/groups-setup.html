@@ -1,151 +1,69 @@
-<div id="message-groups-setup" class="page-layout carded fullwidth" layout="row">
-
+<div class="page-layout carded left-sidenav app-groups" layout="row">
     <!-- TOP BACKGROUND -->
     <div class="top-bg md-accent-bg"></div>
     <!-- / TOP BACKGROUND -->
-
+    <!-- LEFT SIDENAV -->
+    <md-sidenav class="sidenav md-sidenav-left flip" md-is-locked-open="$mdMedia('gt-md')" md-component-id="main-sidenav"
+                ng-include="'app/main/apps/message-groups/views/groups-setup/sidenav/main-sidenav.html'" ms-scroll ms-sidenav-helper>
+    </md-sidenav>
+    <!-- / LEFT SIDENAV -->
     <!-- CENTER -->
     <div class="center" layout="column" flex>
-
         <!-- CONTENT HEADER -->
-        <div class="header" layout="row" layout-align="space-between center">
-            <div class="white-fg" layout="column" layout-align="start start">
-                <div class="h1" layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-cube-outline"></md-icon>
-                    <span translate="Groups">Groups</span>
-                </div>
-                <div class="group-count secondary-text">
-                    <span translate="Total Groups">Total Groups</span>:
-                    <span>{{vm.groups.length}}</span>
-                </div>
-            </div>
-
-            <div class="search" layout="row" layout-align="start center" flex>
-                <md-icon md-font-icon="icon-magnify" class="white-text icon search-icon"></md-icon>
-                <input id="message-groups-setup-search" class="search-input" type="text" placeholder="Search"
-                       translate translate-attr-placeholder="Search" flex>
-            </div>
-
-            <div>
-                <md-button class="md-raised md-background" ng-click="vm.gotoAddGroup()">
-                    <span translate>Add New Group</span>
+        <div class="header" layout="row" layout-align="start center">
+            <div class="search-wrapper md-whiteframe-4dp" flex layout="row" layout-align="start center">
+                <md-button class="md-icon-button sidenav-toggle" ng-click="vm.toggleSidenav('main-sidenav')" hide-gt-md
+                           aria-label="Toggle sidenav" translate translate-attr-aria-label="toggle sidnav">
+                    <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
                 </md-button>
+                <div class="search" flex layout="row" layout-align="start center">
+                    <md-icon md-font-icon="icon-magnify" class="icon s24"></md-icon>
+                    <input flex ng-model="vm.search" type="text"
+                           ng-model-options="{ debounce: 200 }" 
+                           ng-change="vm.filterGroups()" 
+                           placeholder="{{'Search Groups' | translate}}">
+                </div>
             </div>
         </div>
         <!-- / CONTENT HEADER -->
-
-
-
         <!-- CONTENT CARD -->
         <div class="content-card" layout="column" flex>
-
             <!-- CONTENT TOOLBAR -->
+            <div class="toolbar" layout="row" layout-align="space-between center">
 
+                <div class="flex font-size-14 text-semibold">
+                    <span translate="Found N Grpups" translate-values="{count:vm.groupCount}"></span>
+
+                </div>
+                <div layout="row" layout-align="start center">
+                    <md-button class="md-icon-button" ng-disabled="vm.groupOrder === ''"
+                               ng-click="vm.groupOrderDescending = !vm.groupOrderDescending"
+                               aria-label="Sort Direction"
+                               translate translate-attr-aria-label="TODO.SORT_DIRECTION">
+                        <md-icon md-font-icon="icon-sort-ascending" ng-if="vm.groupOrderDescending === false"></md-icon>
+                        <md-icon md-font-icon="icon-sort-descending" ng-if="vm.groupOrderDescending === true"></md-icon>
+                    </md-button>
+
+                    <div>
+                        <md-button class="md-raised md-accent md-background" ng-click="vm.addGroup()">
+                            <span translate>Add New Group</span>
+                        </md-button>
+                    </div>
+
+                </div>
+            </div>
             <!-- / CONTENT TOOLBAR -->
-
             <!-- CONTENT -->
-            <div class="content fullpage-datatable" layout="column" flex>
-
-                <table class="dataTable row-border hover" datatable="ng" dt-instance="vm.dtInstance"
-                       dt-options="vm.dtOptions">
-                    <thead>
-                        <tr>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title" translate>Image</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title" translate>Name</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title" translate>Category</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title" translate>Group Type</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title" translate>Subscribers</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title" translate>Active</span>
-                                </div>
-                            </th>
-                            <th class="secondary-text">
-                                <div class="table-header">
-                                    <span class="column-title" translate>Actions</span>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="group in ::vm.groups">
-                            <td>
-                                <a class="cursor-pointer" ng-click="vm.gotoGroupDetail(group.id)">
-                                    <img class="avatar" ng-if="group.avatar" alt="{{group.name}}" ng-src="{{group.avatar}}" />
-                                    <div class="avatar md-accent-bg" ng-if="!group.avatar">
-                                        {{group.name.substr(0,2)}}
-                                    </div>
-                                </a>
-                            </td>
-                            <td>{{group.name}}</td>
-                            <td>{{group.category | mapEnt:MS.group_categories}}</td>
-                            <td>{{group.groupType | mapEnt:MS.group_types}}</td>
-                            <td>{{group.subscribers}}</td>
-                            <td>{{group.active}}</td>
-                            <td>
-                                <div class="actions" layout="row" layout-align="start center">
-                                    <md-menu>
-                                        <md-button class="md-icon-button" aria-label="More" translate
-                                                   translate-attr-aria-label="CONTACTS.MORE">
-                                            <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdMenu.open($event)"></md-icon>
-                                        </md-button>
-                                        <md-menu-content width="3">
-                                            <md-menu-item>
-                                                <md-button ng-click="vm.gotoGroupDetail(group.id)" translate="Edit Group">
-                                                    Edit Group
-                                                </md-button>
-                                            </md-menu-item>
-                                            <md-menu-item>
-                                                <md-button ng-click="vm.addMessage(group, $event)" translate="Add Message">
-                                                    Add Message
-                                                </md-button>
-                                            </md-menu-item>
-                                            <md-divider></md-divider>
-                                            <md-menu-item>
-                                                <md-button ng-click="vm.deleteGroup(group, $event)" translate="Delete Group">
-                                                    Delete Group
-                                                </md-button>
-                                            </md-menu-item>
-                                        </md-menu-content>
-                                    </md-menu>
-                                </div>
-
-                                <!--<md-button class="edit-button md-icon-button" ng-click="vm.gotoGroupDetail(group.id)" aria-label="Group details"
-                                           translate translate-attr-aria-label="EC.PRODUCT_DETAILS">
-                                    <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
-                                </md-button>-->
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+            <div class="content" layout="row" flex>
+                <!-- Todo list pane -->
+                <md-content class="groups-list-pane" flex
+                            ng-include="'app/main/apps/message-groups/views/groups-setup/blocks/list-view.html'" ms-scroll="vm.msScrollOptions">
+                </md-content>
+                <!-- / Todo list pane -->
             </div>
             <!-- / CONTENT -->
-
         </div>
-        <!-- / CONTENT CARD -->
-
+        <!-- / CONTENT CARDb-->
     </div>
     <!-- / CENTER -->
-
 </div>

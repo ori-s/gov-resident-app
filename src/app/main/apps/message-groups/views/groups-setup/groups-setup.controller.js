@@ -7,7 +7,124 @@
         .controller('GroupsSetupController', GroupsSetupController);
 
     /** @ngInject */
-    function GroupsSetupController($state, Groups, $mdDialog, data_service)
+    function GroupsSetupController($document, $mdSidenav, $q, data_service, $state, $mdDialog)
+    {
+        var vm = this;
+        vm.loading = true;
+        vm.groupOrder = 'name';
+        vm.groupOrderDescending = false;
+        vm.filterGroups = filterGroups;
+
+        vm.colors = ['blue', 'blue-grey', 'orange', 'pink', 'purple'];
+        vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];
+
+        vm.preventDefault = preventDefault;
+
+        vm.msScrollOptions = {
+            suppressScrollX: true
+        };
+
+
+
+
+        init();
+        function init() {
+            $q.all({
+                groups:  data_service.get('groups', {'groupType': 'pu', 'active':true}),
+            }).then(function (ret) {
+                vm.groups = ret.groups;
+                vm.groupCount = vm.groups.length;
+                _.each(vm.groups, function(group){
+                    group.$$visible = true;
+                })
+            }).finally(function () {
+                vm.loading = false;
+            });
+        };
+
+        vm.selectCategory = function(cat){
+            vm.category = cat;
+            filterGroups();
+        }
+
+        function filterGroups(){
+            var NN=0, query = vm.search && vm.search.length && vm.search.toLowerCase(), category = vm.category && vm.category.id;
+            _.each(vm.groups, function(group){
+                group.$$visible = isGroupVisible(group)
+            });
+            vm.groupCount = NN;
+            function isGroupVisible(group){
+                if (category && group.category != category){
+                    return false;
+                }
+                if (query){
+                    if (group.name.toLowerCase().indexOf(query) == -1 && group.description.toLowerCase().indexOf(query) == -1) return false;
+                };
+                ++NN;
+                return true;
+            }
+        }
+
+
+        vm.selectGroup = function (e, group) {
+            $state.go('app.message-groups.groups-setup.detail', {id: group.id});
+        };
+        vm.addGroup = function (e, group) {
+            $state.go('app.message-groups.groups-setup.add');
+        };
+
+        vm.deleteGroup = function(group, $event){
+            data_service.delete("groups", group, {notify:true, confirm:true}).then(function(){
+                var index = _.findIndex(vm.groups, {id:group.id});
+                if (index >= 0) vm.groups.splice(index, 1);
+                
+                vm.dtInstance.reloadData(function(json){
+                    
+                }, false);
+
+            }).catch(function(err){
+                console.error(err);
+            });
+        }
+
+        vm.addMessage = function(group, ev){
+            $mdDialog.show({
+                controller         : 'MessageDialogController',
+                controllerAs       : 'vm',
+                templateUrl        : 'app/main/apps/message-groups/dialogs/message/message-dialog.html',
+                targetEvent        : ev,
+                fullscreen         : true,
+                clickOutsideToClose: true,
+                locals             : {
+                    Message : null,
+                    Messages: null,
+                    Group: group
+                }
+            }).then(function (response) { 
+                
+            }, function () { });;
+        }
+        // ---------------------------------------------------------->
+
+
+        function preventDefault(e)
+        {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        function toggleSidenav(sidenavId)
+        {
+            $mdSidenav(sidenavId).toggle();
+        }
+
+
+    }
+
+
+
+    /** @ngInject */
+    function GroupsSetupController2($state, Groups, $mdDialog, data_service)
     {
         var vm = this;
 
@@ -22,7 +139,6 @@
                     // Target the image column
                     targets   : 0,
                     filterable: false,
-                    sortable  : false,
                     width     : '80px'
                 },
                 {
@@ -59,7 +175,6 @@
                     targets           : 6,
                     responsivePriority: 1,
                     filterable        : false,
-                    sortable          : false
                 }
             ],
             initComplete: function ()
