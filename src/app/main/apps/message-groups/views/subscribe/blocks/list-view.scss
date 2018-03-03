@@ -1,4 +1,4 @@
-.app-groups {
+.app-subscribe {
     // Single scroll
     &.single-scroll {
         .groups-list-pane {
@@ -99,18 +99,20 @@
 
 // RESPONSIVE
 @media screen and (max-width: $layout-breakpoint-xs) {
-    .app-groups {
+    .app-subscribe {
         .groups-list-pane {
             .groups-items {
                 .groups-item {
-
+                    .handle {
+                        width: 32px;
+                    }
                 }
             }
         }
     }
 
     ._rtl {
-        .app-groups {
+        .app-subscribe {
             .groups-list-pane {
 
             }

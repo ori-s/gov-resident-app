@@ -1,23 +1,49 @@
-.app-groups {
-    // Single scroll
-    &.single-scroll {
-        .groups-list-pane {
-            overflow: hidden;
+.app-subscribe {
+
+    .group-card{
+        ms-widget{
+            overflow:hidden
         }
-    }
-
-    .groups-list-pane {
-        .groups-items {
-            overflow-x: hidden;
+        ms-widget-front{
+            height:100%;
         }
-    }
+        ms-widget-back{
+            top:0;
+            height:100%;
+        }
+        .tags {
+            font-size: 12px;
+            margin-top:10px;
+            .tag {
+                border-radius: 2px;
+                margin: 8px 4px 0 0;
+                padding: 3px 8px;
+                background-color: rgba(0, 0, 0, 0.08);
 
-    ._rtl & {
-        .groups-list-pane {
-            .groups-items {
-
+                .tag-color {
+                    width: 8px;
+                    height: 8px;
+                    margin-right: 8px;
+                    border-radius: 50%;
+                }
             }
         }
+
+    }
+    ._rtl &{
+        .group-card{
+            .tags {
+                .tag {
+                    margin: 8px 0 0 4px;
+                    .tag-color {
+                        margin-right: 0;
+                        margin-left: 8px;
+                    }
+                }
+            }
+
+        }
+
     }
 }
 
@@ -71,10 +97,6 @@
 
     ._rtl &{
 
-        .handle {
-            left: auto;
-            right: 0;
-        }
 
         .tags {
             .tag {
@@ -99,18 +121,20 @@
 
 // RESPONSIVE
 @media screen and (max-width: $layout-breakpoint-xs) {
-    .app-groups {
+    .app-subscribe {
         .groups-list-pane {
             .groups-items {
                 .groups-item {
-
+                    .handle {
+                        width: 32px;
+                    }
                 }
             }
         }
     }
 
     ._rtl {
-        .app-groups {
+        .app-subscribe {
             .groups-list-pane {
 
             }

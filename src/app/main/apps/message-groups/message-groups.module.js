@@ -29,16 +29,8 @@
                 url      : '/subscribe',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/subscribe/subscribe.html',
+                        templateUrl: 'app/main/apps/message-groups/views/subscribe/groups-subscribe.html',
                         controller : 'GroupsSubscribeController as vm'
-                    }
-                },
-                resolve  : {
-                    Groups: function (data_service)
-                    {
-                        return data_service.get('groups', {'groupType': 'pu', 'active':true}).then(function (ret){
-                            return _.filter(ret, {'groupType': 'pu', 'active':true});
-                        });
                     }
                 },
                 bodyClass: 'message-groups'
@@ -49,12 +41,6 @@
                     'content@app': {
                         templateUrl: 'app/main/apps/message-groups/views/groups-setup/groups-setup.html',
                         controller : 'GroupsSetupController as vm'
-                    }
-                },
-                resolve  : {
-                    Groups: function (data_service)
-                    {
-                        return data_service.get('groups', {editable:true});
                     }
                 },
                 bodyClass: 'message-groups'

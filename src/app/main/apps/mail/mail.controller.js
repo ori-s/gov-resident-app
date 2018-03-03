@@ -7,7 +7,7 @@
         .controller('MailController', MailController);
 
     /** @ngInject */
-    function MailController($scope, $rootScope, $document, $mdDialog, $mdMedia, $mdSidenav, $state, msApi, $q, $translate, message_service, Folders, Labels)
+    function MailController($scope, $rootScope, $document, $mdDialog, $mdMedia, $mdSidenav, $state, msApi, $q, $translate, message_service)
     {
         var vm = this;
 
@@ -19,8 +19,8 @@
         vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];
         vm.selectedAccount = 'creapond';
 
-        vm.folders = Folders.data;
-        vm.labels = Labels.data;
+        vm.folders = [];
+        vm.labels = [];
         vm.loadingThreads = true;
 
         vm.currentFilter = {
@@ -576,7 +576,7 @@
          */
 
         function subscribeToGroups(ev){
-        
+            $state.go('app.message-groups.subscribe');
         }
 
         function composeDialog(ev)

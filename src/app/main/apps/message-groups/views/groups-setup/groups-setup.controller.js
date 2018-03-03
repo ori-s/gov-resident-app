@@ -7,30 +7,23 @@
         .controller('GroupsSetupController', GroupsSetupController);
 
     /** @ngInject */
-    function GroupsSetupController($document, $mdSidenav, $q, data_service, $state, $mdDialog)
+    function GroupsSetupController($mdSidenav, $q, data_service, message_service, $state, $mdDialog)
     {
         var vm = this;
         vm.loading = true;
         vm.groupOrder = 'name';
         vm.groupOrderDescending = false;
         vm.filterGroups = filterGroups;
+        vm.toggleSidenav = toggleSidenav;
 
-        vm.colors = ['blue', 'blue-grey', 'orange', 'pink', 'purple'];
         vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];
 
         vm.preventDefault = preventDefault;
 
-        vm.msScrollOptions = {
-            suppressScrollX: true
-        };
-
-
-
-
         init();
         function init() {
             $q.all({
-                groups:  data_service.get('groups', {'groupType': 'pu', 'active':true}),
+                groups:  message_service.getEditableGroups(),
             }).then(function (ret) {
                 vm.groups = ret.groups;
                 vm.groupCount = vm.groups.length;
@@ -76,12 +69,10 @@
         vm.deleteGroup = function(group, $event){
             data_service.delete("groups", group, {notify:true, confirm:true}).then(function(){
                 var index = _.findIndex(vm.groups, {id:group.id});
-                if (index >= 0) vm.groups.splice(index, 1);
-                
-                vm.dtInstance.reloadData(function(json){
-                    
-                }, false);
-
+                if (index >= 0){
+                    vm.groups.splice(index, 1);
+                    filterGroups();
+                }
             }).catch(function(err){
                 console.error(err);
             });

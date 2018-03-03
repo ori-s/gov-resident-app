@@ -72,7 +72,10 @@
                         <div class="avatar md-primary-bg" ng-if="!vm.group.avatar">
                             {{vm.group.name[0]}}
                         </div>
-                        <span class="text-truncate">{{thread.subject}}</span>
+                        <div class="text-truncate">
+                            {{thread.subject}}
+                            <div class="secondary-text font-size-10 mt-5">{{thread.created |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}</div>
+                        </div>
                         <md-icon md-font-icon="icon-calendar-clock" class="has-attachment s16"
                                  ng-if="thread.scheduled"></md-icon>
                         <md-icon md-font-icon="icon-paperclip" class="has-attachment s16"
@@ -88,10 +91,9 @@
                         </div>
                     </div>
                 </div>
-                <div layout="column" layout-align="space-between end">
-                    <!--<div class="time">{{thread.created |  amDateFormat:'dddd, MMMM DD YYYY'}}</div>-->
+                <!--<div layout="column" layout-align="space-between end">
                     <div class="time">{{thread.created |  amDateFormat:'MMM DD'}}</div>
-                </div>
+                </div>-->
                 <div class="actions" layout="row" layout-align="start center">
                     <md-menu>
                         <md-button class="md-icon-button" aria-label="More" translate

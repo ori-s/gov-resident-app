@@ -2,7 +2,7 @@
     'use strict';
     var app = angular.module('app.core');
 
-    app.factory('message_service', function ($q, $translate, authorization_service, MetaService, data_service) {
+    app.factory('message_service', function ($q, $translate, authorization_service, MetaService, data_service, $timeout) {
         var service = {
             groups: [],
             filters: [],
@@ -31,6 +31,38 @@
         service.setMessageThreadStatus = function(message, prop, value){
         
         }
+
+        service.getEditableGroups = function(){
+            return data_service.get('groups', {});
+        }
+
+        service.getSubscribableGroups = function(){
+            return data_service.get('groups', {'active':true});
+        }
+
+        service.toggleGroupSubscribed_server = function(group){
+            return $q.resolve(); //simulation
+        }
+        service.toggleGroupSubscribed = function(group, cardHandler){
+            if (group.$$loading) return;
+            var deffered = $q.defer();
+            group.$$loading;
+            if (cardHandler)cardHandler.call();
+            $timeout(function(){
+                service.toggleGroupSubscribed_server(group).then(function(){
+                    group.subscribed = !group.subscribed;
+                    group.$$anim = 'pulse-in';
+                    deffered.resolve();
+                    $timeout(() => {delete group.$$anim},500);
+                }).catch().finally(() => {
+                    group.$$loading = false;
+                    deffered.reject();
+                });
+            },400);
+            return deffered.promise;
+
+        }
+
 
         return service;
         
