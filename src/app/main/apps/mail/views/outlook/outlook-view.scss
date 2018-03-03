@@ -36,6 +36,25 @@
             }
         }
     }
+
+    ._rtl & {
+        .center {
+            .content-card {
+                &.outlook {
+                    .toolbar {
+                        .select-menu {
+                            .md-icon-button {
+                                padding-right: 0;
+                            }
+                        }
+                        .close-thread {
+                            margin: 0 -8px 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .thread-labels-toggle-list {

@@ -1,34 +1,25 @@
 #mail {
-
     .center {
-
         .content-card {
-
             &.classic {
-
                 .toolbar {
                     position: relative;
                     padding: 8px 24px;
-
                     .select-menu {
-
                         .md-icon-button {
                             padding-left: 0;
                             margin: 0;
                         }
                     }
-
                     .page-info {
                         font-weight: 500;
                         margin: 0 8px;
                         white-space: nowrap;
                     }
-
                     .close-thread {
                         margin: 0 0 0 -8px;
                     }
                 }
-
                 .content-wrapper {
                     position: relative;
                     height: 100%;
@@ -36,6 +27,26 @@
             }
         }
     }
+
+    ._rtl & {
+        .center {
+            .content-card {
+                &.classic {
+                    .toolbar {
+                        .select-menu {
+                            .md-icon-button {
+                                padding-right: 0;
+                            }
+                        }
+                        .close-thread {
+                            margin: 0 -8px 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 .thread-labels-toggle-list {

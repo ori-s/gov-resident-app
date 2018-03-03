@@ -1,6 +1,9 @@
 <div class="thread-header" layout="row" layout-align="space-between center">
     <div>
         <div class="subject" flex>{{vm.currentThread.subject}}</div>
+        <div class="secondary-text">
+            {{vm.currentThread.created |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
+        </div>
 
         <div class="labels">
             <div class="label" ng-repeat="labelId in vm.currentThread.labels"
@@ -17,13 +20,6 @@
                      class="amber-fg"></md-icon>
             <md-icon ng-if="!vm.currentThread.starred" md-font-icon="icon-star-outline"></md-icon>
         </md-button>
-
-        <md-button class="md-icon-button" ng-click="vm.toggleThreadStatus('important')"
-                   aria-label="Toggle important" translate translate-attr-toogle-starred="MAIL.TOGGLE_IMPORTANT">
-            <md-icon ng-if="vm.currentThread.important" md-font-icon="icon-label"
-                     class="amber-300-fg"></md-icon>
-            <md-icon ng-if="!vm.currentThread.important" md-font-icon="icon-label-outline"></md-icon>
-        </md-button>
     </div>
 </div>
 
@@ -31,48 +27,26 @@
     <div class="info" layout="row" layout-align="space-between start">
 
         <div layout="column" layout-align="start start">
-            <div layout="row" layout-align="start start">
+            <div layout="row" layout-align="start center">
                 <div>
-                    <img ng-if="vm.currentThread.from.avatar" alt="{{vm.currentThread.from.name}}"
-                         ng-src="{{vm.currentThread.from.avatar}}" class="avatar"/>
+                    <img ng-if="vm.currentThread.group.avatar" alt="{{vm.currentThread.group.name}}"
+                         ng-src="{{vm.currentThread.group.avatar}}" class="avatar"/>
 
-                    <div ng-if="!vm.currentThread.from.avatar" class="avatar" ms-random-class="vm.colors">
-                        {{vm.currentThread.from.name[0]}}
+                    <div ng-if="!vm.currentThread.group.avatar" class="avatar" ms-random-class="vm.colors">
+                        {{vm.currentThread.group.name[0]}}
                     </div>
                 </div>
 
                 <div layout="column" layout-align="start start">
                     <div class="name">
-                        {{vm.currentThread.from.name}}
+                        {{vm.currentThread.group.name}}
                     </div>
 
-                    <div class="to" layout="row" layout-align="start center">
-                        <div class="to-text" translate="MAIL.INFO.TO">to</div>
-                        <div>{{vm.currentThread.to[0].name}}</div>
+                    <div ng-if="vm.currentThread.scheduled" class="md-accent-fg font-size-12 mt-5">
+                        <i class="icon-clock s12"></i>
+                        {{vm.currentThread.scheduleDate |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
                     </div>
-                </div>
-            </div>
 
-            <a class="toggle-details md-accent-color" ng-hide="vm.selectedMailShowDetails"
-               ng-click="vm.selectedMailShowDetails = !vm.selectedMailShowDetails" translate="MAIL.SHOW_DETAILS">
-                Show Details
-            </a>
-            <a class="toggle-details md-accent-color" ng-show="vm.selectedMailShowDetails"
-               ng-click="vm.selectedMailShowDetails = !vm.selectedMailShowDetails" translate="MAIL.HIDE_DETAILS">
-                Hide Details
-            </a>
-
-            <div ng-show="vm.selectedMailShowDetails" class="details" layout="row" layout-align="start start">
-                <div layout="column">
-                    <span class="title" translate="MAIL.DETAILS.FROM">From:</span>
-                    <span class="title" translate="MAIL.DETAILS.TO">To:</span>
-                    <span class="title" translate="MAIL.DETAILS.DATE">Date:</span>
-                </div>
-
-                <div layout="column">
-                    <span class="detail">{{vm.currentThread.from.email}}</span>
-                    <span class="detail">{{vm.currentThread.to[0].email}}</span>
-                    <span class="detail">{{vm.currentThread.time}}</span>
                 </div>
             </div>
         </div>
@@ -85,7 +59,7 @@
             </md-button>
 
             <md-menu-content width="3">
-                <md-menu-item>
+                <!--<md-menu-item>
                     <md-button aria-label="Reply" translate-aria-label="MAIL.REPLY"
                                ng-click="vm.replyDialog($event)">
                         <md-icon md-font-icon="icon-reply"></md-icon>
@@ -98,7 +72,7 @@
                         <md-icon md-font-icon="icon-forward"></md-icon>
                         <span translate="MAIL.FORWARD">Forward</span>
                     </md-button>
-                </md-menu-item>
+                </md-menu-item>-->
 
                 <md-menu-item>
                     <md-button aria-label="Print" translate-aria-label="MAIL.PRINT">

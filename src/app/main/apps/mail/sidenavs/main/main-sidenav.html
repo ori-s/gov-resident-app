@@ -1,46 +1,47 @@
 <!-- SIDENAV HEADER -->
 <div class="header" layout="column" layout-align="space-between start">
-
     <div class="logo" layout="row" layout-align="start center">
         <span class="logo-icon">
             <md-icon md-font-icon="icon-email" class="icon"></md-icon>
         </span>
-        <span class="logo-text" translate="MAIL.MAILBOX">Mailbox</span>
+        <span class="logo-text" translate="Message Center">Message Center</span>
     </div>
-
     <div class="account">
-        <div class="title">John Doe</div>
-        <md-select class="account-selection simplified" placeholder="Mail Selection"
-                   ng-model="vm.selectedAccount">
-            <md-option ng-repeat="(provider, address) in vm.accounts" value="{{provider}}">{{address}}
-            </md-option>
-        </md-select>
-    </div>
-
-</div>
-<!-- / SIDENAV HEADER -->
-
-<!-- SIDENAV CONTENT -->
-<md-content ms-scroll class="content" flex>
-
-    <div class="compose-button">
-        <md-button class="md-accent md-raised" aria-label="compose"
-                   ng-click="vm.composeDialog($event)" translate="MAIL.COMPOSE">COMPOSE
+        <md-button class="md-raised" aria-label="compose"
+                   ng-click="vm.subscribeToGroups($event)" translate="Subscribe to Groups">
+            Subscribe to Groups
         </md-button>
     </div>
-
+</div>
+<!-- / SIDENAV HEADER -->
+<!-- SIDENAV CONTENT -->
+<md-content ms-scroll class="content" flex>
+    <div class="compose-button" ng-if="vm.folder.editable">
+        <md-button class="md-accent md-raised" aria-label="compose"
+                   ng-click="vm.composeDialog($event)" translate="MAIL.COMPOSE">
+            COMPOSE
+        </md-button>
+    </div>
     <div class="navigation-simple" layout="column">
-
-        <md-button class="item" aria-label="inbox" ng-repeat="folder in vm.folders"
+        <div class="item topheader" style="margin-bottom:0" translate="Subscribed Groups">Subscribed Groups</div>
+        <md-list class="no-padding mail-opt-list">
+            <md-list-item ng-repeat="folder in vm.folders" ng-click="vm.loadFolder(folder)" ng-class="{'md-accent-bg':folder == vm.folder, '_all':$index == 0}">
+                
+                <md-icon ng-if="folder.icon" md-font-icon="{{folder.icon}}" class="md-avatar-icon"></md-icon>
+                <md-icon ng-if="!folder.avatar && !folder.icon" ng-class="{'md-avatar-icon _text': true}">{{folder.name.substr(0,2)}}</md-icon>
+                <img ng-src="{{folder.avatar}}" class="md-avatar" alt="{{folder.name}}" ng-if="folder.avatar && !folder.icon" />
+                <p class="text-truncate">{{folder.name}}</p>
+            </md-list-item>
+        </md-list>
+        <!--<md-button class="item" aria-label="inbox" ng-repeat="folder in vm.folders"
                    ng-click="vm.loadFolder(folder.name)"
                    ng-class="{'selected':vm.isFolderActive(folder.name)}">
             <div layout="row" layout-align="start center">
                 <md-icon md-font-icon="{{folder.icon}}" class="s16"></md-icon>
                 <span class="title">{{folder.title}}</span>
             </div>
-        </md-button>
-
-        <div class="item subheader" translate="MAIL.LABELS">Labels</div>
+        </md-button>-->
+        <!--<div class="item subheader" translate="MAIL.LABELS">Labels</div>
 
         <md-button class="item" ng-repeat="label in vm.labels"
                    ng-click="vm.loadLabel(label.name)"
@@ -49,9 +50,7 @@
                 <div class="h-10 w-10 m-far-16" ng-class="label.color"></div>
                 <span class="title">{{label.title}}</span>
             </div>
-        </md-button>
-
+        </md-button>-->
     </div>
-
 </md-content>
 <!-- / SIDENAV CONTENT -->

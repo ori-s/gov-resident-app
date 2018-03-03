@@ -7,7 +7,7 @@
         .controller('MailController', MailController);
 
     /** @ngInject */
-    function MailController($scope, $rootScope, $document, $mdDialog, $mdMedia, $mdSidenav, $state, msApi, Folders, Labels)
+    function MailController($scope, $rootScope, $document, $mdDialog, $mdMedia, $mdSidenav, $state, msApi, $q, $translate, message_service, Folders, Labels)
     {
         var vm = this;
 
@@ -64,6 +64,7 @@
         vm.changeView = changeView;
 
         vm.composeDialog = composeDialog;
+        vm.subscribeToGroups = subscribeToGroups;
         vm.replyDialog = replyDialog;
 
         vm.toggleSidenav = toggleSidenav;
@@ -78,30 +79,37 @@
         function init()
         {
             // Figure out the api name
+            
+
             var apiName = 'mail.' + ($state.params.type || 'folder') + '.' + $state.params.filter + '@get';
 
-            // Request the mails
-            msApi.request(apiName).then(
+            var groupId = $state.params.filter;
+            $q.all({
+                folders: message_service.getSubscribedGroups(),
+                threads:message_service.getMessages(groupId)
+            }).then(
                 // Success
                 function (response)
                 {
                     // Load new threads
-                    vm.threads = response.data;
+                    vm.threads = response.threads;
+                    vm.folders = response.folders;
+                    vm.folders.unshift({
+                        "id": "inbox",
+                        "name": $translate.instant("MAIL.All Messages"),
+                        "icon": "icon-check-all"
+                    })
 
+                    vm.folder = _.find(vm.folders, {id:groupId});
+                    if (!vm.folder) vm.folder == vm.folders[0];
                     // Hide the loading screen
                     vm.loadingThreads = false;
 
                     // Open the thread if needed
                     if ( $state.params.threadId )
                     {
-                        for ( var i = 0; i < vm.threads.length; i++ )
-                        {
-                            if ( vm.threads[i].id === $state.params.threadId )
-                            {
-                                vm.openThread(vm.threads[i]);
-                                break;
-                            }
-                        }
+                        var thread = _.find(vm.threads, {id:$state.params.threadId});
+                        if (thread) vm.openThread(thread);
                     }
                 }
             );
@@ -138,11 +146,11 @@
          *
          * @param name
          */
-        function loadFolder(name)
+        function loadFolder(folder)
         {
             // If we are already in the selected folder and
             // there is an open thread just close it
-            if ( vm.isFolderActive(name) )
+            if ( folder == vm.folder )
             {
                 // Close the current thread if open
                 if ( vm.currentThread )
@@ -152,26 +160,23 @@
 
                 return;
             }
-
+            
             // Show loader
             $rootScope.loadingProgress = true;
-
+            vm.folder = folder;
             // Update the state without reloading the controller
             $state.go('app.mail.threads', {
                 type  : null,
-                filter: name
+                filter: folder.id
             }, {notify: false});
 
-            // Build the API name
-            var apiName = 'mail.folder.' + name + '@get';
-
             // Make the call
-            msApi.request(apiName).then(
+            message_service.getMessages(folder.id).then(
                 // Success
                 function (response)
                 {
                     // Load new threads
-                    vm.threads = response.data;
+                    vm.threads = response;
 
                     // Set the current filter
                     vm.currentFilter = {
@@ -280,8 +285,7 @@
         {
             // Set the read status on the thread
             thread.read = true;
-
-            // Assign thread as the current thread
+            setThreadStatus("read", true, thread)
             vm.currentThread = thread;
 
             // Update the state without reloading the controller
@@ -389,88 +393,59 @@
 
         /**
          * Set the status on given thread, current thread or selected threads
-         *
-         * @param key
-         * @param value
-         * @param [thread]
-         * @param [event]
          */
         function setThreadStatus(key, value, thread, event)
         {
-            // Stop the propagation if event provided
-            // This will stop unwanted actions on button clicks
             if ( event )
             {
                 event.stopPropagation();
             }
 
-            // If the thread provided, do the changes on that
-            // particular thread
+
+            if (!thread) thread = vm.currentThread;
             if ( thread )
             {
+                if (thread[key] == value) return;
                 thread[key] = value;
+                message_service.setMessageThreadStatus(thread, key, value);
+                if (key == 'delete'){
+                    var index = _.findIndex(vm.threads, {id: thread.id});
+                    if (index >= 0) vm.threads.splice(index,1)
+                    vm.closeThread();
+                }
                 return;
             }
 
-            // If the current thread is available, do the
-            // changes on that one
-            if ( vm.currentThread )
-            {
-                vm.currentThread[key] = value;
-                return;
-            }
-
-            // Otherwise do the status update on selected threads
+            return;
+            //batch operations
             for ( var x = 0; x < vm.selectedThreads.length; x++ )
             {
                 vm.selectedThreads[x][key] = value;
             }
         }
 
-        /**
-         * Toggle the value of the given key on given thread, current
-         * thread or selected threads. Given key value must be boolean.
-         *
-         * @param key
-         * @param thread
-         * @param event
-         */
         function toggleThreadStatus(key, thread, event)
         {
-            // Stop the propagation if event provided
-            // This will stop unwanted actions on button clicks
             if ( event )
             {
                 event.stopPropagation();
             }
 
-            // If the thread provided, do the changes on that
-            // particular thread
+            if (!thread) thread = vm.currentThread;
             if ( thread )
             {
                 if ( typeof(thread[key]) !== 'boolean' )
                 {
-                    return;
+                    thread[key] = false;
                 }
 
                 thread[key] = !thread[key];
+                message_service.setMessageThreadStatus(thread, key, thread[key]);
                 return;
             }
+            return;
 
-            // If the current thread is available, do the
-            // changes on that one
-            if ( vm.currentThread )
-            {
-                if ( typeof(vm.currentThread[key]) !== 'boolean' )
-                {
-                    return;
-                }
-
-                vm.currentThread[key] = !vm.currentThread[key];
-                return;
-            }
-
-            // Otherwise do the status update on selected threads
+            // batch operations disabled for now
             for ( var x = 0; x < vm.selectedThreads.length; x++ )
             {
                 if ( typeof(vm.selectedThreads[x][key]) !== 'boolean' )
@@ -599,6 +574,10 @@
          *
          * @param ev
          */
+
+        function subscribeToGroups(ev){
+        
+        }
 
         function composeDialog(ev)
         {

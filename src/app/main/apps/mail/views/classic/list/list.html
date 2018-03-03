@@ -11,22 +11,26 @@
      ng-class="{'unread': !thread.read, 'current-thread': vm.currentThread === thread, 'selected': vm.isSelected(thread)}">
 
     <div layout="row" layout-align="start center">
-        <md-checkbox class="no-label"
-                     ng-checked="vm.isSelected(thread)"
-                     ng-click="vm.toggleSelectThread(thread, $event)"
-                     aria-label="{{vm.isSelected(thread) ? 'Deselect' : 'Select'}}">
-        </md-checkbox>
 
         <div class="info" flex layout="column">
             <div class="name" layout="row" layout-align="start center">
-                <img class="avatar" ng-if="thread.from.avatar" alt="{{thread.from.name}}"
-                     ng-src="{{thread.from.avatar}}"/>
-
-                <div class="avatar" ng-if="!thread.from.avatar" ms-random-class="vm.colors">
-                    {{thread.from.name[0]}}
+                <img class="avatar" ng-if="thread.group.avatar" alt="{{thread.group.name}}" ng-src="{{thread.group.avatar}}"/>
+                <div class="avatar" ng-if="!thread.group.avatar" ms-random-class="vm.colors">
+                    {{thread.group.name.substr(0,2)}}
                 </div>
 
-                <span class="text-truncate">{{thread.from.name}}</span>
+                <span flex class="text-truncate">{{thread.group.name}}</span>
+
+                <div class="font-size-10">
+                    <div class="secondary-text">{{thread.created |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}</div>
+
+                    <div ng-if="thread.scheduled" class="md-accent-fg text-semibold">
+                        <i class="icon-clock s10"></i>
+                        {{thread.scheduleDate |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
+                    </div>
+
+                </div>
+
 
                 <md-icon md-font-icon="icon-paperclip" class="has-attachment s16"
                          ng-if="thread.hasAttachments"></md-icon>
@@ -56,14 +60,6 @@
                     <md-icon ng-if="thread.starred" md-font-icon="icon-star"
                              class="amber-fg"></md-icon>
                     <md-icon ng-if="!thread.starred" md-font-icon="icon-star-outline"></md-icon>
-                </md-button>
-
-                <md-button class="md-icon-button" ng-click="vm.toggleThreadStatus('important', thread, $event)"
-                           aria-label="Toggle important" translate
-                           translate-attr-aria-label="MAIL.TOGGLE_IMPORTANT">
-                    <md-icon ng-if="thread.important" md-font-icon="icon-label"
-                             class="amber-300-fg"></md-icon>
-                    <md-icon ng-if="!thread.important" md-font-icon="icon-label-outline"></md-icon>
                 </md-button>
             </div>
         </div>

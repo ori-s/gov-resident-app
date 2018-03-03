@@ -1,13 +1,8 @@
 #mail {
-
     .center {
-
         .content-card {
-
             &.classic {
-
                 .content-wrapper {
-
                     .thread-detail {
                         background: #FFFFFF;
 
@@ -16,8 +11,6 @@
                             border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 
                             .actions {
-                                min-width: 88px;
-
                                 .md-icon-button {
                                     padding: 0;
                                     width: 32px;
@@ -80,7 +73,6 @@
                                         color: rgba(0, 0, 0, 0.54);
                                     }
                                 }
-
                             }
                         }
 
@@ -106,6 +98,54 @@
 
                                 .size {
                                     font-size: 11px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    ._rtl & {
+        .center {
+            .content-card {
+                &.classic {
+                    .content-wrapper {
+                        .thread-detail {
+                            .thread-header {
+                                .label {
+                                    margin: 8px 0 0 6px;
+                                }
+                            }
+
+                            .thread-content {
+                                padding: 24px 0;
+
+                                .info {
+                                    .avatar {
+                                        margin-left: 16px;
+                                        margin-right: 0;
+                                    }
+
+                                    .name {
+                                        margin-left: 8px;
+                                        margin-right: 0;
+                                    }
+                                    .details {
+                                        .title {
+                                            margin-left: 6px;
+                                            margin-right: 0;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .thread-attachments {
+                                .attachment {
+                                    .preview {
+                                        margin: 0 0 8px 16px;
+                                    }
                                 }
                             }
                         }
