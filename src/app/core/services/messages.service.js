@@ -4,13 +4,26 @@
 
     app.factory('message_service', function ($q, $translate, authorization_service, MetaService, data_service, $timeout) {
         var service = {
+            started: false,
             groups: [],
             filters: [],
 
             //for mail viewer
             activeGroup: null,
-            activeMessages: []
+            activeMessages: [],
+
+            unreadMessages: null,
+            pendingMessages:null,
         }
+
+        service.init = function(){
+            //simulation init the messages servicw
+            $timeout(function(){
+                service.unreadMessages = Math.floor(Math.random() * 30);
+                service.pendingMessages = Math.floor(Math.random() * 30);
+            })
+        }
+
 
         service.getSubscribedGroups = function(){
             return data_service.get('groups', {subscribed:true});
@@ -64,6 +77,8 @@
         }
 
         service.getScheduledMessages = function(){
+            service.pendingMessages = Math.floor(Math.random() * 30);
+
             return data_service.get('group_messages', {scheduled:true, subscribed:true}).then(function(messages){
                 //simulation
                 var ret = [];

@@ -93,38 +93,6 @@
         $translatePartialLoaderProvider.addPart('app/main/apps/message-groups');
 
 
-        msNavigationServiceProvider.saveItem('messages.subscribe', {
-            title      : 'Subscribe to Groups',
-            translate  : 'Subscribe to Groups',
-            icon       : 'icon-account-multiple-plus',
-            state      : 'app.message-groups.subscribe',
-            weight     : 2
-        });
-
-        msNavigationServiceProvider.saveItem('messages.schedule', {
-            title      : 'Scheduled Messages',
-            translate  : 'Scheduled Messages',
-            icon       : 'icon-calendar-text',
-            state      : 'app.message-groups.schedule',
-            weight     : 3
-        });
-
-        // Navigation
-        msNavigationServiceProvider.saveItem('admin', {
-            title : 'admin',
-            translate: "ADMIN",
-            group : true,
-            weight: 10
-        });
-
-
-        msNavigationServiceProvider.saveItem('admin.groups-setup', {
-            title: 'Message Groups',
-            translate: "Group Maintenance",
-            state: 'app.message-groups.groups-setup',
-            icon  : 'icon-table-edit',
-        });
-
 
     }
 })();

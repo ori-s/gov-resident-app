@@ -22,15 +22,6 @@
         });
         // Navigation
 
-
-
-        msNavigationServiceProvider.saveItem('home', {
-            title : 'Home',
-            icon  : 'icon-home',
-            state : 'app.home',
-            translate: 'Home',
-            weight: 1
-        });
     }
 
 })();

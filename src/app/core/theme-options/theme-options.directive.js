@@ -44,7 +44,7 @@
             }
         ];
 
-        vm.layoutMode = 'wide';
+        vm.layoutMode = 'boxed';
         vm.layoutStyle = $cookies.get('layoutStyle') || 'verticalNavigation';
 
         // Methods

@@ -7,15 +7,16 @@
         .controller('NavigationController', NavigationController);
 
     /** @ngInject */
-    function NavigationController($scope, $state, authorization_service, $mdSidenav, MetaService)
+    function NavigationController($scope, $state, message_service, authorization_service , $mdSidenav, MetaService)
     {
         $scope.MS = MetaService;
         var sidenav = $mdSidenav('navigation');
 
 
         var vm = this;
-        vm.auth = authorization_service;
-        
+        vm.MSS = message_service;
+        message_service.init();
+
         vm.$state = $state;
         // Data
         vm.bodyEl = angular.element('body');
@@ -37,7 +38,7 @@
         }
 
         function goHome(){
-            $state.go(authorization_service.homeState);
+            $state.go('app.home');
         }
 
 

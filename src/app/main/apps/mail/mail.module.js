@@ -45,27 +45,6 @@
         $translatePartialLoaderProvider.addPart('app/main/apps/mail');
 
 
-        msNavigationServiceProvider.saveItem('messages', {
-            title : 'messages',
-            translate: "Messages",
-            group : true,
-            weight: 1
-        });
 
-        // Navigation
-        msNavigationServiceProvider.saveItem('messages.mail', {
-            title      : 'Mail',
-            translate  : 'Message Center',
-            icon       : 'icon-email',
-            state      : 'app.mail.threads',
-            stateParams: {
-                filter: 'inbox'
-            },
-            badge      : {
-                content: 25,
-                color  : '#F44336'
-            },
-            weight     : 1
-        });
     }
 })();

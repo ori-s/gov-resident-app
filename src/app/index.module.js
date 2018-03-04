@@ -21,6 +21,7 @@
             'app.auth',
             'app.home',
             'app.message-groups',
-            'app.mail'
+            'app.mail',
+            'app.resident'
         ]);
 })();

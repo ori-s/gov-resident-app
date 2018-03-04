@@ -10,7 +10,31 @@
 </md-toolbar>
 
 <div class="scrollable" ms-scroll="vm.msScrollOptions">
-    <ms-navigation folded="vm.folded" ng-ifX="!vm.auth.isSingleOrg"></ms-navigation>
+    <div class="ms-navigation border-bottom">
+        <ul ng-repeat="menu in MS.menu">
+            <li class="ms-navigation-node group has-children">
+                <div class="ms-navigation-item" layout="row">
+                    <div class="ms-navigation-button">
+                        <span class="title" translate="{{menu.name}}" flex></span>
+                    </div>
+                </div>
+                <ul>
+                    <li class="ms-navigation-node" ng-repeat="node in menu.modules">
+                        <div class="ms-navigation-item" layout="row">
+                            <a class="ms-navigation-button"  ui-sref="{{node.state}}" ui-sref-active="active md-accent-bg">
+                                <i class="icon s16 {{node.icon}}" ng-if="node.icon"></i>
+                                <span class="title" translate="{{node.name}}" flex>{{node.name}}</span>
+                                <span class="badge white-fg" ng-style="{'background': node.badge.color}" ng-if="node.badge && vm.MSS[node.badge.field]">{{vm.MSS[node.badge.field]}}</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <ms-navigation folded="vm.folded"></ms-navigation>
+
+    
 
 </div>
 
