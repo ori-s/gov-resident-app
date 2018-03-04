@@ -35,6 +35,16 @@
                 },
                 bodyClass: 'message-groups'
             })
+            .state('app.message-groups.schedule', {
+                url      : '/schedule',
+                views    : {
+                    'content@app': {
+                        templateUrl: 'app/main/apps/message-groups/views/schedule/groups-schedule.html',
+                        controller : 'GroupsScheduleController as vm'
+                    }
+                },
+                bodyClass: 'message-groups'
+            })
             .state('app.message-groups.groups-setup', {
                 url      : '/groups-setup',
                 views    : {
@@ -86,9 +96,17 @@
         msNavigationServiceProvider.saveItem('messages.subscribe', {
             title      : 'Subscribe to Groups',
             translate  : 'Subscribe to Groups',
-            icon       : 'icon-email',
+            icon       : 'icon-account-multiple-plus',
             state      : 'app.message-groups.subscribe',
             weight     : 2
+        });
+
+        msNavigationServiceProvider.saveItem('messages.schedule', {
+            title      : 'Scheduled Messages',
+            translate  : 'Scheduled Messages',
+            icon       : 'icon-calendar-text',
+            state      : 'app.message-groups.schedule',
+            weight     : 3
         });
 
         // Navigation
@@ -100,22 +118,13 @@
         });
 
 
-
-        //msNavigationServiceProvider.saveItem('apps.message-groups.dashboard', {
-        //    title: 'Dashboard',
-        //    state: 'app.message-groups.dashboard'
-        //});
-
         msNavigationServiceProvider.saveItem('admin.groups-setup', {
             title: 'Message Groups',
             translate: "Group Maintenance",
             state: 'app.message-groups.groups-setup',
-            icon  : 'icon-group',
+            icon  : 'icon-table-edit',
         });
 
-        //msNavigationServiceProvider.saveItem('apps.message-groups.orders', {
-        //    title: 'Orders',
-        //    state: 'app.message-groups.orders'
-        //});
+
     }
 })();

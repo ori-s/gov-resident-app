@@ -1,0 +1,63 @@
+<!-- TODO LIST ITEMS -->
+<div class="groups-items">
+    <div class="groups-item" md-ink-rippleX layout="row" layout-align="start center"
+         ng-clickX="vm.selectGroup($event, group)"
+         ng-repeat="group in vm.groups | filter:{$$visible: true} | orderBy:vm.groupOrder:vm.groupOrderDescending | limitTo:50 track by $index"
+         ng-class="[group.$$anim, {'md-green-100-bg':group.scheduled, 'md-background-bg': !group.scheduled}]">
+         
+
+
+        <div layout="row" layout-align="start center" flex>
+            <div>
+                <img class="avatar md-whiteframe-2dp" ng-if="group.avatar" alt="{{group.name}}" ng-src="{{group.avatar}}" />
+                <div class="avatar md-accent-bg md-whiteframe-2dp" ng-if="!group.avatar">
+                    {{group.name.substr(0,2)}}
+                </div>
+            </div>
+
+            <div class="info" flex>
+                <div class="title text-truncate">
+                    {{group.name}}
+                </div>
+                <div class="secondary-text padding-vertical-5">
+                    <span>{{group.category | mapEnt:MS.group_categories}}, </span>
+                    <span>{{group.groupType | mapEnt:MS.group_types}}</span>
+                </div>
+                <div class="text-truncate">{{group.description | htmlToPlaintext | limitTo:150}}</div>
+
+                <div class="tags" layout="row" layout-align="start center" layout-wrap>
+                    <div class="tag" layout="row" layout-align="start center" data-ng-repeat="tag in group.tags" >
+                        <div class="tag-color" ms-random-class="vm.colors"></div>
+                        <div class="tag-label">{{tag}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-star" class="is-starred amber-600-fg"
+                         ng-if="group.scheduled"></md-icon>
+
+                <md-menu>
+                    <md-button class="md-icon-button" aria-label="More" translate
+                               translate-attr-aria-label="TODO.MORE">
+                        <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdMenu.open($event)"></md-icon>
+                    </md-button>
+
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="vm.toggleGroupScheduled(group, flipWidget);">
+                                {{(group.scheduled ? 'Cancel subscription' : 'Schedule to group') | translate}}
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="vm.groupCount == 0" class="text-center padding-vertical-60 secondary-text font-size-22">
+    {{'No Matching Groups Found' | translate}}
+</div>
+
+<!-- / TODO LIST ITEMS -->

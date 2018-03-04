@@ -30,6 +30,9 @@
             vm.title = 'New Message';
             vm.newMessage = true;
             vm.message.tags = [];
+        }else{
+            if (vm.message.scheduleDate) vm.message.scheduleDate = new Date(vm.message.scheduleDate);
+            if (vm.message.reminderDate) vm.message.reminderDate = new Date(vm.message.reminderDate);
         }
 
         // Methods
