@@ -63,6 +63,25 @@
 
         }
 
+        service.getScheduledMessages = function(){
+            return data_service.get('group_messages', {scheduled:true, subscribed:true}).then(function(messages){
+                //simulation
+                var ret = [];
+                var d = moment();
+                var n = 1;
+                _.each(messages, function(message){
+                    if (message.scheduled){
+                        message.reminderDate = moment().add(n, 'days').toDate();
+                        message.scheduleDate = moment().add(++n, 'days').toDate();
+                        if (!message.reminderText) message.reminderText = $translate.instant("I am a message reminder");
+                        message.alert = n < 3;
+                        ret.push(message);
+                    }
+                
+                });
+                return ret;
+            })
+        }
 
         return service;
         

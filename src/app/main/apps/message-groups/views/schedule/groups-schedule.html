@@ -20,8 +20,8 @@
                     <md-icon md-font-icon="icon-magnify" class="icon s24"></md-icon>
                     <input flex ng-model="vm.search" type="text"
                            ng-model-options="{ debounce: 200 }"
-                           ng-change="vm.filterGroups()"
-                           placeholder="{{'Search Groups' | translate}}">
+                           ng-change="vm.filterMessages()"
+                           placeholder="{{'Search Messages' | translate}}">
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="toolbar" layout="row" layout-align="space-between center">
 
                 <div class="flex font-size-14 text-semibold">
-                    <span translate="Found N Grpups" translate-values="{count:vm.groupCount}"></span>
+                    <span translate="Found N Messages" translate-values="{count:vm.messageCount}"></span>
 
                 </div>
                 <div layout="row" layout-align="start center">
@@ -45,11 +45,11 @@
                     </md-button>
                     
                     <md-button class="md-icon-button" 
-                               ng-click="vm.groupOrderDescending = !vm.groupOrderDescending"
+                               ng-click="vm.messageOrderDescending = !vm.messageOrderDescending"
                                aria-label="Sort Direction"
                                translate translate-attr-aria-label="Sort Direction">
-                        <md-icon md-font-icon="icon-sort-ascending" ng-if="vm.groupOrderDescending === false"></md-icon>
-                        <md-icon md-font-icon="icon-sort-descending" ng-if="vm.groupOrderDescending === true"></md-icon>
+                        <md-icon md-font-icon="icon-sort-ascending" ng-if="vm.messageOrderDescending === false"></md-icon>
+                        <md-icon md-font-icon="icon-sort-descending" ng-if="vm.messageOrderDescending === true"></md-icon>
                     </md-button>
 
 
