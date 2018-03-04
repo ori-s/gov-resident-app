@@ -21,7 +21,7 @@
 
         vm.folders = [];
         vm.labels = [];
-        vm.loadingThreads = true;
+        //vm.loadingThreads = true;
 
         vm.currentFilter = {
             type  : $state.params.type,
