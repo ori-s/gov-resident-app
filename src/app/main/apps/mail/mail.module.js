@@ -21,7 +21,7 @@
                 url     : '/mail',
             })
             .state('app.mail.threads', {
-                url      : '/{type:(?:label)}/:filter',
+                url      : '/:filter/:type',
                 views    : {
                     'content@app': {
                         templateUrl: 'app/main/apps/mail/mail.html',
@@ -29,10 +29,8 @@
                     }
                 },
                 params   : {
-                    type: {
-                        value : null,
-                        squash: true
-                    }
+                    type: null,
+                    filter: "inbox"
                 },
                 bodyClass: 'mail'
             })

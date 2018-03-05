@@ -21,7 +21,7 @@
                 <ul>
                     <li class="ms-navigation-node" ng-repeat="node in menu.modules">
                         <div class="ms-navigation-item" layout="row">
-                            <a class="ms-navigation-button"  ui-sref="{{node.state}}" ui-sref-active="active md-accent-bg">
+                            <a class="ms-navigation-button" ui-sref="{{node.state}}" ui-sref-active="active md-accent-bg">
                                 <i class="icon s16 {{node.icon}}" ng-if="node.icon"></i>
                                 <span class="title" translate="{{node.name}}" flex>{{node.name}}</span>
                                 <span class="badge white-fg" ng-style="{'background': node.badge.color}" ng-if="node.badge && vm.MSS[node.badge.field]">{{vm.MSS[node.badge.field]}}</span>
