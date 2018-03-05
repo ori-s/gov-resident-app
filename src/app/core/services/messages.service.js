@@ -34,15 +34,33 @@
             return data_service.get('groups', {subscribed:true});
         }
 
-        service.getMessages = function(groupId){
+        service.getMessages = function(args){
             service.activeMessages = [];
-            service.activeGroup = groupId;
+            service.activeArgs = args;
+            
+            return data_service.get('group_messages', args).then(function(messages){
+                // simulation
+                if (args.type) messages = _.filter(messages, { "groupId": args.type }); 
+                messages = prepareMessageSimulation(messages);
+                
+                switch(args.filter){
+                    case "urgent": 
+                        messages = _.filter(messages, {urgent:true});
+                        break;
+                    case "unread": 
+                        messages = _.filter(messages, {read:false});
+                        break;
+                    case "starred": 
+                        messages = _.filter(messages, {starred:true});
+                        break;
+                    case "scheduled": 
+                        messages = _.filter(messages, {scheduled:true});
+                        break;
+                }
+                // end simulation
 
-            var args = groupId ? {groupId: groupId} : null;
-            return data_service.get('group_messages', args).then(function(ret){
-                if (groupId && groupId != "inbox") ret = _.filter(ret, { "groupId": groupId }); // simulation
-                service.activeMessages = ret;
-                return ret;
+                service.activeMessages = messages;
+                return messages;
             })
         }
 
@@ -86,20 +104,8 @@
 
             return data_service.get('group_messages', {scheduled:true, subscribed:true}).then(function(messages){
                 //simulation
-                var ret = [];
-                var d = moment();
-                var n = 1;
-                _.each(messages, function(message){
-                    if (message.scheduled){
-                        message.reminderDate = moment().add(n, 'days').toDate();
-                        message.scheduleDate = moment().add(++n, 'days').toDate();
-                        if (!message.reminderText) message.reminderText = $translate.instant("I am a message reminder");
-                        message.alert = n < 3;
-                        ret.push(message);
-                    }
-                
-                });
-                return ret;
+                messages = prepareMessageSimulation(messages);
+                return _.filter(messages, {scheduled:true});
             })
         }
 
@@ -125,6 +131,24 @@
             "icon": "icon-clock"
         }];
 
+        function prepareMessageSimulation(messages){
+            var d = moment();
+            var n = 1;
+            _.each(messages, function(message, index){
+                message.starred = Math.floor(Math.random() * 10) < 2;
+                message.read = index > 10;
+                if (message.scheduled){
+                    message.scheduled = true;
+                    message.urgent = n < 3;
+
+                    message.reminderDate = moment().add(n, 'days').toDate();
+                    message.scheduleDate = moment().add(++n, 'days').toDate();
+                    if (!message.reminderText) message.reminderText = $translate.instant("I am a message reminder");
+                    message.alert = n < 3;
+                }                
+            });
+            return messages;        
+        }
 
         return service;
         

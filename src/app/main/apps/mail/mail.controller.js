@@ -24,8 +24,8 @@
         //vm.loadingThreads = true;
 
         vm.currentFilter = {
-            type  : $state.params.type,
-            filter: $state.params.filter
+            filter: $state.params.filter || "inbox",
+            type  : $state.params.type || null            
         };
         vm.currentThread = null;
         vm.selectedThreads = [];
@@ -39,9 +39,7 @@
 
         // Methods
         vm.loadFolder = loadFolder;
-        vm.isFolderActive = isFolderActive;
-        vm.isLabelActive = isLabelActive;
-
+        vm.loadFilter = loadFilter;
         vm.openThread = openThread;
         vm.closeThread = closeThread;
 
@@ -53,12 +51,6 @@
 
         vm.setThreadStatus = setThreadStatus;
         vm.toggleThreadStatus = toggleThreadStatus;
-
-        vm.getLabel = getLabel;
-        vm.getLabelColor = getLabelColor;
-        vm.getLabelTitle = getLabelTitle;
-        vm.toggleLabel = toggleLabel;
-        vm.isLabelExist = isLabelExist;
 
         vm.changeView = changeView;
 
@@ -86,7 +78,7 @@
             var groupId = $state.params.filter;
             $q.all({
                 folders: message_service.getSubscribedGroups(),
-                threads:message_service.getMessages(groupId)
+                threads:message_service.getMessages(vm.currentFilter)
             }).then(
                 // Success
                 function (response)
@@ -94,13 +86,11 @@
                     // Load new threads
                     vm.threads = response.threads;
                     vm.folders = response.folders;
+                    //vm.folder = _.find(vm.folders, {id:vm.currentFilter.type});
 
-
-                    vm.fixedFolders = message_service.mailFolders;
-
-                    vm.folder = _.find(vm.fixedFolders, {id:groupId});
-                    if (!vm.folder) _.find(vm.folders, {id:groupId});
-                    if (!vm.folder) vm.folder == vm.fixedFolders[0];
+                    vm.filters = message_service.mailFolders;
+                    //vm.folder = _.find(vm.filters, {id:vm.currentFilter.filter});
+                    
                     // Hide the loading screen
                     vm.loadingThreads = false;
 
@@ -140,89 +130,54 @@
             }
         });
 
-        /**
-         * Load folder
-         *
-         * @param name
-         */
-        function loadFolder(folder)
+
+        function loadFilter(filter)
         {
-            // If we are already in the selected folder and
-            // there is an open thread just close it
-            if ( folder == vm.folder )
+            if ( filter.id == vm.currentFilter.filter )
             {
-                // Close the current thread if open
                 if ( vm.currentThread )
                 {
                     vm.closeThread();
                 }
-
                 return;
             }
-            
-            // Show loader
-            $rootScope.loadingProgress = true;
-            vm.folder = folder;
-            // Update the state without reloading the controller
-            $state.go('app.mail.threads', {
-                type  : null,
-                filter: folder.id
-            }, {notify: false});
+            getMessages({
+                filter: filter.id,
+                type  : vm.currentFilter.type
+            });
+        }
 
-            // Make the call
-            message_service.getMessages(folder.id).then(
-                // Success
+        function loadFolder(folder)
+        {
+            var folderId = folder.id;
+            if ( folderId == vm.currentFilter.type )
+            {
+                folderId = null;
+            }
+            getMessages({
+                filter: vm.currentFilter.filter,
+                type  : folderId
+            });
+        }
+
+        function getMessages(args){
+            $rootScope.loadingProgress = true;
+            $state.go('app.mail.threads', args, {notify: false});
+            message_service.getMessages(args).then(
                 function (response)
                 {
-                    // Load new threads
                     vm.threads = response;
-
-                    // Set the current filter
-                    vm.currentFilter = {
-                        type  : null,
-                        filter: folder.id
-                    };
-
-                    // Close the current thread if open
+                    vm.currentFilter = args
                     if ( vm.currentThread )
                     {
                         vm.closeThread();
                     }
-
-                    // Hide loader
                     $rootScope.loadingProgress = false;
                 }
             );
         }
 
 
-        /**
-         * Is the folder with the given name active?
-         *
-         * @param name
-         * @returns {boolean}
-         */
-        function isFolderActive(name)
-        {
-            return (vm.currentFilter.type === null && vm.currentFilter.filter === name);
-        }
-
-        /**
-         * Is the label with the given name active?
-         *
-         * @param name
-         * @returns {boolean}
-         */
-        function isLabelActive(name)
-        {
-            return (vm.currentFilter.type === 'label' && vm.currentFilter.filter === name);
-        }
-
-        /**
-         * Open thread
-         *
-         * @param thread
-         */
         function openThread(thread)
         {
             // Set the read status on the thread
@@ -234,25 +189,17 @@
             $state.go('app.mail.threads.thread', {threadId: thread.id}, {notify: false});
         }
 
-        /**
-         * Close thread
-         */
         function closeThread()
         {
             vm.currentThread = null;
-
-            // Update the state without reloading the controller
             $state.go('app.mail.threads', {
-                type  : null,//vm.currentFilter.type,
+                type  : vm.currentFilter.type,
                 filter: vm.currentFilter.filter
             }, {notify: false});
         }
 
         /**
          * Return selected status of the thread
-         *
-         * @param thread
-         * @returns {boolean}
          */
         function isSelected(thread)
         {
@@ -261,9 +208,6 @@
 
         /**
          * Toggle selected status of the thread
-         *
-         * @param thread
-         * @param event
          */
         function toggleSelectThread(thread, event)
         {
@@ -285,9 +229,6 @@
         /**
          * Select threads. If key/value pair given,
          * threads will be tested against them.
-         *
-         * @param [key]
-         * @param [value]
          */
         function selectThreads(key, value)
         {
@@ -398,110 +339,7 @@
                 vm.selectedThreads[x][key] = !vm.selectedThreads[x][key];
             }
         }
-
-        /**
-         * Get label object content
-         *
-         * @param id
-         * @returns {*}
-         */
-        function getLabel(id)
-        {
-            for ( var i = 0; i < vm.labels.length; i++ )
-            {
-                if ( vm.labels[i].id === id )
-                {
-                    return vm.labels[i];
-                }
-            }
-        }
-
-        /**
-         * Get label color from label object
-         *
-         * @param id
-         * @returns {*}
-         */
-        function getLabelColor(id)
-        {
-            return vm.getLabel(id).color;
-        }
-
-        /**
-         * Get label title from label object
-         *
-         * @param id
-         * @returns {*}
-         */
-        function getLabelTitle(id)
-        {
-            return vm.getLabel(id).title;
-        }
-
-        /**
-         * Toggle label
-         *
-         * @param label
-         */
-        function toggleLabel(label)
-        {
-            // Toggle label on the currently open thread
-            if ( vm.currentThread )
-            {
-                if ( vm.currentThread.labels.indexOf(label.id) > -1 )
-                {
-                    vm.currentThread.labels.splice(vm.currentThread.labels.indexOf(label.id), 1);
-                }
-                else
-                {
-                    vm.currentThread.labels.push(label.id);
-                }
-
-                return;
-            }
-
-            // Toggle labels on selected threads
-            // Toggle action will be determined by the first thread from the selection.
-            if ( vm.selectedThreads.length > 0 )
-            {
-                // Decide if we are going to remove or add labels
-                var removeLabels = (vm.selectedThreads[0].labels.indexOf(label.id) > -1);
-
-                for ( var i = 0; i < vm.selectedThreads.length; i++ )
-                {
-                    if ( !removeLabels )
-                    {
-                        vm.selectedThreads[i].labels.push(label.id);
-                        continue;
-                    }
-
-                    if ( vm.selectedThreads[i].labels.indexOf(label.id) > -1 )
-                    {
-                        vm.selectedThreads[i].labels.splice(vm.selectedThreads[i].labels.indexOf(label.id), 1);
-                    }
-                }
-            }
-        }
-
-        /**
-         * Is label exist?
-         *
-         * @param label
-         * @returns {boolean}
-         */
-        function isLabelExist(label)
-        {
-            if ( vm.currentThread && vm.currentThread.labels )
-            {
-                return (vm.currentThread.labels.indexOf(label.id) > -1);
-            }
-        }
-
-        /**
-         * Change the view
-         *
-         * @param view
-         */
+        
         function changeView(view)
         {
             if ( vm.views[view] )
@@ -510,12 +348,6 @@
                 vm.currentView = view;
             }
         }
-
-        /**
-         * Open compose dialog
-         *
-         * @param ev
-         */
 
         function subscribeToGroups(ev){
             $state.go('app.message-groups.subscribe');
@@ -536,11 +368,6 @@
             });
         }
 
-        /**
-         * Open reply dialog
-         *
-         * @param ev
-         */
         function replyDialog(ev)
         {
             $mdDialog.show({
@@ -556,11 +383,6 @@
             });
         }
 
-        /**
-         * Toggle sidenav
-         *
-         * @param sidenavId
-         */
         function toggleSidenav(sidenavId)
         {
             $mdSidenav(sidenavId).toggle();

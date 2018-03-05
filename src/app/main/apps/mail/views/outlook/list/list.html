@@ -34,7 +34,7 @@
 
             </div>
             <div ng-if="thread.scheduled" class="text-center  padding-vertical-5">
-                <div class="text-boxed inline">
+                <div class="text-boxed inline" ng-class="{'md-amber-300-bg':thread.urgent}">
                     <i class="icon-clock s12"></i>
                     {{thread.scheduleDate |  amDateFormat:'dddd, DD MMM YYYY, hh:mm'}}
                 </div>

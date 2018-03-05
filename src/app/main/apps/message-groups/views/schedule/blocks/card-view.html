@@ -2,7 +2,7 @@
 <div class="padding-10 padding-top-20">
 
     <div layout="row" flex="100" layout-wrap>
-        <ms-widget class="group-card animate-repeat" flex="100" flex-gt-sm="50" flex-gt-md="33" flex-gt-lg="25"
+        <ms-widget class="group-card animate-repeat" flex="100" flex-gt-sm="50" 
                    ng-repeat="message in vm.messages | filter:{$$visible: true} | orderBy:vm.messageOrder:vm.messageOrderDescending | limitTo:50 track by message.id">
 
 

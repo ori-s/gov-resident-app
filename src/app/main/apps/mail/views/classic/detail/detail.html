@@ -83,7 +83,7 @@
     </div>
 
     <div ng-if="vm.currentThread.scheduled" class="text-center  padding-vertical-5">
-        <div class="text-boxed inline">
+        <div class="text-boxed inline" ng-class="{'md-amber-300-bg':vm.currentThread.urgent}">
             <i class="icon-clock s12"></i>
             {{vm.currentThread.scheduleDate |  amDateFormat:'dddd, DD MMM YYYY, hh:mm'}}
         </div>
