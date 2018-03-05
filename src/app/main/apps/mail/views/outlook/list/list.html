@@ -18,10 +18,12 @@
                 </div>
 
 
-                <span class="text-truncate" flex>{{thread.group.name}}</span>
-
-                <div class="font-size-10">
-                    <div class="secondary-text">{{thread.created |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}</div>
+                <div flex>
+                    <div class="text-truncate">{{thread.subject}}</div>
+                    <div layout="row" layout-align="start center" class="font-size-10 marg-top-5">
+                        <div flex>{{thread.group.name}}</div>
+                        <div class="secondary-text">{{thread.created |  amDateFormat:'DD MMM YYYY, hh:mm'}}</div>
+                    </div>
                 </div>
 
                 <md-icon md-font-icon="icon-paperclip" class="has-attachment s16"
@@ -31,25 +33,16 @@
                          ng-if="thread.starred"></md-icon>
 
             </div>
-            <div layout="column" layout-gt-xs="row">
-                <div class="subject text-truncate" flex>
-                    {{thread.subject}}
-                </div>
-                <div ng-if="thread.scheduled" class="md-accent-fg font-size-12 text-semibold">
+            <div ng-if="thread.scheduled" class="text-center  padding-vertical-5">
+                <div class="text-boxed inline">
                     <i class="icon-clock s12"></i>
-                    {{thread.scheduleDate |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
+                    {{thread.scheduleDate |  amDateFormat:'dddd, DD MMM YYYY, hh:mm'}}
                 </div>
             </div>
 
             <div class="message text-truncate">
                 {{thread.message | htmlToPlaintext | limitTo:120}}{{thread.message.length > 90 ? '...' : ''}}
-                <div class="labels">
-                    <div class="label" ng-repeat="labelId in thread.labels"
-                         ng-class="vm.getLabelColor(labelId)">
-                        {{vm.getLabelTitle(labelId)}}
-                    </div>
-                </div>
-            </div>
+             </div>
         </div>
         <div layout="column" layout-align="space-between end">
             <div class="time">{{thread.time}}</div>

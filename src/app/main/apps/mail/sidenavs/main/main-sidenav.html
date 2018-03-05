@@ -24,20 +24,16 @@
     </div>
     <div class="navigation-simple" layout="column">
 
-        <md-button class="item" aria-label="inbox" ng-repeat="folder in vm.fixedFolders"
-                   ng-click="vm.loadFolder(folder)"
-                   ng-class="{'selected':folder == vm.folder}">
-            <div layout="row" layout-align="start center">
-                <md-icon md-font-icon="{{folder.icon}}" class="s16"></md-icon>
-                <span class="title" translate="{{folder.name}} ">{{folder.name || translate}}</span>
-            </div>
-        </md-button>
+        <div class="item topheader secondary-text" style="margin-bottom:0; text-align:center" translate="Message Groups">Message Groups</div>
 
-        <div class="item topheader" style="margin-bottom:0" translate="Subscribed Groups">Subscribed Groups</div>
         <md-list class="no-padding mail-opt-list">
+            <md-list-item ng-repeat="folder in vm.fixedFolders" ng-click="vm.loadFolder(folder)" ng-class="{'md-accent-bg':folder == vm.folder}">
+                <md-icon md-font-icon="{{folder.icon}}"></md-icon>
+                <p class="text-truncate">{{folder.name | translate}}</p>
+            </md-list-item>
+            <md-divider></md-divider>
             <md-list-item ng-repeat="folder in vm.folders" ng-click="vm.loadFolder(folder)" ng-class="{'md-accent-bg':folder == vm.folder}">
-                <md-icon ng-if="folder.icon" md-font-icon="{{folder.icon}}" class="md-avatar-icon"></md-icon>
-                <md-icon ng-if="!folder.avatar && !folder.icon" ng-class="{'md-avatar-icon _text': true}">{{folder.name.substr(0,2)}}</md-icon>
+                <md-icon ng-if="!folder.avatar" ng-class="{'md-avatar-icon _text': true}">{{folder.name.substr(0,2)}}</md-icon>
                 <img ng-src="{{folder.avatar}}" class="md-avatar" alt="{{folder.name}}" ng-if="folder.avatar && !folder.icon" />
                 <p class="text-truncate">{{folder.name}}</p>
             </md-list-item>

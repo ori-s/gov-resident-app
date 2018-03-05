@@ -19,16 +19,12 @@
                     {{thread.group.name.substr(0,2)}}
                 </div>
 
-                <span flex class="text-truncate">{{thread.group.name}}</span>
-
-                <div class="font-size-10">
-                    <div class="secondary-text">{{thread.created |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}</div>
-
-                    <div ng-if="thread.scheduled" class="md-accent-fg text-semibold">
-                        <i class="icon-clock s10"></i>
-                        {{thread.scheduleDate |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
+                <div flex>
+                    <div class="text-truncate">{{thread.subject}}</div>
+                    <div layout="row" layout-align="start center" class="font-size-10 marg-top-5">
+                        <div flex>{{thread.group.name}}</div>
+                        <div class="secondary-text">{{thread.created |  amDateFormat:'DD MMM YYYY, hh:mm'}}</div>
                     </div>
-
                 </div>
 
 
@@ -36,8 +32,11 @@
                          ng-if="thread.hasAttachments"></md-icon>
             </div>
 
-            <div class="subject text-truncate">
-                {{thread.subject}}
+            <div ng-if="thread.scheduled" class="text-center  padding-vertical-5">
+                <div class="text-boxed inline">
+                    <i class="icon-clock s12"></i>
+                    {{thread.scheduleDate |  amDateFormat:'dddd, DD MMM YYYY, hh:mm'}}
+                </div>
             </div>
 
             <div class="message text-truncate">

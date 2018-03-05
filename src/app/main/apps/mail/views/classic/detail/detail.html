@@ -1,9 +1,6 @@
 <div class="thread-header" layout="row" layout-align="space-between center">
     <div>
         <div class="subject" flex>{{vm.currentThread.subject}}</div>
-        <div class="secondary-text">
-            {{vm.currentThread.created |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
-        </div>
 
         <div class="labels">
             <div class="label" ng-repeat="labelId in vm.currentThread.labels"
@@ -37,16 +34,13 @@
                     </div>
                 </div>
 
-                <div layout="column" layout-align="start start">
+                <div layout="column" layout-align="center start">
                     <div class="name">
                         {{vm.currentThread.group.name}}
                     </div>
-
-                    <div ng-if="vm.currentThread.scheduled" class="md-accent-fg font-size-12 mt-5">
-                        <i class="icon-clock s12"></i>
-                        {{vm.currentThread.scheduleDate |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
+                    <div class="secondary-text font-size-10">
+                        {{vm.currentThread.created |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
                     </div>
-
                 </div>
             </div>
         </div>
@@ -57,34 +51,47 @@
                        translate translate-aria-label="MAIL.MORE">
                 <md-icon md-font-icon="icon-dots-vertical"></md-icon>
             </md-button>
-
             <md-menu-content width="3">
-                <!--<md-menu-item>
-                    <md-button aria-label="Reply" translate-aria-label="MAIL.REPLY"
-                               ng-click="vm.replyDialog($event)">
-                        <md-icon md-font-icon="icon-reply"></md-icon>
-                        <span translate="MAIL.REPLY">Reply</span>
+                <md-menu-item ng-if="!vm.currentThread.read">
+                    <md-button ng-click="vm.setThreadStatus('read', true)">
+                        <md-icon md-font-icon="icon-email"></md-icon>
+                        <span translate="MAIL.MARK_AS_READ">Mark as read</span>
                     </md-button>
                 </md-menu-item>
-
-                <md-menu-item>
-                    <md-button aria-label="Forward" translate-aria-label="MAIL.FORWARD">
-                        <md-icon md-font-icon="icon-forward"></md-icon>
-                        <span translate="MAIL.FORWARD">Forward</span>
+                <md-menu-item ng-if="vm.currentThread.read">
+                    <md-button ng-click="vm.setThreadStatus('read', false)">
+                        <md-icon md-font-icon="icon-email"></md-icon>
+                        <span translate="MAIL.MARK_AS_UNREAD">Mark as unread</span>
                     </md-button>
-                </md-menu-item>-->
-
+                </md-menu-item>
                 <md-menu-item>
                     <md-button aria-label="Print" translate-aria-label="MAIL.PRINT">
                         <md-icon md-font-icon="icon-printer"></md-icon>
                         <span translate="MAIL.PRINT">Print</span>
                     </md-button>
                 </md-menu-item>
+                <md-divider></md-divider>
+                <md-menu-item>
+                    <md-button ng-click="vm.setThreadStatus('delete', true)">
+                        <md-icon md-font-icon="icon-trash"></md-icon>
+                        <span translate="MAIL.DELETE">Delete</span>
+                    </md-button>
+                </md-menu-item>
+
             </md-menu-content>
         </md-menu>
     </div>
 
+    <div ng-if="vm.currentThread.scheduled" class="text-center  padding-vertical-5">
+        <div class="text-boxed inline">
+            <i class="icon-clock s12"></i>
+            {{vm.currentThread.scheduleDate |  amDateFormat:'dddd, DD MMM YYYY, hh:mm'}}
+        </div>
+    </div>
+
     <div ng-bind-html="vm.currentThread.message"></div>
+
+
 
 </div>
 

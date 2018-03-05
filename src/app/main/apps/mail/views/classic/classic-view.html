@@ -3,55 +3,6 @@
 
     <div layout="row" layout-align="start center">
 
-        <!-- THREAD LIST SPECIFIC ACTIONS -->
-
-        <md-menu class="select-menu" ng-if="!vm.currentThread" md-position-mode="left bottom">
-            <md-button class="md-icon-button"
-                       ng-click="$mdMenu.open($event)"
-                       aria-label="Filters"
-                       translate translate-attr-aria-label="MAIL.FILTERS">
-                <md-icon md-font-icon="icon-filter"></md-icon>
-            </md-button>
-            <md-menu-content width="3">
-                <md-menu-item>
-                    <md-button ng-click="vm.selectThreads()" aria-label="All"
-                               translate="MAIL.ALL" translate-attr-aria-label="MAIL.ALL">
-                        All
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ng-click="vm.deselectThreads()" aria-label="None"
-                               translate="MAIL.NONE" translate-attr-aria-label="MAIL.NONE">
-                        None
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ng-click="vm.selectThreads('read', true)" aria-label="Read"
-                               translate="MAIL.READ" translate-attr-aria-label="MAIL.READ">
-                        Read
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ng-click="vm.selectThreads('read', false)" aria-label="Unread"
-                               translate="MAIL.UNREAD" translate-attr-aria-label="MAIL.UNREAD">
-                        Unread
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ng-click="vm.selectThreads('starred', true)" aria-label="Starred"
-                               translate="MAIL.STARRED" translate-attr-aria-label="MAIL.STARRED">
-                        Starred
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ng-click="vm.selectThreads('starred', false)" aria-label="Unstarred"
-                               translate="MAIL.UNSTARRED" translate-attr-aria-label="MAIL.UNSTARRED">
-                        Unstarred
-                    </md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-        <!-- / THREAD LIST SPECIFIC ACTIONS -->
 
         <!-- SINGLE THREAD SPECIFIC ACTIONS -->
         <md-button class="md-icon-button close-thread" aria-label="Back"
@@ -60,79 +11,11 @@
             <md-icon md-font-icon="icon-keyboard-backspace icon-flip"></md-icon>
         </md-button>
         <!-- / SINGLE THREAD SPECIFIC ACTIONS -->
+        <span class="page-info" translate="Found N Messages" translate-values="{count:(vm.threads | filter: vm.search | filter: global.search).length}"></span>
 
-        <!-- ACTION BUTTONS -->
-        <div class="action-buttons" layout="row" layout-align="start center"
-             ng-show="vm.selectedThreads.length > 0 || vm.currentThread"
-             hide show-gt-xs>
-
-            <md-button class="md-icon-button" aria-label="Delete"
-                       translate translate-attr-aria-label="MAIL.DELETE">
-                <md-icon md-font-icon="icon-delete"></md-icon>
-                <md-tooltip><span translate="MAIL.DELETE">Delete</span></md-tooltip>
-            </md-button>
-
-            <div class="divider-vertical"></div>
-
-            <md-menu  md-position-mode="left bottom">
-                <md-button class="md-icon-button"
-                           ng-click="$mdMenu.open($event)"
-                           aria-label="MAIL.MORE"
-                           translate translate-attr-aria-label="MAIL.MORE">
-                    <md-icon md-font-icon="icon-dots-vertical"></md-icon>
-                </md-button>
-                <md-menu-content width="3">
-                    <md-menu-item>
-                        <md-button ng-click="vm.setThreadStatus('read', true)">
-                            <span translate="MAIL.MARK_AS_READ">Mark as read</span>
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button ng-click="vm.setThreadStatus('read', false)">
-                            <span translate="MAIL.MARK_AS_UNREAD">Mark as unread</span>
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button ng-click="vm.setThreadStatus('starred', true)">
-                            <span translate="MAIL.ADD_STAR">Add star</span>
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button ng-click="vm.setThreadStatus('starred', false)">
-                            <span translate="MAIL.REMOVE_STAR">Remove star</span>
-                        </md-button>
-                    </md-menu-item>
-                </md-menu-content>
-            </md-menu>
-        </div>
-        <!-- / ACTION BUTTONS -->
-
-        <!-- ACTIONS MENU -->
-        <md-menu class="actions-menu"
-                 ng-show="vm.selectedThreads.length > 0 || vm.currentThread"
-                 hide-gt-xs>
-            <md-button class="md-icon-button"
-                       ng-click="$mdMenu.open($event)"
-                       aria-label="Mail Actions"
-                       translate translate-attr-aria-label="MAIL.ACTIONS">
-                <md-icon md-font-icon="icon-dots-vertical"></md-icon>
-            </md-button>
-            <md-menu-content width="3">
-                <md-menu-item>
-                    <md-button aria-label="Delete" translate-aria-label="MAIL.DELETE">
-                        <md-icon md-font-icon="icon-delete"></md-icon>
-                        <span translate="MAIL.DELETE">Delete</span>
-                    </md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-        <!-- / ACTIONS MENU -->
     </div>
 
     <div layout="row" layout-align="start center">
-
-        <span class="page-info" hide-sm>{{(vm.threads | filter: vm.search | filter: global.search).length}} {{'Messages' | translate}}</span>
-
 
         <!-- SETTINGS MENU -->
         <md-menu class="settings-menu" hide-xs>

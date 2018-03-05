@@ -15,11 +15,11 @@
     <div class="content" style="padding:10px">
         <!-- MESSAGE COUNTERS -->
 
-        <div class="h3 secondary-text ph-20 pt-20">
+        <!--<div class="h3 secondary-text ph-20 pt-20">
             כאן צריל להיות תאור טקסטואלי של שרות ההודעות. <a ui-sref="app.message-groups.subscribe">לחץ על מנת להרשם לקבוצות...</a>
-        </div>
+        </div>-->
 
-        <div class="mb-35" ng-if="vm.MSS.started">
+        <div class="" ng-if="vm.MSS.started">
             <div class="widget-group p-10" layout="row" flex="100" layout-wrap>
 
                 <div class="p-10" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="25" ng-repeat="counter in vm.counters">
@@ -42,10 +42,7 @@
 
 
         <!-- SERVICES -->
-        <div class="h2 secondary-text ph-20">
-            {{'Municipal Services' | translate}}
-        </div>
-        <div ng-if="vm.MSS.started">
+        <div >
             <div class="widget-group p-10" layout="row" flex="100" layout-wrap>
 
                 <div class="p-10" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="25" ng-repeat="service in vm.services" ng-click="vm.goTo(service)">
@@ -64,6 +61,42 @@
             </div>
         </div>
         <!-- / SERVICES -->
+
+
+        <div class="widget-group p-10" layout="row" flex="100" layout-wrap>
+            <ms-widget layout="column" flex="100" flex-gt-sm="50">
+                <!-- Front -->
+                <ms-widget-front class="white-bg">
+                    <div class="ph-16 border-bottom" layout="row" layout-align="space-between center">
+                        <div class="h3">{{vm.widget7.title}}</div>
+                        <div class="pv-16">
+                            <md-select class="simplified" ng-model="vm.widget7.currentRange"
+                                       aria-label="Change range">
+                                <md-option ng-repeat="(key, range) in vm.widget7.ranges"
+                                           value="{{key}}">
+                                    {{range}}
+                                </md-option>
+                            </md-select>
+                        </div>
+                    </div>
+                    <div class="p-16" layout="row" layout-align="space-between center"
+                         ng-repeat="event in vm.widget7.schedule[vm.widget7.currentRange]">
+                        <div>
+                            <div class="h3">{{event.title}}</div>
+                            <div>
+                                <span class="secondary-text">{{event.time}}</span>
+                                <span ng-if="event.location">, {{event.location}}</span>
+                            </div>
+                        </div>
+                        <md-button class="md-icon-button" aria-label="More information">
+                            <md-icon md-font-icon="icon-dots-vertical"></md-icon>
+                        </md-button>
+                    </div>
+                </ms-widget-front>
+                <!-- / Front -->
+            </ms-widget>
+        </div>
+
 
     </div>
     <!-- / CONTENT -->

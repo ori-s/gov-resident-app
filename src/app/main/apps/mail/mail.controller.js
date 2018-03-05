@@ -39,7 +39,6 @@
 
         // Methods
         vm.loadFolder = loadFolder;
-        vm.loadLabel = loadLabel;
         vm.isFolderActive = isFolderActive;
         vm.isLabelActive = isLabelActive;
 
@@ -181,7 +180,7 @@
                     // Set the current filter
                     vm.currentFilter = {
                         type  : null,
-                        filter: name
+                        filter: folder.id
                     };
 
                     // Close the current thread if open
@@ -196,63 +195,6 @@
             );
         }
 
-        /**
-         * Load label
-         *
-         * @param name
-         */
-        function loadLabel(name)
-        {
-            // Update the state without reloading the controller
-            $state.go('app.mail.threads', {
-                type  : 'label',
-                filter: name
-            }, {notify: false});
-
-            // If we are already in the selected folder and
-            // there is an open thread just close it
-            if ( vm.isLabelActive(name) )
-            {
-                // Close the current thread if open
-                if ( vm.currentThread )
-                {
-                    vm.closeThread();
-                }
-
-                return;
-            }
-
-            // Show loader
-            $rootScope.loadingProgress = true;
-
-            // Build the API name
-            var apiName = 'mail.label.' + name + '@get';
-
-            // Make the call
-            msApi.request(apiName).then(
-                // Success
-                function (response)
-                {
-                    // Load new threads
-                    vm.threads = response.data;
-
-                    // Set the current filter
-                    vm.currentFilter = {
-                        type  : 'label',
-                        filter: name
-                    };
-
-                    // Close the current thread if open
-                    if ( vm.currentThread )
-                    {
-                        vm.closeThread();
-                    }
-
-                    // Hide loader
-                    $rootScope.loadingProgress = false;
-                }
-            );
-        }
 
         /**
          * Is the folder with the given name active?
@@ -301,7 +243,7 @@
 
             // Update the state without reloading the controller
             $state.go('app.mail.threads', {
-                type  : vm.currentFilter.type,
+                type  : null,//vm.currentFilter.type,
                 filter: vm.currentFilter.filter
             }, {notify: false});
         }

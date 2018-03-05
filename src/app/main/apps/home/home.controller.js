@@ -74,5 +74,15 @@
             $state.go(o.state, o.stateParams);
         }
 
+        vm.loading = true;
+        function init(){
+            $q.all({
+                messages: message_service.getScheduledMessages()
+            }).then(function(ret){
+            
+            })
+            
+        }
+
     }
 })();
