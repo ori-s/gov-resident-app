@@ -1,4 +1,4 @@
-<div id="widgets" class="page-layout simple fullwidth doc-page">
+﻿<div id="widgets" class="page-layout simple fullwidth doc-page">
     <!-- HEADER -->
     <div class="header md-accent-bg" layout="row" layout-align="space-between">
         <div layout="column" layout-align="center start">
@@ -12,15 +12,58 @@
     </div>
     <!-- / HEADER -->
     <!-- CONTENT -->
-    <div class="content">
-        <p class="h3 m-16">
-            Here you can see some of the other widget styles. These are just tiny example of what you can do with using
-            <code class="no-highlight">ms-widget</code> directive and helper classes. You are not limited to
-            these styles or widgets, you can easily create wide variety of widgets.
-        </p>
-        <!-- WIDGET GROUP -->
-        <div class="widget-group" layout="row" flex="100" layout-wrap>
+    <div class="content" style="padding:10px">
+        <!-- MESSAGE COUNTERS -->
 
+        <div class="h3 secondary-text ph-20 pt-20">
+            כאן צריל להיות תאור טקסטואלי של שרות ההודעות. <a ui-sref="app.message-groups.subscribe">לחץ על מנת להרשם לקבוצות...</a>
+        </div>
+
+        <div class="mb-35" ng-if="vm.MSS.started">
+            <div class="widget-group p-10" layout="row" flex="100" layout-wrap>
+
+                <div class="p-10" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="25" ng-repeat="counter in vm.counters">
+                    <div class="dash-widget-button h-120 p-16 {{counter.bg}}" md-ink-ripple layout="row" flex ng-click="vm.goTo(counter)">
+                        <div class="pt-8 pb-8" layout="row" layout-align="space-between center" flex>
+                            <div class="pl-8" layout="column" layout-align="center start">
+                                <span class="font-weight-500 font-size-16 secondary-text pb-8">{{counter.name | translate}}</span>
+                                <span class="md-display-1">{{vm.MSS[counter.field] || 0}}</span>
+                            </div>
+                            <div>
+                                <md-icon md-font-icon="{{counter.icon}}" class="s48 hint-text"></md-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- / MESSAGE COUNTERS -->
+
+
+        <!-- SERVICES -->
+        <div class="h2 secondary-text ph-20">
+            {{'Municipal Services' | translate}}
+        </div>
+        <div ng-if="vm.MSS.started">
+            <div class="widget-group p-10" layout="row" flex="100" layout-wrap>
+
+                <div class="p-10" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="25" ng-repeat="service in vm.services" ng-click="vm.goTo(service)">
+                    <div class="dash-widget-button h-100 p-16 {{service.bg}}" md-ink-ripple layout="row" flex>
+                        <div class="pt-8 pb-8" layout="row" layout-align="space-between center" flex>
+                            <div class="pl-8" layout="column" layout-align="center start">
+                                <span class="h2">{{service.name | translate}}</span>
+                            </div>
+                            <div>
+                                <md-icon md-font-icon="{{service.icon}}" class="s48 hint-text"></md-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- / SERVICES -->
 
     </div>
     <!-- / CONTENT -->

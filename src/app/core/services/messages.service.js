@@ -7,21 +7,26 @@
             started: false,
             groups: [],
             filters: [],
-
             //for mail viewer
             activeGroup: null,
             activeMessages: [],
-
+            //counters
             unreadMessages: null,
             pendingMessages:null,
+            markedMessages:null,
+            urgentMessages:null
         }
 
         service.init = function(){
             //simulation init the messages servicw
+            service.started = false;
             $timeout(function(){
+                service.started= true;
                 service.unreadMessages = Math.floor(Math.random() * 30);
                 service.pendingMessages = Math.floor(Math.random() * 30);
-            })
+                service.pendingMessages = Math.floor(Math.random() * 30);
+                service.urgentMessages = Math.floor(Math.random() * 30);
+            },500)
         }
 
 
@@ -97,6 +102,29 @@
                 return ret;
             })
         }
+
+        service.mailFolders = [{
+            "id": "inbox",
+            "name": "MAIL.All Messages",
+            "icon": "icon-check-all"
+        },{
+            "id": "urgent",
+            "name": "Urgent Messages",
+            "icon": "icon-bell-ring"
+        },{
+            "id": "unread",
+            "name": "Unread Messages",
+            "icon": "icon-email"
+        },{
+            "id": "starred",
+            "name": "Marked Messages",
+            "icon": "icon-check-all"
+        },{
+            "id": "scheduled",
+            "name": "Pending Messages",
+            "icon": "icon-clock"
+        }];
+
 
         return service;
         

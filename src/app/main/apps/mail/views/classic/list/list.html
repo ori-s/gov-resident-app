@@ -1,4 +1,4 @@
-<div class="no-threads" ng-if="vm.threads.length === 0">There are no messages in '{{vm.currentFilter.filter}}'!</div>
+<div class="no-threads" ng-if="vm.threads.length === 0" >{{'No Messages Found in' | translate}} <span class="inline">'{{vm.folder.name | translate}}'</span></div>
 <div class="loading-threads" layout="column" layout-align="center center" ng-if="!vm.threads && vm.loadingThreads">
     <md-progress-circular class="md-accent" md-mode="indeterminate" md-diameter="64"></md-progress-circular>
     <div>Loading your mails...</div>

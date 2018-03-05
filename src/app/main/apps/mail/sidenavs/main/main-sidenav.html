@@ -23,34 +23,25 @@
         </md-button>
     </div>
     <div class="navigation-simple" layout="column">
+
+        <md-button class="item" aria-label="inbox" ng-repeat="folder in vm.fixedFolders"
+                   ng-click="vm.loadFolder(folder)"
+                   ng-class="{'selected':folder == vm.folder}">
+            <div layout="row" layout-align="start center">
+                <md-icon md-font-icon="{{folder.icon}}" class="s16"></md-icon>
+                <span class="title" translate="{{folder.name}} ">{{folder.name || translate}}</span>
+            </div>
+        </md-button>
+
         <div class="item topheader" style="margin-bottom:0" translate="Subscribed Groups">Subscribed Groups</div>
         <md-list class="no-padding mail-opt-list">
-            <md-list-item ng-repeat="folder in vm.folders" ng-click="vm.loadFolder(folder)" ng-class="{'md-accent-bg':folder == vm.folder, '_all':$index == 0}">
-                
+            <md-list-item ng-repeat="folder in vm.folders" ng-click="vm.loadFolder(folder)" ng-class="{'md-accent-bg':folder == vm.folder}">
                 <md-icon ng-if="folder.icon" md-font-icon="{{folder.icon}}" class="md-avatar-icon"></md-icon>
                 <md-icon ng-if="!folder.avatar && !folder.icon" ng-class="{'md-avatar-icon _text': true}">{{folder.name.substr(0,2)}}</md-icon>
                 <img ng-src="{{folder.avatar}}" class="md-avatar" alt="{{folder.name}}" ng-if="folder.avatar && !folder.icon" />
                 <p class="text-truncate">{{folder.name}}</p>
             </md-list-item>
         </md-list>
-        <!--<md-button class="item" aria-label="inbox" ng-repeat="folder in vm.folders"
-                   ng-click="vm.loadFolder(folder.name)"
-                   ng-class="{'selected':vm.isFolderActive(folder.name)}">
-            <div layout="row" layout-align="start center">
-                <md-icon md-font-icon="{{folder.icon}}" class="s16"></md-icon>
-                <span class="title">{{folder.title}}</span>
-            </div>
-        </md-button>-->
-        <!--<div class="item subheader" translate="MAIL.LABELS">Labels</div>
-
-        <md-button class="item" ng-repeat="label in vm.labels"
-                   ng-click="vm.loadLabel(label.name)"
-                   ng-class="{'selected':vm.isLabelActive(label.name)}">
-            <div layout="row" layout-align="start center">
-                <div class="h-10 w-10 m-far-16" ng-class="label.color"></div>
-                <span class="title">{{label.title}}</span>
-            </div>
-        </md-button>-->
     </div>
 </md-content>
 <!-- / SIDENAV CONTENT -->

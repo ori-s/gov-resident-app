@@ -570,3 +570,7 @@ $border-style: 1px solid rgba(0, 0, 0, 0.12);
     overflow-y:auto;
 }
 
+.dash-widget-button{
+    box-shadow: $whiteframe-shadow-1dp;
+    position:relative;
+}

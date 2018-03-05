@@ -69,6 +69,7 @@
 
         vm.toggleSidenav = toggleSidenav;
 
+
         //////////
 
         init();
@@ -94,14 +95,13 @@
                     // Load new threads
                     vm.threads = response.threads;
                     vm.folders = response.folders;
-                    vm.folders.unshift({
-                        "id": "inbox",
-                        "name": $translate.instant("MAIL.All Messages"),
-                        "icon": "icon-check-all"
-                    })
 
-                    vm.folder = _.find(vm.folders, {id:groupId});
-                    if (!vm.folder) vm.folder == vm.folders[0];
+
+                    vm.fixedFolders = message_service.mailFolders;
+
+                    vm.folder = _.find(vm.fixedFolders, {id:groupId});
+                    if (!vm.folder) _.find(vm.folders, {id:groupId});
+                    if (!vm.folder) vm.folder == vm.fixedFolders[0];
                     // Hide the loading screen
                     vm.loadingThreads = false;
 
