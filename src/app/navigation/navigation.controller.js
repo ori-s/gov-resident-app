@@ -22,7 +22,8 @@
         vm.bodyEl = angular.element('body');
         vm.folded = false;
         vm.closeOnMobile = closeOnMobile;
-
+        vm.goTo = goTo;
+        vm.isStateActive = isStateActive
         vm.msScrollOptions = {
             suppressScrollX: true
         };
@@ -32,6 +33,21 @@
         vm.goHome = goHome;
 
         //////////
+
+        function isStateActive(node){
+            if ($state.includes(node.state)){
+                if (node.id == "messages" && $state.params.filter == 'scheduled')return false;
+                if (node.id == "scheduledMessages" && $state.params.filter != 'scheduled')return false;
+                return true;
+            }
+            return false;
+        }
+
+        function goTo(obj){
+            debugger
+            $state.go(obj.state, obj.stateParams)
+            closeOnMobile()
+        }
 
         function closeOnMobile(){
             if (!sidenav.isLockedOpen()) sidenav.close();

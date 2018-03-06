@@ -22,16 +22,40 @@
             service.started = false;
             $timeout(function(){
                 service.started= true;
-                service.unreadMessages = Math.floor(Math.random() * 30);
-                service.pendingMessages = Math.floor(Math.random() * 30);
-                service.pendingMessages = Math.floor(Math.random() * 30);
-                service.urgentMessages = Math.floor(Math.random() * 30);
+                service.unreadMessages = 10;
+                service.pendingMessages = 15;
+                service.starredMessages = 9;
+                service.urgentMessages = 2;
             },500)
         }
 
 
+        service.getEditableGroups = function(){
+            return data_service.get('groups', {});
+        }
+
+        service.getSubscribableGroups = function(){
+            return data_service.get('groups', {'active':true}).then(function(groups){
+                //simulation
+                _.each(groups, function(group, index){
+                    if (index < 5){
+                        group.subscribed = true;
+                    }                    
+                });
+                return groups;
+            });;
+        }
+
         service.getSubscribedGroups = function(){
-            return data_service.get('groups', {subscribed:true});
+            return data_service.get('groups', {subscribed:true}).then(function(groups){
+                //simulation
+                return _.filter(groups, function(group, index){
+                    if (index < 5){
+                        group.subscribed = true;
+                        return true;
+                    }                    
+                })
+            });
         }
 
         service.getMessages = function(args){
@@ -68,13 +92,7 @@
         
         }
 
-        service.getEditableGroups = function(){
-            return data_service.get('groups', {});
-        }
 
-        service.getSubscribableGroups = function(){
-            return data_service.get('groups', {'active':true});
-        }
 
         service.toggleGroupSubscribed_server = function(group){
             return $q.resolve(); //simulation

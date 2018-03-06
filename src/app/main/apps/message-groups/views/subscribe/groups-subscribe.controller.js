@@ -74,8 +74,8 @@
 
         vm.viewGroupMessages = function(group){
             $state.go('app.mail.threads', {
-                type  : null,
-                filter: group.id
+                type  : group.id,
+                filter: 'inbox'
             });
         }
         // ---------------------------------------------------------->

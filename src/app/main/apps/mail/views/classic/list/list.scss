@@ -113,25 +113,6 @@
                                 .message {
                                     position: relative;
                                     color: rgba(0, 0, 0, 0.54);
-
-                                    .labels {
-                                        position: absolute;
-                                        background: #FAFAFA;
-                                        top: 0;
-                                        right: 0;
-                                        padding-left: 6px;
-
-                                        .label {
-                                            display: inline-block;
-                                            font-size: 11px;
-                                            padding: 0 5px;
-                                            margin-right: 6px;
-
-                                            &:first-child {
-                                                margin-left: 0;
-                                            }
-                                        }
-                                    }
                                 }
                             }
 
@@ -155,3 +136,12 @@
         }
     }
 }
+@media screen and (max-width: $layout-breakpoint-xs) {
+    #mail {
+        .thread {
+            padding: 16px 0 !important;
+        }
+
+    }
+}
+

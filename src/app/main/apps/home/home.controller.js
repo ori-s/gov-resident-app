@@ -14,10 +14,19 @@
         vm.loading = true;
         vm.MSS = message_service;
         vm.counters = [{
+            name: "Urgent Messages",
+            icon: "icon-bell-ring",
+            bg: "md-amber-300-bg",
+            state: "app.mail.threads",
+            stateParams: {
+                filter: 'urgent'
+            },
+            field: "urgentMessages"
+        },{
             name: "Unread Messages",
             icon: "icon-email",
             bg: "light-blue-bg",
-            state      : 'app.mail.threads',
+            state: "app.mail.threads",
             stateParams: {
                 filter: 'unread'
             },
@@ -26,26 +35,20 @@
             name: "Pending Messages",
             icon: "icon-clock",
             bg: "green-bg",
-            state: "app.message-groups.schedule",
+            state: "app.mail.threads",
+            stateParams: {
+                filter: 'scheduled'
+            },
             field: "pendingMessages"
         },{
             name: "Marked Messages",
             icon: "icon-star",
             bg: "blue-grey-bg white-fg",
-            state      : 'app.mail.threads',
+            state: "app.mail.threads",
             stateParams: {
                 filter: 'starred'
             },
-            field: "markedMessages"
-        },{
-            name: "Urgent Messages",
-            icon: "icon-bell-ring",
-            bg: "deep-purple-bg white-fg",
-            state      : 'app.mail.threads',
-            stateParams: {
-                filter: 'urgent'
-            },
-            field: "urgentMessages"
+            field: "starredMessages"
         }];
 
         vm.services = [{

@@ -36,12 +36,30 @@
                 bodyClass: 'message-groups'
             })
             .state('app.message-groups.schedule', {
-                url      : '/schedule',
+                url      : '/schedule/:filter/:type',
                 views    : {
                     'content@app': {
                         templateUrl: 'app/main/apps/message-groups/views/schedule/groups-schedule.html',
                         controller : 'GroupsScheduleController as vm'
                     }
+                },
+                params   : {
+                    type: null,
+                    filter: "inbox"
+                },
+                bodyClass: 'message-groups'
+            })
+            .state('app.message-groups.messages', {
+                url      : '/messages/:filter/:type',
+                views    : {
+                    'content@app': {
+                        templateUrl: 'app/main/apps/message-groups/views/schedule/groups-schedule.html',
+                        controller : 'GroupsScheduleController as vm'
+                    }
+                },
+                params   : {
+                    type: null,
+                    filter: "inbox"
                 },
                 bodyClass: 'message-groups'
             })

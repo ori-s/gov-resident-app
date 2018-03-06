@@ -1,14 +1,14 @@
 <!-- TODO LIST ITEMS -->
-<div class="padding-10 padding-top-20">
-    <div class="animate-repeat mb-20"
+<div class="group-cards-container">
+    <div class="group-cards-group animate-repeat"
          ng-if="(vm.groups | filter:{$$visible: true} | filter:{category:cat.id}:true).length"
          ng-repeat="cat in MS.group_categories | orderBy:vm.groupOrder:vm.groupOrderDescending track by cat.id">
-        <div class="md-title  padding-horizontal-20">{{cat.name}}</div>
+        <div class="group-cards-header">{{cat.name}}</div>
         <!-- MS-CARD -->
         <div  layout="row" flex="100" layout-wrap>
-            <ms-widget class="group-card" flippable="true" flex="100" flex-gt-sm="50" 
+            <div class="group-card" flippable="true" flex="100" flex-gt-sm="50" 
                        ng-repeat="group in vm.groups | filter:{$$visible: true} | filter:{category:cat.id}:true | orderBy:vm.groupOrder:vm.groupOrderDescending | limitTo:50 track by group.id">
-                <ms-widget-front class="p-15" layout="column"
+                <div class="group-card-content" layout="column"
                                  flex layout-fill layout-align="space-between center"
                                  ng-class="[group.$$anim, {'md-green-100-bg':group.subscribed, 'md-background-bg': !group.subscribed}]">
 
@@ -41,13 +41,13 @@
                             <span translate>View group messages</span>
                         </md-button>
                         <div flex></div>
-                        <md-button class="md-raised md-accent md-background" ng-click="flipWidget()">
+                        <md-button class="md-raised md-accent md-background" ng-click="vm.toggleGroupSubscribed(group)">
                             <span>{{(group.subscribed ? 'Cancel subscription' : 'Subscribe to group') | translate}}</span>
                         </md-button>
                     </div>
 
-                </ms-widget-front>
-                <ms-widget-back class="p-15 white-fg" ng-class="{'light-blue-bg': !group.subscribed, 'md-orange-800-bg': group.subscribed}">
+                </div>
+                <!--<ms-widget-back class="p-15 white-fg" ng-class="{'light-blue-bg': !group.subscribed, 'md-orange-800-bg': group.subscribed}">
                     <div layout="column" layout-align="space-between center" class="full-height">
                         <div class="full-width" layout="row" layout-align="start center">
                             <img class="avatar" ng-if="group.avatar" alt="{{group.name}}" ng-src="{{group.avatar}}" />
@@ -73,8 +73,8 @@
                         <div style="height:40px"></div>
                     </div>
 
-                </ms-widget-back>
-            </ms-widget>
+                </ms-widget-back>-->
+            </div>
         </div>
 
         <!-- / MS-CARD -->

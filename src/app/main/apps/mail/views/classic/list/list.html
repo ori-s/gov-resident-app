@@ -50,9 +50,7 @@
 
         </div>
 
-        <div layout="column" layout-align="space-between end">
-            <div class="time">{{thread.time}}</div>
-
+        <div layout="column" layout-align="space-between end" hide-xs>
             <div class="actions" layout="row" layout-align="start center">
                 <md-button class="md-icon-button" ng-click="vm.toggleThreadStatus('starred', thread, $event)"
                            aria-label="Toggle starred" translate translate-attr-aria-label="MAIL.TOGGLE_STARRED">

@@ -33,11 +33,16 @@
         }
 
         vm.preventDefault = preventDefault;
+        vm.currentFilter = {
+            filter: $state.params.filter || "inbox",
+            type  : $state.params.type || null            
+        };
+
 
         init();
         function init() {
             $q.all({
-                messages:  message_service.getScheduledMessages(),
+                messages:  message_service.getMessages(vm.currentFilter)
             }).then(function (ret) {
                 vm.messages = ret.messages;
                 vm.messageCount = vm.messages.length;
@@ -74,8 +79,8 @@
 
         vm.viewGroupMessages = function(group){
             $state.go('app.mail.threads', {
-                type  : null,
-                filter: group.id
+                type  : group.id,
+                filter: "inbox"
             });
         }
         // ---------------------------------------------------------->
