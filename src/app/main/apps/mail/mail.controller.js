@@ -86,14 +86,11 @@
                     // Load new threads
                     vm.threads = response.threads;
                     vm.folders = response.folders;
-                    //vm.folder = _.find(vm.folders, {id:vm.currentFilter.type});
-
                     vm.filters = message_service.mailFolders;
-                    //vm.folder = _.find(vm.filters, {id:vm.currentFilter.filter});
                     
                     // Hide the loading screen
                     vm.loadingThreads = false;
-
+                    generateCrumbs();
                     // Open the thread if needed
                     if ( $state.params.threadId )
                     {
@@ -102,6 +99,16 @@
                     }
                 }
             );
+        }
+
+        vm.crumbs = [];
+        function generateCrumbs(){
+            var arr = [];
+            var o = _.find(vm.filters, {id:vm.currentFilter.filter});
+            if (o) arr.push(o.name);
+            var o = _.find(vm.folders, {id:vm.currentFilter.type});
+            if (o) arr.push(o.name);
+            vm.crumbs = arr;
         }
 
         // Watch screen size to change view modes
@@ -167,7 +174,8 @@
                 function (response)
                 {
                     vm.threads = response;
-                    vm.currentFilter = args
+                    vm.currentFilter = args;
+                    generateCrumbs();
                     if ( vm.currentThread )
                     {
                         vm.closeThread();

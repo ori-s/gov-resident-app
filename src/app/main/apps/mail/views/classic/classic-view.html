@@ -1,70 +1,57 @@
 <!-- TOOLBAR -->
-<div class="toolbar" layout="row" layout-align="space-between center">
-
-    <div layout="row" layout-align="start center">
-
-
-        <!-- SINGLE THREAD SPECIFIC ACTIONS -->
-        <md-button class="md-icon-button close-thread" aria-label="Back"
-                   ng-click="vm.closeThread()" ng-if="vm.currentThread"
-                   translate translate-attr-aria-label="MAIL.BACK">
-            <md-icon md-font-icon="icon-keyboard-backspace icon-flip"></md-icon>
+<div class="toolbar" layout="row" layout-align="start center">
+    <md-button class="md-icon-button close-thread" aria-label="Back"
+               ng-click="vm.closeThread()" ng-if="vm.currentThread"
+               translate translate-attr-aria-label="MAIL.BACK">
+        <md-icon md-font-icon="icon-keyboard-backspace icon-flip"></md-icon>
+    </md-button>
+    <div class="page-info" flex>
+        <div translate="Found N Messages" translate-values="{count:(vm.threads | filter: vm.search | filter: global.search).length}"></div>
+        <div class="text-truncate inline secondary-text" ng-if="false">
+            <span ng-repeat="crumb in vm.crumbs">{{crumb | translate}}<span class="inline padding-horizontal-5" ng-if="!$last"> / </span></span>
+        </div>
+    </div>
+    <!-- SETTINGS MENU -->
+    <md-menu class="settings-menu" hide-xs>
+        <md-button class="md-icon-button"
+                   ng-click="$mdMenu.open($event)"
+                   aria-label="Settings"
+                   translate translate-attr-aria-label="MAIL.SETTINGS">
+            <md-icon md-font-icon="icon-cog"></md-icon>
         </md-button>
-        <!-- / SINGLE THREAD SPECIFIC ACTIONS -->
-        <span class="page-info" translate="Found N Messages" translate-values="{count:(vm.threads | filter: vm.search | filter: global.search).length}"></span>
-
-    </div>
-
-    <div layout="row" layout-align="start center">
-
-        <!-- SETTINGS MENU -->
-        <md-menu class="settings-menu" hide-xs>
-            <md-button class="md-icon-button"
-                       ng-click="$mdMenu.open($event)"
-                       aria-label="Settings"
-                       translate translate-attr-aria-label="MAIL.SETTINGS">
-                <md-icon md-font-icon="icon-cog"></md-icon>
-            </md-button>
-            <md-menu-content width="3">
-                <md-menu-item>
-                    <md-button ng-click="vm.changeView('classic')">
-                        <md-icon md-font-icon="icon-checkbox-blank-outline" ng-if="vm.currentView !== 'classic'"></md-icon>
-                        <md-icon md-font-icon="icon-checkbox-marked" class="md-accent" ng-if="vm.currentView === 'classic'"></md-icon>
-                        <span translate="MAIL.CLASSIC_VIEW">Classic View</span>
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item hide-xs>
-                    <md-button ng-click="vm.changeView('outlook')">
-                        <md-icon md-font-icon="icon-checkbox-blank-outline" ng-if="vm.currentView !== 'outlook'"></md-icon>
-                        <md-icon md-font-icon="icon-checkbox-marked" class="md-accent" ng-if="vm.currentView === 'outlook'"></md-icon>
-                        <span translate="MAIL.OUTLOOK_VIEW">Outlook View</span>
-                    </md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-        <!-- / SETTINGS MENU -->
-    </div>
+        <md-menu-content width="3">
+            <md-menu-item>
+                <md-button ng-click="vm.changeView('classic')">
+                    <md-icon md-font-icon="icon-checkbox-blank-outline" ng-if="vm.currentView !== 'classic'"></md-icon>
+                    <md-icon md-font-icon="icon-checkbox-marked" class="md-accent" ng-if="vm.currentView === 'classic'"></md-icon>
+                    <span translate="MAIL.CLASSIC_VIEW">Classic View</span>
+                </md-button>
+            </md-menu-item>
+            <md-menu-item hide-xs>
+                <md-button ng-click="vm.changeView('outlook')">
+                    <md-icon md-font-icon="icon-checkbox-blank-outline" ng-if="vm.currentView !== 'outlook'"></md-icon>
+                    <md-icon md-font-icon="icon-checkbox-marked" class="md-accent" ng-if="vm.currentView === 'outlook'"></md-icon>
+                    <span translate="MAIL.OUTLOOK_VIEW">Outlook View</span>
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+    <!-- / SETTINGS MENU -->
 </div>
 <!-- / TOOLBAR -->
-
 <!-- CONTENT WRAPPER -->
 <div class="content-wrapper" layout="column" flex>
-
     <!-- THREAD DETAIL -->
     <div class="content thread-detail" ng-if="vm.currentThread"
          ng-include="'app/main/apps/mail/views/classic/detail/detail.html'" ms-scroll flex>
     </div>
     <!-- / THREAD DETAIL -->
-
     <!-- THREAD LIST -->
     <div class="content thread-list"
          ng-if="!vm.currentThread"
          ng-include="'app/main/apps/mail/views/classic/list/list.html'" ms-scroll flex>
     </div>
 
-    
-
     <!-- / THREAD LIST -->
-
 </div>
 <!-- / CONTENT WRAPPER -->

@@ -7,13 +7,14 @@
         .controller('NavigationController', NavigationController);
 
     /** @ngInject */
-    function NavigationController($scope, $state, message_service, authorization_service , $mdSidenav, MetaService)
+    function NavigationController($scope, $state, message_service, authorization_service , $mdSidenav, MetaService, fuseTheming, $cookies)
     {
         $scope.MS = MetaService;
         var sidenav = $mdSidenav('navigation');
 
 
         var vm = this;
+        vm.themes = fuseTheming.themes;
         vm.MSS = message_service;
         message_service.init();
 
@@ -57,6 +58,31 @@
         }
 
 
+        // Methods
+        vm.setActiveTheme = setActiveTheme;
+        vm.getActiveTheme = getActiveTheme;
+        vm.updateLayoutMode = updateLayoutMode;
+        //////////
+
+        function setActiveTheme(themeName)
+        {
+            fuseTheming.setActiveTheme(themeName);
+            $cookies.put('theme', themeName);
+            closeOnMobile();
+        }
+        function getActiveTheme()
+        {
+            return fuseTheming.themes.active;
+        }
+
+        function updateLayoutMode()
+        {
+            var bodyEl = angular.element('body');
+            bodyEl.toggleClass('boxed', (vm.layoutMode === 'boxed'));
+        }
+
+
+
         /**
          * Toggle folded status
          */
@@ -70,6 +96,10 @@
         {
             vm.bodyEl.removeClass('ms-navigation-horizontal-mobile-menu-active');
         });
+
+
+
+
     }
 
 })();

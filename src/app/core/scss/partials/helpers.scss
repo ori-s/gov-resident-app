@@ -616,6 +616,26 @@ LAYOUT HELPERS hgroup cards
             padding:15px;
             border-radius:2px;
             box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+            .tags {
+                font-size: 12px;
+                margin-top: 10px;
+
+                .tag {
+                    border-radius: 2px;
+                    margin: 8px 4px 0 0;
+                    padding: 3px 8px;
+                    background-color: rgba(0, 0, 0, 0.08);
+
+                    .tag-color {
+                        width: 8px;
+                        height: 8px;
+                        margin-right: 8px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
         }
     }
 

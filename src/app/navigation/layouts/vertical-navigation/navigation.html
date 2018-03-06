@@ -15,7 +15,7 @@
         <ul ng-repeat="menu in MS.menu">
             <li class="ms-navigation-node group has-children">
                 <div class="ms-navigation-item" layout="row">
-                    <div class="ms-navigation-button">
+                    <div class="ms-navigation-button" ng-if="menu.name" ng-class="{'paddding-top-10':!menu.name}">
                         <span class="title" translate="{{menu.name}}" flex></span>
                     </div>
                 </div>
@@ -33,6 +33,24 @@
             </li>
         </ul>
     </div>
+
+    <!--<md-divider></md-divider>-->
+    <div ng-hide="vm.folded">
+        <div layout="row" layout-align="space-between center" class="padding-20">
+            <md-button ng-repeat="(themeName, theme) in vm.themes.list" class="md-fab md-mini"
+                       layout="row" layout-align="center center"
+                       aria-label="{{themeName}}" ng-click="vm.setActiveTheme(themeName)"
+                       ng-style="{'background-color': theme.accent.color}"
+                       ng-class="{active: vm.getActiveTheme().name === themeName}">
+                <md-icon ng-style="{'color': theme.primary.contrast1}" md-font-icon="icon-palette" classX="icon s32"></md-icon>
+            </md-button>
+        </div>
+    </div>
+
+
+
+
+
     <ms-navigation folded="vm.folded"></ms-navigation>
 
     

@@ -1,10 +1,10 @@
 <!-- TOOLBAR -->
-<div class="toolbar" layout="row" layout-align="space-between center">
-    <div layout="row" layout-align="start center">
-        <div class="action-buttons" layout="row" layout-align="start center">
-            <span class="page-info" translate="Found N Messages" translate-values="{count:(vm.threads | filter: vm.search | filter: global.search).length}"></span>
-        </div>
+<div class="toolbar" layout="row" layout-align="start center">
+    <div class="page-info text-truncate" flex>
+        <span  ng-repeat="crumb in vm.crumbs">{{crumb | translate}} <span class="inline padding-horizontal-5"> / </span></span>
+        <span translate="Found N Messages" translate-values="{count:(vm.threads | filter: vm.search | filter: global.search).length}"></span>
     </div>
+
     <div layout="row" layout-align="start center">
         <!-- SETTINGS MENU -->
         <md-menu class="settings-menu">
