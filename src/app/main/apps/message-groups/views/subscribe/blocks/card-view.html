@@ -41,8 +41,8 @@
                             <span translate>View group messages</span>
                         </md-button>
                         <div flex></div>
-                        <md-button class="md-raised md-accent md-background" ng-click="vm.toggleGroupSubscribed(group)">
-                            <span>{{(group.subscribed ? 'Cancel subscription' : 'Subscribe to group') | translate}}</span>
+                        <md-button class="md-raised md-accent md-background" ng-click="vm.handleGroupSubscription(group, $event)">
+                            <span>{{(group.subscribed ? 'Manage subscription' : 'Subscribe to group') | translate}}</span>
                         </md-button>
                     </div>
 

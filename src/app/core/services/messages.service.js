@@ -2,7 +2,7 @@
     'use strict';
     var app = angular.module('app.core');
 
-    app.factory('message_service', function ($q, $translate, authorization_service, MetaService, data_service, $timeout) {
+    app.factory('message_service', function ($q, $translate, authorization_service, MetaService, data_service, $timeout, $mdDialog, msUtils) {
         var service = {
             started: false,
             groups: [],
@@ -40,6 +40,11 @@
                 _.each(groups, function(group, index){
                     if (index < 5){
                         group.subscribed = true;
+                        group.subscription = {
+                            email: true,
+                            sms: true,
+                            calendar: true
+                        };
                     }                    
                 });
                 return groups;
@@ -111,35 +116,46 @@
         service.toggleGroupSubscribed_server = function(group){
             return $q.resolve(); //simulation
         }
-        service.toggleGroupSubscribed = function(group, cardHandler){
-            if (group.$$loading) return;
+
+        service.setGroupSubscription = function(group, subscription){
+            group = _.clone(group);
+            if (subscription){//update the user's group subscription
+                group.subscribed = true;
+                group.subscription = subscription;
+            }else{//remove the subscription
+                group.subscribed = null;
+                group.subscription = null;
+            }
+            msUtils.showSimpleToast("Upadate Successfully");
+            return $q.resolve(group);
+        };
+
+
+        service.handleGroupSubscription = function (group, ev) {
             var deffered = $q.defer();
-            group.$$loading;
-            if (cardHandler)cardHandler.call();
-            $timeout(function(){
-                service.toggleGroupSubscribed_server(group).then(function(){
-                    group.subscribed = !group.subscribed;
-                    group.$$anim = 'pulse-in';
-                    deffered.resolve();
-                    $timeout(() => {delete group.$$anim},500);
-                }).catch().finally(() => {
-                    group.$$loading = false;
-                    deffered.reject();
-                });
-            },400);
+            $mdDialog.show({
+                controller: 'GroupDialogController',
+                controllerAs: 'vm',
+                templateUrl: 'app/main/apps/message-groups/dialogs/group/group-dialog.html',
+                targetEvent: ev,
+                fullscreen: true,
+                clickOutsideToClose: true,
+                locals: {
+                    Group: group
+                }
+            }).then(function (response) {
+                
+                group.subscribed = response.subscribed;
+                group.subscription = response.subscription;
+                group.$$anim = 'pulse-in';
+                $timeout(() => {delete group.$$anim},500);
+                deffered.resolve();
+
+            }, function () { });;
+
             return deffered.promise;
-
         }
 
-        service.getScheduledMessages = function(){
-            service.pendingMessages = Math.floor(Math.random() * 30);
-
-            return data_service.get('group_messages', {scheduled:true, subscribed:true}).then(function(messages){
-                //simulation
-                messages = prepareMessageSimulation(messages);
-                return _.filter(messages, {scheduled:true});
-            })
-        }
 
         service.mailFolders = [{
             "id": "inbox",
@@ -181,6 +197,10 @@
             });
             return messages;        
         }
+
+
+
+
 
         return service;
         

@@ -1,7 +1,7 @@
 <!-- TODO LIST ITEMS -->
 <div class="groups-items">
     <div class="groups-item" md-ink-rippleX layout="row" layout-align="start center"
-         ng-clickX="vm.selectGroup($event, group)"
+         ng-click="vm.handleGroupSubscription(group, $event)" 
          ng-repeat="group in vm.groups | filter:{$$visible: true} | orderBy:vm.groupOrder:vm.groupOrderDescending | limitTo:50 track by $index"
          ng-class="[group.$$anim, {'md-green-100-bg':group.subscribed, 'md-background-bg': !group.subscribed}]">
          
@@ -45,8 +45,8 @@
 
                     <md-menu-content width="3">
                         <md-menu-item>
-                            <md-button ng-click="vm.toggleGroupSubscribed(group, flipWidget);">
-                                {{(group.subscribed ? 'Cancel subscription' : 'Subscribe to group') | translate}}
+                            <md-button ng-click="vm.handleGroupSubscription(group, $event)">
+                                {{(group.subscribed ? 'Manage subscription' : 'Subscribe to group') | translate}}
                             </md-button>
                         </md-menu-item>
                     </md-menu-content>

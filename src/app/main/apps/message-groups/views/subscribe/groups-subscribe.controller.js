@@ -14,7 +14,7 @@
         vm.groupOrder = 'name';
         vm.groupOrderDescending = false;
         vm.filterGroups = filterGroups;
-        vm.toggleGroupSubscribed = message_service.toggleGroupSubscribed;
+        vm.handleGroupSubscription = message_service.handleGroupSubscription;
         vm.toggleSidenav = toggleSidenav;
 
         vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];

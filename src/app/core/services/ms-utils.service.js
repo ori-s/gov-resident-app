@@ -7,7 +7,7 @@
         .factory('msUtils', msUtils);
 
     /** @ngInject */
-    function msUtils($window)
+    function msUtils($window, $mdToast, $translate)
     {
         // Private variables
         var mobileDetect = new MobileDetect($window.navigator.userAgent),
@@ -18,10 +18,19 @@
             detectBrowser: detectBrowser,
             guidGenerator: guidGenerator,
             isMobile     : isMobile,
-            toggleInArray: toggleInArray
+            toggleInArray: toggleInArray,
+            showSimpleToast : showSimpleToast 
         };
 
         return service;
+
+
+        function showSimpleToast(message) {
+            $mdToast.show(
+                $mdToast.simple()
+                .textContent($translate.instant(message))
+            );
+        };
 
         //////////
 

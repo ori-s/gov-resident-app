@@ -1,0 +1,65 @@
+<!-- DIALOG -->
+<md-dialog class="group-dialog" aria-label="Group dialog">
+
+    <form name="groupForm" class="md-inline-form" novalidate>
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <span class="title text-truncate">
+                    {{vm.group.name | translate}}
+                    <div translate="{{vm.title | translate}}" class="font-size-12"></div>
+                </span>
+                <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close dialog" tranlate
+                           translate-aria-label="MAIL.CLOSE_DIALOG">
+                    <md-icon md-font-icon="icon-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <!-- DIALOG CONTENT -->
+        <md-dialog-content ms-scroll>
+
+
+            <div class="padding-vertical-10">
+                <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.subscription.email">
+                    <span>{{'Subscribe to mail messages' | translate}}</span>
+                </md-checkbox>
+            </div>
+
+            <div class="padding-vertical-10">
+                <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.subscription.sms">
+                    <span>{{'Subscribe to sms messages' | translate}}</span>
+                </md-checkbox>
+            </div>
+
+            <div class="padding-vertical-10">
+                <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.subscription.calendar">
+                    <span>{{'Subscribe to calendar events' | translate}}</span>
+                </md-checkbox>
+            </div>
+
+
+
+
+        </md-dialog-content>
+        <!-- / DIALOG CONTENT -->
+        <!-- DIALOG ACTIONS -->
+        <md-dialog-actions layout="row" layout-align="space-between center">
+            <div layout="row">
+                <md-button class="md-warn" ng-click="vm.cancelGroup($event)" ng-if="vm.subscribed" aria-label="Delete"
+                           translate translate-attr-aria-label="Delete">
+                    <!--<md-icon md-font-icon="icon-delete"></md-icon>-->
+                    <span translate="Cancel subscription">Cancel subscription</span>
+                </md-button>
+            </div>
+            <div layout="row" layout-align="start center">
+                <md-button type="submit" ng-click="vm.updateGroup()"
+                           class="send-button md-accent md-raised"
+                           aria-label="Save">
+                    {{(vm.subscribed ? 'Upadate Subscription' : 'Subscribe to group') | translate}}
+                </md-button>
+            </div>
+        </md-dialog-actions>
+        <!-- / DIALOG ACTIONS -->
+    </form>
+
+</md-dialog>
+<!-- / DIALOG -->
