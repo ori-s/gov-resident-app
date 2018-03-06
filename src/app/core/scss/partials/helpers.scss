@@ -638,17 +638,15 @@ LAYOUT HELPERS hgroup cards
     }
 
     ._rtl & {
-        .group-cards-container {
-            .group-card {
-                .group-card-content{
-                    .tags {
-                        .tag {
-                            margin: 8px 0 0 4px;
+        .group-card {
+            .group-card-content{
+                .tags {
+                    .tag {
+                        margin: 8px 0 0 4px;
 
-                            .tag-color {
-                                margin-right: 0;
-                                margin-left: 8px;
-                            }
+                        .tag-color {
+                            margin-right: 0;
+                            margin-left: 8px;
                         }
                     }
                 }

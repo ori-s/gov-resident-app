@@ -44,7 +44,6 @@
         }
 
         function goTo(obj){
-            debugger
             $state.go(obj.state, obj.stateParams)
             closeOnMobile()
         }

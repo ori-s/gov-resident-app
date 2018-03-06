@@ -5,7 +5,7 @@
                    translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
             <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
         </md-button>
-
+        
         <!--<ms-shortcuts></ms-shortcuts>
         <div class="toolbar-separator"></div>-->
     </div>
@@ -18,14 +18,19 @@
         </md-button>
 
         <div class="toolbar-separator"></div>
-
-        <md-menu id="language-menu" md-offset="0 72" md-position-mode="target-right target">
+        <div ng-if="vm.MSS.urgentMessages" style="position:relative; padding:0 5px;" >
+            <md-button class="md-icon-button"  ui-sref="app.mail.threads({filter: 'urgent'})"
+                       aria-label="Toggle options" translate translate-attr-aria-label="TOOLBAR.TOGGLE_OPTIONS">
+                <md-icon md-font-icon="icon-bell" class="icon"></md-icon>
+            </md-button>
+            <div class="badge" style="top:-5px;">{{vm.MSS.urgentMessages}}</div>
+        </div>
+        <!--<md-menu id="language-menu" md-offset="0 72" md-position-mode="target-right target">
             <md-button class="language-button" ng-click="$mdOpenMenu()"
                        aria-label="Language" md-menu-origin md-menu-align-target>
 
                 <div layout="row" layout-align="center center">
                     <img class="flag" ng-src="assets/images/flags/{{vm.selectedLanguage.flag}}.png">
-                    <!--<span class="iso">{{vm.selectedLanguage}}</span>-->
                 </div>
             </md-button>
 
@@ -42,7 +47,7 @@
                     </md-button>
                 </md-menu-item>
             </md-menu-content>
-        </md-menu>
+        </md-menu>-->
 
         <div class="toolbar-separator"></div>
 

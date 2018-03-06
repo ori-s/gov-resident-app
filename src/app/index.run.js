@@ -6,7 +6,7 @@
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock($rootScope, $timeout, $state, authorization_service, MetaService, blockUIConfig, $templateCache,ENV) {
+    function runBlock($rootScope, $timeout, $state, authorization_service, MetaService, blockUIConfig, $templateCache, $mdSidenav, ENV) {
         blockUIConfig.templateUrl = 'my-templates/block-ui-overlay.html';
         $templateCache.put('my-templates/block-ui-overlay.html', '<div class=\"block-ui-overlay\"></div><div class=\"block-ui-message-container\" aria-live=\"assertive\" aria-atomic=\"true\"><div class=\"block-ui-message\"><md-progress-circular class="md-accent" md-diameter="60" md-mode="indeterminate"></md-progress-circular></div></div>');
 
@@ -19,6 +19,11 @@
             console.log('FB initialized!');
         });
         $rootScope.MS = MetaService;
+
+        $rootScope.closeOnMobile = function(sidnavId){
+            var sidenav = $mdSidenav(sidnavId);
+            if (sidenav && !sidenav.isLockedOpen()) sidenav.close();
+        }
 
         $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
             // Activate loading indicator

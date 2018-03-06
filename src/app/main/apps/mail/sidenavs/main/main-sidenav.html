@@ -27,12 +27,12 @@
         <div class="item topheader secondary-text" style="margin-bottom:0; text-align:center" translate="Message Groups">Message Groups</div>
 
         <md-list class="no-padding mail-opt-list">
-            <md-list-item ng-repeat="folder in vm.filters" ng-click="vm.loadFilter(folder)" ng-class="{'md-accent-bg':folder.id == vm.currentFilter.filter}">
+            <md-list-item ng-repeat="folder in vm.filters" ng-click="vm.loadFilter(folder); closeOnMobile('main-sidenav')" ng-class="{'md-accent-bg':folder.id == vm.currentFilter.filter}">
                 <md-icon md-font-icon="{{folder.icon}}"></md-icon>
                 <p class="text-truncate">{{folder.name | translate}}</p>
             </md-list-item>
             <md-divider></md-divider>
-            <md-list-item ng-repeat="folder in vm.folders" ng-click="vm.loadFolder(folder)" ng-class="{'md-accent-bg':folder.id == vm.currentFilter.type}">
+            <md-list-item ng-repeat="folder in vm.folders" ng-click="vm.loadFolder(folder); closeOnMobile('main-sidenav')" ng-class="{'md-accent-bg':folder.id == vm.currentFilter.type}">
                 <md-icon ng-if="!folder.avatar" ng-class="{'md-avatar-icon _text': true}">{{folder.name.substr(0,2)}}</md-icon>
                 <img ng-src="{{folder.avatar}}" class="md-avatar" alt="{{folder.name}}" ng-if="folder.avatar && !folder.icon" />
                 <p class="text-truncate">{{folder.name}}</p>

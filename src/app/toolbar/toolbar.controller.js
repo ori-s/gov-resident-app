@@ -7,10 +7,10 @@
         .controller('ToolbarController', ToolbarController);
 
     /** @ngInject */
-    function ToolbarController($rootScope, $q, $state, $timeout, $mdSidenav, $translate, $mdToast, msNavigationService, authorization_service)
+    function ToolbarController($rootScope, $q, $state, $timeout, $mdSidenav, $translate, $mdToast, msNavigationService, authorization_service, message_service)
     {
         var vm = this;
-        
+        vm.MSS = message_service;
         vm.auth = authorization_service;
         
         // Data
