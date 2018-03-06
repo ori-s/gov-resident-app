@@ -155,3 +155,24 @@
         }
     }
 }
+
+@media screen and (max-width: $layout-breakpoint-xs) {
+
+#mail {
+    .center {
+        .content-card {
+            &.classic {
+                .content-wrapper {
+                    .thread-detail {
+                        padding:0;
+                        .thread-detail-content{
+                            padding:24px 24px 12px 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+}

@@ -91,7 +91,21 @@
         service.setMessageThreadStatus = function(message, prop, value){
         
         }
-
+        service.addMessageComment = function(comment, message, parentComment){
+            //simulation add message comment
+            _.extend(comment, {
+                created: new Date(),
+                user: {
+                    name: authorization_service.user.name,
+                    id: authorization_service.user.id,
+                    avatar: "assets/images/avatars/Abbott.jpg"
+                }
+            });
+            
+            if (!message.comments)message.comments = [];
+            message.comments.push(comment);
+            return $q.resolve(comment);
+        }
 
 
         service.toggleGroupSubscribed_server = function(group){

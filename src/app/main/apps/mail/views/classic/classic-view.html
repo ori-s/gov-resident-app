@@ -51,8 +51,7 @@
 <div class="content-wrapper" layout="column" flex>
 
     <!-- THREAD DETAIL -->
-    <div class="content thread-detail"
-         ng-if="vm.currentThread"
+    <div class="content thread-detail" ng-if="vm.currentThread"
          ng-include="'app/main/apps/mail/views/classic/detail/detail.html'" ms-scroll flex>
     </div>
     <!-- / THREAD DETAIL -->
@@ -62,6 +61,9 @@
          ng-if="!vm.currentThread"
          ng-include="'app/main/apps/mail/views/classic/list/list.html'" ms-scroll flex>
     </div>
+
+    
+
     <!-- / THREAD LIST -->
 
 </div>

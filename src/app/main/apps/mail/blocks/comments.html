@@ -1,0 +1,36 @@
+﻿
+<footer class="message-comments" layout="column" layout-align="start start">
+    <div ng-if="vm.currentThread.comments.length" class="comment-count">
+        {{vm.currentThread.comments.length}} {{'comments' | translate}}
+        <md-icon md-font-icon="icon-keyboard_arrow_down"></md-icon>
+    </div>
+    <div class="comment" layout="row" layout-fill ng-repeat="comment in vm.currentThread.comments">
+        <img ng-src="{{comment.user.avatar || 'assets/images/avatars/profile.jpg'}}" class="avatar" />
+        <div flex layout="column">
+            <div layout="row" layout-align="start center" class="full-width">
+                <span class="username" flex>{{comment.user.name}}</span>
+                <span class="time">{{comment.created |  amDateFormat:'DD MMM'}}</span>
+            </div>
+            <div class="message">
+                {{comment.message}}
+            </div>
+            <!--<div class="actions" layout="row" layout-align="space-between center">
+                <a href="#" class="reply-button md-accent-color" translate="PROFILE.REPLY">Reply</a>
+                <md-icon flex md-font-icon="icon-flag" class="report-button s16"></md-icon>
+            </div>-->
+        </div>
+    </div>
+    <div class="reply" layout="row" layout-fill>
+        <img src="assets/images/avatars/profile.jpg" class="avatar" />
+        <form flex>
+            <textarea placeholder="Add Comment" ng-model="vm.newComment" translate
+                      translate-attr-placeholder="Add Comment"></textarea>
+            <md-button class="post-comment-button md-accent md-raised" 
+                       ng-disabled="!vm.newComment" 
+                       ng-click="vm.addComment(vm.currentThread)" aria-label="Add Comment"
+                       translate="Add Comment" translate-aria-label="Add Comment">
+                Post Comment
+            </md-button>
+        </form>
+    </div>
+</footer>

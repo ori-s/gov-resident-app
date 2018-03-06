@@ -18,7 +18,7 @@
         };
         vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];
         vm.selectedAccount = 'creapond';
-
+        vm.addComment = addComment;
         vm.folders = [];
         vm.labels = [];
         //vm.loadingThreads = true;
@@ -184,13 +184,14 @@
             thread.read = true;
             setThreadStatus("read", true, thread)
             vm.currentThread = thread;
-
+            vm.newComment = null;
             // Update the state without reloading the controller
             $state.go('app.mail.threads.thread', {threadId: thread.id}, {notify: false});
         }
 
         function closeThread()
         {
+            vm.newComment = null;
             vm.currentThread = null;
             $state.go('app.mail.threads', {
                 type  : vm.currentFilter.type,
@@ -340,6 +341,12 @@
             }
         }
         
+        vm.newComment = null;
+        function addComment(thread, comment){
+            message_service.addMessageComment({message: vm.newComment}, thread, comment).then(function(){vm.newComment = null});
+        }
+
+
         function changeView(view)
         {
             if ( vm.views[view] )
