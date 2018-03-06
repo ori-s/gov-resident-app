@@ -5,17 +5,15 @@
                    translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
             <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
         </md-button>
-        
-        <!--<ms-shortcuts></ms-shortcuts>
-        <div class="toolbar-separator"></div>-->
+
     </div>
 
     <div layout="row" layout-align="start center">
 
-        <md-button id="options-panel-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('fuse-theme-options')"
+        <!--<md-button id="options-panel-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('fuse-theme-options')"
                    aria-label="Toggle options" translate translate-attr-aria-label="TOOLBAR.TOGGLE_OPTIONS">
             <md-icon md-font-icon="icon-cog" class="icon"></md-icon>
-        </md-button>
+        </md-button>-->
 
         <div class="toolbar-separator"></div>
         <div ng-if="vm.MSS.urgentMessages" style="position:relative; padding:0 5px;" >
@@ -51,6 +49,10 @@
 
         <div class="toolbar-separator"></div>
 
+        <ms-search-bar on-search="vm.search(query)" on-result-click="vm.searchResultClick(item)" debounce="300"></ms-search-bar>
+
+        <div class="toolbar-separator"></div>
+
         <md-menu-bar id="user-menu">
             <md-menu md-position-mode="left bottom">
                 <md-button class="user-button" ng-click="$mdOpenMenu()"
@@ -82,6 +84,7 @@
                 </md-menu-content>
             </md-menu>
         </md-menu-bar>
+
 
 
 
