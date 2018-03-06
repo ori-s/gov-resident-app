@@ -3,8 +3,13 @@
 
     <form name="groupForm" class="md-inline-form" novalidate>
         <md-toolbar class="md-accent md-hue-2">
-            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-                <span class="title text-truncate">
+            <div class="md-toolbar-tools" layout="row" layout-align="start center">
+                <img class="avatar" ng-if="vm.group.avatar" alt="{{vm.group.name}}" ng-src="{{vm.group.avatar}}" />
+                <div class="avatar" ng-if="!vm.group.avatar" ms-random-class="vm.colors">
+                    {{vm.group.name.substr(0,2)}}
+                </div>
+
+                <span class="title text-truncate" flex>
                     {{vm.group.name | translate}}
                     <div translate="{{vm.title | translate}}" class="font-size-12"></div>
                 </span>
@@ -16,6 +21,15 @@
         </md-toolbar>
         <!-- DIALOG CONTENT -->
         <md-dialog-content ms-scroll>
+
+            <div class="tags" layout="row" layout-align="start center" layout-wrap>
+                <div class="tag" layout="row" layout-align="start center" data-ng-repeat="tag in vm.group.tags">
+                    <div class="tag-color" ms-random-class="vm.colors"></div>
+                    <div class="tag-label">{{tag}}</div>
+                </div>
+            </div>
+
+            <blockquote ng-bind-html="vm.group.description"></blockquote>
 
 
             <div class="padding-vertical-10">

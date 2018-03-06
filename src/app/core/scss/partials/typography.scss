@@ -81,7 +81,7 @@ blockquote {
             content: '\2014 \00A0';
         }
     }
-
+    ._rtl &,
     &.reverse {
         border-left: none;
         border-right: 3px solid rgba(0, 0, 0, 0.12);

@@ -11,8 +11,37 @@
     md-dialog-content {
         display: block;
         position: relative;
+    }
 
+    .tags {
+        font-size: 12px;
+        margin-top: 10px;
 
+        .tag {
+            border-radius: 2px;
+            margin: 8px 4px 0 0;
+            padding: 3px 8px;
+            background-color: rgba(0, 0, 0, 0.08);
+
+            .tag-color {
+                width: 8px;
+                height: 8px;
+                margin-right: 8px;
+                border-radius: 50%;
+            }
+        }
+    }
+    ._rtl & {
+        .tags {
+            .tag {
+                margin: 8px 0 0 4px;
+
+                .tag-color {
+                    margin-right: 0;
+                    margin-left: 8px;
+                }
+            }
+        }
     }
 
     md-dialog-actions {

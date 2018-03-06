@@ -27,7 +27,7 @@
 
                     </div>
 
-                    <div ng-if="$index == 0" class="tags full-width" layout="row" layout-align="start center" layout-wrap>
+                    <div class="tags full-width" layout="row" layout-align="start center" layout-wrap>
                         <div class="tag" layout="row" layout-align="start center" data-ng-repeat="tag in group.tags">
                             <div class="tag-color" ms-random-class="vm.colors"></div>
                             <div class="tag-label">{{tag}}</div>
@@ -47,33 +47,6 @@
                     </div>
 
                 </div>
-                <!--<ms-widget-back class="p-15 white-fg" ng-class="{'light-blue-bg': !group.subscribed, 'md-orange-800-bg': group.subscribed}">
-                    <div layout="column" layout-align="space-between center" class="full-height">
-                        <div class="full-width" layout="row" layout-align="start center">
-                            <img class="avatar" ng-if="group.avatar" alt="{{group.name}}" ng-src="{{group.avatar}}" />
-                            <div class="avatar" ng-if="!group.avatar" ms-random-class="vm.colors">
-                                {{group.name.substr(0,2)}}
-                            </div>
-
-                            <div flex>
-                                <div class="text-truncate h3 text-semibold">{{group.name}}</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="text-center font-size-18 margin-bottom-20">
-                                {{(group.subscribed ? 'Cancel subscription' : 'Subscribe to group') | translate}}
-                            </div>
-                            <md-button class="md-raised md-primary" ng-click="vm.toggleGroupSubscribed(group, flipWidget);">
-                                {{'Approve' | translate}}
-                            </md-button>
-                            <md-button class="md-raised md-warn" ng-click="flipWidget()">
-                                {{'Cancel' | translate}}
-                            </md-button>
-                        </div>
-                        <div style="height:40px"></div>
-                    </div>
-
-                </ms-widget-back>-->
             </div>
         </div>
 

@@ -12,6 +12,7 @@
         var vm = this;
 
         // Data
+        vm.colors = ['blue-bg', 'blue-grey-bg', 'orange-bg', 'pink-bg', 'purple-bg'];
         vm.title = Group.subscribed ? 'Manage Subscription' : 'Subscribe to group';
         vm.group = angular.copy(Group);
         vm.subscription = vm.group.subscription || {

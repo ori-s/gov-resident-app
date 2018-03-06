@@ -138,20 +138,24 @@
                 controllerAs: 'vm',
                 templateUrl: 'app/main/apps/message-groups/dialogs/group/group-dialog.html',
                 targetEvent: ev,
-                fullscreen: true,
+                //fullscreen: true,
                 clickOutsideToClose: true,
                 locals: {
                     Group: group
                 }
             }).then(function (response) {
-                
-                group.subscribed = response.subscribed;
-                group.subscription = response.subscription;
-                group.$$anim = 'pulse-in';
-                $timeout(() => {delete group.$$anim},500);
+                if(response){
+                    group.subscribed = response.subscribed;
+                    group.subscription = response.subscription;
+                    group.$$anim = 'pulse-in';
+                    $timeout(() => {delete group.$$anim},500);
+                    deffered.resolve(group);
+                }else{
+                    deffered.resolve();
+                }
+            }, function () { 
                 deffered.resolve();
-
-            }, function () { });;
+            });;
 
             return deffered.promise;
         }
