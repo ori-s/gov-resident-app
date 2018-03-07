@@ -7,13 +7,14 @@
         .controller('GroupsScheduleController', GroupsScheduleController);
 
     /** @ngInject */
-    function GroupsScheduleController($mdSidenav, $q, data_service, message_service, $state, $mdDialog)
+    function GroupsScheduleController($rootScope,$mdSidenav, $q, data_service, message_service, $state, $mdDialog)
     {
         var vm = this;
         vm.loading = true;
         vm.messageOrder = 'scheduleDate';
         vm.messageOrderDescending = false;
         vm.filterMessages = filterMessages;
+        vm.handleGroupSubscription = handleGroupSubscription;
         vm.toggleGroupScheduled = message_service.toggleGroupScheduled;
         vm.toggleSidenav = toggleSidenav;
 
@@ -42,8 +43,12 @@
         init();
         function init() {
             $q.all({
+                groups:  message_service.getSubscribableGroups(),
                 messages:  message_service.getMessages(vm.currentFilter)
             }).then(function (ret) {
+                vm.groups = _.filter(ret.groups, function(g){return !g.subscribed});
+                vm.group = _.find(vm.groups, {id:vm.currentFilter.type});
+
                 vm.messages = ret.messages;
                 vm.messageCount = vm.messages.length;
                 _.each(vm.messages, function(message){
@@ -54,9 +59,25 @@
             });
         };
 
-        vm.selectCategory = function(cat){
-            vm.category = cat;
-            filterMessages();
+        vm.selectCategory = function(group){
+            var args = {
+                filter: "inbox",
+                type  : group.id
+            };
+            vm.group = group;
+            $rootScope.loadingProgress = true;
+            $state.go('app.message-groups.messages', args, {notify: false});
+            message_service.getMessages(args).then(
+                function (response)
+                {
+                    vm.messages = response;
+                    filterMessages();
+                    vm.currentFilter = args;
+                }
+            ).finally(function(){
+                $rootScope.loadingProgress = false;
+            });
+
         }
 
         function filterMessages(){
@@ -83,6 +104,13 @@
                 filter: "inbox"
             });
         }
+
+        function handleGroupSubscription(message, ev){
+            message_service.handleGroupSubscription(vm.group, ev).then(function(ret){
+                if (ret) vm.viewGroupMessages(vm.group);
+            })
+        }
+
         // ---------------------------------------------------------->
 
 

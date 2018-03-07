@@ -36,10 +36,11 @@
                 <div ng-bind-html="message.message" class="mb-10" flex></div>
 
                 <div layout="row" layout-align="start center" class="full-width">
-                    <div class="flex secondary-text">{{message.created |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}</div>
-                    <md-button class="md-accent md-background" ng-click="vm.viewGroupMessages(message.group)">
-                        <span translate>View group's messages</span>
+                    <div class="flex secondary-text"></div>
+                    <md-button class="md-raised md-accent md-background" ng-click="vm.handleGroupSubscription(message.$event)">
+                        <span>{{'Subscribe to group' | translate}}</span>
                     </md-button>
+
                 </div>
 
             </div>

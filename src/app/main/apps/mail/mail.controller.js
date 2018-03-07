@@ -25,7 +25,7 @@
 
         vm.currentFilter = {
             filter: $state.params.filter || "inbox",
-            type  : $state.params.type || null            
+            type  : $state.params.type && $state.params.type != 'null' ? $state.params.type :  null            
         };
         vm.currentThread = null;
         vm.selectedThreads = [];
@@ -70,11 +70,6 @@
          */
         function init()
         {
-            // Figure out the api name
-            
-
-            var apiName = 'mail.' + ($state.params.type || 'folder') + '.' + $state.params.filter + '@get';
-
             var groupId = $state.params.filter;
             $q.all({
                 folders: message_service.getSubscribedGroups(),
@@ -179,10 +174,11 @@
                     if ( vm.currentThread )
                     {
                         vm.closeThread();
-                    }
-                    $rootScope.loadingProgress = false;
+                    }                    
                 }
-            );
+            ).finally(function(){
+                $rootScope.loadingProgress = false;
+            });
         }
 
 

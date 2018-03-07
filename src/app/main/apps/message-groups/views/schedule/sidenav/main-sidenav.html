@@ -2,7 +2,7 @@
 <div class="header" layout="column" layout-align="space-between">
 
     <div class="logo" layout="row" layout-align="start center">
-        <span class="logo-text " translate>Scheduled Messages</span>
+        <span class="logo-text " translate>Group Messages</span>
     </div>
 
 </div>
@@ -16,15 +16,16 @@
         <div class="item topheader no-border" translate="Options">Options</div>
 
         <md-list class="no-padding mail-opt-list">
-            <md-list-item ng-click="vm.selectCategory(null); closeOnMobile('main-sidenav')" ng-class="{'md-background-bg md-hue-3':null == vm.category}">
+            <!--<md-list-item ng-click="vm.selectCategory(null); closeOnMobile('main-sidenav')" ng-class="{'md-background-bg md-hue-3':null == vm.category}">
                 <md-icon md-font-icon="icon-check-all" class="md-avatar-icon"></md-icon>
                 <p class="text-truncate font-600 font-size-16" translate>All Messages</p>
-            </md-list-item>
+            </md-list-item>-->
 
 
-            <div class="item subheader" translate="Categories"></div>
+            <!--<div class="item subheader" translate="Categories"></div>-->
 
-            <md-list-item ng-repeat="cat in MS.group_categories" ng-click="vm.selectCategory(cat); closeOnMobile('main-sidenav')" ng-class="{'md-background-bg md-hue-3':cat == vm.category}">
+            <md-list-item ng-repeat="cat in vm.groups" ng-click="vm.selectCategory(cat); closeOnMobile('main-sidenav')" 
+                          ng-class="{'md-background-bg md-hue-3':cat == vm.group}">
                 <img ng-src="{{cat.avatar}}" class="md-avatar" alt="{{cat.name}}" />
                 <p class="text-truncate font-size-16">{{cat.name}}</p>
             </md-list-item>

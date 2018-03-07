@@ -73,10 +73,18 @@
         }
 
         vm.viewGroupMessages = function(group){
-            $state.go('app.mail.threads', {
-                type  : group.id,
-                filter: 'inbox'
-            });
+            if (group.subscribed){
+                $state.go('app.mail.threads', {
+                    type  : group.id,
+                    filter: 'inbox'
+                });            
+            }else{
+                $state.go('app.message-groups.messages', {
+                    type  : group.id,
+                    filter: 'inbox'
+                });                        
+            }
+
         }
         // ---------------------------------------------------------->
 
