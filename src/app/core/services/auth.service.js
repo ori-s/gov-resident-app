@@ -1,9 +1,6 @@
 ﻿(function () {
     'use strict';
 
-    var _HTTPTokenName = "gov-resident-token";
-    var _HTTPURL = "http://localhost/govresident/handler_simulated.ashx";
-    var _APPSimulated = true;
 
     var app = angular.module('app.core');
 
@@ -155,7 +152,6 @@
 
     app.factory('MetaService', function ($state, $http, $q, $filter, blockUI, $translate, uiLoad) {
         var service = {
-            __SIMULATED: window._APPSimulated,
             wasLoaded: false,
             mapEnum: function (arr) {
                 _.each(arr, function (o) { o.value = o.id, o.text = o.name })
@@ -251,7 +247,6 @@
 
     app.factory('data_service', function ($state, $http, $q, $filter, blockUI, $translate, MetaService, $mdToast, $mdDialog) {
         var service = {};
-        var _HTTPURL = "http://localhost/govresident/handler_simulated.ashx";
         // --------------------------------------------------------------------------------------->
         // http
         // --------------------------------------------------------------------------------------->
