@@ -7,7 +7,7 @@
         .controller('MessageDialogController', MessageDialogController);
 
     /** @ngInject */
-    function MessageDialogController($scope, $mdDialog, $mdToast, $translate, Message, Group, Messages, msUtils, data_service)
+    function MessageDialogController($scope, $mdDialog, $mdToast, $translate, Message, Group, Messages, msUtils, resource_service)
     {
         var vm = this;
 
@@ -67,7 +67,7 @@
                     "avatar": Group.avatar,
                     "category": Group.category
                 }
-                data_service.save("group_messages", vm.message, {notify:true, confirm:{}}).then(function (ret) {
+                resource_service.save("group_messages", vm.message, {notify:true, confirm:{}}).then(function (ret) {
                     closeDialog();
                     if (vm.newMessage){
                         Messages.unshift(ret);

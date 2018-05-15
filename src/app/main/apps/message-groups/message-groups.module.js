@@ -82,7 +82,7 @@
                     }
                 },
                 resolve: {
-                    Group: function (data_service)
+                    Group: function ()
                     {
                         return {};
                     }
@@ -98,9 +98,9 @@
                     }
                 },
                 resolve  : {
-                    Group: function ($stateParams, data_service)
+                    Group: function ($stateParams, resource_service)
                     {
-                        return data_service.getDetails("groups", { id: $stateParams.id });
+                        return resource_service.getDetails("groups", { id: $stateParams.id });
                     }
                 },
                 bodyClass: 'message-groups'

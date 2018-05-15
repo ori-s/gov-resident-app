@@ -7,7 +7,7 @@
         .controller('GroupsScheduleController', GroupsScheduleController);
 
     /** @ngInject */
-    function GroupsScheduleController($rootScope,$mdSidenav, $q, data_service, message_service, $state, $mdDialog)
+    function GroupsScheduleController($rootScope,$mdSidenav, $q, resource_service, message_service, $state, $mdDialog)
     {
         var vm = this;
         vm.loading = true;

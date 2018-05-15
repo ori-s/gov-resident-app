@@ -2,7 +2,7 @@
     'use strict';
     var app = angular.module('app.core');
 
-    app.factory('message_service', function ($q, $translate, authorization_service, meta_service, data_service, $timeout, $mdDialog, msUtils) {
+    app.factory('message_service', function ($q, $translate, authorization_service, meta_service, resource_service, $timeout, $mdDialog, msUtils) {
         var service = {
             started: false,
             groups: [],
@@ -31,11 +31,11 @@
 
 
         service.getEditableGroups = function(){
-            return data_service.get('groups', {});
+            return resource_service.get('groups', {});
         }
 
         service.getSubscribableGroups = function(){
-            return data_service.get('groups', {'active':true}).then(function(groups){
+            return resource_service.get('groups', {'active':true}).then(function(groups){
                 //simulation
                 _.each(groups, function(group, index){
                     if (index < 5){
@@ -52,7 +52,7 @@
         }
 
         service.getSubscribedGroups = function(){
-            return data_service.get('groups', {subscribed:true}).then(function(groups){
+            return resource_service.get('groups', {subscribed:true}).then(function(groups){
                 //simulation
                 return _.filter(groups, function(group, index){
                     if (index < 5){
@@ -67,7 +67,7 @@
             service.activeMessages = [];
             service.activeArgs = args;
             
-            return data_service.get('group_messages', args).then(function(messages){
+            return resource_service.get('group_messages', args).then(function(messages){
                 // simulation
                 if (args.type) messages = _.filter(messages, { "groupId": args.type }); 
                 messages = prepareMessageSimulation(messages);

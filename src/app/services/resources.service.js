@@ -58,6 +58,7 @@
             get: get,
             save: save,
             delete: _delete,
+            getDetails: getDetails,
             getEntities: getEntities 
         }
         
@@ -87,7 +88,21 @@
                 return data_service.get(resource.type, data, options)
             }
             return data_service.get(type, data, options)
-        }        
+        }   
+ 
+        function getDetails(type, data, options){
+            var resource = resources[type];
+            if (resource) {
+                if (resource.simulated) return getSimulated(resource, data, options).then(function(ret){
+                    if (data){
+                        ret = _.find(ret, data)
+                    }
+                    return ret;
+                });
+                return data_service.getDetails(resource.type, data, options)
+            }
+            return data_service.getDetails(type, data, options)
+        }
 
         function save(type, data, options){
             var resource = resources[type];

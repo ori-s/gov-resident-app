@@ -8,7 +8,7 @@
 
 
     /** @ngInject */
-    function HomeController($scope, $mdSidenav, $q, data_service, message_service, $state, blockUI, $mdMedia, $mdDialog)
+    function HomeController($scope, $mdSidenav, $q, message_service, $state, blockUI, $mdMedia, $mdDialog)
     {
         var vm = this;
         vm.loading = true;

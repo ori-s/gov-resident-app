@@ -7,7 +7,7 @@
         .controller('GroupsSetupController', GroupsSetupController);
 
     /** @ngInject */
-    function GroupsSetupController($mdSidenav, $q, data_service, message_service, $state, $mdDialog)
+    function GroupsSetupController($mdSidenav, $q, resource_service, message_service, $state, $mdDialog)
     {
         var vm = this;
         vm.loading = true;
@@ -67,7 +67,7 @@
         };
 
         vm.deleteGroup = function(group, $event){
-            data_service.delete("groups", group, {notify:true, confirm:true}).then(function(){
+            resource_service.delete("groups", group, {notify:true, confirm:true}).then(function(){
                 var index = _.findIndex(vm.groups, {id:group.id});
                 if (index >= 0){
                     vm.groups.splice(index, 1);
@@ -115,7 +115,7 @@
 
 
     /** @ngInject */
-    function GroupsSetupController2($state, Groups, $mdDialog, data_service)
+    function GroupsSetupController2($state, Groups, $mdDialog, resource_service)
     {
         var vm = this;
 
@@ -204,7 +204,7 @@
         }
 
         vm.deleteGroup = function(group, $event){
-            data_service.delete("groups", group, {notify:true, confirm:true}).then(function(){
+            resource_service.delete("groups", group, {notify:true, confirm:true}).then(function(){
                 var index = _.findIndex(vm.groups, {id:group.id});
                 if (index >= 0) vm.groups.splice(index, 1);
                 

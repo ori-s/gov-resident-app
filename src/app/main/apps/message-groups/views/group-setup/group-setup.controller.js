@@ -7,7 +7,7 @@
 
 
     /** @ngInject */
-    function GroupSetupController($scope, $document, $state, $mdDialog, data_service, Group, msUtils, $translate) {
+    function GroupSetupController($scope, $document, $state, $mdDialog, resource_service, Group, msUtils, $translate) {
         var vm = this;
         vm.$scope = $scope;
         // Data
@@ -64,7 +64,7 @@
          */
         function saveGroup() {
 
-            data_service.save("groups", vm.group, { notify: true, confirm: {} }).then(function (ret) {
+            resource_service.save("groups", vm.group, { notify: true, confirm: {} }).then(function (ret) {
                 vm.group = ret;
             });
         }
@@ -172,7 +172,7 @@
         function onSubscribersSelected() {
             if (!vm.subscribers) {
                 vm.loadingSubscribers = true;
-                data_service.get('group_subscribers', { group: vm.group.id }).then(function (ret) {
+                resource_service.get('group_subscribers', { group: vm.group.id }).then(function (ret) {
                     vm.subscribers = ret || [];
                 }).finally(function () {
                     vm.loadingSubscribers = false;
@@ -199,7 +199,7 @@
         }
 
         vm.deleteSubscriber = function (subscriber, ev) {
-            data_service.delete("group_subscribers", subscriber, { notify: true, confirm: true }).then(function () {
+            resource_service.delete("group_subscribers", subscriber, { notify: true, confirm: true }).then(function () {
                 var index = _.findIndex(vm.subscribers, { id: subscriber.id });
                 if (index >= 0) vm.subscribers.splice(index, 1);
             }).catch();
@@ -216,7 +216,7 @@
         function onMessagesSelected() {
             if (!vm.messages) {
                 vm.loadingMessages = true;
-                data_service.get('group_messages', { group: vm.group.id }).then(function (ret) {
+                resource_service.get('group_messages', { group: vm.group.id }).then(function (ret) {
                     ret = _.filter(ret, { "groupId": Group.id });
                     vm.messages = ret || [];
                 }).finally(function () {
@@ -244,7 +244,7 @@
         }
 
         vm.deleteMessage = function (message, ev) {
-            data_service.delete("group_messages", message, { notify: true, confirm: true }).then(function () {
+            resource_service.delete("group_messages", message, { notify: true, confirm: true }).then(function () {
                 var index = _.findIndex(vm.messages, { id: message.id });
                 if (index >= 0) vm.messages.splice(index, 1);
             }).catch(function (err) {

@@ -7,7 +7,7 @@
         .controller('SubscriberDialogController', SubscriberDialogController);
 
     /** @ngInject */
-    function SubscriberDialogController($scope, $mdDialog, $mdToast, $translate, Subscriber, Group, Subscribers, msUtils, data_service)
+    function SubscriberDialogController($scope, $mdDialog, $mdToast, $translate, Subscriber, Group, Subscribers, msUtils, resource_service)
     {
         var vm = this;
 
@@ -57,7 +57,7 @@
         {
             if ($scope.subscriberForm.$valid){
                 
-                data_service.save("group_subscribers", vm.subscriber, {notify:true, confirm:{}}).then(function (ret) {
+                resource_service.save("group_subscribers", vm.subscriber, {notify:true, confirm:{}}).then(function (ret) {
                     closeDialog();
                     if (vm.newSubscriber){
                         Subscribers.unshift(ret);
