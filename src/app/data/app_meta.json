@@ -1,0 +1,135 @@
+﻿{
+  "menu": [
+    {
+      "name": null,
+      "modules": [
+        {
+          "name": "Home Page",
+          "state": "app.home",
+          "icon": "icon-home"
+        }
+      ]
+    },{
+      "name": "Messages",
+      "modules": [
+        {
+          "name": "Message Groups",
+          "state": "app.message-groups.subscribe",
+          "icon": "icon-account-multiple-plus"
+        },
+        {
+          "id": "messages",
+          "name": "Message Center",
+          "state": "app.mail.threads",
+          "icon": "icon-email",
+          "stateParams": {
+            "filter": "inbox",
+            "type": "null"
+          },
+          "badge": {
+            "color": "#d68324",
+            "field": "unreadMessages"
+          }
+        },
+        {
+          "id": "scheduledMessages",
+          "name": "Scheduled Messages",
+          "state": "app.mail.threads",
+          "stateParams": {
+            "filter": "scheduled",
+            "type": "null"
+          },
+          "icon": "icon-calendar-text",
+          "badge": {
+            "color": "#F44336",
+            "field": "urgentMessages"
+          }
+        }
+      ]
+    },
+    
+    {
+      "name": "Resident",
+      "modules": [
+        {
+          "name": "Moked 106",
+          "state": "app.resident.106",
+          "icon": "icon-phone-log"
+        },
+        {
+          "name": "Education",
+          "state": "app.resident.education",
+          "icon": "icon-android-studio"
+        },
+        {
+          "name": "Arnona and License",
+          "state": "app.resident.arnona",
+          "icon": "icon-hospital-building"
+        },
+        {
+          "name": "Wellfare",
+          "state": "app.resident.wellfare",
+          "icon": "icon-human"
+        }
+      ]
+    },
+    {
+      "name": "ADMIN",
+      "modules": [
+        {
+          "name": "Group Maintenance",
+          "state": "app.message-groups.groups-setup",
+          "icon": "icon-table-edit"
+        }
+      ]
+    }
+  ],
+  "group_categories": [
+    {
+      "id": "a0",
+      "name": "הודעות עריה",
+      "avatar": "assets/images/backgrounds/january.jpg"
+    },
+    {
+      "id": "a",
+      "name": "חינוך",
+      "avatar": "assets/images/backgrounds/february.jpg"
+    },
+    {
+      "id": "b",
+      "name": "תרבות",
+      "avatar": "assets/images/backgrounds/march.jpg"
+    },
+    {
+      "id": "c",
+      "name": "קיימות",
+      "avatar": "assets/images/backgrounds/april.jpg"
+    },
+    {
+      "id": "d",
+      "name": "תברואה",
+      "avatar": "assets/images/backgrounds/june.jpg"
+    }
+  ],
+  "group_types": [
+    {
+      "id": "pr",
+      "name": "פרטית"
+    },
+    {
+      "id": "pu",
+      "name": "ציבורית"
+    }
+  ],
+  "group_active": [
+    {
+      "id": true,
+      "name": "קבוצה פעילה"
+    },
+    {
+      "id": false,
+      "name": "קבוצה לא פעילה"
+    }
+
+  ]
+}

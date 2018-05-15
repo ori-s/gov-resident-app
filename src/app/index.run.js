@@ -6,7 +6,7 @@
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock($rootScope, $timeout, $state, authorization_service, MetaService, blockUIConfig, $templateCache, $mdSidenav, ENV) {
+    function runBlock($rootScope, $timeout, $state, authorization_service, meta_service, blockUIConfig, $templateCache, $mdSidenav, ENV) {
         blockUIConfig.templateUrl = 'my-templates/block-ui-overlay.html';
         $templateCache.put('my-templates/block-ui-overlay.html', '<div class=\"block-ui-overlay\"></div><div class=\"block-ui-message-container\" aria-live=\"assertive\" aria-atomic=\"true\"><div class=\"block-ui-message\"><md-progress-circular class="md-accent" md-diameter="60" md-mode="indeterminate"></md-progress-circular></div></div>');
 
@@ -18,7 +18,7 @@
         }).then(function () {
             console.log('FB initialized!');
         });
-        $rootScope.MS = MetaService;
+        $rootScope.MS = meta_service;
 
         $rootScope.closeOnMobile = function(sidnavId){
             var sidenav = $mdSidenav(sidnavId);
@@ -28,7 +28,7 @@
         $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
             // Activate loading indicator
             $rootScope.loadingProgress = true;
-            MetaService.sectionCaption = "";
+            meta_service.sectionCaption = "";
             if (toState.name.indexOf("app.auth_") != 0) {
                 if (!authorization_service.isAuthenticated()) {
                     authorization_service.toState = toState.name;
@@ -39,7 +39,7 @@
                     return;
                     // will implement on v1 of ui router
                     var roles = _.get(toState, 'data.auth[0]');
-                    if (roles && !MetaService.checkAccess(roles)){
+                    if (roles && !meta_service.checkAccess(roles)){
                         $state.transitionTo("app.noaccess");
                         event.preventDefault();
                     }

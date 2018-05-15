@@ -7,9 +7,9 @@
         .controller('NavigationController', NavigationController);
 
     /** @ngInject */
-    function NavigationController($scope, $state, message_service, authorization_service , $mdSidenav, MetaService, fuseTheming, $cookies)
+    function NavigationController($scope, $state, message_service, authorization_service , $mdSidenav, meta_service, fuseTheming, $cookies)
     {
-        $scope.MS = MetaService;
+        $scope.MS = meta_service;
         var sidenav = $mdSidenav('navigation');
 
 

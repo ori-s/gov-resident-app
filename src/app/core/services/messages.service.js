@@ -2,7 +2,7 @@
     'use strict';
     var app = angular.module('app.core');
 
-    app.factory('message_service', function ($q, $translate, authorization_service, MetaService, data_service, $timeout, $mdDialog, msUtils) {
+    app.factory('message_service', function ($q, $translate, authorization_service, meta_service, data_service, $timeout, $mdDialog, msUtils) {
         var service = {
             started: false,
             groups: [],
