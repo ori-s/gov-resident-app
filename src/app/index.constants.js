@@ -1,7 +1,7 @@
 (function ()
 {
     'use strict';
-    var app = angular.module('fuse');
+    var app = angular.module('app');
     app.constant('ENV', {
         //apiEndpoint:'https://inpact-demo.herokuapp.com',
         //"apiEndpoint": "https://ros-prd.herokuapp.com",

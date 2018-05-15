@@ -6,7 +6,7 @@
         .module('app.core')
         .factory('authorization_service', authorization_service);
 
-    function authorization_service($state, $http, $q, blockUI, $window, $cookieStore, meta_service) {
+    function authorization_service($state, $http, $q, blockUI, $window, $cookieStore, resource_service, meta_service) {
 
         var service = {
             isLoggedIn: false,//for simulation purposes
@@ -26,31 +26,28 @@
         };
 
         service.login = function (user) {
-            var deferred = $q.defer();
             blockUI.start();
+            var resource = resource_service.resources.login;
+            if (resource.simulated) {
+                var promise = $http.get(resource.url)
+            } else {
+                var promise = $http.post(_HTTPURL + "/" + resource.type, user)
+            }
 
-            $http.post(_HTTPURL + "?Action=login", user)
-              .then(function (data) {
-                  handleLoginSuccess(data.data);
-              }).catch(function (msg, code) {
-                  handleLoginFail(msg);
-              });
-            return deferred.promise;
-
-            function handleLoginSuccess(data) {
-                blockUI.stop();
+            return promise.then(function (data) {
+                data = data.data;
                 service.isLoggedIn = true;
-                $cookieStore.put(_HTTPTokenName, data.token);
+                //$cookieStore.put(_HTTPTokenName, data.token);
                 $window.sessionStorage.setItem("sessionToken", data.token);
                 service.user = data;
-                deferred.resolve(service);
-            };
-            function handleLoginFail(msg) {
-                blockUI.stop();
-                msg = msg.message;
+                return service;
+            }).catch(function (err, code) {
+                msg = err.message;
                 service.loginMessage = msg;
-                deferred.reject(msg);
-            };
+                deferred.reject(err);
+            }).finally(function () {
+                blockUI.stop();
+            });
         };
 
         service.isAuthenticated = function () {
@@ -65,28 +62,40 @@
                 return false;
             }
         };
+
         service.getUserInfo = function (getMetaData) {
-            $http.post(_HTTPURL + "?Action=userInfo")
-                .then(function (data) {
-                    service.user = data.data;
-                    if (getMetaData) {
-                        service.getMetaData().then(
-                            function () {
-                                if (service.onUserGet) service.onUserGet.call(null);
-                            }
-                        );
-                    }
-                }).catch(function (msg, code) {
-                    service.logout(null, msg);
+            var resource = resource_service.resources.userInfo;
+            if (resource.simulated) {
+                var promise = $http.get(resource.url)
+            } else {
+                var promise = $http.post(_HTTPURL + resource.type, {})
+            }
+            promise.then(function (data) {
+                service.user = data.data;
+                if (getMetaData) {
+                    service.getMetaData().then(
+                        function () {
+                            if (service.onUserGet) service.onUserGet.call(null);
+                        }
+                    );
                 }
+            }).catch(function (msg, code) {
+                service.logout(null, msg);
+            }
             );
         };
+
         service.getMetaData = function () {
             var deferred = $q.defer();
             blockUI.start();
-
-            $http.post(_HTTPURL + "?Action=appMeta", {})
-                .then(function (data) {
+            var resource = resource_service.resources.meta;
+            if (resource.simulated) {
+                var promise = $http.get(resource.url)
+            } else {
+                var promise = $http.post(_HTTPURL + resource.type, {})
+            }
+            blockUI.start();
+            return promise.then(function (data) {
                     data = data.data;
                     blockUI.stop();
                     $.each(data, function (key, value) {
@@ -119,34 +128,29 @@
                             }
                         };
                     });
-
-                    _.each(meta_service.menu, function (menu) {
-
-
-                    })
-
-
                     meta_service.wasLoaded = true;
-                    deferred.resolve(data);
-                })
-                .catch(function (msg, code) {
-                    blockUI.stop();
-                    service.logout(null, msg);
-                    //deferred.reject(msg);
-                });
-            return deferred.promise;
+                return data;
+            }).catch(function (msg, code) {
+                service.logout(null, msg);
+                //deferred.reject(msg);
+            }).finally(function () {
+                blockUI.stop();
+            });
         };
         service.resetPassword = function (user) {
-            var deferred = $q.defer();
-            $http.get('api/resetpass.json', user)
-              .then(function (data) {
-                  deferred.resolve(data.data);
-              }).catch(function (msg, code) {
-                  msg = msg.message;
-                  service.loginMessage = msg;
-                  deferred.reject(msg);
-              });
-            return deferred.promise;
+            var resource = resource_service.resources.resetPass;
+            if (resource.simulated) {
+                var promise = $http.get(resource.url)
+            } else {
+                var promise = $http.post(_HTTPURL + resource.type, user)
+            }
+            promise.then(function (data) {
+                return data.data
+            }).catch(function (err, code) {
+                msg = err.message;
+                service.loginMessage = msg;
+                return $q.reject(err);
+            });
         }
         return service;
     }

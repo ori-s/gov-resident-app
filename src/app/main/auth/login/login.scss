@@ -72,6 +72,7 @@
             .separator {
                 font-size: 15px;
                 font-weight: 600;
+                text-align:center;
                 margin: 24px auto 16px auto;
                 position: relative;
                 overflow: hidden;
@@ -128,6 +129,39 @@
                 }
             }
         }
+    }
+
+    ._rtl & {
+        #login-form-wrapper {
+            #login-form {
+                form {
+                    width: 100%;
+                    text-align: right;
+                }
+
+                .separator {
+                    .text {
+                        &:before, &:after {
+                            content: '';
+                            display: block;
+                            width: 30px;
+                            position: absolute;
+                            top: 10px;
+                            border-top: 1px solid rgba(0, 0, 0, 0.12);
+                        }
+
+                        &:before {
+                            right: 100%;
+                        }
+
+                        &:after {
+                            left: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
 
