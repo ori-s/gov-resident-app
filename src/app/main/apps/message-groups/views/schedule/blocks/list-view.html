@@ -18,14 +18,14 @@
                     {{message.subject}}
                 </div>
 
-                <div class="padding-vertical-10">
+                <div class="padding-vertical-10" ng-if="message.scheduleDate">
                     <span class="text-boxed no-margin">
                         <i class="icon-clock s12"></i>
                         {{message.scheduleDate |  amDateFormat:'dddd, MMM DD YYYY, hh:mm'}}
                     </span>
                 </div>
-
-                <div class="text-truncate">{{message.message | htmlToPlaintext | limitTo:150}}</div>
+                <div ng-bind-html="message.message"></div>
+                <!--<div class="text-truncate">{{message.message | htmlToPlaintext | limitTo:150}}</div>-->
             </div>
             <div class="buttons" layout="row" layout-align="start center">
             </div>

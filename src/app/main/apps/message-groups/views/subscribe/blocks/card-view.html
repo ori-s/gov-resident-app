@@ -1,6 +1,6 @@
 <!-- TODO LIST ITEMS -->
 <div class="group-cards-container">
-    <div class="group-cards-group animate-repeat"
+    <div class="group-cards-group animate-repeatX"
          ng-if="(vm.groups | filter:{$$visible: true} | filter:{category:cat.id}:true).length"
          ng-repeat="cat in MS.group_categories | orderBy:vm.groupOrder:vm.groupOrderDescending track by cat.id">
         <div class="group-cards-header">{{cat.name}}</div>
@@ -20,10 +20,15 @@
 
                         <div flex>
                             <div class="text-truncate h3 text-semibold">{{group.name}}</div>
+
+                            <div class="secondary-text">
+                                <span>{{group.category | mapEnt:MS.group_categories}}, </span>
+                                <span>{{group.groupType | mapEnt:MS.group_types}}</span>
+                            </div>
+
                         </div>
 
-                        <md-icon md-font-icon="icon-star amber-fg m-near-8" class="s16"
-                                 ng-if="thread.starred"></md-icon>
+                        <md-icon md-font-icon="icon-star amber-fg m-near-8" class="s16" ng-if="thread.starred"></md-icon>
 
                     </div>
 

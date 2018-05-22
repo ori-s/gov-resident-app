@@ -29,7 +29,7 @@
             },500)
         }
 
-
+        // return groups that are editable by the current user
         service.getEditableGroups = function(){
             return resource_service.get('groups', {});
         }
@@ -92,9 +92,10 @@
                 return messages;
             })
         }
+        
 
         service.setMessageThreadStatus = function(message, prop, value){
-        
+            //add status to message/user. prop: delete, read, starred
         }
         service.addMessageComment = function(comment, message, parentComment){
             //simulation add message comment
@@ -112,10 +113,6 @@
             return $q.resolve(comment);
         }
 
-
-        service.toggleGroupSubscribed_server = function(group){
-            return $q.resolve(); //simulation
-        }
 
         service.setGroupSubscription = function(group, subscription){
             group = _.clone(group);
