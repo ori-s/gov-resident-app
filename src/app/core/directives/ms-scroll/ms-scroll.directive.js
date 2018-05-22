@@ -65,7 +65,7 @@
     }
 
     /** @ngInject */
-    function msScrollDirective($timeout, msScrollConfig, msUtils, fuseConfig)
+    function msScrollDirective($timeout, msScrollConfig, msUtils, coreConfig)
     {
         return {
             restrict: 'AE',
@@ -73,14 +73,14 @@
             {
                 // Do not replace scrollbars if
                 // 'disableCustomScrollbars' config enabled
-                if ( fuseConfig.getConfig('disableCustomScrollbars') )
+                if ( coreConfig.getConfig('disableCustomScrollbars') )
                 {
                     return;
                 }
 
                 // Do not replace scrollbars on mobile devices
                 // if 'disableCustomScrollbarsOnMobile' config enabled
-                if ( fuseConfig.getConfig('disableCustomScrollbarsOnMobile') && msUtils.isMobile() )
+                if ( coreConfig.getConfig('disableCustomScrollbarsOnMobile') && msUtils.isMobile() )
                 {
                     return;
                 }

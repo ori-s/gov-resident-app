@@ -10,14 +10,7 @@
         blockUIConfig.templateUrl = 'my-templates/block-ui-overlay.html';
         $templateCache.put('my-templates/block-ui-overlay.html', '<div class=\"block-ui-overlay\"></div><div class=\"block-ui-message-container\" aria-live=\"assertive\" aria-atomic=\"true\"><div class=\"block-ui-message\"><md-progress-circular class="md-accent" md-diameter="60" md-mode="indeterminate"></md-progress-circular></div></div>');
 
-        // Activate firebase
-        var fbConfig = ENV.fbConfig;
-        firebase.initializeApp(fbConfig);
-        firebase.auth().signInWithEmailAndPassword("ori@123.com", "123456").catch(function (error) {
-            console.log(error);
-        }).then(function () {
-            console.log('FB initialized!');
-        });
+
         $rootScope.MS = meta_service;
 
         $rootScope.closeOnMobile = function(sidnavId){

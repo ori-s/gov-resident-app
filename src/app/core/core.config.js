@@ -7,7 +7,7 @@
         .config(config);
 
     /** @ngInject */
-    function config($ariaProvider, $logProvider, msScrollConfigProvider, fuseConfigProvider)
+    function config($ariaProvider, $logProvider, msScrollConfigProvider, coreConfigProvider)
     {
         // Enable debug logging
         $logProvider.debugEnabled(true);
@@ -20,7 +20,7 @@
         });
 
         // Fuse theme configurations
-        fuseConfigProvider.config({
+        coreConfigProvider.config({
             'disableCustomScrollbars'        : true,
             'disableCustomScrollbarsOnMobile': true,
             'disableMdInkRippleOnMobile'     : true

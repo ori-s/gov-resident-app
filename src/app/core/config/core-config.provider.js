@@ -4,13 +4,13 @@
 
     angular
         .module('app.core')
-        .provider('fuseConfig', fuseConfigProvider);
+        .provider('coreConfig', coreConfigProvider);
 
     /** @ngInject */
-    function fuseConfigProvider()
+    function coreConfigProvider()
     {
         // Default configuration
-        var fuseConfiguration = {
+        var coreConfiguration = {
             'disableCustomScrollbars'        : false,
             'disableMdInkRippleOnMobile'     : true,
             'disableCustomScrollbarsOnMobile': true
@@ -28,7 +28,7 @@
          */
         function config(configuration)
         {
-            fuseConfiguration = angular.extend({}, fuseConfiguration, configuration);
+            coreConfiguration = angular.extend({}, coreConfiguration, configuration);
         }
 
         /**
@@ -50,12 +50,12 @@
              */
             function getConfig(configName)
             {
-                if ( angular.isUndefined(fuseConfiguration[configName]) )
+                if ( angular.isUndefined(coreConfiguration[configName]) )
                 {
                     return false;
                 }
 
-                return fuseConfiguration[configName];
+                return coreConfiguration[configName];
             }
 
             /**
@@ -66,7 +66,7 @@
              */
             function setConfig(configName, configValue)
             {
-                fuseConfiguration[configName] = configValue;
+                coreConfiguration[configName] = configValue;
             }
         };
     }

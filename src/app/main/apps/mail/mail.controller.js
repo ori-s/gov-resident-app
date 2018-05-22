@@ -7,7 +7,7 @@
         .controller('MailController', MailController);
 
     /** @ngInject */
-    function MailController($scope, $rootScope, $document, $mdDialog, $mdMedia, $mdSidenav, $state, msApi, $q, $translate, message_service)
+    function MailController($scope, $rootScope, $document, $mdDialog, $mdMedia, $mdSidenav, $state, $q, $translate, message_service)
     {
         var vm = this;
 
