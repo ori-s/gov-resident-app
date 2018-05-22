@@ -137,21 +137,36 @@
                 blockUI.stop();
             });
         };
-        service.resetPassword = function (user) {
+        service.resetPassword = function (data) {
             var resource = resource_service.resources.resetPass;
             if (resource.simulated) {
                 var promise = $http.get(resource.url)
             } else {
                 var promise = $http.post(_HTTPURL + resource.type, user)
             }
-            promise.then(function (data) {
+            return promise.then(function (data) {
                 return data.data
             }).catch(function (err, code) {
                 msg = err.message;
-                service.loginMessage = msg;
                 return $q.reject(err);
             });
         }
+        service.register = function (data) {
+            var resource = resource_service.resources.register;
+            if (resource.simulated) {
+                var promise = $http.get(resource.url)
+            } else {
+                var promise = $http.post(_HTTPURL + resource.type, user)
+            }
+            return promise.then(function (data) {
+                return data.data
+            }).catch(function (err, code) {
+                msg = err.message;
+                return $q.reject(err);
+            });
+        }
+
+
         return service;
     }
 

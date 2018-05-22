@@ -15,11 +15,16 @@
             "resetPass": {
                 simulated: true,
                 type: "?Action=resetPass",
-                url: 'app/data/app_login.json'
+                url: 'app/data/blank.json'
+            },
+            "register": {
+                simulated: true,
+                type: "?Action=register",
+                url: 'app/data/blank.json'
             },
             "meta": {
                 simulated: true,
-                type: "resetpass",
+                type: "?Action=meta",
                 url: 'app/data/app_meta.json'            
             },
             "userInfo": {
@@ -28,7 +33,6 @@
                 url: 'app/data/app_login.json'    
             },
 
-            //algorithms
             "users": {
                 simulated: true,
                 type: "algorithms",

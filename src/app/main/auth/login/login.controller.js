@@ -2,11 +2,11 @@
     'use strict';
 
     angular
-        .module('app.auth.login')
+        .module('app.auth')
         .controller('LoginController', LoginController);
 
     /** @ngInject */
-    function LoginController($state, $location, $window, authorization_service, data_service, $q, ENV) {//blockUI
+    function LoginController($state, authorization_service) {//blockUI
         var vm = this;
         vm.isLoading = false;
         authorization_service.logout();

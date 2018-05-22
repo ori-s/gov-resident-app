@@ -20,7 +20,7 @@
             <form name="registerForm" novalidate>
                 <div layout="row">
                     <md-input-container class="md-block" md-no-float flex>
-                        <input name="firstName" ng-model="vm.form.firstName" placeholder="Name"
+                        <input name="firstName" ng-model="vm.credentials.firstName" placeholder="Name"
                                translate translate-attr-placeholder="REGISTER.FIRST_NAME"required>
                         <div ng-messages="registerForm.firstName.$error" role="alert">
                             <div ng-message="required">
@@ -29,7 +29,7 @@
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block" md-no-float flex>
-                        <input name="lastName" ng-model="vm.form.lastName" placeholder="Name"
+                        <input name="lastName" ng-model="vm.credentials.lastName" placeholder="Name"
                                translate translate-attr-placeholder="REGISTER.LAST_NAME" required>
                         <div ng-messages="registerForm.lastName.$error" role="alert">
                             <div ng-message="required">
@@ -41,7 +41,7 @@
 
 
                 <md-input-container class="md-block" md-no-float>
-                    <input type="email" name="email" ng-model="vm.form.email" placeholder="Email"
+                    <input type="email" name="email" ng-model="vm.credentials.email" placeholder="Email"
                            translate translate-attr-placeholder="REGISTER.EMAIL"
                            ng-pattern="/^.+@.+\..+$/" required>
                     <div ng-messages="registerForm.email.$error" role="alert" multiple>
@@ -55,7 +55,7 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" md-no-float>
-                    <input type="password" name="phone" ng-model="vm.form.phone" placeholder="CELL"
+                    <input type="password" name="phone" ng-model="vm.credentials.phone" placeholder="CELL"
                            translate translate-attr-placeholder="REGISTER.CELL"
                            required>
                     <div ng-messages="registerForm.phone.$error" role="alert">
@@ -66,7 +66,7 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" md-no-float>
-                    <input type="password" name="password" ng-model="vm.form.password" placeholder="Password"
+                    <input type="password" name="password" ng-model="vm.credentials.password" placeholder="Password"
                            translate translate-attr-placeholder="REGISTER.PASSWORD"
                            required>
                     <div ng-messages="registerForm.password.$error" role="alert">
@@ -77,7 +77,7 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" md-no-float>
-                    <input type="password" name="passwordConfirm" ng-model="vm.form.passwordConfirm"
+                    <input type="password" name="passwordConfirm" ng-model="vm.credentials.passwordConfirm"
                            placeholder="Password (Confirm)"
                            translate translate-attr-placeholder="REGISTER.PASSWORD_CONFIRM"
                            required>
@@ -97,8 +97,9 @@
                 </div>
 
                 <md-button type="submit" class="md-raised md-accent submit-button" aria-label="CREATE MY ACCOUNT"
-                           ng-disabled="registerForm.$invalid || registerForm.$pristine"
-                           translate="REGISTER.CREATE_ACCOUNT"
+                           ng-disabled="registerForm.$invalid || registerForm.$pristine" 
+                           ng-click="vm.apply()"
+                           translate="REGISTER.CREATE_ACCOUNT" 
                            translate-attr-aria-label="REGISTER.CREATE_ACCOUNT">
                     CREATE MY ACCOUNT
                 </md-button>
