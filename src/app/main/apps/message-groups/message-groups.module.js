@@ -29,7 +29,7 @@
                 url      : '/subscribe',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/subscribe/groups-subscribe.html',
+                        templateUrl: 'app/main/apps/message-groups/groups-subscribe/groups-subscribe.html',
                         controller : 'GroupsSubscribeController as vm'
                     }
                 },
@@ -40,7 +40,7 @@
                 url      : '/messages/:filter/:type',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/schedule/groups-schedule.html',
+                        templateUrl: 'app/main/apps/message-groups/group-messages/group-messages.html',
                         controller : 'GroupsScheduleController as vm'
                     }
                 },
@@ -54,7 +54,7 @@
                 url      : '/groups-setup',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/groups-setup/groups-setup.html',
+                        templateUrl: 'app/main/apps/message-groups/groups-setup/groups-setup.html',
                         controller : 'GroupsSetupController as vm'
                     }
                 },
@@ -64,7 +64,7 @@
                 url      : '/add',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/group-setup/group-setup.html',
+                        templateUrl: 'app/main/apps/message-groups/group-setup/group-setup.html',
                         controller : 'GroupSetupController as vm'
                     }
                 },
@@ -80,7 +80,7 @@
                 url      : '/:id',
                 views    : {
                     'content@app': {
-                        templateUrl: 'app/main/apps/message-groups/views/group-setup/group-setup.html',
+                        templateUrl: 'app/main/apps/message-groups/group-setup/group-setup.html',
                         controller : 'GroupSetupController as vm'
                     }
                 },
@@ -95,7 +95,7 @@
 
 
         // Translation
-        $translatePartialLoaderProvider.addPart('app/main/apps/message-groups');
+        //$translatePartialLoaderProvider.addPart('app/main/apps/message-groups');
 
 
 

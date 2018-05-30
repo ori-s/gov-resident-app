@@ -1,10 +1,10 @@
-<div class="page-layout carded left-sidenav app-groups" layout="row">
+<div class="page-layout carded left-sidenav app-subscribe" layout="row">
     <!-- TOP BACKGROUND -->
     <div class="top-bg md-accent-bg"></div>
     <!-- / TOP BACKGROUND -->
     <!-- LEFT SIDENAV -->
     <md-sidenav class="sidenav md-sidenav-left flip" md-is-locked-open="$mdMedia('gt-md')" md-component-id="main-sidenav"
-                ng-include="'app/main/apps/message-groups/views/groups-setup/sidenav/main-sidenav.html'" ms-scroll ms-sidenav-helper>
+                ng-include="'app/main/apps/message-groups/groups-subscribe/sidenav/main-sidenav.html'" ms-scroll ms-sidenav-helper>
     </md-sidenav>
     <!-- / LEFT SIDENAV -->
     <!-- CENTER -->
@@ -19,8 +19,8 @@
                 <div class="search" flex layout="row" layout-align="start center">
                     <md-icon md-font-icon="icon-magnify" class="icon s24"></md-icon>
                     <input flex ng-model="vm.search" type="text"
-                           ng-model-options="{ debounce: 200 }" 
-                           ng-change="vm.filterGroups()" 
+                           ng-model-options="{ debounce: 200 }"
+                           ng-change="vm.filterGroups()"
                            placeholder="{{'Search Groups' | translate}}">
                 </div>
             </div>
@@ -36,19 +36,23 @@
 
                 </div>
                 <div layout="row" layout-align="start center">
-                    <md-button class="md-icon-button" ng-disabled="vm.groupOrder === ''"
+
+                    <md-button class="md-icon-button"
+                               ng-click="vm.toggleView()"
+                               aria-label="Toggle View"
+                               translate translate-attr-aria-label="Toggle View">
+                        <md-icon md-font-icon="{{vm.view.icon}}"></md-icon>
+                    </md-button>
+                    
+                    <md-button class="md-icon-button" 
                                ng-click="vm.groupOrderDescending = !vm.groupOrderDescending"
                                aria-label="Sort Direction"
-                               translate translate-attr-aria-label="TODO.SORT_DIRECTION">
+                               translate translate-attr-aria-label="Sort Direction">
                         <md-icon md-font-icon="icon-sort-ascending" ng-if="vm.groupOrderDescending === false"></md-icon>
                         <md-icon md-font-icon="icon-sort-descending" ng-if="vm.groupOrderDescending === true"></md-icon>
                     </md-button>
 
-                    <div>
-                        <md-button class="md-raised md-accent md-background" ng-click="vm.addGroup()">
-                            <span translate>Add New Group</span>
-                        </md-button>
-                    </div>
+
 
                 </div>
             </div>
@@ -57,7 +61,7 @@
             <div class="content" layout="row" flex>
                 <!-- Todo list pane -->
                 <md-content class="groups-list-pane" flex
-                            ng-include="'app/main/apps/message-groups/views/groups-setup/blocks/list-view.html'" ms-scroll="vm.msScrollOptions">
+                            ng-include="vm.view.url" ms-scroll="vm.msScrollOptions">
                 </md-content>
                 <!-- / Todo list pane -->
             </div>

@@ -38,7 +38,7 @@
                 </md-tab-label>
                 <md-tab-body>
                     <form id="groupForm" name="groupForm" novalidate>
-                        <div ng-include="'app/main/apps/message-groups/views/group-setup/blocks/general.html'"></div>
+                        <div ng-include="'app/main/apps/message-groups/group-setup/blocks/general.html'"></div>
                     </form>
                 </md-tab-body>
             </md-tab>
@@ -47,7 +47,7 @@
                     <span translate="Messages">Messages</span>
                 </md-tab-label>
                 <md-tab-body>
-                    <div ng-include="'app/main/apps/message-groups/views/group-setup/blocks/messages.html'"></div>
+                    <div ng-include="'app/main/apps/message-groups/group-setup/blocks/messages.html'"></div>
                 </md-tab-body>
             </md-tab>
             <md-tab ng-if="vm.group.id && vm.group.groupType == 'pr'" md-on-select="vm.subscribersSelected()">
@@ -55,7 +55,7 @@
                     <span translate="Subscribers">Subscribers</span>
                 </md-tab-label>
                 <md-tab-body>
-                    <div ng-include="'app/main/apps/message-groups/views/group-setup/blocks/subscribers.html'"></div>
+                    <div ng-include="'app/main/apps/message-groups/group-setup/blocks/subscribers.html'"></div>
                 </md-tab-body>
             </md-tab>
 

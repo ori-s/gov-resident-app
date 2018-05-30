@@ -22,11 +22,11 @@
         vm.views = [{
             icon: 'icon-view-list',
             name: 'List View',
-            url: 'app/main/apps/message-groups/views/schedule/blocks/card-view.html'  
+            url: 'app/main/apps/message-groups/group-messages/blocks/card-view.html'  
         },{
             icon: 'icon-view-module',
             name: 'Card View',
-            url: 'app/main/apps/message-groups/views/schedule/blocks/list-view.html'  
+            url: 'app/main/apps/message-groups/group-messages/blocks/list-view.html'  
         }]
         vm.view = vm.views[0];
         vm.toggleView = function(){
