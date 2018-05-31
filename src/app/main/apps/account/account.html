@@ -13,87 +13,11 @@
     <!-- / HEADER -->
     <!-- CONTENT -->
     <div class="content" style="padding:10px">
-        <!-- MESSAGE COUNTERS -->
+        
 
-        <!--<div class="h3 secondary-text ph-20 pt-20">
-            כאן צריל להיות תאור טקסטואלי של שרות ההודעות. <a ui-sref="app.message-groups.subscribe">לחץ על מנת להרשם לקבוצות...</a>
-        </div>-->
         <div style="margin:0 auto; max-width:1100px">
-            <div class="" ng-if="vm.MSS.started">
-                <h2 class="padding-horizontal-10 mt-30">
-                    כאן צריל להיות תאור טקסטואלי של שרות ההודעות.
-                    <a ui-sref="app.message-groups.subscribe">לחץ על מנת להרשם לקבוצות...</a>
-                </h2>
-                <div class="widget-group" layout="row" flex="100" layout-wrap>
-                    <div class="p-10" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="25" ng-repeat="counter in vm.counters">
-                        <div class="dash-widget-button h-120 p-16 {{counter.bg}}" md-ink-ripple layout="row" flex ng-click="vm.goTo(counter)">
-                            <div class="pt-8 pb-8" layout="row" layout-align="space-between center" flex>
-                                <div class="pl-8" layout="column" layout-align="center start">
-                                    <span class="font-weight-500 font-size-16 secondary-text pb-8">{{counter.name | translate}}</span>
-                                    <span class="md-display-1">{{vm.MSS[counter.field] || 0}}</span>
-                                </div>
-                                <div>
-                                    <md-icon md-font-icon="{{counter.icon}}" class="s48 hint-text"></md-icon>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- / MESSAGE COUNTERS -->
-            <!-- SERVICES -->
-            <div>
-                <h2 class="padding-horizontal-10 mt-30" translate>Municipal Services</h2>
-                <div class="widget-group" layout="row" flex="100" layout-wrap>
-                    <div class="p-10" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="25" ng-repeat="service in vm.services" ng-click="vm.goTo(service)">
-                        <div class="dash-widget-button h-100 p-16 {{service.bg}}" md-ink-ripple layout="row" flex>
-                            <div class="pt-8 pb-8" layout="row" layout-align="space-between center" flex>
-                                <div class="pl-8" layout="column" layout-align="center start">
-                                    <span class="h2">{{service.name | translate}}</span>
-                                </div>
-                                <div>
-                                    <md-icon md-font-icon="{{service.icon}}" class="s48 hint-text"></md-icon>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{vm.account}}
         </div>
-        <!-- / SERVICES -->
-
-
-        <!--<div class="widget-group p-10" layout="row" flex="100" layout-wrap>
-            <ms-widget layout="column" flex="100" flex-gt-sm="50">
-                <ms-widget-front class="white-bg">
-                    <div class="ph-16 border-bottom" layout="row" layout-align="space-between center">
-                        <div class="h3">{{vm.widget7.title}}</div>
-                        <div class="pv-16">
-                            <md-select class="simplified" ng-model="vm.widget7.currentRange"
-                                       aria-label="Change range">
-                                <md-option ng-repeat="(key, range) in vm.widget7.ranges"
-                                           value="{{key}}">
-                                    {{range}}
-                                </md-option>
-                            </md-select>
-                        </div>
-                    </div>
-                    <div class="p-16" layout="row" layout-align="space-between center"
-                         ng-repeat="event in vm.widget7.schedule[vm.widget7.currentRange]">
-                        <div>
-                            <div class="h3">{{event.title}}</div>
-                            <div>
-                                <span class="secondary-text">{{event.time}}</span>
-                                <span ng-if="event.location">, {{event.location}}</span>
-                            </div>
-                        </div>
-                        <md-button class="md-icon-button" aria-label="More information">
-                            <md-icon md-font-icon="icon-dots-vertical"></md-icon>
-                        </md-button>
-                    </div>
-                </ms-widget-front>
-            </ms-widget>
-        </div>-->
 
 
     </div>

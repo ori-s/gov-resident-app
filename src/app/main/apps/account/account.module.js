@@ -18,6 +18,12 @@
                     controller : 'AccountController as vm'
                 }
             },
+            resolve  : {
+                Account: function ($stateParams, resource_service)
+                {
+                    return resource_service.getDetails("account", {  });
+                }
+            },
             bodyClass: 'app_home'
         });
         // Navigation
