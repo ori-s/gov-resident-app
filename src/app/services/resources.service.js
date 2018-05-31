@@ -6,7 +6,7 @@
         .factory('resource_service', resource_service);
 
 	function resource_service($state, $http, $q, $filter, blockUI, data_service, msUtils) {
-        var SIMULATED = false;
+        var SIMULATED = true;
         var resources = {
             "login": {
                 simulated: SIMULATED,
