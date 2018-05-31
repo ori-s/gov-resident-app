@@ -8,49 +8,47 @@
 	function resource_service($state, $http, $q, $filter, blockUI, data_service, msUtils) {
         var resources = {
             "login": {
-                simulated: true,
+                //simulated: true,
                 type: "login",
                 url: 'app/data/app_login.json'  
             },
             "resetPass": {
-                simulated: true,
+                //simulated: true,
                 type: "?Action=resetPass",
                 url: 'app/data/blank.json'
             },
             "register": {
-                simulated: true,
+                //simulated: true,
                 type: "?Action=register",
                 url: 'app/data/blank.json'
             },
             "meta": {
-                simulated: true,
-                type: "?Action=meta",
+                //simulated: true,
+                type: "appMeta",
                 url: 'app/data/app_meta.json'            
             },
             "userInfo": {
-                simulated: true,
-                type: "me",
+                //simulated: true,
+                type: "userInfo",
                 url: 'app/data/app_login.json'    
             },
 
-            "users": {
-                simulated: true,
-                type: "algorithms",
-                url: 'app/data/app_users.json'            
-            },
             "groups": {
-                simulated: true,
-                type: "bus",
+                //simulated: true,
+                type: "groups",
+                isEntity: true,
                 url: 'app/data/app_groups.json'
             },
             "group_messages": {
-                simulated: true,
-                type: "carts",
+                //simulated: true,
+                type: "group_messages",
+                isEntity: true,
                 url: 'app/data/app_group_messages.json'
             },
             "group_subscribers": {
-                simulated: true,
-                type: "items",
+                //simulated: true,
+                type: "group_subscribers",
+                isEntity: true,
                 url: 'app/data/app_group_subscribers.json'
             }
         }
@@ -60,6 +58,7 @@
         var service = {
             resources: resources,
             get: get,
+            post: post,
             save: save,
             delete: _delete,
             getDetails: getDetails,
@@ -85,11 +84,21 @@
             return deferred.promise;
         }
 
+        function post(type, data, options){
+            var resource = resources[type];
+            if (resource) {
+                if (resource.simulated) return getSimulated(resource, data, options);
+                return data_service.post(resource.type, data, options)
+            }
+            return data_service.post(type, data, options)
+        }   
+
         function get(type, data, options){
             var resource = resources[type];
             if (resource) {
                 if (resource.simulated) return getSimulated(resource, data, options);
-                return data_service.get(resource.type, data, options)
+                if (resource.isEntity) return data_service.getRows(resource.type, data, options);
+                else return data_service.get(resource.type, data, options)
             }
             return data_service.get(type, data, options)
         }   
@@ -121,9 +130,9 @@
             var resource = resources[type];
             if (resource) {
                 if (resource.simulated) return deleteSimulated(resource, data, options);
-                return data_service.save(resource.type, data, options)
+                return data_service.delete(resource.type, data, options)
             }
-            return data_service.save(type, data, options)        
+            return data_service.delete(type, data, options)        
         }
 
         // ------------------------------------------------------>

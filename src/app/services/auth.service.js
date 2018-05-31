@@ -27,15 +27,8 @@
 
         service.login = function (user) {
             blockUI.start();
-            var resource = resource_service.resources.login;
-            if (resource.simulated) {
-                var promise = $http.get(resource.url)
-            } else {
-                var promise = $http.post(_HTTPURL + "/" + resource.type, user)
-            }
-
-            return promise.then(function (data) {
-                data = data.data;
+            
+            resource_service.post("login", user).then(function (data) {
                 service.isLoggedIn = true;
                 //$cookieStore.put(_HTTPTokenName, data.token);
                 $window.sessionStorage.setItem("sessionToken", data.token);
@@ -64,14 +57,8 @@
         };
 
         service.getUserInfo = function (getMetaData) {
-            var resource = resource_service.resources.userInfo;
-            if (resource.simulated) {
-                var promise = $http.get(resource.url)
-            } else {
-                var promise = $http.post(_HTTPURL + resource.type, {})
-            }
-            promise.then(function (data) {
-                service.user = data.data;
+            resource_service.post("userInfo").then(function (data) {
+                service.user = data;
                 if (getMetaData) {
                     service.getMetaData().then(
                         function () {
@@ -81,54 +68,45 @@
                 }
             }).catch(function (msg, code) {
                 service.logout(null, msg);
-            }
-            );
+            });
         };
 
         service.getMetaData = function () {
             var deferred = $q.defer();
-            blockUI.start();
-            var resource = resource_service.resources.meta;
-            if (resource.simulated) {
-                var promise = $http.get(resource.url)
-            } else {
-                var promise = $http.post(_HTTPURL + resource.type, {})
-            }
-            blockUI.start();
-            return promise.then(function (data) {
-                    data = data.data;
-                    blockUI.stop();
-                    $.each(data, function (key, value) {
-                        meta_service[key] = value;
-                    });
 
-                    // fix access
-                    var _access = {};
-                    _.each(service.user.roles, function (o) {
-                        _access[o] = true;
-                    });
-                    meta_service.access = _access;
-                    // fix menu
+            return resource_service.post("meta").then(function (data) {
+                blockUI.stop();
+                $.each(data, function (key, value) {
+                    meta_service[key] = value;
+                });
 
-                    _.remove(meta_service.menu, function (menu) {
-                        if (noAccessMenu(menu)) return true;
-                        else {
-                            _.remove(menu.modules, function (module) {
-                                if (noAccessMenu(module)) return true;
-                                else {
-                                    _.remove(menu.children, function (child) {
-                                        return noAccessMenu(child);
-                                    });
-                                }
-                            });
-                        };
-                        function noAccessMenu(o) {
-                            if (o.access) {
-                                return !meta_service.checkAccess(o.access);
+                // fix access
+                var _access = {};
+                _.each(service.user.roles, function (o) {
+                    _access[o] = true;
+                });
+                meta_service.access = _access;
+                // fix menu
+
+                _.remove(meta_service.menu, function (menu) {
+                    if (noAccessMenu(menu)) return true;
+                    else {
+                        _.remove(menu.modules, function (module) {
+                            if (noAccessMenu(module)) return true;
+                            else {
+                                _.remove(menu.children, function (child) {
+                                    return noAccessMenu(child);
+                                });
                             }
-                        };
-                    });
-                    meta_service.wasLoaded = true;
+                        });
+                    };
+                    function noAccessMenu(o) {
+                        if (o.access) {
+                            return !meta_service.checkAccess(o.access);
+                        }
+                    };
+                });
+                meta_service.wasLoaded = true;
                 return data;
             }).catch(function (msg, code) {
                 service.logout(null, msg);

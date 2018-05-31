@@ -17,6 +17,14 @@
             urgentMessages:null
         }
 
+        service.initX = function(){
+            service.started = false;
+            resource_service.get('message_counters').then(function(){
+                service.started= true;
+                _.extend(service,ret);
+            });
+        }
+
         service.init = function(){
             //simulation init the messages servicw
             service.started = false;

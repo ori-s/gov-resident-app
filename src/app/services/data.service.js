@@ -12,14 +12,13 @@
         // --------------------------------------------------------------------------------------->
 
         service.getGEURL = function (what, act) {
-            return _HTTPURL + "/" + what;
-            //return _HTTPURL + "?Action=generalEntity&ET=" + what + "&ACT=" + act;
+            return _HTTPURL + "?Action=generalEntity&ET=" + what + "&ACT=" + act;
         };
 
         service.getURL = function (args) {
             var deferred = $q.defer();
             if (!args) args = {};
-            if (!args.url) args.url = service.getGEURL(args.type, "rows");
+            if (!args.url) args.url = _HTTPURL + "/" + what;
             if (!args.hideLoading) blockUI.start();
             $http.get(args.url).then(function (data) {
                 data = data.data;
@@ -37,53 +36,69 @@
             return deferred.promise;
         }
 
+        service.post = function (what, data, args) {
+            if (!data) data = {};
+            if (!args) args = {};
+            if (!args.url) args.url = _HTTPURL + "?Action=" + what;
+            if (!args.hideLoading) blockUI.start();
+            return $http.post(args.url, data).then(function (data) {
+                data = data.data;
+                processHTTPResponse(data, args);
+                return data;
+            }).catch(function (msg, code) {
+                throw(msg)
+            }).finally(function(){
+                if (!args.hideLoading) blockUI.stop();
+            });
+        }
 
         service.get = function (what, data, args) {
+            if (!data) data = {};
+            if (!args) args = {};
+            if (!args.url) args.url = _HTTPURL + "?Action=" + what;
+            if (!args.hideLoading) blockUI.start();
+            return $http.get(args.url, {params:data}).then(function (data) {
+                data = data.data;
+                processHTTPResponse(data, args);
+                return data;
+            }).catch(function (msg, code) {
+                throw(msg);
+            }).finally(function(){
+                if (!args.hideLoading) blockUI.stop();
+            });
+        }
+
+        service.getRows = function (what, data, args) {
             var deferred = $q.defer();
             if (!data) data = {};
             if (!args) args = {};
             if (!args.url) args.url = service.getGEURL(what, "rows");
-            args.httpdelay = 600;
-            var httpdelay = args.httpdelay || 0;
             if (!args.hideLoading) blockUI.start();
-            $http.post(args.url, data).then(function (data) {
+            return $http.post(args.url, data).then(function (data) {
                 data = data.data;
-                if (args.mapEnum) meta_service.mapEnum(data);
-                if (!args.hideLoading) blockUI.stop();
-                if (args.mapList) meta_service.mapEnum(data);
-                if (args.prepare) args.prepare(data);
-                if (args.cache) meta_service[args.cache] = data;
-                if (args.setEnum) meta_service[what] = data;
-
-                deferred.resolve(data);
+                processHTTPResponse(data, args);
+                return (data);
             }).catch(function (msg, code) {
+                throw(msg)
+            }).finally(function(){
                 if (!args.hideLoading) blockUI.stop();
-                deferred.reject(msg);
             });
-            return deferred.promise;
+
         }
 
         service.getDetails = function (what, data, args) {
             var deferred = $q.defer();
             if (!data) data = {};
             if (!args) args = {};
-            if (!args.url) {
-                args.url = service.getGEURL(what, "details");
-                args.url += "/" + data.id;
-            }
-
-            var httpdelay = args.httpdelay || 0;
+            if (!args.url) args.url = service.getGEURL(what, "details");
             if (!args.hideLoading) blockUI.start();
-            $http.get(args.url, {params:data}).then(function (data) {
+            $http.post(args.url, data).then(function (data) {
                 data = data.data;
-                if (!args.hideLoading) blockUI.stop();
-                if (args.mapList) meta_service.mapEnum(data);
-                if (args.prepare) args.prepare(data);
-                if (args.cache) meta_service[args.cache] = data;
                 deferred.resolve(data);
             }).catch(function (msg, code) {
-                if (!args.hideLoading) blockUI.stop();
                 deferred.reject(msg);
+            }).finally(function(){
+                if (!args.hideLoading) blockUI.stop();
             });
             return deferred.promise;
         }
@@ -137,9 +152,6 @@
             function delete_continue() {
                 if (!args.url) {
                     args.url = service.getGEURL(what, "delete");
-                    if (data.id){
-                        args.url += "/" + data.id;
-                    }
                 }
                 if (!args.hideLoading) blockUI.start();
                 if (args.simulated) {
@@ -157,7 +169,7 @@
 
                     }, 600);
                 } else {
-                    $http.delete(args.url, data).then(function (data) {
+                    $http.post(args.url, data).then(function (data) {
                         if (!args.hideLoading) blockUI.stop();
                         if (args.cache) fixDeleteCache();
                         deferred.resolve(data);
@@ -193,6 +205,14 @@
                 });
             };
             return deferred.promise;
+        }
+
+        function processHTTPResponse(data, args){
+            if (args.mapEnum) meta_service.mapEnum(data);
+            if (args.mapList) meta_service.mapEnum(data);
+            if (args.prepare) args.prepare(data);
+            if (args.cache) meta_service[args.cache] = data;
+            if (args.setEnum) meta_service[what] = data;
         }
 
         return service;
