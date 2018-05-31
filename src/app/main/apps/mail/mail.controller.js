@@ -347,7 +347,11 @@
         
         vm.newComment = null;
         function addComment(thread, comment){
-            message_service.addMessageComment({message: vm.newComment}, thread, comment).then(function(){vm.newComment = null});
+            message_service.addMessageComment({message: vm.newComment}, thread, comment).then(function(comment){
+                vm.newComment = null;
+                if (!thread.comments)thread.comments = [];
+                thread.comments.push(comment);
+            });
         }
 
 

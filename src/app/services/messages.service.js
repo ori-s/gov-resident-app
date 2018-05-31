@@ -17,60 +17,69 @@
             urgentMessages:null
         }
 
-        service.initX = function(){
-            service.started = false;
-            resource_service.get('message_counters').then(function(){
-                service.started= true;
-                _.extend(service,ret);
-            });
-        }
-
         service.init = function(){
-            //simulation init the messages servicw
             service.started = false;
-            $timeout(function(){
+            resource_service.post('message_counters').then(function(ret){
                 service.started= true;
-                service.unreadMessages = 10;
-                service.pendingMessages = 15;
-                service.starredMessages = 9;
-                service.urgentMessages = 2;
-            },500)
+                _.extend(service, {
+                    unreadMessages: null,
+                    pendingMessages: null,
+                    markedMessages: null,
+                    urgentMessages: null
+                },ret);
+            });
         }
 
         // return groups that are editable by the current user
         service.getEditableGroups = function(){
-            return resource_service.get('groups', {});
+            return resource_service.get('editable_groups', {});
         }
 
+        /* return groups that the user can subscribe to, subscribed groups have: 
+         * subscribed = true,
+         * subscription = {email ,sms , calendar}
+         */ 
         service.getSubscribableGroups = function(){
-            return resource_service.get('groups', {'active':true}).then(function(groups){
+            return resource_service.get('subscribable_groups', {}).then(function(groups){
                 //simulation
                 _.each(groups, function(group, index){
                     if (index < 5){
                         group.subscribed = true;
                         group.subscription = {
+                            id: 123,
+                            groupId: group.id,
                             email: true,
                             sms: true,
                             calendar: true
                         };
                     }                    
                 });
+                //end simulation 
                 return groups;
             });;
         }
 
+        // return the groups the user is subscribed to
         service.getSubscribedGroups = function(){
             return resource_service.get('groups', {subscribed:true}).then(function(groups){
                 //simulation
-                return _.filter(groups, function(group, index){
+                groups = _.filter(groups, function(group, index){
                     if (index < 5){
                         group.subscribed = true;
                         return true;
                     }                    
-                })
+                });
+                //end simulation 
+                return groups;
             });
         }
 
+        /* return messages according to:
+         * args.type, optional, represent groupId
+         * args.filter, optional, can be urgent, unread, starred, scheduled
+         * urgent and scheduled are message properties
+         * unread, starred are message/user properties
+         */ 
         service.getMessages = function(args){
             service.activeMessages = [];
             service.activeArgs = args;
@@ -78,8 +87,7 @@
             return resource_service.get('group_messages', args).then(function(messages){
                 // simulation
                 if (args.type) messages = _.filter(messages, { "groupId": args.type }); 
-                messages = prepareMessageSimulation(messages);
-                
+                messages = prepareMessageSimulation(messages);                
                 switch(args.filter){
                     case "urgent": 
                         messages = _.filter(messages, {urgent:true});
@@ -95,44 +103,67 @@
                         break;
                 }
                 // end simulation
-
                 service.activeMessages = messages;
                 return messages;
             })
         }
         
-
+        /*
+         * add status to message/user. 
+         * prop: delete, read, starred
+         * value: true/false
+         */
         service.setMessageThreadStatus = function(message, prop, value){
-            //add status to message/user. prop: delete, read, starred
-        }
-        service.addMessageComment = function(comment, message, parentComment){
-            //simulation add message comment
-            _.extend(comment, {
-                created: new Date(),
-                user: {
-                    name: authorization_service.user.name,
-                    id: authorization_service.user.id,
-                    avatar: "assets/images/avatars/Abbott.jpg"
-                }
+            var data = {messageId:message.id, property:prop, value:value};
+            return resource_service.post('message_status', data, {hideLoading:true}).then(function(ret){
+                return true;
             });
-            
-            if (!message.comments)message.comments = [];
-            message.comments.push(comment);
-            return $q.resolve(comment);
+        }
+
+        /*
+         * add comment to message* 
+         */
+        service.addMessageComment = function(comment, message, parentComment){
+            var data = {messageId:message.id, comment:comment, parentComment:parentComment};
+            return resource_service.post('message_comment', data, {hideLoading:true}).then(function(comment){
+                // simulation
+                _.extend(comment, {
+                    created: new Date(),
+                    user: {
+                        name: authorization_service.user.name,
+                        id: authorization_service.user.id,
+                        avatar: "assets/images/avatars/Abbott.jpg"
+                    }
+                });
+                // end simulation
+                return comment;
+            });
         }
 
 
         service.setGroupSubscription = function(group, subscription){
-            group = _.clone(group);
-            if (subscription){//update the user's group subscription
-                group.subscribed = true;
-                group.subscription = subscription;
-            }else{//remove the subscription
-                group.subscribed = null;
-                group.subscription = null;
+            var data = {
+                groupId: group.id,
+                subscription: subscription,
+                action: subscription ? 'update' : "delete"
             }
-            msUtils.showSimpleToast("Upadate Successfully");
-            return $q.resolve(group);
+
+            return resource_service.post('group_subscription', data).then(function(ret){
+                // simulation
+                if (ret.subscription) _.extend(ret.subscription, subscription);
+                //end simulation
+
+                group = _.clone(group);
+                if (ret.subscription){
+                    group.subscribed = true;
+                    group.subscription = ret.subscription;
+                }else{
+                    group.subscribed = null;
+                    group.subscription = null;
+                }
+                msUtils.showSimpleToast("Upadate Successfully");
+                return group;
+            });
         };
 
 
@@ -197,7 +228,6 @@
                 if (message.scheduled){
                     message.scheduled = true;
                     message.urgent = n < 3;
-
                     message.reminderDate = moment().add(n, 'days').toDate();
                     message.scheduleDate = moment().add(++n, 'days').toDate();
                     if (!message.reminderText) message.reminderText = $translate.instant("I am a message reminder");
@@ -206,9 +236,6 @@
             });
             return messages;        
         }
-
-
-
 
 
         return service;
