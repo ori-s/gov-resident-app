@@ -15,12 +15,12 @@
             },
             "resetPass": {
                 simulated: SIMULATED,
-                type: "?Action=resetPass",
+                type: "resetPass",
                 url: 'app/data/blank.json'
             },
             "register": {
                 simulated: SIMULATED,
-                type: "?Action=register",
+                type: "register",
                 url: 'app/data/blank.json'
             },
             "meta": {

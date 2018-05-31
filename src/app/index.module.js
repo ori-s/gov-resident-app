@@ -20,6 +20,7 @@
             // Apps
             'app.auth',
             'app.home',
+            'app.account',
             'app.message-groups',
             'app.mail',
             'app.resident'

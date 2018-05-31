@@ -28,7 +28,7 @@
         service.login = function (user) {
             blockUI.start();
             
-            resource_service.post("login", user).then(function (data) {
+            return resource_service.post("login", user).then(function (data) {
                 service.isLoggedIn = true;
                 //$cookieStore.put(_HTTPTokenName, data.token);
                 $window.sessionStorage.setItem("sessionToken", data.token);
@@ -116,31 +116,17 @@
             });
         };
         service.resetPassword = function (data) {
-            var resource = resource_service.resources.resetPass;
-            if (resource.simulated) {
-                var promise = $http.get(resource.url)
-            } else {
-                var promise = $http.post(_HTTPURL + resource.type, user)
-            }
-            return promise.then(function (data) {
-                return data.data
+            return resource_service.post("resetPass", data).then(function (data) {
+                return data;
             }).catch(function (err, code) {
-                msg = err.message;
-                return $q.reject(err);
+                throw(err)
             });
         }
         service.register = function (data) {
-            var resource = resource_service.resources.register;
-            if (resource.simulated) {
-                var promise = $http.get(resource.url)
-            } else {
-                var promise = $http.post(_HTTPURL + resource.type, user)
-            }
-            return promise.then(function (data) {
-                return data.data
+            return resource_service.post("register", data).then(function (data) {
+                return data;
             }).catch(function (err, code) {
-                msg = err.message;
-                return $q.reject(err);
+                throw(err)
             });
         }
 
