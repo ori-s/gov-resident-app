@@ -8,13 +8,17 @@
 
 
     /** @ngInject */
-    function AccountController($scope, $state, blockUI, resource_service, Account)
+    function AccountController($scope, $state, blockUI, resource_service, Account, msUtils)
     {
         var vm = this;
         vm.account = Account;
 
-        function init(){
-            
+        vm.saveAccount = function(form){
+            if (form.$valid){
+                resource_service.save('account', vm.account).then(function(ret){
+                    msUtils.showSimpleToast("Upadate Successfully");
+                });
+            }
         }
 
     }

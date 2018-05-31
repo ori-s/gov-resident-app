@@ -1,25 +1,193 @@
-﻿<div id="home" class="page-layout simple fullwidth doc-page">
-    <!-- HEADER -->
-    <div class="header md-accent-bg" layout="row" layout-align="space-between">
-        <div layout="column" layout-align="center start">
-            <div class="breadcrumb" layout="row" layout-align="start center">
-                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
-                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
-                <span class="parent" translate>Home Page</span>
+﻿<form id="form" name="form" novalidate>
+    <div id="home" class="page-layout simple fullwidth doc-page">
+        <!-- HEADER -->
+        <div class="header md-accent-bg" layout="row" layout-align="space-between center">
+            <div layout="column" layout-align="center start">
+                <div class="breadcrumb" layout="row" layout-align="start center">
+                    <md-icon md-font-icon="icon-account-box-outline" class="s16"></md-icon>
+                    <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                    <span class="parent" translate>System Settings</span>
+                    <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                    <span class="parent" translate>Account Setup</span>
+                </div>
+                <div class="title" translate>Account Setup</div>
             </div>
-            <div class="title" translate>Home Page Title</div>
+            <div>
+                <md-button class="md-raised md-background" ng-click="vm.saveAccount(form)"
+                           ng-disabled="!form.$valid">
+                    <span translate="Save">Save</span>
+                </md-button>
+            </div>
         </div>
-    </div>
-    <!-- / HEADER -->
-    <!-- CONTENT -->
-    <div class="content" style="padding:10px">
-        
+        <!-- / HEADER -->
+        <!-- CONTENT -->
+        <div class="content" style="padding:10px">
 
-        <div style="margin:0 auto; max-width:1100px">
-            {{vm.account}}
+            <div layout="row" layout-wrap style="max-width:1000px; margin:0 auto;">
+                <!-- BASIC FORM -->
+                <div class="padding-10" flex="100" flex-gt-sm="60">
+
+                    <div class="form-wrapper group-detail-form-container md-whiteframe-1dp">
+
+                        <div class="form-title" translate>Account Details</div>
+
+                        <div layout="row">
+                            <md-input-container class="md-block" md-no-float flex>
+                                <label translate>REGISTER.FIRST_NAME</label>
+                                <input name="firstName" ng-model="vm.account.firstName" placeholder="Name"
+                                       translate translate-attr-placeholder="REGISTER.FIRST_NAME" required>
+                                <div ng-messages="form.firstName.$error" role="alert">
+                                    <div ng-message="required">
+                                        <span translate="REGISTER.ERRORS.FIRSTNAME_REQUIRED"></span>
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block" md-no-float flex>
+                                <label translate>REGISTER.LAST_NAME</label>
+                                <input name="lastName" ng-model="vm.account.lastName" placeholder="Name"
+                                       translate translate-attr-placeholder="REGISTER.LAST_NAME" required>
+                                <div ng-messages="form.lastName.$error" role="alert">
+                                    <div ng-message="required">
+                                        <span translate="REGISTER.ERRORS.LASTNAME_REQUIRED"></span>
+                                    </div>
+                                </div>
+                            </md-input-container>
+                        </div>
+
+                        <md-input-container class="md-block" md-no-float>
+                            <label translate>REGISTER.EMAIL</label>
+                            <input type="email" name="email" ng-model="vm.account.email" placeholder="Email"
+                                   translate translate-attr-placeholder="REGISTER.EMAIL"
+                                   ng-pattern="/^.+@.+\..+$/" required>
+                            <div ng-messages="form.email.$error" role="alert" multiple>
+                                <div ng-message="required">
+                                    <span translate="REGISTER.ERRORS.EMAIL_REQUIRED">Email field is required</span>
+                                </div>
+                                <div ng-message="pattern">
+                                    <span translate="REGISTER.ERRORS.EMAIL_MUST_VALID">Email must be a valid e-mail address</span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" md-no-float>
+                            <label translate>REGISTER.CELL</label>
+                            <input type="password" name="phone" ng-model="vm.account.phone" placeholder="CELL"
+                                   translate translate-attr-placeholder="REGISTER.CELL"
+                                   required>
+                            <div ng-messages="form.phone.$error" role="alert">
+                                <div ng-message="required">
+                                    <span translate="REGISTER.ERRORS.PHONE_REQUIRED"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" md-no-float>
+                            <label translate>REGISTER.PASSWORD</label>
+                            <input type="password" name="password" ng-model="vm.account.password" placeholder="Password"
+                                   translate translate-attr-placeholder="REGISTER.PASSWORD">
+                            <div ng-messages="form.password.$error" role="alert">
+                                <div ng-message="required">
+                                    <span translate="REGISTER.ERRORS.PASSWORD_REQUIRED">Password field is required</span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" md-no-float>
+                            <label translate>REGISTER.PASSWORD_CONFIRM</label>
+                            <input type="password" name="passwordConfirm" ng-model="vm.account.passwordConfirm"
+                                   placeholder="Password (Confirm)"
+                                   translate translate-attr-placeholder="REGISTER.PASSWORD_CONFIRM"
+                                   ng-required="vm.account.password">
+                            <div ng-messages="form.passwordConfirm.$error" role="alert">
+                                <div ng-message="required">
+                                    <span translate="REGISTER.ERRORS.PASSWORD_CONFIRM_REQUIRED">Password (Confirm) field is required</span>
+                                </div>
+                            </div>
+                        </md-input-container>
+
+                        <div class="form-title" translate>Communication Options</div>
+                        <div>
+
+                            <div class="padding-vertical-10">
+                                <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.account.notifications.email">
+                                    <span>{{'Enable mail messages' | translate}}</span>
+                                </md-checkbox>
+                            </div>
+
+                            <div class="padding-vertical-10">
+                                <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.account.notifications.sms">
+                                    <span>{{'Enable sms messages' | translate}}</span>
+                                </md-checkbox>
+                            </div>
+
+                            <div class="padding-vertical-10">
+                                <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.account.notifications.calendar">
+                                    <span>{{'Enable calendar events' | translate}}</span>
+                                </md-checkbox>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- / BASIC FORM -->
+                <!-- BASIC FORM DATA -->
+                <div class="padding-10" flex="100" flex-gt-sm="40">
+                    <div class="form-wrapper group-detail-form-container form-data-wrapper md-whiteframe-1dp">
+                        <div id="group-image-uploader"
+                             flow-init="vm.ngFlowOptions"
+                             flow-name="vm.ngFlow.flow"
+                             flow-files-submitted="vm.upload()"
+                             flow-file-added="vm.fileAdded($file)"
+                             flow-file-success="vm.fileSuccess($file, $message)"
+                             flow-complete="vm.uploadComplete()"
+                             flow-drop
+                             flow-drag-enter="vm.dropping=true"
+                             flow-drag-leave="vm.dropping=false"
+                             ng-class="{'dropping':vm.dropping}">
+                            <div class="drop-text hint-text" layout="row" layout-align="center center">
+                                <span translate="Drop to upload">Drop to upload</span>
+                            </div>
+                            <div class="upload-button" layout="column" layout-align="center center">
+                                <md-button class="md-accent md-raised" flow-btn translate="Upload"></md-button>
+                                <span class="secondary-text mt-8" translate>You can also drop images</span>
+                            </div>
+                            <!--<div class="mv-32" layout="row" layout-align="center center">
+                                <div class="image-zoom-area">
+                                    <img wip-image-zoom="vm.imageZoomOptions" style="max-width:200px">
+                                </div>
+                            </div>-->
+
+
+
+                            <div layout="row" layout-align="center start" layout-wrap>
+                                <div ng-repeat="image in vm.group.images" ng-switch="image.type">
+                                    <div class="group-image uploading" ng-switch-when="uploading" layout="row"
+                                         layout-align="center center">
+                                        <div class="overlay" layout="column" layout-align="center center">
+                                            <md-progress-linear md-mode="determinate"
+                                                                value="{{image.file.progress() * 100}}">
+                                            </md-progress-linear>
+                                        </div>
+                                        <img class="media" flow-img="image.file">
+                                    </div>
+                                    <div class="group-image" ng-switch-when="image" layout="row"
+                                         layout-align="center center">
+                                        <img class="media" ng-src="{{image.url}}"
+                                             ng-click="vm.updateImageZoomOptions(image.url)">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="p-8 font-size-12" layout="row" layout-align="center center">
+                                Click on images to activate the zoom!
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- / BASIC FORM DATA -->
+            </div>
+
+
+
+
         </div>
-
-
+        <!-- / CONTENT -->
     </div>
-    <!-- / CONTENT -->
-</div>
+</form>
