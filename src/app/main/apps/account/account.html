@@ -24,13 +24,11 @@
         <div class="content" style="padding:10px">
 
             <div layout="row" layout-wrap style="max-width:1000px; margin:0 auto;">
-                <!-- BASIC FORM -->
+                
                 <div class="padding-10" flex="100" flex-gt-sm="60">
-
+                    <!--GENERAL DETAILS-->
                     <div class="form-wrapper group-detail-form-container md-whiteframe-1dp">
-
                         <div class="form-title" translate>Account Details</div>
-
                         <div layout="row">
                             <md-input-container class="md-block" md-no-float flex>
                                 <label translate>REGISTER.FIRST_NAME</label>
@@ -101,7 +99,14 @@
                                 </div>
                             </div>
                         </md-input-container>
-
+                    </div>
+                    <!--/ GENERAL DETAILS-->
+                </div>
+                
+                
+                <div class="padding-10" flex="100" flex-gt-sm="40">
+                    <!--COMMUNICATION OPTIONS-->
+                    <div class="form-wrapper group-detail-form-container form-data-wrapper md-whiteframe-1dp margin-bottom-15">
                         <div class="form-title" translate>Communication Options</div>
                         <div>
 
@@ -123,65 +128,24 @@
                                 </md-checkbox>
                             </div>
                         </div>
-
-
                     </div>
-                </div>
-                <!-- / BASIC FORM -->
-                <!-- BASIC FORM DATA -->
-                <div class="padding-10" flex="100" flex-gt-sm="40">
-                    <div class="form-wrapper group-detail-form-container form-data-wrapper md-whiteframe-1dp">
-                        <div id="group-image-uploader"
-                             flow-init="vm.ngFlowOptions"
-                             flow-name="vm.ngFlow.flow"
-                             flow-files-submitted="vm.upload()"
-                             flow-file-added="vm.fileAdded($file)"
-                             flow-file-success="vm.fileSuccess($file, $message)"
-                             flow-complete="vm.uploadComplete()"
-                             flow-drop
-                             flow-drag-enter="vm.dropping=true"
-                             flow-drag-leave="vm.dropping=false"
-                             ng-class="{'dropping':vm.dropping}">
-                            <div class="drop-text hint-text" layout="row" layout-align="center center">
-                                <span translate="Drop to upload">Drop to upload</span>
-                            </div>
-                            <div class="upload-button" layout="column" layout-align="center center">
-                                <md-button class="md-accent md-raised" flow-btn translate="Upload"></md-button>
-                                <span class="secondary-text mt-8" translate>You can also drop images</span>
-                            </div>
-                            <!--<div class="mv-32" layout="row" layout-align="center center">
-                                <div class="image-zoom-area">
-                                    <img wip-image-zoom="vm.imageZoomOptions" style="max-width:200px">
-                                </div>
-                            </div>-->
+                    <!--/ COMMUNICATION OPTIONS-->
+                    <!--ACCOUNT IMAGE-->
+                    <div class="form-wrapper group-detail-form-container form-data-wrapper md-whiteframe-1dp text-center">
+                        <div class="form-title" translate>Account Image</div>
+                        <input id="acc-image-input" type="file" style="display:none" accept="image/*" />
 
-
-
-                            <div layout="row" layout-align="center start" layout-wrap>
-                                <div ng-repeat="image in vm.group.images" ng-switch="image.type">
-                                    <div class="group-image uploading" ng-switch-when="uploading" layout="row"
-                                         layout-align="center center">
-                                        <div class="overlay" layout="column" layout-align="center center">
-                                            <md-progress-linear md-mode="determinate"
-                                                                value="{{image.file.progress() * 100}}">
-                                            </md-progress-linear>
-                                        </div>
-                                        <img class="media" flow-img="image.file">
-                                    </div>
-                                    <div class="group-image" ng-switch-when="image" layout="row"
-                                         layout-align="center center">
-                                        <img class="media" ng-src="{{image.url}}"
-                                             ng-click="vm.updateImageZoomOptions(image.url)">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--<div class="p-8 font-size-12" layout="row" layout-align="center center">
-                                Click on images to activate the zoom!
-                            </div>-->
+                        <div class="padding-vertical-15">
+                            <img ng-src="{{vm.account.image || vm.account.avatar ||  'assets/images/icon-camera.svg'}}" on-error-src="assets/images/icon-camera.svg" style="max-width:150px;" />
                         </div>
+
+                        <md-button class="md-raised md-accent" ng-click="vm.aploadImage()">
+                            <span translate="Upload Image">Upload Image</span>
+                        </md-button>
                     </div>
+                    <!--/ ACCOUNT IMAGE-->
                 </div>
-                <!-- / BASIC FORM DATA -->
+                
             </div>
 
 

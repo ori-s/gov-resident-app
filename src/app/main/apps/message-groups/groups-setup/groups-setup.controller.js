@@ -200,6 +200,7 @@
         }
         function gotoGroupDetail(id)
         {
+            debugger
             $state.go('app.message-groups.groups-setup.detail', {id: id});
         }
 

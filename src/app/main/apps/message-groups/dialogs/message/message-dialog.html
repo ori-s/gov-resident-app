@@ -18,7 +18,9 @@
                 <input ng-model="vm.message.subject" required type="text">
             </md-input-container>
 
+
             <text-angular ng-model="vm.message.message"></text-angular>
+
             <div ng-classX="{'border md-amber-100-bg margin-top-10': vm.message.scheduled}">
                 <div>
                     <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.message.scheduled" class="md-accent">
@@ -29,7 +31,7 @@
 
                     <md-input-container class="md-icon-float md-icon-right md-block" flex>
                         <label translate>Schedule Date</label>
-                        <!--<md-icon md-font-icon="icon-calendar-blank"></md-icon>-->                        
+                        <!--<md-icon md-font-icon="icon-calendar-blank"></md-icon>-->
                         <input ng-model="vm.message.scheduleDate" type="datetime-local" name="scheduleDate" step="1" ng-required="true">
                     </md-input-container>
 
@@ -56,6 +58,13 @@
                         <md-datepicker ng-model="vm.message.reminderDate" ng-required="true"></md-datepicker>
                     </div>-->
                 </div>
+
+                <div>
+                    <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="vm.message.enableMessageNotes" class="md-accent">
+                        <span>{{'Enable Message Notes' | translate}}</span>
+                    </md-checkbox>
+                </div>
+
             </div>
 
         </md-dialog-content>

@@ -9,7 +9,7 @@
             </md-button>
             <div layout="row" layout-align="start center">
                 <div class="group-image m-far-16" hide-xs>
-                    <img ng-src="{{vm.group.images[0].url}}">
+                    <img ng-src="{{vm.group.image || vm.group.avatar ||  null}}" on-error-src="assets/images/icon-camera.svg" />
                 </div>
                 <div layout="column" layout-align="start start">
                     <div class="h2 text-truncate">
